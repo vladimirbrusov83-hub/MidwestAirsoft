@@ -1,0 +1,2613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Midwest Airsoft — Fields & Events Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #070a06;
+    --bg2:      #0a0d08;
+    --panel:    #0d1009;
+    --panel2:   #11160d;
+    --border:   rgba(110, 148, 36, 0.12);
+    --border2:  rgba(110, 148, 36, 0.28);
+    --green:    #88b420;
+    --green-lo: rgba(136, 180, 32, 0.10);
+    --green-md: rgba(136, 180, 32, 0.18);
+    --red:      #bf2e08;
+    --amber:    #c99010;
+    --tan:      #b0a480;
+    --text:     #8ea070;
+    --bright:   #cad6a4;
+    --muted:    #48583a;
+    --white:    #e4ecd4;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* atmospheric glow */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 15% 60%, rgba(136,180,32,.025) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 30% at 85% 20%, rgba(191,46,8,.018) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* scanlines */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 3px,
+      rgba(0,0,0,0.07) 3px,
+      rgba(0,0,0,0.07) 4px
+    );
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.45;
+  }
+
+  /* ─── HEADER ──────────────────────────────────────── */
+  header {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background: var(--panel);
+  }
+
+  .hdr-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.6) 25%, rgba(0,0,0,.6) 75%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.6) 25%, rgba(0,0,0,.6) 75%, transparent);
+  }
+
+  .hdr-mark {
+    position: absolute;
+    right: -2%;
+    top: 50%;
+    transform: translateY(-50%) rotate(-6deg);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(120px, 22vw, 320px);
+    color: rgba(136,180,32,.028);
+    letter-spacing: -4px;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+    line-height: 1;
+  }
+
+  .hdr-inner {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 58px 48px 50px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 48px;
+  }
+
+  .hdr-kicker {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .kicker-rule { width: 28px; height: 1px; background: var(--green); }
+
+  .kicker-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3.5px;
+    color: var(--green);
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(76px, 10.5vw, 136px);
+    line-height: .85;
+    letter-spacing: 4px;
+    color: var(--white);
+  }
+
+  h1 em {
+    color: var(--green);
+    display: block;
+    font-style: normal;
+  }
+
+  .hdr-sub {
+    margin-top: 18px;
+    font-size: 13px;
+    color: var(--muted);
+    max-width: 460px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .hdr-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: flex-end;
+  }
+
+  .stat-block {
+    background: var(--panel2);
+    border: 1px solid var(--border);
+    padding: 14px 20px;
+    text-align: center;
+    min-width: 126px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%);
+    position: relative;
+  }
+
+  .stat-block::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 9px;
+    height: 9px;
+    border-left: 1px solid var(--border2);
+    border-top: 1px solid var(--border2);
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    background: var(--border2);
+  }
+
+  .stat-lbl {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .stat-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    line-height: 1;
+    color: var(--tan);
+    letter-spacing: 2px;
+  }
+
+  /* ─── NAV ─────────────────────────────────────────── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(7,10,6,.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: flex;
+    align-items: stretch;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+
+  nav a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 22px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: color .18s, border-color .18s;
+  }
+
+  .nav-idx {
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    opacity: .45;
+  }
+
+  nav a:hover, nav a.active {
+    color: var(--green);
+    border-bottom-color: var(--green);
+  }
+
+  .nav-tail {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    gap: 6px;
+  }
+
+  .nav-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: blink 2.4s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: .3; }
+    50% { opacity: 1; }
+  }
+
+  /* ─── MAIN ────────────────────────────────────────── */
+  main {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px 100px;
+    z-index: 1;
+  }
+
+  section { padding-top: 76px; }
+
+  /* ─── SECTION HEADER ─────────────────────────────── */
+  .sec-hdr {
+    margin-bottom: 36px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .sec-hdr::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 52px;
+    height: 2px;
+    background: var(--green);
+  }
+
+  .sec-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .sec-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 50px;
+    letter-spacing: 3px;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .sec-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+
+  /* ─── STATE FILTER ───────────────────────────────── */
+  .state-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 32px;
+  }
+
+  .state-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 13px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .14s;
+    clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 0 100%);
+  }
+
+  .state-btn:hover { border-color: var(--border2); color: var(--text); }
+
+  .state-btn.active {
+    background: var(--green);
+    border-color: var(--green);
+    color: #090c07;
+    font-weight: 500;
+  }
+
+  /* ─── FIELDS GRID ─────────────────────────────────── */
+  .fields-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .field-card {
+    background: var(--panel);
+    padding: 24px 26px 22px;
+    position: relative;
+    display: none;
+    overflow: hidden;
+    transition: background .18s;
+    clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 0 100%);
+  }
+
+  .field-card.visible { display: block; }
+
+  /* left accent bar */
+  .field-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--green);
+    opacity: 0;
+    transition: opacity .2s;
+  }
+
+  /* hover tint */
+  .field-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--green-lo) 0%, transparent 55%);
+    opacity: 0;
+    transition: opacity .25s;
+    pointer-events: none;
+  }
+
+  .field-card:hover { background: var(--panel2); }
+  .field-card:hover::before { opacity: 1; }
+  .field-card:hover::after  { opacity: 1; }
+
+  /* angled corner decoration */
+  .card-corner {
+    position: absolute;
+    top: 0; right: 0;
+    width: 0; height: 0;
+    border-style: solid;
+    border-width: 0 15px 15px 0;
+    border-color: transparent var(--border2) transparent transparent;
+  }
+
+  .field-state-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .field-state {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    color: var(--green);
+    text-transform: uppercase;
+  }
+
+  .state-rule { flex: 1; height: 1px; background: var(--border); }
+
+  .field-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: .3px;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .field-location {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: .5px;
+    margin-bottom: 13px;
+  }
+
+  .field-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 13px;
+  }
+
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    background: rgba(255,255,255,.03);
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  .tag.milsim  { border-color: rgba(191,46,8,.4);  color: #d45030; background: rgba(191,46,8,.05); }
+  .tag.indoor  { border-color: rgba(201,144,16,.35); color: var(--amber);  background: rgba(201,144,16,.05); }
+  .tag.outdoor { border-color: rgba(136,180,32,.25); color: #7a9e20;       background: rgba(136,180,32,.04); }
+
+  .field-desc {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-bottom: 16px;
+    line-height: 1.65;
+  }
+
+  .field-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--tan);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: color .18s, border-color .18s;
+  }
+
+  .field-link:hover { color: var(--green); border-bottom-color: var(--green); }
+  .field-link::after { content: ' →'; }
+
+  /* ─── EVENTS ──────────────────────────────────────── */
+  .events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .event-row {
+    display: grid;
+    grid-template-columns: 90px 1fr 130px;
+    align-items: stretch;
+    background: var(--panel);
+    text-decoration: none;
+    color: inherit;
+    transition: background .14s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .event-row:hover { background: var(--panel2); }
+
+  .event-row:hover .ev-arrow {
+    opacity: 1;
+    transform: translateX(0) translateY(-50%);
+  }
+
+  .ev-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 0;
+    border-right: 1px solid var(--border);
+    background: rgba(0,0,0,.18);
+    position: relative;
+  }
+
+  .ev-stripe {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+  }
+  .ev-stripe.milsim { background: var(--red); }
+  .ev-stripe.open   { background: #4a7a1c; }
+  .ev-stripe.big    { background: var(--amber); }
+
+  .ev-month {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .ev-day {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    line-height: 1;
+    color: var(--white);
+    letter-spacing: 1px;
+  }
+
+  .ev-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--muted);
+  }
+
+  .ev-body {
+    padding: 14px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+  }
+
+  .ev-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: .3px;
+    line-height: 1.2;
+  }
+
+  .ev-venue {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: .3px;
+  }
+
+  .ev-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 14px 18px;
+    border-left: 1px solid var(--border);
+    gap: 4px;
+  }
+
+  .ev-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--amber);
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+
+  .ev-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .ev-arrow {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateX(-8px) translateY(-50%);
+    font-size: 14px;
+    color: var(--green);
+    opacity: 0;
+    transition: opacity .18s, transform .18s;
+  }
+
+
+  /* ─── FOOTER ──────────────────────────────────────── */
+  footer {
+    border-top: 1px solid var(--border);
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 26px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .footer-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  .footer-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+
+  /* ─── ANIMATIONS ─────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .field-card.visible { animation: fadeUp .32s ease both; }
+  .event-row          { animation: fadeUp .32s ease both; }
+
+  /* ─── RESPONSIVE ─────────────────────────────────── */
+  @media (max-width: 768px) {
+    /* Header */
+    .hdr-inner       { grid-template-columns: 1fr; padding: 28px 18px 22px; gap: 16px; }
+    .hdr-stats       { flex-direction: row; align-items: flex-start; gap: 8px; }
+    .stat-block      { min-width: 100px; padding: 10px 14px; }
+    .stat-val        { font-size: 32px; }
+    .hdr-mark        { display: none; }
+    h1               { font-size: 64px; }
+    .hdr-sub         { font-size: 12px; }
+
+    /* Nav */
+    nav              { position: sticky; top: 0; z-index: 100; }
+    .nav-inner       { padding: 0 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    nav a            { padding: 13px 14px; font-size: 10.5px; letter-spacing: 1.5px; white-space: nowrap; }
+    .nav-tail        { display: none; }
+
+    /* Main layout */
+    main             { padding: 0 14px 50px; }
+    section          { padding-top: 40px; }
+    .sec-title       { font-size: 36px; }
+
+    /* Map + terminal — hide everything, show mobile state picker instead */
+    .map-outer       { display: none; }
+    .mobile-state-picker { display: flex; }
+
+    /* Fields */
+    .fields-grid     { grid-template-columns: 1fr; gap: 1px; }
+    .field-card      { padding: 18px 16px 16px; }
+    .field-name      { font-size: 17px; }
+    .state-filter    { gap: 6px; margin-bottom: 20px; }
+    .state-btn       { padding: 7px 12px; font-size: 9px; }
+
+    /* Events */
+    .events-list     { gap: 1px; }
+    .event-row       { grid-template-columns: 68px 1fr; min-height: 62px; }
+    .ev-right        { display: none; }
+    .ev-day          { font-size: 28px; }
+    .ev-body         { padding: 10px 12px; }
+    .ev-name         { font-size: 14px; }
+    .ev-venue        { font-size: 10px; }
+
+    /* Section headers */
+    .sec-hdr         { margin-bottom: 18px; flex-wrap: wrap; gap: 6px; }
+
+    /* Footer */
+    footer .footer-inner { flex-direction: column; gap: 8px; padding: 18px 14px; text-align: center; }
+    .footer-note     { font-size: 9px; }
+  }
+
+  /* ─── MOBILE STATE PICKER (replaces map on mobile) ── */
+  .mobile-state-picker {
+    display: none; /* shown only on mobile via media query above */
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+  }
+
+  .mob-pick-hdr {
+    background: rgba(136,180,32,0.06);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 14px;
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 2.5px;
+    color: var(--green);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .mob-pick-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .mob-state-tile {
+    background: var(--panel);
+    padding: 13px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: background 0.15s;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+  }
+
+  .mob-state-tile:active,
+  .mob-state-tile.active {
+    background: rgba(136,180,32,0.12);
+  }
+
+  .mob-state-tile.active .mob-tile-code {
+    color: var(--green);
+  }
+
+  .mob-state-tile.active .mob-tile-name {
+    color: var(--bright);
+  }
+
+  .mob-tile-code {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    line-height: 1;
+    color: var(--tan);
+    letter-spacing: 2px;
+    transition: color 0.15s;
+  }
+
+  .mob-tile-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+    text-align: center;
+    transition: color 0.15s;
+  }
+
+  .mob-tile-count {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    color: var(--red);
+    letter-spacing: 1px;
+  }
+
+  .mob-all-tile {
+    grid-column: 1 / -1;
+    background: var(--panel2);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    border: none;
+    border-top: 1px solid var(--border);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .mob-all-tile.active {
+    color: var(--green);
+    background: rgba(136,180,32,0.07);
+  }
+  /* ─── INTERACTIVE MAP ───────────────────────────────── */
+  .map-wrap {
+    position: relative;
+    margin-bottom: 32px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
+    overflow: hidden;
+  }
+
+  .map-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .map-hint {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    z-index: 2;
+  }
+
+  #midwest-map {
+    display: block;
+    width: 100%;
+    max-height: 380px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* inactive states (no fields) */
+  .map-state.map-inactive {
+    fill: rgba(255,255,255,0.02);
+    stroke: rgba(110,148,36,0.12);
+    stroke-width: 1;
+    cursor: default;
+  }
+
+  /* active states */
+  .map-state {
+    fill: rgba(136,180,32,0.055);
+    stroke: rgba(136,180,32,0.25);
+    stroke-width: 1;
+    cursor: pointer;
+    transition: fill 0.2s, stroke 0.2s, stroke-width 0.2s;
+  }
+
+  .map-state:not(.map-inactive):hover {
+    fill: rgba(136,180,32,0.14);
+    stroke: rgba(136,180,32,0.6);
+    stroke-width: 1.5;
+    filter: url(#st-glow);
+  }
+
+  /* selected state */
+  .map-state.map-selected {
+    fill: rgba(136,180,32,0.18);
+    stroke: var(--green);
+    stroke-width: 2;
+    filter: url(#st-glow);
+  }
+
+  .map-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    fill: var(--green);
+    text-anchor: middle;
+    dominant-baseline: middle;
+    pointer-events: none;
+    letter-spacing: 1px;
+    opacity: 0.7;
+  }
+
+  .map-label-inactive {
+    fill: var(--muted);
+    opacity: 0.45;
+  }
+
+  /* field dot markers */
+  .field-dot {
+    fill: var(--red);
+    opacity: 0.7;
+    pointer-events: none;
+    transition: r 0.2s, opacity 0.2s;
+  }
+
+  .map-state.map-selected ~ .field-dot,
+  .field-dot.dot-active {
+    opacity: 1;
+    r: 5;
+  }
+
+  /* count badges */
+  .map-badge-grp {
+    cursor: pointer;
+  }
+
+  .badge-ring {
+    fill: rgba(191,46,8,0.85);
+    stroke: rgba(255,100,60,0.4);
+    stroke-width: 1;
+    transition: r 0.15s, fill 0.15s;
+  }
+
+  .map-badge-grp:hover .badge-ring {
+    fill: var(--red);
+    r: 13;
+  }
+
+  .map-badge-grp.badge-selected .badge-ring {
+    fill: var(--green);
+    stroke: rgba(136,180,32,0.6);
+  }
+
+  .badge-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    fill: #fff;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    pointer-events: none;
+  }
+
+
+  /* ─── MAP OUTER LAYOUT ──────────────────────────────── */
+  .map-outer {
+    display: grid;
+    grid-template-columns: 148px 1fr 148px;
+    gap: 2px;
+    margin-bottom: 32px;
+    align-items: stretch;
+  }
+
+  /* ─── TERMINAL PANELS ──────────────────────────────── */
+  .term-panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--green);
+    letter-spacing: 0.5px;
+  }
+
+  /* scanline overlay on panels */
+  .term-panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent 0px, transparent 2px,
+      rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 3px
+    );
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  .term-header {
+    padding: 6px 8px 5px;
+    border-bottom: 1px solid var(--border);
+    font-size: 8.5px;
+    letter-spacing: 2.5px;
+    color: var(--green);
+    text-transform: uppercase;
+    background: rgba(136,180,32,0.05);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .term-blink {
+    animation: termBlink 1.1s steps(1) infinite;
+    color: var(--green);
+    font-size: 7px;
+  }
+  @keyframes termBlink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+
+  .term-aoo {
+    padding: 5px 8px 4px;
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: var(--green);
+    border-bottom: 1px solid var(--border);
+    opacity: 0.8;
+    flex-shrink: 0;
+    text-transform: uppercase;
+  }
+
+  .term-lines {
+    flex: 1;
+    overflow: hidden;
+    padding: 6px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-height: 0;
+  }
+
+  .term-line {
+    font-size: 8.5px;
+    color: var(--green);
+    opacity: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    animation: termFadeIn 0.18s ease forwards;
+    letter-spacing: 0.3px;
+    line-height: 1.4;
+  }
+
+  .term-line.dim  { opacity: 0.35; color: var(--muted); }
+  .term-line.warn { color: var(--amber); }
+  .term-line.alert{ color: var(--red); }
+
+  @keyframes termFadeIn {
+    from { opacity: 0; transform: translateX(-4px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  /* ─── RADAR ─────────────────────────────────────────── */
+  .term-radar-wrap {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 0 4px;
+    border-top: 1px solid var(--border);
+    gap: 4px;
+  }
+
+  #radar-canvas {
+    display: block;
+    opacity: 0.92;
+  }
+
+  .radar-label {
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* ─── STAT BLOCK (right panel) ─────────────────────── */
+  .term-statblock {
+    flex-shrink: 0;
+    border-top: 1px solid var(--border);
+    padding: 8px 8px 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .stat-row-lbl {
+    font-size: 7.5px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .stat-row-val {
+    font-size: 11px;
+    color: var(--green);
+    font-weight: 500;
+  }
+
+  /* ─── TERM FOOTER ───────────────────────────────────── */
+  .term-footer {
+    flex-shrink: 0;
+    padding: 5px 8px;
+    border-top: 1px solid var(--border);
+    font-size: 8px;
+    color: var(--muted);
+    letter-spacing: 1.2px;
+    text-align: center;
+    background: rgba(0,0,0,0.2);
+  }
+
+  /* responsive: hide terminal panels, collapse map */
+  @media (max-width: 900px) {
+    .map-outer       { grid-template-columns: 1fr; }
+    .term-panel      { display: none; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ HEADER ═══════════════════════ -->
+<header>
+  <div class="hdr-grid"></div>
+  <div class="hdr-mark">MIDWEST</div>
+  <div class="hdr-inner">
+    <div>
+      <div class="hdr-kicker">
+        <div class="kicker-rule"></div>
+        <span class="kicker-label">Midwest Region · Intel Brief · 2026</span>
+      </div>
+      <h1>MIDWEST<em>AIRSOFT</em></h1>
+      <p class="hdr-sub">Fields, events &amp; calendar across Illinois, Missouri, Indiana, Michigan, Minnesota, Ohio, Wisconsin &amp; beyond.</p>
+    </div>
+    <div class="hdr-stats">
+      <div class="stat-block">
+        <span class="stat-lbl">Active Fields</span>
+        <span class="stat-val">21+</span>
+      </div>
+      <div class="stat-block" style="margin-top:2px">
+        <span class="stat-lbl">Events in 2026</span>
+        <span class="stat-val">40+</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════ NAV ══════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <ul>
+      <li><a href="#fields" class="active" onclick="setActive(this)">
+        <span class="nav-idx">01</span> Fields
+      </a></li>
+      <li><a href="#events" onclick="setActive(this)">
+        <span class="nav-idx">02</span> Events
+      </a></li>
+
+    </ul>
+    <div class="nav-tail">
+      <div class="nav-dot"></div>
+      Live Data
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════ MAIN ═════════════════════════ -->
+<main>
+
+  <!-- ── FIELDS ── -->
+  <section id="fields">
+    <div class="sec-hdr">
+      <div>
+        <div class="sec-eyebrow">Intel · Confirmed Locations</div>
+        <div class="sec-title">Fields</div>
+      </div>
+      <div class="sec-meta" id="field-count">21 locations</div>
+    </div>
+
+    <!-- ── INTERACTIVE MAP + TERMINAL ── -->
+    <div class="map-outer">
+
+      <!-- LEFT PANEL: terminal feed -->
+      <div class="term-panel term-left">
+        <div class="term-header"><span class="term-blink">█</span>&nbsp;SYS.FEED</div>
+        <div class="term-aoo">AREA OF OPERATION</div>
+        <div class="term-lines" id="term-lines-left"></div>
+        <div class="term-radar-wrap">
+          <canvas id="radar-canvas" width="110" height="110"></canvas>
+          <div class="radar-label">RDR · ACTIVE</div>
+        </div>
+        <div class="term-footer" id="term-clock"></div>
+      </div>
+
+      <!-- CENTER: the actual map -->
+      <div class="map-wrap">
+        <div class="map-hint">Click a state · <span onclick="filterState('all',null)" style="color:var(--green);cursor:pointer;border-bottom:1px solid var(--green)">Reset all</span></div>
+      <svg id="midwest-map" viewBox="130 10 440 360" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="st-glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <!-- ND -->
+        <path class="map-state map-inactive" data-state="ND" d="M184,112 L248,112 L248,160 L184,160 Z"/>
+        <text class="map-label map-label-inactive" x="216" y="140">ND</text>
+        <!-- SD -->
+        <path class="map-state map-inactive" data-state="SD" d="M184,160 L248,160 L252,186 L268,196 L184,196 Z"/>
+        <text class="map-label map-label-inactive" x="216" y="181">SD</text>
+        <!-- NE -->
+        <path class="map-state map-inactive" data-state="NE" d="M184,196 L268,196 L270,214 L266,232 L268,248 L184,248 Z"/>
+        <text class="map-label map-label-inactive" x="224" y="226">NE</text>
+
+        <!-- Minnesota -->
+        <path class="map-state" id="map-MN" data-state="MN" data-name="Minnesota" data-count="2"
+          d="M248,18 L340,18 L344,56 L356,70 L356,112 L346,120 L344,140 L318,144 L316,162 L298,168 L292,180 L268,180 L262,160 L248,160 L248,112 Z"/>
+        <text class="map-label" x="300" y="96">MN</text>
+
+        <!-- Wisconsin -->
+        <path class="map-state" id="map-WI" data-state="WI" data-name="Wisconsin" data-count="2"
+          d="M344,140 L346,120 L356,112 L362,92 L378,82 L394,90 L402,106 L412,112 L416,126 L408,138 L414,154 L410,172 L396,180 L390,198 L378,204 L364,198 L356,180 L344,178 L316,162 L318,144 Z"/>
+        <text class="map-label" x="374" y="148">WI</text>
+
+        <!-- Michigan (lower peninsula only) -->
+        <path class="map-state" id="map-MI" data-state="MI" data-name="Michigan" data-count="3"
+          d="M414,126 L432,108 L452,102 L470,106 L476,118 L468,130 L480,140 L490,154 L486,168 L470,174 L456,170 L444,178 L436,192 L424,190 L414,180 L410,172 L414,154 L408,138 Z"/>
+        <text class="map-label" x="450" y="150">MI</text>
+
+        <!-- Iowa -->
+        <path class="map-state map-inactive" data-state="IA" d="M248,160 L262,160 L268,180 L292,180 L298,168 L316,162 L344,178 L356,180 L364,198 L360,218 L354,230 L338,232 L322,242 L298,242 L282,238 L268,248 L266,232 L270,214 L268,196 L252,186 L248,160 Z"/>
+        <text class="map-label map-label-inactive" x="304" y="206">IA</text>
+
+        <!-- Illinois -->
+        <path class="map-state" id="map-IL" data-state="IL" data-name="Illinois" data-count="4"
+          d="M364,198 L378,204 L390,198 L396,180 L410,172 L414,180 L424,190 L436,192 L440,208 L430,220 L432,236 L424,250 L420,268 L408,276 L398,292 L390,312 L378,320 L368,314 L360,300 L358,282 L362,266 L354,250 L354,230 L360,218 Z"/>
+        <text class="map-label" x="397" y="248">IL</text>
+
+        <!-- Indiana -->
+        <path class="map-state" id="map-IN" data-state="IN" data-name="Indiana" data-count="3"
+          d="M436,192 L444,178 L456,170 L470,174 L486,168 L492,182 L496,200 L492,218 L488,236 L480,250 L472,258 L458,262 L446,258 L436,246 L432,236 L430,220 L440,208 Z"/>
+        <text class="map-label" x="463" y="218">IN</text>
+
+        <!-- Ohio -->
+        <path class="map-state" id="map-OH" data-state="OH" data-name="Ohio" data-count="3"
+          d="M486,168 L498,160 L514,158 L532,162 L546,172 L552,188 L550,206 L542,218 L534,230 L520,238 L506,240 L492,236 L488,236 L492,218 L496,200 L492,182 Z"/>
+        <text class="map-label" x="519" y="200">OH</text>
+
+        <!-- Missouri -->
+        <path class="map-state" id="map-MO" data-state="MO" data-name="Missouri" data-count="1"
+          d="M268,248 L282,238 L298,242 L322,242 L338,232 L354,230 L354,250 L362,266 L358,282 L360,300 L354,312 L342,322 L326,324 L310,320 L296,314 L284,304 L272,292 L262,280 L260,262 Z"/>
+        <text class="map-label" x="308" y="280">MO</text>
+
+        <!-- Kansas -->
+        <path class="map-state" id="map-KS" data-state="KS" data-name="Kansas" data-count="1"
+          d="M184,248 L268,248 L260,262 L262,280 L272,292 L284,304 L284,340 L184,340 Z"/>
+        <text class="map-label" x="232" y="298">KS</text>
+
+        <!-- Field dot markers -->
+        <!-- MN: 2 fields -->
+        <circle class="field-dot" data-state="MN" cx="292" cy="136" r="4"/>
+        <circle class="field-dot" data-state="MN" cx="310" cy="120" r="4"/>
+        <!-- WI: 2 fields — Cedar + Black Ops -->
+        <circle class="field-dot" data-state="WI" cx="360" cy="164" r="4"/>
+        <circle class="field-dot" data-state="WI" cx="390" cy="155" r="4"/>
+        <!-- MI: 3 fields -->
+        <circle class="field-dot" data-state="MI" cx="438" cy="148" r="4"/>
+        <circle class="field-dot" data-state="MI" cx="455" cy="140" r="4"/>
+        <circle class="field-dot" data-state="MI" cx="466" cy="156" r="4"/>
+        <!-- IL: 4 fields -->
+        <circle class="field-dot" data-state="IL" cx="398" cy="216" r="4"/>
+        <circle class="field-dot" data-state="IL" cx="408" cy="230" r="4"/>
+        <circle class="field-dot" data-state="IL" cx="386" cy="238" r="4"/>
+        <circle class="field-dot" data-state="IL" cx="378" cy="252" r="4"/>
+        <!-- IN: 3 fields -->
+        <circle class="field-dot" data-state="IN" cx="452" cy="210" r="4"/>
+        <circle class="field-dot" data-state="IN" cx="464" cy="226" r="4"/>
+        <circle class="field-dot" data-state="IN" cx="474" cy="238" r="4"/>
+        <!-- OH: 3 fields -->
+        <circle class="field-dot" data-state="OH" cx="508" cy="192" r="4"/>
+        <circle class="field-dot" data-state="OH" cx="522" cy="206" r="4"/>
+        <circle class="field-dot" data-state="OH" cx="514" cy="218" r="4"/>
+        <!-- MO: 1 field -->
+        <circle class="field-dot" data-state="MO" cx="322" cy="276" r="4"/>
+        <!-- KS: 1 field -->
+        <circle class="field-dot" data-state="KS" cx="234" cy="294" r="4"/>
+
+        <!-- State count badges -->
+        <g class="map-badge-grp" data-state="MN" onclick="filterState('MN',null)">
+          <circle cx="300" cy="62" r="11" class="badge-ring"/>
+          <text x="300" y="67" class="badge-num">2</text>
+        </g>
+        <g class="map-badge-grp" data-state="WI" onclick="filterState('WI',null)">
+          <circle cx="374" cy="175" r="11" class="badge-ring"/>
+          <text x="374" y="180" class="badge-num">2</text>
+        </g>
+        <g class="map-badge-grp" data-state="MI" onclick="filterState('MI',null)">
+          <circle cx="452" cy="170" r="11" class="badge-ring"/>
+          <text x="452" y="175" class="badge-num">3</text>
+        </g>
+        <g class="map-badge-grp" data-state="IL" onclick="filterState('IL',null)">
+          <circle cx="396" cy="270" r="11" class="badge-ring"/>
+          <text x="396" y="275" class="badge-num">4</text>
+        </g>
+        <g class="map-badge-grp" data-state="IN" onclick="filterState('IN',null)">
+          <circle cx="462" cy="254" r="11" class="badge-ring"/>
+          <text x="462" y="259" class="badge-num">3</text>
+        </g>
+        <g class="map-badge-grp" data-state="OH" onclick="filterState('OH',null)">
+          <circle cx="522" cy="224" r="11" class="badge-ring"/>
+          <text x="522" y="229" class="badge-num">3</text>
+        </g>
+        <g class="map-badge-grp" data-state="MO" onclick="filterState('MO',null)">
+          <circle cx="308" cy="308" r="11" class="badge-ring"/>
+          <text x="308" y="313" class="badge-num">1</text>
+        </g>
+        <g class="map-badge-grp" data-state="KS" onclick="filterState('KS',null)">
+          <circle cx="220" cy="298" r="11" class="badge-ring"/>
+          <text x="220" y="303" class="badge-num">1</text>
+        </g>
+
+        <!-- Tooltip (JS-controlled) -->
+        <g id="map-tooltip" style="pointer-events:none;display:none">
+          <rect id="tt-bg" rx="2" height="38" fill="#0a0d08" stroke="rgba(136,180,32,0.5)" stroke-width="1"/>
+          <text id="tt-name" dy="16" font-family="'Barlow Condensed',sans-serif" font-size="13" font-weight="700" fill="#e4ecd4"/>
+          <text id="tt-sub"  dy="30" font-family="'DM Mono',monospace" font-size="9" fill="#88b420"/>
+        </g>
+      </svg>
+      </div><!-- /map-wrap -->
+
+      <!-- RIGHT PANEL: intel readout -->
+      <div class="term-panel term-right">
+        <div class="term-header"><span class="term-blink">█</span>&nbsp;INTEL</div>
+        <div class="term-aoo" style="color:var(--red)">THREAT MATRIX</div>
+        <div class="term-lines" id="term-lines-right"></div>
+        <div class="term-statblock" id="term-statblock"></div>
+        <div class="term-footer" id="term-coords"></div>
+      </div>
+
+    </div><!-- /map-outer -->
+
+
+    <!-- ── MOBILE STATE PICKER (hidden on desktop) ── -->
+    <div class="mobile-state-picker" id="mob-picker">
+      <div class="mob-pick-hdr">
+        <span style="animation:termBlink 1.1s steps(1) infinite;font-size:7px">█</span>
+        Select Area of Operation
+      </div>
+      <div class="mob-pick-grid">
+        <button class="mob-state-tile" data-state="IL" onclick="filterState('IL',null)">
+          <span class="mob-tile-code">IL</span>
+          <span class="mob-tile-name">Illinois</span>
+          <span class="mob-tile-count">4 fields</span>
+        </button>
+        <button class="mob-state-tile" data-state="IN" onclick="filterState('IN',null)">
+          <span class="mob-tile-code">IN</span>
+          <span class="mob-tile-name">Indiana</span>
+          <span class="mob-tile-count">3 fields</span>
+        </button>
+        <button class="mob-state-tile" data-state="OH" onclick="filterState('OH',null)">
+          <span class="mob-tile-code">OH</span>
+          <span class="mob-tile-name">Ohio</span>
+          <span class="mob-tile-count">3 fields</span>
+        </button>
+        <button class="mob-state-tile" data-state="MI" onclick="filterState('MI',null)">
+          <span class="mob-tile-code">MI</span>
+          <span class="mob-tile-name">Michigan</span>
+          <span class="mob-tile-count">3 fields</span>
+        </button>
+        <button class="mob-state-tile" data-state="WI" onclick="filterState('WI',null)">
+          <span class="mob-tile-code">WI</span>
+          <span class="mob-tile-name">Wisconsin</span>
+          <span class="mob-tile-count">2 fields</span>
+        </button>
+        <button class="mob-state-tile" data-state="MN" onclick="filterState('MN',null)">
+          <span class="mob-tile-code">MN</span>
+          <span class="mob-tile-name">Minnesota</span>
+          <span class="mob-tile-count">2 fields</span>
+        </button>
+        <button class="mob-state-tile" data-state="MO" onclick="filterState('MO',null)">
+          <span class="mob-tile-code">MO</span>
+          <span class="mob-tile-name">Missouri</span>
+          <span class="mob-tile-count">1 field</span>
+        </button>
+        <button class="mob-state-tile" data-state="KS" onclick="filterState('KS',null)">
+          <span class="mob-tile-code">KS</span>
+          <span class="mob-tile-name">Kansas</span>
+          <span class="mob-tile-count">1 field</span>
+        </button>
+        <button class="mob-state-tile" data-state="IA" onclick="filterState('IA',null)" style="opacity:0.35;pointer-events:none">
+          <span class="mob-tile-code" style="color:var(--muted)">IA</span>
+          <span class="mob-tile-name">Iowa</span>
+          <span class="mob-tile-count" style="color:var(--muted)">—</span>
+        </button>
+      </div>
+      <button class="mob-all-tile active" id="mob-btn-all" onclick="filterState('all',null)">
+        ◈ &nbsp; Show All States
+      </button>
+    </div>
+
+    <!-- pill buttons as secondary selector -->
+    <div class="state-filter" id="state-filter">
+      <button class="state-btn active" id="btn-all" onclick="filterState('all', this)">All States</button>
+      <button class="state-btn" id="btn-IL" onclick="filterState('IL', this)">Illinois</button>
+      <button class="state-btn" id="btn-MO" onclick="filterState('MO', this)">Missouri</button>
+      <button class="state-btn" id="btn-IN" onclick="filterState('IN', this)">Indiana</button>
+      <button class="state-btn" id="btn-MI" onclick="filterState('MI', this)">Michigan</button>
+      <button class="state-btn" id="btn-MN" onclick="filterState('MN', this)">Minnesota</button>
+      <button class="state-btn" id="btn-OH" onclick="filterState('OH', this)">Ohio</button>
+      <button class="state-btn" id="btn-WI" onclick="filterState('WI', this)">Wisconsin</button>
+      <button class="state-btn" id="btn-KS" onclick="filterState('KS', this)">Kansas</button>
+    </div>
+
+    <div class="fields-grid" id="fields-grid">
+
+      <!-- ILLINOIS -->
+      <div class="field-card visible" data-state="IL">
+        <div class="card-corner"></div>
+        <div class="field-state-row">
+          <span class="field-state">Illinois</span>
+          <span class="state-rule"></span>
+        </div>
+        <div class="field-name">Kankakee Airsoft Factory</div>
+        <div class="field-location">Kankakee, IL</div>
+        <div class="field-tags">
+          <span class="tag indoor">Indoor</span>
+          <span class="tag outdoor">Outdoor</span>
+          <span class="tag milsim">MilSim</span>
+        </div>
+        <p class="field-desc">7-story factory building with CQB floors + outdoor area. Hosted by MiR Tactical. Open plays Mar–Nov.</p>
+        <a href="https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/" target="_blank" class="field-link">Visit Site</a>
+      </div>
+
+      <div class="field-card visible" data-state="IL">
+        <div class="card-corner"></div>
+        <div class="field-state-row">
+          <span class="field-state">Illinois</span>
+          <span class="state-rule"></span>
+        </div>
+        <div class="field-name">MiR Tactical HQ — Buffalo Grove</div>
+        <div class="field-location">Buffalo Grove, IL</div>
+        <div class="field-tags">
+          <span class="tag milsim">MilSim</span>
+          <span class="tag indoor">Indoor</span>
+        </div>
+        <p class="field-desc">Midwest's largest airsoft retailer &amp; event organizer. Hosts Tier 1–3 events nationwide, many held in IL.</p>
+        <a href="https://mirtactical.com/" target="_blank" class="field-link">Visit Site</a>
+      </div>
+
+      <div class="field-card visible" data-state="IL">
+        <div class="card-corner"></div>
+        <div class="field-state-row">
+          <span class="field-state">Illinois</span>
+          <span class="state-rule"></span>
+        </div>
+        <div class="field-name">Blastcamp Paintball &amp; Airsoft</div>
+        <div class="field-location">Hobart, IN (near IL border)</div>
+        <div class="field-tags">
+          <span class="tag outdoor">Outdoor</span>
+          <span class="tag milsim">MilSim</span>
+        </div>
+        <p class="field-desc">Historic Nike Missile Base. 23 acres, monthly airsoft ops produced by Cobra Airsoft Legion.</p>
+        <a href="https://blastcamp.com/airsoft/" target="_blank" class="field-link">Visit Site</a>
+      </div>
+
+      <!-- MISSOURI -->
+      <div class="field-card visible" data-state="MO">
+        <div class="card-corner"></div>
+        <div class="field-state-row">
+          <span class="field-state">Missouri / Illinois</span>
+          <span class="state-rule"></span>
+        </div>
+        <div class="field-name">Bing Field Airsoft &amp; Paintball Park</div>
+        <div class="field-location">Alton, IL (St. Louis Metro)</div>
+        <div class="field-tags">
+          <span class="tag outdoor">Outdoor</span>
+          <span class="tag milsim">Big Games</span>
+        </div>
+        <p class="field-desc">St. Louis area's premier facility. 60+ acres, 5+ acre City of Bedlam urban field. Monthly Big Games $30.</p>
+        <a href="https://bingfield.com/" target="_blank" class="field-link">Visit Site</a>
+      </div>
+
+      <!-- INDIANA -->
+      <div class="field-card visible" data-state="IN">
+        <div class="card-corner"></div>
+        <div class="field-state-row">
+          <span class="field-state">Indiana</span>
+          <span class="state-rule"></span>
+        </div>
+        <div class="field-name">Joker's Circus Airsoft</div>
+        <div class="field-location">Bloomington, IN</div>
+        <div class="field-tags">
+          <span class="tag outdoor">Outdoor</span>
+          <span class="tag milsim">MilSim</span>
+        </div>
+        <p class="field-desc">Indiana's oldest active airsoft field, founded 1998. Annual Noob Day, MilSim events, open plays year-round.</p>
+        <a href="https://www.airsoftc3.com/us/in/fields" target="_blank" class="field-link">Find on AirsoftC3</a>
+      </div>
+
+      <div class="field-card visible" data-state="IN">
+        <div class="card-corner"></div>
+        <div class="field-state-row">
+          <span class="field-state">Indiana</span>
+          <span class="state-rule"></span>
+        </div>
+        <div class="field-name">Center Mass Airsoft</div>
+        <div class="field-location">Greenwood, IN (Indy Metro)</div>
+        <div class="field-tags">
+          <span class="tag outdoor">Woodland</span>
+          <span class="tag milsim">MilSim</span>
+        </div>
+        <p class="field-desc">Woodland field offering open plays and MilSim events. Popular with the Indianapolis airsoft community.</p>
+        <a href="https://www.airsoftc3.com/us/in/fields" target="_blank" class="field-link">Find on AirsoftC3</a>
+      </div>
+
+      <div class="field-card visible" data-state="IN">
+        <div class="card-corner"></div>
+        <div class="field-state-row">
+          <span class="field-state">Indiana</span>
+          <span class="state-rule"></span>
+        </div>
+        <div class="field-name">Blastcamp — Hobart</div>
+        <div class="field-location">Hobart, IN</div>
+        <div class="field-tags">
+          <span class="tag outdoor">Outdoor</span>
+          <span class="tag milsim">MilSim</span>
+        </div>
+        <p class="field-desc">Full 23-acre historic base. Cobra Airsoft Legion events monthly. Walk-on $30, full ops $40–45.</p>
+        <a href="https://blastcamp.com/" target="_blank" class="field-link">Visit Site</a>
+      </div>
+
+      <!-- MICHIGAN -->
+      <div class="field-card visible" data-state="MI">
+        <div class="card-corner"></div>
+        <div class="field-state-row">
+          <span class="field-state">Michigan</span>
+          <span class="state-rule"></span>
+        </div>
+        <div class="field-name">Kalamazoo Airsoft</div>
+        <div class="field-location">Kalamazoo, MI</div>
+        <div class="field-tags">
+          <span class="tag indoor">Indoor</span>
+          <span class="tag outdoor">Outdoor</span>
+        </div>
+        <p class="field-desc">Michigan's premier indoor/outdoor CQB facility. Home field for WolfPack Airsoft. Unique terrain mix.</p>
+        <a href="https://www.airsoftc3.com/us/mi/fields" target="_blank" class="field-link">Find on AirsoftC3</a>
+      </div>
+
+      <div class="field-card visible" data-state="MI">
+        <div class="card-corner"></div>
+        <div class="field-state-row">
+          <span class="field-state">Michigan</span>
+          <span class="state-rule"></span>
+        </div>
+        <div class="field-name">Hell Survivors</div>
+        <div class="field-location">Pinckney, MI</div>
+        <div class="field-tags">
+          <span class="tag outdoor">Outdoor</span>
+          <span class="tag milsim">Major Events</span>
+        </div>
+        <p class="field-desc">180-acre complex with 12 fields. Hosts Global Conquest, the Monster Game, and Tippmann World Challenge annually.</p>
+        <a href="https://www.hellsurvivors.com/" target="_blank" class="field-link">Visit Site</a>
+      </div>
+
+      <div class="field-card visible" data-state="MI">
+        <div class="card-corner"></div>
+        <div class="field-state-row">
+          <span class="field-state">Michigan</span>
+          <span class="state-rule"></span>
+        </div>
+        <div class="field-name">Motor City Airsoft</div>
+        <div class="field-location">Clinton Twp, MI</div>
+        <div class="field-tags">
+          <span class="tag indoor">Indoor</span>
+        </div>
+        <p class="field-desc">Realistic indoor CQB airsoft field. Currently rebuilding at new location (16 Mile &amp; Gratiot).</p>
+        <a href="https://www.airsoftc3.com/us/mi/fields" target="_blank" class="field-link">Find on AirsoftC3</a>
+      </div>
+
+      <!-- MINNESOTA -->
+      <div class="field-card visible" data-state="MN">
+        <div class="card-corner"></div>
+        <div class="field-state-row">
+          <span class="field-state">Minnesota</span>
+          <span class="state-rule"></span>
+        </div>
+        <div class="field-name">Twin Cities Airsoft (TCA)</div>
+        <div class="field-location">Minneapolis/St. Paul Metro, MN</div>
+        <div class="field-tags">
+          <span class="tag outdoor">Outdoor</span>
+          <span class="tag milsim">Scenario Games</span>
+        </div>
+        <p class="field-desc">Minnesota's premier scenario field. High Intensity Airsoft events monthly. Bio BB only. Giant Games 2x yearly.</p>
+        <a href="https://www.twincitiesairsoft.com/" target="_blank" class="field-link">Visit Site</a>
+      </div>
+
+      <div class="field-card visible" data-state="MN">
+        <div class="card-corner"></div>
+        <div class="field-state-row">
+          <span class="field-state">Minnesota</span>
+          <span class="state-rule"></span>
+        </div>
+        <div class="field-name">Crossfire Airsoft</div>
+        <div class="field-location">Twin Cities Metro, MN</div>
+        <div class="field-tags">
+          <span class="tag outdoor">Outdoor</span>
+        </div>
+        <p class="field-desc">Oldest &amp; best airsoft field in Minnesota. 30+ acres dedicated to airsoft only. 5 distinct fields, weekly games.</p>
+        <a href="https://www.airsoftc3.com/us/mn/fields" target="_blank" class="field-link">Find on AirsoftC3</a>
+      </div>
+
+      <!-- OHIO -->
+      <div class="field-card visible" data-state="OH">
+        <div class="card-corner"></div>
+        <div class="field-state-row">
+          <span class="field-state">Ohio</span>
+          <span class="state-rule"></span>
+        </div>
+        <div class="field-name">i70 Paintball &amp; Airsoft</div>
+        <div class="field-location">Huber Heights, OH</div>
+        <div class="field-tags">
+          <span class="tag outdoor">Outdoor</span>
+          <span class="tag milsim">MilSim</span>
+        </div>
+        <p class="field-desc">Most popular &amp; well-reviewed field in Ohio. Bring-your-own-gear focus with rentals. Diverse terrain.</p>
+        <a href="https://www.airsoftc3.com/us/oh/fields" target="_blank" class="field-link">Find on AirsoftC3</a>
+      </div>
+
+      <div class="field-card visible" data-state="OH">
+        <div class="card-corner"></div>
+        <div class="field-state-row">
+          <span class="field-state">Ohio</span>
+          <span class="state-rule"></span>
+        </div>
+        <div class="field-name">War Den Airsoft</div>
+        <div class="field-location">Stone Creek, OH</div>
+        <div class="field-tags">
+          <span class="tag outdoor">Outdoor</span>
+          <span class="tag milsim">MilSim</span>
+        </div>
+        <p class="field-desc">Eastern Ohio woodland field with wide open terrain. Known for big MilSim scenario events.</p>
+        <a href="https://www.airsoftc3.com/us/oh/fields" target="_blank" class="field-link">Find on AirsoftC3</a>
+      </div>
+
+      <div class="field-card visible" data-state="OH">
+        <div class="card-corner"></div>
+        <div class="field-state-row">
+          <span class="field-state">Ohio</span>
+          <span class="state-rule"></span>
+        </div>
+        <div class="field-name">Devil's Playground Airsoft</div>
+        <div class="field-location">Maineville, OH</div>
+        <div class="field-tags">
+          <span class="tag outdoor">Outdoor</span>
+        </div>
+        <p class="field-desc">Southern Ohio outdoor field near Cincinnati. Wooded terrain with varied game zones.</p>
+        <a href="https://www.airsoftc3.com/us/oh/fields" target="_blank" class="field-link">Find on AirsoftC3</a>
+      </div>
+
+      <!-- WISCONSIN -->
+      <div class="field-card visible" data-state="WI">
+        <div class="card-corner"></div>
+        <div class="field-state-row">
+          <span class="field-state">Wisconsin</span>
+          <span class="state-rule"></span>
+        </div>
+        <div class="field-name">Cedar Airsoft Field</div>
+        <div class="field-location">Wisconsin (Cedar area)</div>
+        <div class="field-tags">
+          <span class="tag outdoor">Outdoor</span>
+        </div>
+        <p class="field-desc">~10 acres with woods, open field, CQB structures. Rec days every Sat ($20). Multiple game modes. Bio BBs available.</p>
+        <a href="https://www.cedarairsoftfield.com/" target="_blank" class="field-link">Visit Site</a>
+      </div>
+
+      <div class="field-card visible" data-state="WI">
+        <div class="card-corner"></div>
+        <div class="field-state-row">
+          <span class="field-state">Wisconsin</span>
+          <span class="state-rule"></span>
+        </div>
+        <div class="field-name">Black Ops Airsoft</div>
+        <div class="field-location">Bristol, WI (near Kenosha / Chicago border)</div>
+        <div class="field-tags">
+          <span class="tag outdoor">Outdoor</span>
+          <span class="tag indoor">Urban CQB</span>
+          <span class="tag milsim">MilSim</span>
+        </div>
+        <p class="field-desc">Midwest's largest pay-to-play airsoft-only field. Open year-round. Outdoor + urban town gameplay. WilSim Saturdays &amp; MilSim events. Fri $10 · Sat–Sun $20. Rentals $15.</p>
+        <a href="https://www.blackops-airsoft.com/" target="_blank" class="field-link">Visit Site</a>
+      </div>
+
+      <!-- KANSAS -->
+      <div class="field-card visible" data-state="KS">
+        <div class="card-corner"></div>
+        <div class="field-state-row">
+          <span class="field-state">Kansas / Missouri</span>
+          <span class="state-rule"></span>
+        </div>
+        <div class="field-name">Center Mass Airsoft — KC</div>
+        <div class="field-location">Kansas City, KS/MO</div>
+        <div class="field-tags">
+          <span class="tag outdoor">Woodland</span>
+          <span class="tag milsim">MilSim</span>
+        </div>
+        <p class="field-desc">Kansas City area woodland field. Open plays &amp; MilSim. Run by Center Mass Airsoft team.</p>
+        <a href="https://www.airsoftc3.com/fields" target="_blank" class="field-link">Find on AirsoftC3</a>
+      </div>
+
+      <!-- EXTRA IL/IN/MI -->
+      <div class="field-card visible" data-state="IL">
+        <div class="card-corner"></div>
+        <div class="field-state-row">
+          <span class="field-state">Illinois</span>
+          <span class="state-rule"></span>
+        </div>
+        <div class="field-name">Airsoft Megastore Chicago</div>
+        <div class="field-location">Countryside, IL</div>
+        <div class="field-tags">
+          <span class="tag indoor">Indoor</span>
+        </div>
+        <p class="field-desc">Retail store &amp; affiliated open play events in the Chicago metro. Walk-on games and private group bookings.</p>
+        <a href="https://www.airsoftc3.com/us/il/fields" target="_blank" class="field-link">Find on AirsoftC3</a>
+      </div>
+
+      <div class="field-card visible" data-state="IN">
+        <div class="card-corner"></div>
+        <div class="field-state-row">
+          <span class="field-state">Indiana</span>
+          <span class="state-rule"></span>
+        </div>
+        <div class="field-name">Butler Airsoft Field</div>
+        <div class="field-location">Butler, IN</div>
+        <div class="field-tags">
+          <span class="tag outdoor">Outdoor</span>
+        </div>
+        <p class="field-desc">Team-run field active since 2006. Sunday games + participation in regional events throughout the year.</p>
+        <a href="https://www.airsoftc3.com/us/in/fields" target="_blank" class="field-link">Find on AirsoftC3</a>
+      </div>
+
+      <div class="field-card visible" data-state="MI">
+        <div class="card-corner"></div>
+        <div class="field-state-row">
+          <span class="field-state">Michigan</span>
+          <span class="state-rule"></span>
+        </div>
+        <div class="field-name">Hole in the Wall Paintball</div>
+        <div class="field-location">Northwest Michigan</div>
+        <div class="field-tags">
+          <span class="tag outdoor">Outdoor</span>
+        </div>
+        <p class="field-desc">Wooded &amp; rugged courses with high ridges, thick forests, water obstacles. One of the toughest fields in the Midwest.</p>
+        <a href="https://www.airsoftc3.com/us/mi/fields" target="_blank" class="field-link">Find on AirsoftC3</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── UPCOMING EVENTS ── -->
+  <section id="events">
+    <div class="sec-hdr">
+      <div>
+        <div class="sec-eyebrow">Ops Schedule · 2026</div>
+        <div class="sec-title">Upcoming Events</div>
+      </div>
+      <div class="sec-meta">Future dates only</div>
+    </div>
+
+    <div class="events-list">
+
+      <a class="event-row" href="https://www.blackops-airsoft.com/willsim-saturday.htm" target="_blank">
+        <div class="ev-date">
+          <div class="ev-stripe milsim"></div>
+          <div class="ev-month">Bi-Weekly</div>
+          <div class="ev-day">∞</div>
+          <div class="ev-year">2026</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-name">WilSim Saturdays — Black Ops Airsoft</div>
+          <div class="ev-venue">Black Ops Airsoft · Bristol, WI · Scenario MilSim gameplay</div>
+        </div>
+        <div class="ev-right">
+          <div class="ev-price">$20</div>
+          <div class="ev-badge">WilSim / MilSim</div>
+        </div>
+        <div class="ev-arrow">→</div>
+      </a>
+
+      <a class="event-row" href="https://www.blackops-airsoft.com/" target="_blank">
+        <div class="ev-date">
+          <div class="ev-stripe open"></div>
+          <div class="ev-month">Sat–Sun</div>
+          <div class="ev-day">∞</div>
+          <div class="ev-year">2026</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-name">Black Ops Open Play — Year Round</div>
+          <div class="ev-venue">Black Ops Airsoft · Bristol, WI · Fri $10 / Sat–Sun $20 · Rentals $15</div>
+        </div>
+        <div class="ev-right">
+          <div class="ev-price">$10–20</div>
+          <div class="ev-badge">Open Play</div>
+        </div>
+        <div class="ev-arrow">→</div>
+      </a>
+
+      <a class="event-row" href="https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/" target="_blank">
+        <div class="ev-date">
+          <div class="ev-stripe open"></div>
+          <div class="ev-month">Mar</div>
+          <div class="ev-day">29</div>
+          <div class="ev-year">2026</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-name">Kankakee Factory Open Play</div>
+          <div class="ev-venue">Kankakee Airsoft Factory · Kankakee, IL · Hosted by MiR Tactical</div>
+        </div>
+        <div class="ev-right">
+          <div class="ev-price">$30</div>
+          <div class="ev-badge">Open Play</div>
+        </div>
+        <div class="ev-arrow">→</div>
+      </a>
+
+      <a class="event-row" href="https://bingfield.com/index.php/category/events/" target="_blank">
+        <div class="ev-date">
+          <div class="ev-stripe big"></div>
+          <div class="ev-month">Mar</div>
+          <div class="ev-day">29</div>
+          <div class="ev-year">2026</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-name">Dragon's Tooth IX — Airsoft Big Game</div>
+          <div class="ev-venue">Bing Field Airsoft &amp; Paintball Park · Alton, IL (St. Louis)</div>
+        </div>
+        <div class="ev-right">
+          <div class="ev-price">$30</div>
+          <div class="ev-badge">Big Game</div>
+        </div>
+        <div class="ev-arrow">→</div>
+      </a>
+
+      <a class="event-row" href="https://www.twincitiesairsoft.com/specials/special-events.html" target="_blank">
+        <div class="ev-date">
+          <div class="ev-stripe big"></div>
+          <div class="ev-month">Apr</div>
+          <div class="ev-day">4–5</div>
+          <div class="ev-year">2026</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-name">HOLY GRAIL — High Intensity Airsoft Weekend</div>
+          <div class="ev-venue">Twin Cities Airsoft · Minneapolis/St. Paul Metro, MN</div>
+        </div>
+        <div class="ev-right">
+          <div class="ev-price">$40–50</div>
+          <div class="ev-badge">Scenario Weekend</div>
+        </div>
+        <div class="ev-arrow">→</div>
+      </a>
+
+      <a class="event-row" href="https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/" target="_blank">
+        <div class="ev-date">
+          <div class="ev-stripe open"></div>
+          <div class="ev-month">Apr</div>
+          <div class="ev-day">4</div>
+          <div class="ev-year">2026</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-name">Kankakee Factory Open Play</div>
+          <div class="ev-venue">Kankakee Airsoft Factory · Kankakee, IL · MiR Tactical</div>
+        </div>
+        <div class="ev-right">
+          <div class="ev-price">$30</div>
+          <div class="ev-badge">Open Play</div>
+        </div>
+        <div class="ev-arrow">→</div>
+      </a>
+
+      <a class="event-row" href="https://mirtactical.com/estreamly/operation-blacklist-2026/" target="_blank">
+        <div class="ev-date">
+          <div class="ev-stripe milsim"></div>
+          <div class="ev-month">Apr</div>
+          <div class="ev-day">11–12</div>
+          <div class="ev-year">2026</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-name">Operation: BLACKLIST — Tier 1 MilSim</div>
+          <div class="ev-venue">MiR Tactical · Illinois Region</div>
+        </div>
+        <div class="ev-right">
+          <div class="ev-price">$175</div>
+          <div class="ev-badge">Tier 1 MilSim</div>
+        </div>
+        <div class="ev-arrow">→</div>
+      </a>
+
+      <a class="event-row" href="https://www.twincitiesairsoft.com/specials/special-events.html" target="_blank">
+        <div class="ev-date">
+          <div class="ev-stripe big"></div>
+          <div class="ev-month">May</div>
+          <div class="ev-day">2–3</div>
+          <div class="ev-year">2026</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-name">BLACKOUT — High Intensity Airsoft Weekend</div>
+          <div class="ev-venue">Twin Cities Airsoft · MN</div>
+        </div>
+        <div class="ev-right">
+          <div class="ev-price">$40–50</div>
+          <div class="ev-badge">Scenario Weekend</div>
+        </div>
+        <div class="ev-arrow">→</div>
+      </a>
+
+      <a class="event-row" href="https://www.twincitiesairsoft.com/specials/special-events.html" target="_blank">
+        <div class="ev-date">
+          <div class="ev-stripe big"></div>
+          <div class="ev-month">May</div>
+          <div class="ev-day">23</div>
+          <div class="ev-year">2026</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-name">ARMAGEDDON — Giant Airsoft Game #26</div>
+          <div class="ev-venue">Twin Cities Airsoft · MN · Early bird before May 17</div>
+        </div>
+        <div class="ev-right">
+          <div class="ev-price">$70–80</div>
+          <div class="ev-badge">Giant Game</div>
+        </div>
+        <div class="ev-arrow">→</div>
+      </a>
+
+      <a class="event-row" href="https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/" target="_blank">
+        <div class="ev-date">
+          <div class="ev-stripe open"></div>
+          <div class="ev-month">May–Nov</div>
+          <div class="ev-day">∞</div>
+          <div class="ev-year">2026</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-name">Kankakee Factory Open Plays (Weekly)</div>
+          <div class="ev-venue">Kankakee Airsoft Factory · IL · Select Sat &amp; Sun through Nov</div>
+        </div>
+        <div class="ev-right">
+          <div class="ev-price">$30</div>
+          <div class="ev-badge">Open Play</div>
+        </div>
+        <div class="ev-arrow">→</div>
+      </a>
+
+      <a class="event-row" href="https://www.twincitiesairsoft.com/specials/special-events.html" target="_blank">
+        <div class="ev-date">
+          <div class="ev-stripe big"></div>
+          <div class="ev-month">Jul</div>
+          <div class="ev-day">4–5</div>
+          <div class="ev-year">2026</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-name">RED, WHITE &amp; RELOAD — High Intensity Airsoft</div>
+          <div class="ev-venue">Twin Cities Airsoft · MN · Free camping Fri–Sat</div>
+        </div>
+        <div class="ev-right">
+          <div class="ev-price">$40–50</div>
+          <div class="ev-badge">Scenario Weekend</div>
+        </div>
+        <div class="ev-arrow">→</div>
+      </a>
+
+      <a class="event-row" href="https://www.twincitiesairsoft.com/specials/special-events.html" target="_blank">
+        <div class="ev-date">
+          <div class="ev-stripe big"></div>
+          <div class="ev-month">Aug</div>
+          <div class="ev-day">1–2</div>
+          <div class="ev-year">2026</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-name">GHOST DIRECTIVE — High Intensity Airsoft Weekend</div>
+          <div class="ev-venue">Twin Cities Airsoft · MN</div>
+        </div>
+        <div class="ev-right">
+          <div class="ev-price">$40–50</div>
+          <div class="ev-badge">Scenario Weekend</div>
+        </div>
+        <div class="ev-arrow">→</div>
+      </a>
+
+      <a class="event-row" href="https://blastcamp.com/events/" target="_blank">
+        <div class="ev-date">
+          <div class="ev-stripe milsim"></div>
+          <div class="ev-month">Monthly</div>
+          <div class="ev-day">∞</div>
+          <div class="ev-year">2026</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-name">Blastcamp Monthly Airsoft Ops</div>
+          <div class="ev-venue">Blastcamp · Hobart, IN · Produced by Cobra Airsoft Legion</div>
+        </div>
+        <div class="ev-right">
+          <div class="ev-price">$40–45</div>
+          <div class="ev-badge">Full-Day Op</div>
+        </div>
+        <div class="ev-arrow">→</div>
+      </a>
+
+      <a class="event-row" href="https://www.twincitiesairsoft.com/specials/special-events.html" target="_blank">
+        <div class="ev-date">
+          <div class="ev-stripe big"></div>
+          <div class="ev-month">Sep</div>
+          <div class="ev-day">5–6</div>
+          <div class="ev-year">2026</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-name">TOTAL WAR — High Intensity Airsoft Weekend</div>
+          <div class="ev-venue">Twin Cities Airsoft · MN · Free patch for first 150</div>
+        </div>
+        <div class="ev-right">
+          <div class="ev-price">$40–50</div>
+          <div class="ev-badge">Scenario Weekend</div>
+        </div>
+        <div class="ev-arrow">→</div>
+      </a>
+
+      <a class="event-row" href="https://www.twincitiesairsoft.com/specials/special-events.html" target="_blank">
+        <div class="ev-date">
+          <div class="ev-stripe big"></div>
+          <div class="ev-month">Sep</div>
+          <div class="ev-day">19–20</div>
+          <div class="ev-year">2026</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-name">GIANT Game #27 — "DOMINATION"</div>
+          <div class="ev-venue">Twin Cities Airsoft · MN · Early bird before Sept 7</div>
+        </div>
+        <div class="ev-right">
+          <div class="ev-price">$70–80</div>
+          <div class="ev-badge">Giant Game</div>
+        </div>
+        <div class="ev-arrow">→</div>
+      </a>
+
+      <a class="event-row" href="https://bingfield.com/index.php/category/events/" target="_blank">
+        <div class="ev-date">
+          <div class="ev-stripe big"></div>
+          <div class="ev-month">Monthly</div>
+          <div class="ev-day">∞</div>
+          <div class="ev-year">2026</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-name">Bing Field Monthly Airsoft Big Games</div>
+          <div class="ev-venue">Bing Field · Alton, IL · Pre-register for bonus ammo &amp; raffle</div>
+        </div>
+        <div class="ev-right">
+          <div class="ev-price">$30</div>
+          <div class="ev-badge">Big Game</div>
+        </div>
+        <div class="ev-arrow">→</div>
+      </a>
+
+    </div>
+  </section>
+
+
+</main>
+
+<!-- ═══════════════════════ FOOTER ════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-note">© 2026 Midwest Airsoft Hub · Data sourced from field websites · Verify dates before attending</div>
+    <div class="footer-cta">Lock &amp; Load →</div>
+  </div>
+</footer>
+
+<script>
+// ─── STATE FILTER (map + buttons synced) ────────────────
+let activeState = 'all';
+
+function filterState(state, btn) {
+  // toggle: clicking same state resets to all
+  if (activeState === state && state !== 'all') {
+    state = 'all';
+  }
+  activeState = state;
+
+  // ── sync pill buttons ──
+  document.querySelectorAll('.state-btn').forEach(b => b.classList.remove('active'));
+  if (state === 'all') {
+    const allBtn = document.getElementById('btn-all');
+    if (allBtn) allBtn.classList.add('active');
+  } else {
+    const targetBtn = document.getElementById('btn-' + state);
+    if (targetBtn) targetBtn.classList.add('active');
+  }
+  // if called from a button directly, also handle it
+  if (btn && btn.classList) {
+    document.querySelectorAll('.state-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  // ── sync mobile tiles ──
+  document.querySelectorAll('.mob-state-tile').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.mob-all-tile').forEach(t => t.classList.remove('active'));
+  if (state === 'all') {
+    document.querySelectorAll('.mob-all-tile').forEach(t => t.classList.add('active'));
+  } else {
+    document.querySelectorAll(`.mob-state-tile[data-state="${state}"]`).forEach(t => t.classList.add('active'));
+  }
+
+  // ── sync SVG map ──
+  document.querySelectorAll('.map-state').forEach(p => p.classList.remove('map-selected'));
+  document.querySelectorAll('.map-badge-grp').forEach(g => g.classList.remove('badge-selected'));
+  document.querySelectorAll('.field-dot').forEach(d => d.classList.remove('dot-active'));
+
+  if (state !== 'all') {
+    const sel = document.getElementById('map-' + state);
+    if (sel) sel.classList.add('map-selected');
+    const badge = document.querySelector(`.map-badge-grp[data-state="${state}"]`);
+    if (badge) badge.classList.add('badge-selected');
+    document.querySelectorAll(`.field-dot[data-state="${state}"]`).forEach(d => d.classList.add('dot-active'));
+  }
+
+  // ── filter field cards ──
+  const cards = document.querySelectorAll('.field-card');
+  let count = 0;
+  cards.forEach(card => {
+    const match = state === 'all' || card.dataset.state === state;
+    card.classList.toggle('visible', match);
+    if (match) count++;
+  });
+  document.getElementById('field-count').textContent = count + ' location' + (count !== 1 ? 's' : '');
+}
+
+// ── Map: click state paths ──
+document.querySelectorAll('.map-state:not(.map-inactive)').forEach(path => {
+  path.addEventListener('click', function() {
+    filterState(this.dataset.state, null);
+  });
+
+  // Tooltip on hover
+  path.addEventListener('mouseenter', function(e) {
+    showTooltip(this, e);
+  });
+  path.addEventListener('mousemove', function(e) {
+    moveTooltip(e);
+  });
+  path.addEventListener('mouseleave', function() {
+    hideTooltip();
+  });
+});
+
+// ── Tooltip ──
+const tooltip = document.getElementById('map-tooltip');
+const ttBg    = document.getElementById('tt-bg');
+const ttName  = document.getElementById('tt-name');
+const ttSub   = document.getElementById('tt-sub');
+
+function showTooltip(el, e) {
+  if (!tooltip) return;
+  const name  = el.dataset.name  || el.dataset.state;
+  const count = el.dataset.count || '0';
+  ttName.textContent = name;
+  ttSub.textContent  = count + ' field' + (count !== '1' ? 's' : '') + ' · click to filter';
+
+  const nameW = name.length * 7.5 + 16;
+  const w = Math.max(nameW, 160);
+  ttBg.setAttribute('width', w);
+  ttName.setAttribute('x', 8);
+  ttSub.setAttribute('x', 8);
+
+  tooltip.style.display = 'block';
+  moveTooltip(e);
+}
+
+function moveTooltip(e) {
+  if (!tooltip) return;
+  const svg  = document.getElementById('midwest-map');
+  const rect = svg.getBoundingClientRect();
+  const vbParts = svg.getAttribute('viewBox').split(' ').map(Number);
+  const scaleX = (vbParts[2]) / rect.width;
+  const scaleY = (vbParts[3]) / rect.height;
+  const mx = (e.clientX - rect.left) * scaleX + vbParts[0];
+  const my = (e.clientY - rect.top)  * scaleY + vbParts[1];
+  tooltip.setAttribute('transform', `translate(${mx + 10}, ${my - 44})`);
+}
+
+function hideTooltip() {
+  if (tooltip) tooltip.style.display = 'none';
+}
+
+// ─── NAV ACTIVE ─────────────────────────────────────────
+function setActive(el) {
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  el.classList.add('active');
+}
+
+// ─── CALENDAR ───────────────────────────────────────────
+const events = [
+  { date: '2026-03-28', name: 'Black Ops WilSim Saturday', type: 'milsim', url: 'https://www.blackops-airsoft.com' },
+  { date: '2026-04-04', name: 'Black Ops WilSim Saturday', type: 'milsim', url: 'https://www.blackops-airsoft.com' },
+  { date: '2026-04-18', name: 'Black Ops WilSim Saturday', type: 'milsim', url: 'https://www.blackops-airsoft.com' },
+  { date: '2026-05-02', name: 'Black Ops WilSim Saturday', type: 'milsim', url: 'https://www.blackops-airsoft.com' },
+  { date: '2026-05-16', name: 'Black Ops WilSim Saturday', type: 'milsim', url: 'https://www.blackops-airsoft.com' },
+  { date: '2026-06-06', name: 'Black Ops WilSim Saturday', type: 'milsim', url: 'https://www.blackops-airsoft.com' },
+  { date: '2026-06-20', name: 'Black Ops WilSim Saturday', type: 'milsim', url: 'https://www.blackops-airsoft.com' },
+  { date: '2026-07-11', name: 'Black Ops WilSim Saturday', type: 'milsim', url: 'https://www.blackops-airsoft.com' },
+  { date: '2026-07-25', name: 'Black Ops WilSim Saturday', type: 'milsim', url: 'https://www.blackops-airsoft.com' },
+  { date: '2026-08-08', name: 'Black Ops WilSim Saturday', type: 'milsim', url: 'https://www.blackops-airsoft.com' },
+  { date: '2026-08-22', name: 'Black Ops WilSim Saturday', type: 'milsim', url: 'https://www.blackops-airsoft.com' },
+  { date: '2026-09-12', name: 'Black Ops WilSim Saturday', type: 'milsim', url: 'https://www.blackops-airsoft.com' },
+  { date: '2026-09-26', name: 'Black Ops WilSim Saturday', type: 'milsim', url: 'https://www.blackops-airsoft.com' },
+  { date: '2026-10-10', name: 'Black Ops WilSim Saturday', type: 'milsim', url: 'https://www.blackops-airsoft.com' },
+  { date: '2026-10-24', name: 'Black Ops WilSim Saturday', type: 'milsim', url: 'https://www.blackops-airsoft.com' },
+  { date: '2026-11-07', name: 'Black Ops WilSim Saturday', type: 'milsim', url: 'https://www.blackops-airsoft.com' },
+  { date: '2026-03-07', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-03-15', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-03-21', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-03-29', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-03-29', name: "Dragon's Tooth IX — Bing Field", type: 'big', url: 'https://bingfield.com' },
+  { date: '2026-03-01', name: 'Belly of the Beast VIII — Bing', type: 'big', url: 'https://bingfield.com' },
+  { date: '2026-04-04', name: 'HOLY GRAIL — TCA Day 1', type: 'big', url: 'https://twincitiesairsoft.com' },
+  { date: '2026-04-05', name: 'HOLY GRAIL — TCA Day 2', type: 'big', url: 'https://twincitiesairsoft.com' },
+  { date: '2026-04-04', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-04-11', name: 'OP: BLACKLIST — MiR Tier 1', type: 'milsim', url: 'https://mirtactical.com' },
+  { date: '2026-04-12', name: 'OP: BLACKLIST Day 2', type: 'milsim', url: 'https://mirtactical.com' },
+  { date: '2026-04-12', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-04-18', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-04-26', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-05-02', name: 'BLACKOUT — TCA Day 1', type: 'big', url: 'https://twincitiesairsoft.com' },
+  { date: '2026-05-03', name: 'BLACKOUT — TCA Day 2', type: 'big', url: 'https://twincitiesairsoft.com' },
+  { date: '2026-05-02', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-05-09', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-05-17', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-05-23', name: 'ARMAGEDDON Giant Game #26', type: 'big', url: 'https://twincitiesairsoft.com' },
+  { date: '2026-05-23', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-05-31', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-06-06', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-06-14', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-06-20', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-06-28', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-07-04', name: 'RED WHITE & RELOAD Day 1', type: 'big', url: 'https://twincitiesairsoft.com' },
+  { date: '2026-07-05', name: 'RED WHITE & RELOAD Day 2', type: 'big', url: 'https://twincitiesairsoft.com' },
+  { date: '2026-07-05', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-07-11', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-07-19', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-07-25', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-08-01', name: 'GHOST DIRECTIVE — TCA Day 1', type: 'big', url: 'https://twincitiesairsoft.com' },
+  { date: '2026-08-02', name: 'GHOST DIRECTIVE — TCA Day 2', type: 'big', url: 'https://twincitiesairsoft.com' },
+  { date: '2026-08-02', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-08-08', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-08-16', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-08-22', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-08-30', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-09-05', name: 'TOTAL WAR — TCA Day 1', type: 'big', url: 'https://twincitiesairsoft.com' },
+  { date: '2026-09-06', name: 'TOTAL WAR — TCA Day 2', type: 'big', url: 'https://twincitiesairsoft.com' },
+  { date: '2026-09-05', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-09-13', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-09-19', name: 'GIANT Game #27 "DOMINATION" Day 1', type: 'big', url: 'https://twincitiesairsoft.com' },
+  { date: '2026-09-19', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-09-20', name: 'GIANT Game #27 Day 2', type: 'big', url: 'https://twincitiesairsoft.com' },
+  { date: '2026-09-27', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-10-03', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-10-11', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-10-17', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-10-25', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-10-31', name: 'KAF Halloween Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-11-08', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-11-14', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-11-22', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+  { date: '2026-11-28', name: 'KAF Open Play', type: 'open', url: 'https://mirtactical.com' },
+];
+
+// smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+// ═══════════════════════════════════════════════════════
+// TERMINAL + RADAR ANIMATIONS
+// ═══════════════════════════════════════════════════════
+
+// ── Terminal feed lines ──────────────────────────────
+const LEFT_LINES = [
+  { t:'warn', s:'> SYSTEM BOOT...' },
+  { t:'',     s:'> LOADING AO DATA' },
+  { t:'',     s:'> MIDWEST REGION' },
+  { t:'dim',  s:'  LAT 41.8°N' },
+  { t:'dim',  s:'  LON 87.6°W' },
+  { t:'',     s:'> FIELDS: 21' },
+  { t:'',     s:'> STATES: 8' },
+  { t:'warn', s:'> EVENTS: 40+' },
+  { t:'dim',  s:'---' },
+  { t:'',     s:'> SIGNAL OK' },
+  { t:'dim',  s:'> UPLINK 128K' },
+  { t:'',     s:'> AO CONFIRMED' },
+  { t:'alert',s:'! HOSTILES: ACT' },
+  { t:'dim',  s:'---' },
+  { t:'',     s:'> NEXT OP:' },
+  { t:'warn', s:'  DRAGON TOOTH IX' },
+  { t:'dim',  s:'  2026-03-29' },
+  { t:'dim',  s:'  BING FIELD IL' },
+  { t:'dim',  s:'---' },
+  { t:'',     s:'> BLACKLIST T1' },
+  { t:'dim',  s:'  2026-04-11' },
+  { t:'dim',  s:'  MIR TACTICAL IL' },
+  { t:'dim',  s:'---' },
+  { t:'',     s:'> SCANNING...' },
+  { t:'dim',  s:'  WI: 2 FIELDS' },
+  { t:'dim',  s:'  IL: 4 FIELDS' },
+  { t:'dim',  s:'  IN: 3 FIELDS' },
+  { t:'dim',  s:'  OH: 3 FIELDS' },
+  { t:'dim',  s:'  MN: 2 FIELDS' },
+  { t:'dim',  s:'  MI: 3 FIELDS' },
+  { t:'dim',  s:'  MO: 1 FIELD ' },
+  { t:'dim',  s:'  KS: 1 FIELD ' },
+  { t:'warn', s:'> AO NOMINAL' },
+];
+
+const RIGHT_LINES = [
+  { t:'alert',s:'! THREAT LVL: MED' },
+  { t:'',     s:'> SCANNING...' },
+  { t:'dim',  s:'  SRC: 6 URLS' },
+  { t:'',     s:'> BING FIELD' },
+  { t:'dim',  s:'  STATUS: LIVE' },
+  { t:'',     s:'> TWINCITIES AS' },
+  { t:'dim',  s:'  STATUS: LIVE' },
+  { t:'',     s:'> KAF · KANKAKEE' },
+  { t:'dim',  s:'  STATUS: LIVE' },
+  { t:'',     s:'> BLACK OPS AS' },
+  { t:'dim',  s:'  STATUS: LIVE' },
+  { t:'',     s:'> MIR TACTICAL' },
+  { t:'dim',  s:'  STATUS: LIVE' },
+  { t:'warn', s:'> BLASTCAMP' },
+  { t:'dim',  s:'  STATUS: LIVE' },
+  { t:'dim',  s:'---' },
+  { t:'',     s:'> LAST SCRAPE:' },
+  { t:'dim',  s:'  MON 06:00 UTC' },
+  { t:'',     s:'> NEXT SCRAPE:' },
+  { t:'dim',  s:'  7 DAYS' },
+  { t:'dim',  s:'---' },
+  { t:'warn', s:'! 40+ EVENTS 2026' },
+  { t:'',     s:'> GIANT GAME ×2' },
+  { t:'',     s:'> MILSIM OPS ×4' },
+  { t:'',     s:'> OPEN PLAYS ×∞' },
+  { t:'dim',  s:'---' },
+  { t:'',     s:'> BLACKOPS WI' },
+  { t:'dim',  s:'  WILSIM SAT' },
+  { t:'dim',  s:'  BI-WEEKLY' },
+  { t:'dim',  s:'---' },
+  { t:'alert',s:'! LOCK & LOAD' },
+  { t:'warn', s:'> STANDBY...' },
+];
+
+function buildTermLines(containerId, lines) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  el.innerHTML = '';
+  const maxLines = 22;
+  const slice = lines.slice(-maxLines);
+  slice.forEach((l, i) => {
+    const div = document.createElement('div');
+    div.className = 'term-line' + (l.t ? ' ' + l.t : '');
+    div.textContent = l.s;
+    div.style.animationDelay = (i * 60) + 'ms';
+    el.appendChild(div);
+  });
+}
+
+// cycle through terminal lines continuously
+let leftOffset = 0, rightOffset = 0;
+
+function tickTermLeft() {
+  leftOffset = (leftOffset + 1) % LEFT_LINES.length;
+  const win = LEFT_LINES.slice(leftOffset).concat(LEFT_LINES.slice(0, leftOffset)).slice(0, 22);
+  buildTermLines('term-lines-left', win);
+}
+
+function tickTermRight() {
+  rightOffset = (rightOffset + 3) % RIGHT_LINES.length;
+  const win = RIGHT_LINES.slice(rightOffset).concat(RIGHT_LINES.slice(0, rightOffset)).slice(0, 22);
+  buildTermLines('term-lines-right', win);
+}
+
+// initial render
+buildTermLines('term-lines-left',  LEFT_LINES.slice(0, 22));
+buildTermLines('term-lines-right', RIGHT_LINES.slice(0, 22));
+
+// slow scroll
+setInterval(tickTermLeft,  2800);
+setInterval(tickTermRight, 3400);
+
+// ── Clock ────────────────────────────────────────────
+function updateClock() {
+  const el = document.getElementById('term-clock');
+  if (!el) return;
+  const now = new Date();
+  const hh = String(now.getUTCHours()).padStart(2,'0');
+  const mm = String(now.getUTCMinutes()).padStart(2,'0');
+  const ss = String(now.getUTCSeconds()).padStart(2,'0');
+  el.textContent = hh + ':' + mm + ':' + ss + ' UTC';
+}
+updateClock();
+setInterval(updateClock, 1000);
+
+// ── Mouse coords display ─────────────────────────────
+const mapEl = document.getElementById('midwest-map');
+if (mapEl) {
+  mapEl.addEventListener('mousemove', function(e) {
+    const el = document.getElementById('term-coords');
+    if (!el) return;
+    const rect = mapEl.getBoundingClientRect();
+    // map to approximate lat/lon of midwest
+    const pctX = (e.clientX - rect.left) / rect.width;
+    const pctY = (e.clientY - rect.top)  / rect.height;
+    const lon = (-104 + pctX * 30).toFixed(2);
+    const lat = (49   - pctY * 18).toFixed(2);
+    el.textContent = lat + '°N ' + Math.abs(lon) + '°W';
+  });
+}
+
+// ── Stat block ───────────────────────────────────────
+const FIELD_COUNTS = { MN:2, WI:2, MI:3, IL:4, IN:3, OH:3, MO:1, KS:1 };
+function updateStatBlock(state) {
+  const el = document.getElementById('term-statblock');
+  if (!el) return;
+  const rows = state === 'all'
+    ? [
+        { l:'TOTAL FIELDS', v:'21+' },
+        { l:'STATES COVERED', v:'8' },
+        { l:'2026 EVENTS', v:'40+' },
+        { l:'MILSIM OPS', v:'4' },
+        { l:'GIANT GAMES', v:'2' },
+      ]
+    : [
+        { l:'STATE', v: state },
+        { l:'FIELDS', v: String(FIELD_COUNTS[state] || 1) },
+        { l:'STATUS', v:'ACTIVE' },
+      ];
+  el.innerHTML = rows.map(r =>
+    `<div class="stat-row"><span class="stat-row-lbl">${r.l}</span><span class="stat-row-val">${r.v}</span></div>`
+  ).join('');
+}
+updateStatBlock('all');
+
+// hook into filterState to update stat block
+const _origFilter = filterState;
+filterState = function(state, btn) {
+  _origFilter(state, btn);
+  updateStatBlock(state === activeState ? 'all' : state);
+  // inject a flash line on state select
+  if (state !== 'all') {
+    RIGHT_LINES.unshift({ t:'alert', s:'> FILTERED: ' + state });
+    RIGHT_LINES.unshift({ t:'warn',  s:'! FIELDS: ' + (FIELD_COUNTS[state]||1) });
+    if (RIGHT_LINES.length > 60) RIGHT_LINES.length = 60;
+    buildTermLines('term-lines-right', RIGHT_LINES.slice(0, 22));
+  }
+};
+
+// ── RADAR ─────────────────────────────────────────────
+const rCanvas = document.getElementById('radar-canvas');
+if (rCanvas) {
+  const rCtx = rCanvas.getContext('2d');
+  const W = rCanvas.width, H = rCanvas.height;
+  const cx = W/2, cy = H/2, R = W/2 - 6;
+  let angle = 0;
+  const GREEN  = '#88b420';
+  const GREEN2 = 'rgba(136,180,32,';
+
+  // blips: [angleFraction, radFraction, alpha]
+  const blips = [
+    [0.18, 0.55, 1], [0.42, 0.75, 1], [0.61, 0.42, 1],
+    [0.78, 0.68, 1], [0.92, 0.30, 1], [0.33, 0.88, 1],
+    [0.55, 0.20, 1], [0.12, 0.82, 1],
+  ];
+
+  // fade trail
+  const TRAIL = [];
+
+  function drawRadar() {
+    rCtx.clearRect(0, 0, W, H);
+
+    // dark bg
+    rCtx.fillStyle = '#070a06';
+    rCtx.beginPath();
+    rCtx.arc(cx, cy, R, 0, Math.PI*2);
+    rCtx.fill();
+
+    // range rings
+    [0.25, 0.5, 0.75, 1].forEach(f => {
+      rCtx.beginPath();
+      rCtx.arc(cx, cy, R*f, 0, Math.PI*2);
+      rCtx.strokeStyle = GREEN2 + '0.15)';
+      rCtx.lineWidth = 0.5;
+      rCtx.stroke();
+    });
+
+    // crosshairs
+    rCtx.strokeStyle = GREEN2 + '0.12)';
+    rCtx.lineWidth = 0.5;
+    rCtx.beginPath(); rCtx.moveTo(cx-R, cy); rCtx.lineTo(cx+R, cy); rCtx.stroke();
+    rCtx.beginPath(); rCtx.moveTo(cx, cy-R); rCtx.lineTo(cx, cy+R); rCtx.stroke();
+
+    // sweep trail (last 90° of arc)
+    const trailLen = Math.PI / 2;
+    const grad = rCtx.createConicalGradient
+      ? null // not widely supported, use sector approach
+      : null;
+
+    // draw sweep as a filled arc sector with gradient opacity
+    for (let i = 0; i < 30; i++) {
+      const a0 = angle - trailLen * (i/30);
+      const a1 = angle - trailLen * ((i+1)/30);
+      const alpha = (1 - i/30) * 0.22;
+      rCtx.beginPath();
+      rCtx.moveTo(cx, cy);
+      rCtx.arc(cx, cy, R, a0, a1, true);
+      rCtx.closePath();
+      rCtx.fillStyle = GREEN2 + alpha + ')';
+      rCtx.fill();
+    }
+
+    // sweep line
+    rCtx.beginPath();
+    rCtx.moveTo(cx, cy);
+    rCtx.lineTo(cx + Math.cos(angle)*R, cy + Math.sin(angle)*R);
+    rCtx.strokeStyle = GREEN;
+    rCtx.lineWidth = 1.5;
+    rCtx.shadowColor = GREEN;
+    rCtx.shadowBlur = 6;
+    rCtx.stroke();
+    rCtx.shadowBlur = 0;
+
+    // blips
+    blips.forEach(b => {
+      const ba = b[0] * Math.PI * 2;
+      const br = b[1] * R;
+      const bx = cx + Math.cos(ba)*br;
+      const by = cy + Math.sin(ba)*br;
+
+      // compute how recently swept (delta angle mod 2pi)
+      let delta = (angle - ba) % (Math.PI*2);
+      if (delta < 0) delta += Math.PI*2;
+      const fadeFactor = delta < Math.PI*2 ? Math.max(0, 1 - delta/(Math.PI*2)) : 0;
+
+      if (fadeFactor > 0.01) {
+        rCtx.beginPath();
+        rCtx.arc(bx, by, 2.5, 0, Math.PI*2);
+        rCtx.fillStyle = GREEN2 + (fadeFactor * 0.95) + ')';
+        rCtx.shadowColor = GREEN;
+        rCtx.shadowBlur = fadeFactor * 8;
+        rCtx.fill();
+        rCtx.shadowBlur = 0;
+      }
+    });
+
+    // outer ring
+    rCtx.beginPath();
+    rCtx.arc(cx, cy, R, 0, Math.PI*2);
+    rCtx.strokeStyle = GREEN2 + '0.4)';
+    rCtx.lineWidth = 1;
+    rCtx.stroke();
+
+    // tick marks on outer ring
+    for (let i = 0; i < 36; i++) {
+      const ta = (i / 36) * Math.PI * 2;
+      const len = i % 9 === 0 ? 5 : 2;
+      rCtx.beginPath();
+      rCtx.moveTo(cx + Math.cos(ta)*(R-len), cy + Math.sin(ta)*(R-len));
+      rCtx.lineTo(cx + Math.cos(ta)*R,       cy + Math.sin(ta)*R);
+      rCtx.strokeStyle = GREEN2 + '0.5)';
+      rCtx.lineWidth = 1;
+      rCtx.stroke();
+    }
+
+    angle += 0.025;
+    if (angle > Math.PI*2) angle -= Math.PI*2;
+    requestAnimationFrame(drawRadar);
+  }
+  drawRadar();
+}
+
+</script>
+</body>
+</html>
