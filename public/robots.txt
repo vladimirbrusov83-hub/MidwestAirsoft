@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://midwest-airsoft-silk.vercel.app/sitemap.xml
