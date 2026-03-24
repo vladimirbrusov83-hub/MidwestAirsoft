@@ -1168,6 +1168,32 @@
     background: rgba(0,0,0,0.2);
   }
 
+  /* ─── SEO BAND ──────────────────────────────────────── */
+  .seo-band {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 0.5rem;
+    text-align: center;
+  }
+
+  .seo-h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 0.5rem;
+  }
+
+  .seo-p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
   /* responsive: hide terminal panels, collapse map */
   @media (max-width: 900px) {
     .map-outer       { grid-template-columns: 1fr; }
@@ -1189,7 +1215,7 @@
         <span class="kicker-label">Midwest Region · Intel Brief · 2026</span>
       </div>
       <h1>MIDWEST<em>AIRSOFT</em></h1>
-      <p class="hdr-sub">Fields, events &amp; calendar across Illinois, Missouri, Indiana, Michigan, Minnesota, Ohio, Wisconsin &amp; beyond.</p>
+      <p class="hdr-sub">All Midwest airsoft events in one place — the best airsoft intel in the Midwest. Fields, ops &amp; calendar across Illinois, Missouri, Indiana, Michigan, Minnesota, Ohio, Wisconsin &amp; beyond.</p>
     </div>
     <div class="hdr-stats">
       <div class="stat-block">
@@ -1225,6 +1251,12 @@
 
 <!-- ═══════════════════════ MAIN ═════════════════════════ -->
 <main>
+
+<!-- SEO headlines — styled to match site, fully indexed by Google -->
+<section class="seo-band">
+  <h2 class="seo-h2">All Midwest Airsoft Events in One Place</h2>
+  <p class="seo-p">MilSim ops, big games, and open play days — automatically updated every week from field websites across IL, MN, WI, IN, MO, MI, and OH.</p>
+</section>
 
   <!-- ── FIELDS ── -->
   <section id="fields">
