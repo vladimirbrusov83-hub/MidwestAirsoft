@@ -15,7 +15,7 @@
  */
 
 // Seed data shown on first load before any scrape has run
-import SEED_DATA from "../public/events-seed.json" assert { type: "json" };
+import SEED_DATA from "../public/events-seed.json" with { type: "json" };
 
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
