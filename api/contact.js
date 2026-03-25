@@ -12,7 +12,7 @@ export default async function handler(req, res) {
   // If RESEND_API_KEY is set in Vercel env vars, send an email
   if (process.env.RESEND_API_KEY && process.env.CONTACT_EMAIL) {
     try {
-      await fetch('https://api.resend.com/emails', {
+      const r = await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
@@ -25,9 +25,10 @@ export default async function handler(req, res) {
           text: `Name: ${name}\nEmail: ${email || 'not provided'}\nType: ${type}\nState: ${state || 'not specified'}\n\n${message}`
         })
       });
+      const body = await r.json();
+      console.log('[RESEND]', r.status, JSON.stringify(body));
     } catch (err) {
       console.error('Email send failed:', err);
-      // Still return success — submission was logged
     }
   }
 
