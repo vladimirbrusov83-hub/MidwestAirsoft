@@ -668,6 +668,19 @@
 
 
   /* ─── FOOTER ──────────────────────────────────────── */
+  .hdr-contact-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--green);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity .15s;
+  }
+  .hdr-contact-link:hover { opacity: 1; }
+
   /* ── CONTACT SECTION ── */
   #contact { position: relative; z-index: 1; }
 
@@ -1302,6 +1315,7 @@
       </div>
       <h1>MIDWEST<em>AIRSOFT</em></h1>
       <p class="hdr-sub">All Midwest airsoft events in one place — the best airsoft intel in the Midwest. Fields, ops &amp; calendar across Illinois, Missouri, Indiana, Michigan, Minnesota, Ohio, Wisconsin &amp; beyond.</p>
+      <a href="#contact" class="hdr-contact-link">Know something we don't? →</a>
     </div>
     <div class="hdr-stats">
       <div class="stat-block">
@@ -2292,7 +2306,7 @@
       </div>
       <div class="cf-row">
         <label>Details</label>
-        <textarea name="message" placeholder="Field name, location, website, event date, admission price — anything you know…" required></textarea>
+        <textarea name="message" placeholder="Tell us anything — a missing field, upcoming event, wrong info, partnership idea, or just say hello." required></textarea>
       </div>
       <button type="submit" class="cf-submit">Transmit →</button>
       <div class="cf-status" id="cf-status"></div>
