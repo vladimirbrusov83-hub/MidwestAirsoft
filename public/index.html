@@ -668,6 +668,92 @@
 
 
   /* ─── FOOTER ──────────────────────────────────────── */
+  /* ── CONTACT SECTION ── */
+  #contact { position: relative; z-index: 1; }
+
+  .contact-wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 48px 80px;
+  }
+
+  .contact-form {
+    background: var(--panel);
+    border: 1px solid var(--border2);
+    border-radius: 2px;
+    padding: 40px;
+    position: relative;
+  }
+  .contact-form::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--green), transparent);
+  }
+
+  .cf-row { margin-bottom: 20px; }
+  .cf-row label {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 7px;
+  }
+  .cf-row input,
+  .cf-row select,
+  .cf-row textarea {
+    width: 100%;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color .15s;
+    -webkit-appearance: none;
+  }
+  .cf-row input:focus,
+  .cf-row select:focus,
+  .cf-row textarea:focus { border-color: var(--green); }
+  .cf-row textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
+  .cf-row select option { background: var(--bg2); }
+
+  .cf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+
+  .cf-submit {
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--green);
+    color: var(--green);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 14px;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+    border-radius: 2px;
+  }
+  .cf-submit:hover { background: var(--green); color: var(--bg); }
+  .cf-submit:disabled { opacity: .4; cursor: default; }
+
+  .cf-status {
+    margin-top: 14px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-align: center;
+    min-height: 18px;
+  }
+  .cf-status.ok  { color: var(--green); }
+  .cf-status.err { color: var(--red); }
+
   footer {
     border-top: 1px solid var(--border);
     position: relative;
@@ -1239,6 +1325,9 @@
       </a></li>
       <li><a href="#events" onclick="setActive(this)">
         <span class="nav-idx">02</span> Events
+      </a></li>
+      <li><a href="#contact" onclick="setActive(this)">
+        <span class="nav-idx">03</span> Submit Intel
       </a></li>
 
     </ul>
@@ -2152,6 +2241,65 @@
   </section>
 
 
+
+<!-- ═══════════════════════ CONTACT ══════════════════════ -->
+<section id="contact">
+  <div class="sec-hdr">
+    <div>
+      <div class="sec-eyebrow">Community Intelligence</div>
+      <div class="sec-title">Submit Intel</div>
+    </div>
+    <div class="sec-meta">Know a field or event we missed?</div>
+  </div>
+
+  <div class="contact-wrap">
+    <form class="contact-form" id="contact-form">
+      <div class="cf-grid">
+        <div class="cf-row" style="margin-bottom:0">
+          <label>Your Name</label>
+          <input type="text" name="name" placeholder="Callsign or real name" required>
+        </div>
+        <div class="cf-row" style="margin-bottom:0">
+          <label>Email (optional)</label>
+          <input type="email" name="email" placeholder="For follow-up only">
+        </div>
+      </div>
+      <div class="cf-grid">
+        <div class="cf-row" style="margin-bottom:0">
+          <label>Submission Type</label>
+          <select name="type" required>
+            <option value="" disabled selected>Select type…</option>
+            <option value="field">New Field</option>
+            <option value="event">Upcoming Event</option>
+            <option value="correction">Correction / Update</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="cf-row" style="margin-bottom:0">
+          <label>State</label>
+          <select name="state">
+            <option value="" disabled selected>Select state…</option>
+            <option>Illinois</option>
+            <option>Indiana</option>
+            <option>Michigan</option>
+            <option>Minnesota</option>
+            <option>Missouri</option>
+            <option>Ohio</option>
+            <option>Wisconsin</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="cf-row">
+        <label>Details</label>
+        <textarea name="message" placeholder="Field name, location, website, event date, admission price — anything you know…" required></textarea>
+      </div>
+      <button type="submit" class="cf-submit">Transmit →</button>
+      <div class="cf-status" id="cf-status"></div>
+    </form>
+  </div>
+</section>
+
 </main>
 
 <!-- ═══════════════════════ FOOTER ════════════════════════ -->
@@ -2283,6 +2431,37 @@ function setActive(el) {
   document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
   el.classList.add('active');
 }
+
+// ─── CONTACT FORM ────────────────────────────────────────
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('.cf-submit');
+  const status = document.getElementById('cf-status');
+  const data = Object.fromEntries(new FormData(this));
+  btn.disabled = true;
+  btn.textContent = 'Transmitting…';
+  status.className = 'cf-status';
+  status.textContent = '';
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (res.ok) {
+      status.className = 'cf-status ok';
+      status.textContent = '// Intel received. Thanks for the report.';
+      this.reset();
+    } else {
+      throw new Error('Server error');
+    }
+  } catch {
+    status.className = 'cf-status err';
+    status.textContent = '// Transmission failed. Try again.';
+  }
+  btn.disabled = false;
+  btn.textContent = 'Transmit →';
+});
 
 // ─── CALENDAR ───────────────────────────────────────────
 const events = [
