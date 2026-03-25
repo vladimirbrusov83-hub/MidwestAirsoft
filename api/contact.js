@@ -9,6 +9,7 @@ export default async function handler(req, res) {
   // Log submission to Vercel function logs (always works, no setup needed)
   console.log('[CONTACT SUBMISSION]', JSON.stringify({ name, email, type, state, message, ts: new Date().toISOString() }));
 
+  console.log('[ENV CHECK] RESEND_API_KEY:', !!process.env.RESEND_API_KEY, 'CONTACT_EMAIL:', process.env.CONTACT_EMAIL);
   // If RESEND_API_KEY is set in Vercel env vars, send an email
   if (process.env.RESEND_API_KEY && process.env.CONTACT_EMAIL) {
     try {
