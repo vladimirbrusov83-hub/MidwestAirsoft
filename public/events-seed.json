@@ -3,7 +3,7 @@
   "nextUpdate": "2026-03-30T06:00:00.000Z",
   "note": "Seed data — live data loads after first weekly scrape",
   "fields": [
-    { "id": "bingfield", "name": "Bing Field Airsoft & Paintball Park", "location": "Alton, IL (St. Louis Metro)", "state": "MO", "description": "St. Louis area's premier facility. 60+ acres, City of Bedlam urban field. Monthly Big Games $30.", "tags": ["Outdoor", "Big Games"], "url": "https://bingfield.com/" },
+    { "id": "bingfield", "name": "Bing Field Airsoft & Paintball Park", "location": "Alton, IL (St. Louis Metro)", "state": "IL", "description": "St. Louis area's premier facility. 60+ acres, City of Bedlam urban field. Monthly Big Games $30.", "tags": ["Outdoor", "Big Games"], "url": "https://bingfield.com/" },
     { "id": "twincities", "name": "Twin Cities Airsoft (TCA)", "location": "Minneapolis/St. Paul Metro, MN", "state": "MN", "description": "Minnesota's premier scenario field. High Intensity Airsoft events monthly. Bio BB only. Giant Games 2x yearly.", "tags": ["Outdoor", "Scenario Games"], "url": "https://www.twincitiesairsoft.com/" },
     { "id": "kankakee", "name": "Kankakee Airsoft Factory", "location": "Kankakee, IL", "state": "IL", "description": "7-story factory building with CQB floors + outdoor area. Hosted by MiR Tactical. Open plays Mar–Nov.", "tags": ["Indoor", "Outdoor", "MilSim"], "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/" },
     { "id": "mirtactical", "name": "MiR Tactical HQ — Buffalo Grove", "location": "Buffalo Grove, IL", "state": "IL", "description": "Midwest's largest airsoft retailer & event organizer. Hosts Tier 1–3 MilSim events.", "tags": ["MilSim", "Indoor"], "url": "https://mirtactical.com/" },
@@ -18,7 +18,7 @@
     { "id": "blackops", "name": "Black Ops Airsoft", "location": "Bristol, WI (near Kenosha / Chicago border)", "state": "WI", "description": "Midwest's largest pay-to-play airsoft-only field. Open year-round. Outdoor + urban town gameplay. WilSim Saturdays & MilSim events. Fri $10 · Sat–Sun $20. Rentals $15.", "tags": ["Outdoor", "Urban CQB", "MilSim"], "url": "https://www.blackops-airsoft.com/" }
   ],
   "events": [
-    { "date": "2026-03-29", "name": "Dragon's Tooth IX — Big Game", "type": "big", "price": "$30", "url": "https://bingfield.com/", "fieldId": "bingfield", "fieldName": "Bing Field", "location": "Alton, IL", "state": "MO" },
+    { "date": "2026-03-29", "name": "Dragon's Tooth IX — Big Game", "type": "big", "price": "$30", "url": "https://bingfield.com/", "fieldId": "bingfield", "fieldName": "Bing Field", "location": "Alton, IL", "state": "IL" },
     { "date": "2026-03-29", "name": "Kankakee Factory Open Play", "type": "open", "price": "$30", "url": "https://mirtactical.com/", "fieldId": "kankakee", "fieldName": "Kankakee Airsoft Factory", "location": "Kankakee, IL", "state": "IL" },
     { "date": "2026-04-04", "name": "HOLY GRAIL — HI Airsoft Weekend Day 1", "type": "big", "price": "$40-50", "url": "https://www.twincitiesairsoft.com/", "fieldId": "twincities", "fieldName": "Twin Cities Airsoft", "location": "MN", "state": "MN" },
     { "date": "2026-04-05", "name": "HOLY GRAIL — HI Airsoft Weekend Day 2", "type": "big", "price": "$30-50", "url": "https://www.twincitiesairsoft.com/", "fieldId": "twincities", "fieldName": "Twin Cities Airsoft", "location": "MN", "state": "MN" },
