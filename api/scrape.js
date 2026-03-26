@@ -6,13 +6,13 @@
  *
  * Flow:
  *   1. Fetch raw HTML from each field website
- *   2. Send relevant text to Claude API for structured event extraction
+ *   2. Send relevant text to Gemini API for structured event extraction
  *   3. Merge with static fields data
  *   4. Write events.json to /public/ so the frontend can load it
  *
  * Env vars needed in Vercel dashboard:
- *   ANTHROPIC_API_KEY   — your Anthropic key
- *   CRON_SECRET         — any random string to protect manual trigger
+ *   GEMINI_API_KEY   — your Google Gemini API key (free tier works)
+ *   CRON_SECRET      — any random string to protect manual trigger
  */
 
 import { writeFile } from "fs/promises";
@@ -238,10 +238,11 @@ async function fetchText(url) {
 }
 
 /**
- * Ask Claude to extract structured events from raw page text.
+ * Ask Gemini to extract structured events from raw page text.
+ * Uses the free tier of Google Gemini (gemini-2.0-flash-lite).
  * Returns an array of event objects or [] on failure.
  */
-async function extractEventsWithClaude(source, rawText) {
+async function extractEventsWithGemini(source, rawText) {
   const today = new Date().toISOString().split("T")[0];
 
   const prompt = `You are extracting airsoft event data from a website.
@@ -270,27 +271,26 @@ Respond with ONLY a JSON array. No explanation, no markdown fences. Each object 
 If no future events are found, return an empty array: []`;
 
   try {
-    const res = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": process.env.ANTHROPIC_API_KEY,
-        "anthropic-version": "2023-06-01",
-      },
-      body: JSON.stringify({
-        model: "claude-haiku-4-5-20251001", // fast + cheap for extraction
-        max_tokens: 2000,
-        messages: [{ role: "user", content: prompt }],
-      }),
-    });
+    const apiKey = process.env.GEMINI_API_KEY;
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { maxOutputTokens: 2000 },
+        }),
+      }
+    );
 
     if (!res.ok) {
-      console.error(`Claude API error for ${source.id}:`, res.status);
+      console.error(`Gemini API error for ${source.id}:`, res.status);
       return [];
     }
 
     const data = await res.json();
-    const text = data.content?.[0]?.text || "[]";
+    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "[]";
 
     // Strip any accidental markdown fences
     const clean = text.replace(/```json|```/g, "").trim();
@@ -346,12 +346,12 @@ export default async function handler(req, res) {
       continue;
     }
 
-    const events = await extractEventsWithClaude(source, rawText);
+    const events = await extractEventsWithGemini(source, rawText);
     console.log(`  ✓ ${source.id}: ${events.length} events extracted`);
     allEvents.push(...events);
     results.push({ id: source.id, status: "ok", events: events.length });
 
-    // Small delay between Claude calls to be polite
+    // Small delay between Gemini calls to be polite
     await new Promise((r) => setTimeout(r, 500));
   }
 
