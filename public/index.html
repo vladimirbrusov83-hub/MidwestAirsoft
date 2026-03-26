@@ -398,6 +398,36 @@
     font-weight: 500;
   }
 
+  /* ── EVENT FILTERS ── */
+  .ev-filters { margin-bottom: 28px; display: flex; flex-direction: column; gap: 8px; }
+  .ev-filter-row { display: flex; flex-wrap: wrap; gap: 5px; }
+  .ev-filter-lbl {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 6px 4px 0 0;
+    min-width: 44px;
+  }
+  .ev-fbtn {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 13px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .14s;
+    clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 0 100%);
+  }
+  .ev-fbtn:hover { border-color: var(--border2); color: var(--text); }
+  .ev-fbtn.active { background: var(--green); border-color: var(--green); color: #090c07; font-weight: 500; }
+  .ev-no-results { color: var(--muted); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1px; padding: 32px 0; display: none; }
+  .ev-no-results.visible { display: block; }
+
   /* ─── FIELDS GRID ─────────────────────────────────── */
   .fields-grid {
     display: grid;
@@ -2320,6 +2350,32 @@
       <div class="sec-meta">Future dates only</div>
     </div>
 
+    <div class="ev-filters">
+      <div class="ev-filter-row">
+        <span class="ev-filter-lbl">State</span>
+        <button class="ev-fbtn active" onclick="evFilter('state','all',this)">All States</button>
+        <button class="ev-fbtn" onclick="evFilter('state','IL',this)">Illinois</button>
+        <button class="ev-fbtn" onclick="evFilter('state','IN',this)">Indiana</button>
+        <button class="ev-fbtn" onclick="evFilter('state','MI',this)">Michigan</button>
+        <button class="ev-fbtn" onclick="evFilter('state','MN',this)">Minnesota</button>
+        <button class="ev-fbtn" onclick="evFilter('state','MO',this)">Missouri</button>
+        <button class="ev-fbtn" onclick="evFilter('state','OH',this)">Ohio</button>
+        <button class="ev-fbtn" onclick="evFilter('state','WI',this)">Wisconsin</button>
+      </div>
+      <div class="ev-filter-row">
+        <span class="ev-filter-lbl">Month</span>
+        <button class="ev-fbtn active" onclick="evFilter('month',0,this)">All</button>
+        <button class="ev-fbtn" onclick="evFilter('month',4,this)">Apr</button>
+        <button class="ev-fbtn" onclick="evFilter('month',5,this)">May</button>
+        <button class="ev-fbtn" onclick="evFilter('month',6,this)">Jun</button>
+        <button class="ev-fbtn" onclick="evFilter('month',7,this)">Jul</button>
+        <button class="ev-fbtn" onclick="evFilter('month',8,this)">Aug</button>
+        <button class="ev-fbtn" onclick="evFilter('month',9,this)">Sep</button>
+        <button class="ev-fbtn" onclick="evFilter('month',10,this)">Oct</button>
+        <button class="ev-fbtn" onclick="evFilter('month',11,this)">Nov</button>
+      </div>
+    </div>
+
     <div class="events-list">
 
       <a class="event-row" href="https://www.blackops-airsoft.com/willsim-saturday.htm" target="_blank">
@@ -2906,6 +2962,7 @@
         <div class="ev-arrow">→</div>
       </a>
 
+      <div class="ev-no-results" id="ev-no-results">No events found for this filter combination.</div>
     </div>
   </section>
 
@@ -2982,6 +3039,50 @@
 <script>
 // ─── STATE FILTER (map + buttons synced) ────────────────
 let activeState = 'all';
+
+// ── EVENT FILTERS ─────────────────────────────────────────
+let evActiveState = 'all';
+let evActiveMonth = 0;
+
+const MONTH_MAP = { Jan:1, Feb:2, Mar:3, Apr:4, May:5, Jun:6, Jul:7, Aug:8, Sep:9, Oct:10, Nov:11, Dec:12 };
+const RECURRING = ['Bi-Weekly','Monthly','Sat–Sun','May–Nov','∞'];
+
+function applyEvFilters() {
+  let visible = 0;
+  document.querySelectorAll('.event-row').forEach(row => {
+    const venue = row.querySelector('.ev-venue')?.textContent || '';
+    const monthTxt = row.querySelector('.ev-month')?.textContent || '';
+
+    const stateOk = evActiveState === 'all' ||
+      new RegExp(`[,·]\\s*${evActiveState}\\b`).test(venue);
+
+    const isRecurring = RECURRING.some(r => monthTxt.includes(r));
+    const evMonth = Object.entries(MONTH_MAP).find(([k]) => monthTxt.startsWith(k))?.[1];
+    const monthOk = evActiveMonth === 0 || isRecurring || evMonth === evActiveMonth;
+
+    const show = stateOk && monthOk;
+    row.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  const noRes = document.getElementById('ev-no-results');
+  if (noRes) noRes.classList.toggle('visible', visible === 0);
+}
+
+function evFilter(type, val, btn) {
+  if (type === 'state') {
+    evActiveState = val;
+    document.querySelectorAll('.ev-filter-row').forEach((row, i) => {
+      if (i === 0) row.querySelectorAll('.ev-fbtn').forEach(b => b.classList.remove('active'));
+    });
+  } else {
+    evActiveMonth = val;
+    document.querySelectorAll('.ev-filter-row').forEach((row, i) => {
+      if (i === 1) row.querySelectorAll('.ev-fbtn').forEach(b => b.classList.remove('active'));
+    });
+  }
+  btn.classList.add('active');
+  applyEvFilters();
+}
 
 function filterState(state, btn) {
   // toggle: clicking same state resets to all
