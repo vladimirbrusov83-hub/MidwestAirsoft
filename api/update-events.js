@@ -1,27 +1,27 @@
 /**
  * /api/update-events.js
  *
- * Runs every Wednesday at 6 PM Central Time (23:00 UTC) via Vercel Cron.
- * For each known field it:
- *   1. Fetches the field's website
- *   2. Sends the page text to Groq AI to extract upcoming events
- *   3. Saves the merged result to Vercel KV
+ * Cron: every Wednesday 6 PM CT (23:00 UTC) — vercel.json schedule.
  *
- * Required env vars (set in Vercel dashboard):
- *   GROQ_API_KEY       — free at console.groq.com
- *   KV_REST_API_URL    — Vercel KV (already used by events.js)
- *   KV_REST_API_TOKEN  — Vercel KV
+ * Flow:
+ *   1. Fetch each field's website
+ *   2. Ask Groq AI to extract upcoming events from the page text
+ *   3. Commit the result as public/events-seed.json to GitHub
+ *   4. Vercel auto-deploys → frontend gets fresh data
  *
- * Vercel automatically injects CRON_SECRET and sends it as
- * "Authorization: Bearer <CRON_SECRET>" on every cron trigger.
+ * Required env vars (Vercel dashboard):
+ *   GROQ_API_KEY    — console.groq.com (free)
+ *   GITHUB_TOKEN    — github.com/settings/personal-access-tokens
+ *                     (fine-grained, Contents: read+write, MidwestAirsoft repo only)
  */
 
 import SEED_DATA from '../public/events-seed.json' with { type: 'json' };
 
-const GROQ_URL   = 'https://api.groq.com/openai/v1/chat/completions';
-const GROQ_MODEL = 'llama-3.3-70b-versatile'; // free tier
+const GROQ_URL    = 'https://api.groq.com/openai/v1/chat/completions';
+const GROQ_MODEL  = 'llama-3.3-70b-versatile';
+const GITHUB_REPO = 'vladimirbrusov83-hub/MidwestAirsoft';
+const SEED_PATH   = 'public/events-seed.json';
 
-// Fields with crawlable websites (Facebook-only fields are skipped)
 const FIELDS = [
   { id: 'bingfield',     name: 'Bing Field',              state: 'MO', location: 'Alton, IL',         url: 'https://bingfield.com/' },
   { id: 'twincities',   name: 'Twin Cities Airsoft',      state: 'MN', location: 'Minneapolis, MN',   url: 'https://www.twincitiesairsoft.com/' },
@@ -32,11 +32,10 @@ const FIELDS = [
   { id: 'hellsurvivors',name: 'Hell Survivors',           state: 'MI', location: 'Pinckney, MI',      url: 'https://www.hellsurvivors.com/' },
   { id: 'i70',          name: 'i70 Paintball & Airsoft',  state: 'OH', location: 'Huber Heights, OH', url: 'https://www.i70paintball.com/' },
   { id: 'crossfire',    name: 'Crossfire Airsoft',        state: 'MN', location: 'Clearwater, MN',    url: 'https://www.crossfire-airsoft.com/' },
-  { id: 'wardenoh',     name: 'War Den Airsoft',           state: 'OH', location: 'Stone Creek, OH',    url: 'https://www.theairsoftden.com/' },
+  { id: 'wardenoh',     name: 'War Den Airsoft',          state: 'OH', location: 'Stone Creek, OH',   url: 'https://www.theairsoftden.com/' },
   { id: 'blackops',     name: 'Black Ops Airsoft',        state: 'WI', location: 'Bristol, WI',       url: 'https://www.blackops-airsoft.com/' },
 ];
 
-/** Strip HTML tags and boilerplate, keep up to 4 000 chars of readable text */
 function cleanHtml(html) {
   return html
     .replace(/<script[\s\S]*?<\/script>/gi, '')
@@ -54,7 +53,7 @@ function cleanHtml(html) {
 async function fetchPage(url) {
   try {
     const res = await fetch(url, {
-      headers: { 'User-Agent': 'MidwestAirsoft-EventBot/1.0 (weekly cron)' },
+      headers: { 'User-Agent': 'MidwestAirsoft-EventBot/1.0' },
       signal: AbortSignal.timeout(10000),
     });
     if (!res.ok) return null;
@@ -67,85 +66,62 @@ async function fetchPage(url) {
 async function extractEvents(field, pageText, today) {
   const prompt = `Extract upcoming airsoft events from this website text.
 
-Field: ${field.name}
-Location: ${field.location}, ${field.state}
+Field: ${field.name}, ${field.location}, ${field.state}
 Today: ${today}
 
 Website content:
 ${pageText}
 
-Return ONLY a valid JSON array — no markdown fences, no explanation. Schema:
-[
-  {
-    "date": "YYYY-MM-DD",
-    "name": "Event Name",
-    "type": "open|big|milsim|tournament",
-    "price": "$XX or free or TBD",
-    "url": "https://...",
-    "fieldId": "${field.id}",
-    "fieldName": "${field.name}",
-    "location": "${field.location}",
-    "state": "${field.state}"
-  }
-]
+Return ONLY a valid JSON array — no markdown, no explanation:
+[{"date":"YYYY-MM-DD","name":"Event Name","type":"open|big|milsim|tournament","price":"$XX or TBD","url":"https://...","fieldId":"${field.id}","fieldName":"${field.name}","location":"${field.location}","state":"${field.state}"}]
 
-Rules:
-- Only include events dated AFTER ${today}
-- Dates must be YYYY-MM-DD format
-- type must be one of: open, big, milsim, tournament
-- Event names under 70 characters
-- If no events found, return []`;
+Rules: only events after ${today}, YYYY-MM-DD dates, names under 70 chars, return [] if none found.`;
 
   const res = await fetch(GROQ_URL, {
     method: 'POST',
-    headers: {
-      Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      model:       GROQ_MODEL,
-      messages:    [{ role: 'user', content: prompt }],
-      temperature: 0.1,
-      max_tokens:  1024,
-    }),
+    headers: { Authorization: `Bearer ${process.env.GROQ_API_KEY}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ model: GROQ_MODEL, messages: [{ role: 'user', content: prompt }], temperature: 0.1, max_tokens: 1024 }),
   });
 
   if (!res.ok) throw new Error(`Groq HTTP ${res.status}`);
-
   const json  = await res.json();
   const text  = json.choices?.[0]?.message?.content ?? '[]';
   const match = text.match(/\[[\s\S]*\]/);
   if (!match) return [];
-
-  return JSON.parse(match[0]);
+  try { return JSON.parse(match[0]); } catch { return []; }
 }
 
-async function saveToKV(data) {
-  const res = await fetch(
-    `${process.env.KV_REST_API_URL}/set/midwest-airsoft-events`,
-    {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ value: JSON.stringify(data) }),
-    }
-  );
-  return res.ok;
+async function commitToGitHub(content) {
+  const token = process.env.GITHUB_TOKEN;
+  const apiBase = `https://api.github.com/repos/${GITHUB_REPO}/contents/${SEED_PATH}`;
+  const headers = { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github.v3+json', 'Content-Type': 'application/json' };
+
+  // Need the current file's SHA to update it
+  const getRes = await fetch(apiBase, { headers });
+  const { sha } = await getRes.json();
+
+  const putRes = await fetch(apiBase, {
+    method: 'PUT',
+    headers,
+    body: JSON.stringify({
+      message: `chore: auto-update events ${new Date().toISOString().split('T')[0]}`,
+      content: Buffer.from(content).toString('base64'),
+      sha,
+    }),
+  });
+
+  return putRes.ok;
 }
 
 export default async function handler(req, res) {
   // Vercel cron sends: Authorization: Bearer <CRON_SECRET>
-  const authHeader = req.headers['authorization'] ?? '';
-  const token = authHeader.replace('Bearer ', '');
+  const token = (req.headers['authorization'] ?? '').replace('Bearer ', '');
   if (process.env.CRON_SECRET && token !== process.env.CRON_SECRET) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
 
-  if (!process.env.GROQ_API_KEY) {
-    return res.status(500).json({ error: 'GROQ_API_KEY not set in Vercel env vars' });
-  }
+  if (!process.env.GROQ_API_KEY)   return res.status(500).json({ error: 'GROQ_API_KEY not set' });
+  if (!process.env.GITHUB_TOKEN)   return res.status(500).json({ error: 'GITHUB_TOKEN not set' });
 
   const today  = new Date().toISOString().split('T')[0];
   const events = [];
@@ -154,10 +130,7 @@ export default async function handler(req, res) {
   for (const field of FIELDS) {
     try {
       const text = await fetchPage(field.url);
-      if (!text) {
-        log.push(`${field.id}: fetch failed`);
-        continue;
-      }
+      if (!text) { log.push(`${field.id}: fetch failed`); continue; }
 
       const found = await extractEvents(field, text, today);
       events.push(...found);
@@ -167,7 +140,6 @@ export default async function handler(req, res) {
     }
   }
 
-  // Sort chronologically
   events.sort((a, b) => a.date.localeCompare(b.date));
 
   const nextRun = new Date();
@@ -177,16 +149,12 @@ export default async function handler(req, res) {
     lastUpdated: new Date().toISOString(),
     nextUpdate:  nextRun.toISOString(),
     note:        `Auto-updated by Groq AI on ${today}`,
-    fields:      SEED_DATA.fields,   // field directory stays static
+    fields:      SEED_DATA.fields,
     events,
   };
 
-  if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
-    const saved = await saveToKV(payload);
-    log.push(`KV write: ${saved ? 'success' : 'FAILED'}`);
-  } else {
-    log.push('KV not configured — events not persisted');
-  }
+  const committed = await commitToGitHub(JSON.stringify(payload, null, 2));
+  log.push(`GitHub commit: ${committed ? 'success → Vercel deploying' : 'FAILED'}`);
 
   console.log('[update-events]', log.join(' | '));
   return res.status(200).json({ ok: true, eventsFound: events.length, today, log });
