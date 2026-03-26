@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Midwest Airsoft fields and events hub with weekly auto-refresh",
   "scripts": {
-    "dev": "vercel dev",
-    "scrape": "node api/scrape.js"
+    "dev": "vercel dev"
   },
   "dependencies": {
     "node-fetch": "^3.3.2"
