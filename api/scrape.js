@@ -6,13 +6,13 @@
  *
  * Flow:
  *   1. Fetch raw HTML from each field website
- *   2. Send relevant text to Gemini API for structured event extraction
+ *   2. Send relevant text to Groq API for structured event extraction
  *   3. Merge with static fields data
  *   4. Write events.json to /public/ so the frontend can load it
  *
  * Env vars needed in Vercel dashboard:
- *   GEMINI_API_KEY   — your Google Gemini API key (free tier works)
- *   CRON_SECRET      — any random string to protect manual trigger
+ *   GROQ_API_KEY   — your Groq API key (free tier)
+ *   CRON_SECRET    — any random string to protect manual trigger
  */
 
 import { writeFile } from "fs/promises";
@@ -238,11 +238,11 @@ async function fetchText(url) {
 }
 
 /**
- * Ask Gemini to extract structured events from raw page text.
- * Uses the free tier of Google Gemini (gemini-2.0-flash-lite).
+ * Ask Groq to extract structured events from raw page text.
+ * Uses Groq free tier with llama-3.1-8b-instant.
  * Returns an array of event objects or [] on failure.
  */
-async function extractEventsWithGemini(source, rawText) {
+async function extractEventsWithGroq(source, rawText) {
   const today = new Date().toISOString().split("T")[0];
 
   const prompt = `You are extracting airsoft event data from a website.
@@ -271,26 +271,26 @@ Respond with ONLY a JSON array. No explanation, no markdown fences. Each object 
 If no future events are found, return an empty array: []`;
 
   try {
-    const apiKey = process.env.GEMINI_API_KEY;
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { maxOutputTokens: 2000 },
-        }),
-      }
-    );
+    const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${process.env.GROQ_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: "llama-3.1-8b-instant",
+        max_tokens: 2000,
+        messages: [{ role: "user", content: prompt }],
+      }),
+    });
 
     if (!res.ok) {
-      console.error(`Gemini API error for ${source.id}:`, res.status);
+      console.error(`Groq API error for ${source.id}:`, res.status);
       return [];
     }
 
     const data = await res.json();
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "[]";
+    const text = data.choices?.[0]?.message?.content || "[]";
 
     // Strip any accidental markdown fences
     const clean = text.replace(/```json|```/g, "").trim();
@@ -346,7 +346,7 @@ export default async function handler(req, res) {
       continue;
     }
 
-    const events = await extractEventsWithGemini(source, rawText);
+    const events = await extractEventsWithGroq(source, rawText);
     console.log(`  ✓ ${source.id}: ${events.length} events extracted`);
     allEvents.push(...events);
     results.push({ id: source.id, status: "ok", events: events.length });
