@@ -32,6 +32,7 @@ const FIELDS = [
   { id: 'hellsurvivors',name: 'Hell Survivors',           state: 'MI', location: 'Pinckney, MI',      url: 'https://www.hellsurvivors.com/' },
   { id: 'i70',          name: 'i70 Paintball & Airsoft',  state: 'OH', location: 'Huber Heights, OH', url: 'https://www.i70paintball.com/' },
   { id: 'crossfire',    name: 'Crossfire Airsoft',        state: 'MN', location: 'Clearwater, MN',    url: 'https://www.crossfire-airsoft.com/' },
+  { id: 'wardenoh',     name: 'War Den Airsoft',           state: 'OH', location: 'Stone Creek, OH',    url: 'https://www.theairsoftden.com/' },
   { id: 'blackops',     name: 'Black Ops Airsoft',        state: 'WI', location: 'Bristol, WI',       url: 'https://www.blackops-airsoft.com/' },
 ];
 
