@@ -1427,7 +1427,7 @@
         <text class="map-label map-label-inactive" x="304" y="206">IA</text>
 
         <!-- Illinois -->
-        <path class="map-state" id="map-IL" data-state="IL" data-name="Illinois" data-count="4"
+        <path class="map-state" id="map-IL" data-state="IL" data-name="Illinois" data-count="5"
           d="M364,198 L378,204 L390,198 L396,180 L410,172 L414,180 L424,190 L436,192 L440,208 L430,220 L432,236 L424,250 L420,268 L408,276 L398,292 L390,312 L378,320 L368,314 L360,300 L358,282 L362,266 L354,250 L354,230 L360,218 Z"/>
         <text class="map-label" x="397" y="248">IL</text>
 
@@ -1442,7 +1442,7 @@
         <text class="map-label" x="519" y="200">OH</text>
 
         <!-- Missouri -->
-        <path class="map-state" id="map-MO" data-state="MO" data-name="Missouri" data-count="1"
+        <path class="map-state" id="map-MO" data-state="MO" data-name="Missouri" data-count="0"
           d="M268,248 L282,238 L298,242 L322,242 L338,232 L354,230 L354,250 L362,266 L358,282 L360,300 L354,312 L342,322 L326,324 L310,320 L296,314 L284,304 L272,292 L262,280 L260,262 Z"/>
         <text class="map-label" x="308" y="280">MO</text>
 
@@ -1462,11 +1462,12 @@
         <circle class="field-dot" data-state="MI" cx="438" cy="148" r="4"/>
         <circle class="field-dot" data-state="MI" cx="455" cy="140" r="4"/>
         <circle class="field-dot" data-state="MI" cx="466" cy="156" r="4"/>
-        <!-- IL: 4 fields -->
+        <!-- IL: 5 fields -->
         <circle class="field-dot" data-state="IL" cx="398" cy="216" r="4"/>
         <circle class="field-dot" data-state="IL" cx="408" cy="230" r="4"/>
         <circle class="field-dot" data-state="IL" cx="386" cy="238" r="4"/>
         <circle class="field-dot" data-state="IL" cx="378" cy="252" r="4"/>
+        <circle class="field-dot" data-state="IL" cx="370" cy="262" r="4"/>
         <!-- IN: 3 fields -->
         <circle class="field-dot" data-state="IN" cx="452" cy="210" r="4"/>
         <circle class="field-dot" data-state="IN" cx="464" cy="226" r="4"/>
@@ -1475,8 +1476,7 @@
         <circle class="field-dot" data-state="OH" cx="508" cy="192" r="4"/>
         <circle class="field-dot" data-state="OH" cx="522" cy="206" r="4"/>
         <circle class="field-dot" data-state="OH" cx="514" cy="218" r="4"/>
-        <!-- MO: 1 field -->
-        <circle class="field-dot" data-state="MO" cx="322" cy="276" r="4"/>
+        <!-- MO: 0 fields -->
         <!-- KS: 1 field -->
         <circle class="field-dot" data-state="KS" cx="234" cy="294" r="4"/>
 
@@ -1495,7 +1495,7 @@
         </g>
         <g class="map-badge-grp" data-state="IL" onclick="filterState('IL',null)">
           <circle cx="396" cy="270" r="11" class="badge-ring"/>
-          <text x="396" y="275" class="badge-num">4</text>
+          <text x="396" y="275" class="badge-num">5</text>
         </g>
         <g class="map-badge-grp" data-state="IN" onclick="filterState('IN',null)">
           <circle cx="462" cy="254" r="11" class="badge-ring"/>
@@ -1507,7 +1507,7 @@
         </g>
         <g class="map-badge-grp" data-state="MO" onclick="filterState('MO',null)">
           <circle cx="308" cy="308" r="11" class="badge-ring"/>
-          <text x="308" y="313" class="badge-num">1</text>
+          <text x="308" y="313" class="badge-num">0</text>
         </g>
         <g class="map-badge-grp" data-state="KS" onclick="filterState('KS',null)">
           <circle cx="220" cy="298" r="11" class="badge-ring"/>
@@ -1572,10 +1572,10 @@
           <span class="mob-tile-name">Minnesota</span>
           <span class="mob-tile-count">2 fields</span>
         </button>
-        <button class="mob-state-tile" data-state="MO" onclick="filterState('MO',null)">
-          <span class="mob-tile-code">MO</span>
+        <button class="mob-state-tile" data-state="MO" onclick="filterState('MO',null)" style="opacity:0.35;pointer-events:none">
+          <span class="mob-tile-code" style="color:var(--muted)">MO</span>
           <span class="mob-tile-name">Missouri</span>
-          <span class="mob-tile-count">1 field</span>
+          <span class="mob-tile-count" style="color:var(--muted)">—</span>
         </button>
         <button class="mob-state-tile" data-state="KS" onclick="filterState('KS',null)">
           <span class="mob-tile-code">KS</span>
@@ -1597,7 +1597,6 @@
     <div class="state-filter" id="state-filter">
       <button class="state-btn active" id="btn-all" onclick="filterState('all', this)">All States</button>
       <button class="state-btn" id="btn-IL" onclick="filterState('IL', this)">Illinois</button>
-      <button class="state-btn" id="btn-MO" onclick="filterState('MO', this)">Missouri</button>
       <button class="state-btn" id="btn-IN" onclick="filterState('IN', this)">Indiana</button>
       <button class="state-btn" id="btn-MI" onclick="filterState('MI', this)">Michigan</button>
       <button class="state-btn" id="btn-MN" onclick="filterState('MN', this)">Minnesota</button>
@@ -1658,11 +1657,11 @@
         <a href="https://blastcamp.com/airsoft/" target="_blank" class="field-link">Visit Site</a>
       </div>
 
-      <!-- MISSOURI -->
-      <div class="field-card visible" data-state="MO">
+      <!-- ILLINOIS (Bing Field) -->
+      <div class="field-card visible" data-state="IL">
         <div class="card-corner"></div>
         <div class="field-state-row">
-          <span class="field-state">Missouri / Illinois</span>
+          <span class="field-state">Illinois</span>
           <span class="state-rule"></span>
         </div>
         <div class="field-name">Bing Field Airsoft &amp; Paintball Park</div>
@@ -2708,7 +2707,7 @@ if (mapEl) {
 }
 
 // ── Stat block ───────────────────────────────────────
-const FIELD_COUNTS = { MN:2, WI:2, MI:3, IL:4, IN:3, OH:3, MO:1, KS:1 };
+const FIELD_COUNTS = { MN:2, WI:2, MI:3, IL:5, IN:3, OH:3, KS:1 };
 function updateStatBlock(state) {
   const el = document.getElementById('term-statblock');
   if (!el) return;
