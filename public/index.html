@@ -1320,7 +1320,7 @@
     <div class="hdr-stats">
       <div class="stat-block">
         <span class="stat-lbl">Active Fields</span>
-        <span class="stat-val">59</span>
+        <span class="stat-val">56</span>
       </div>
       <div class="stat-block" style="margin-top:2px">
         <span class="stat-lbl">Events in 2026</span>
@@ -1368,7 +1368,7 @@
         <div class="sec-eyebrow">Intel · Confirmed Locations</div>
         <div class="sec-title">Fields</div>
       </div>
-      <div class="sec-meta" id="field-count">59 locations</div>
+      <div class="sec-meta" id="field-count">56 locations</div>
     </div>
 
     <!-- ── INTERACTIVE MAP + TERMINAL ── -->
@@ -1432,7 +1432,7 @@
         <text class="map-label" x="397" y="248">IL</text>
 
         <!-- Indiana -->
-        <path class="map-state" id="map-IN" data-state="IN" data-name="Indiana" data-count="11"
+        <path class="map-state" id="map-IN" data-state="IN" data-name="Indiana" data-count="8"
           d="M436,192 L444,178 L456,170 L470,174 L486,168 L492,182 L496,200 L492,218 L488,236 L480,250 L472,258 L458,262 L446,258 L436,246 L432,236 L430,220 L440,208 Z"/>
         <text class="map-label" x="463" y="218">IN</text>
 
@@ -1499,7 +1499,7 @@
         </g>
         <g class="map-badge-grp" data-state="IN" onclick="filterState('IN',null)">
           <circle cx="462" cy="254" r="11" class="badge-ring"/>
-          <text x="462" y="259" class="badge-num">11</text>
+          <text x="462" y="259" class="badge-num">8</text>
         </g>
         <g class="map-badge-grp" data-state="OH" onclick="filterState('OH',null)">
           <circle cx="522" cy="224" r="11" class="badge-ring"/>
@@ -2030,25 +2030,6 @@
         <a href="https://www.airsoftc3.com/us/in/fields" target="_blank" class="field-link">Find on AirsoftC3</a>
       </div>
 
-      <div class="field-card visible" data-state="IN">
-        <div class="card-corner"></div>
-        <div class="field-state-row"><span class="field-state">Indiana</span><span class="state-rule"></span></div>
-        <div class="field-name">ShotZone</div>
-        <div class="field-location">Martinsville, IN</div>
-        <div class="field-tags"><span class="tag outdoor">Outdoor</span><span class="tag milsim">SpeedSoft</span></div>
-        <p class="field-desc">Competitive SpeedSoft-focused field south of Indianapolis. Fast-paced format, regular tournaments.</p>
-        <a href="https://www.airsoftc3.com/us/in/fields" target="_blank" class="field-link">Find on AirsoftC3</a>
-      </div>
-
-      <div class="field-card visible" data-state="IN">
-        <div class="card-corner"></div>
-        <div class="field-state-row"><span class="field-state">Indiana</span><span class="state-rule"></span></div>
-        <div class="field-name">Silver Spur Splat</div>
-        <div class="field-location">Princeton, IN</div>
-        <div class="field-tags"><span class="tag outdoor">Outdoor</span></div>
-        <p class="field-desc">Southwest Indiana paintball &amp; airsoft field. Open play and organized events in Gibson County.</p>
-        <a href="https://www.airsoftc3.com/us/in/fields" target="_blank" class="field-link">Find on AirsoftC3</a>
-      </div>
 
       <div class="field-card visible" data-state="IN">
         <div class="card-corner"></div>
@@ -2060,15 +2041,6 @@
         <a href="https://www.airsoftc3.com/us/in/fields" target="_blank" class="field-link">Find on AirsoftC3</a>
       </div>
 
-      <div class="field-card visible" data-state="IN">
-        <div class="card-corner"></div>
-        <div class="field-state-row"><span class="field-state">Indiana</span><span class="state-rule"></span></div>
-        <div class="field-name">Blackops Meat Grinder</div>
-        <div class="field-location">Goshen, IN</div>
-        <div class="field-tags"><span class="tag outdoor">Outdoor</span><span class="tag milsim">MilSim</span></div>
-        <p class="field-desc">Northern Indiana airsoft field known for intense game play. Regular ops and open play in Elkhart County.</p>
-        <a href="https://www.airsoftc3.com/us/in/fields" target="_blank" class="field-link">Find on AirsoftC3</a>
-      </div>
 
       <div class="field-card visible" data-state="IN">
         <div class="card-corner"></div>
@@ -3391,13 +3363,13 @@ if (mapEl) {
 }
 
 // ── Stat block ───────────────────────────────────────
-const FIELD_COUNTS = { MN:4, WI:6, MI:10, IL:11, IN:11, OH:12, MO:4, KS:1 };
+const FIELD_COUNTS = { MN:4, WI:6, MI:10, IL:11, IN:8, OH:12, MO:4, KS:1 };
 function updateStatBlock(state) {
   const el = document.getElementById('term-statblock');
   if (!el) return;
   const rows = state === 'all'
     ? [
-        { l:'TOTAL FIELDS', v:'59' },
+        { l:'TOTAL FIELDS', v:'56' },
         { l:'STATES COVERED', v:'8' },
         { l:'2026 EVENTS', v:'40+' },
         { l:'MILSIM OPS', v:'4' },
