@@ -3625,6 +3625,87 @@ if (rCanvas) {
   drawRadar();
 }
 
+// ─── SEO: JSON-LD STRUCTURED DATA ────────────────────────
+// Reads fields + events from the DOM and injects schema.org
+// markup so Google can show listings in rich search results.
+(function injectStructuredData() {
+
+  // ── Fields → SportsActivityLocation ──────────────────────
+  document.querySelectorAll('.field-card').forEach(card => {
+    const name     = card.querySelector('.field-name')?.textContent.trim()  || '';
+    const location = card.querySelector('.field-location')?.textContent.trim() || '';
+    const desc     = card.querySelector('.field-desc')?.textContent.trim()  || '';
+    const url      = card.querySelector('.field-link')?.href                || '';
+    const state    = card.dataset.state || '';
+    const city     = location.replace(/\(.*?\)/g, '').split(',')[0].trim();
+
+    inject({
+      '@context': 'https://schema.org',
+      '@type':    'SportsActivityLocation',
+      name, description: desc, url,
+      address: {
+        '@type':           'PostalAddress',
+        addressLocality:   city,
+        addressRegion:     state,
+        addressCountry:    'US'
+      }
+    });
+  });
+
+  // ── Events → Event ────────────────────────────────────────
+  const MONTHS = {Jan:'01',Feb:'02',Mar:'03',Apr:'04',May:'05',Jun:'06',
+                  Jul:'07',Aug:'08',Sep:'09',Oct:'10',Nov:'11',Dec:'12'};
+
+  document.querySelectorAll('a.event-row').forEach(row => {
+    const name    = row.querySelector('.ev-name')?.textContent.trim()  || '';
+    const venue   = row.querySelector('.ev-venue')?.textContent.trim() || '';
+    const month   = row.querySelector('.ev-month')?.textContent.trim() || 'Jan';
+    const day     = (row.querySelector('.ev-day')?.textContent.trim()  || '1').split('–')[0];
+    const year    = row.querySelector('.ev-year')?.textContent.trim()  || '2026';
+    const price   = row.querySelector('.ev-price')?.textContent.trim() || '';
+    const stripe  = row.querySelector('.ev-stripe');
+
+    const startDate  = `${year}-${MONTHS[month] || '01'}-${day.padStart(2,'0')}`;
+    const priceNum   = parseFloat(price.replace(/[^0-9.]/g,'')) || 0;
+    const venueParts = venue.split('·');
+    const placeName  = venueParts[0]?.trim() || venue;
+    const placeCity  = venueParts[1]?.trim() || '';
+
+    const schema = {
+      '@context':           'https://schema.org',
+      '@type':              'Event',
+      name, startDate,
+      description:          `${name} — ${venue}`,
+      url:                   row.href || '',
+      eventStatus:          'https://schema.org/EventScheduled',
+      eventAttendanceMode:  'https://schema.org/OfflineEventAttendanceMode',
+      location: {
+        '@type': 'Place',
+        name:    placeName,
+        address: { '@type': 'PostalAddress', name: placeCity, addressCountry: 'US' }
+      },
+      organizer: { '@type': 'Organization', name: placeName }
+    };
+
+    if (priceNum > 0) {
+      schema.offers = {
+        '@type': 'Offer', price: String(priceNum), priceCurrency: 'USD',
+        url: row.href, availability: 'https://schema.org/InStock'
+      };
+    }
+
+    inject(schema);
+  });
+
+  function inject(schema) {
+    const s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.textContent = JSON.stringify(schema);
+    document.head.appendChild(s);
+  }
+
+})();
+
 </script>
 </body>
 </html>
