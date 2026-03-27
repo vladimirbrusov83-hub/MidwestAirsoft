@@ -4,5 +4,10 @@
       "path": "/api/update-events",
       "schedule": "0 23 * * 3"
     }
-  ]
+  ],
+  "functions": {
+    "api/update-events.js": {
+      "maxDuration": 60
+    }
+  }
 }
