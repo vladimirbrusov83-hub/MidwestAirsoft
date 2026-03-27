@@ -846,14 +846,17 @@
     .stat-block      { min-width: 100px; padding: 10px 14px; }
     .stat-val        { font-size: 32px; }
     .hdr-mark        { display: none; }
-    h1               { font-size: 64px; }
+    h1               { font-size: clamp(48px, 16vw, 64px); letter-spacing: 2px; }
     .hdr-sub         { font-size: 12px; }
+
+    /* "Know something we don't?" — bigger tap target */
+    .hdr-contact-link { display: inline-block; padding: 10px 0; font-size: 12px; }
 
     /* Nav */
     nav              { position: sticky; top: 0; z-index: 100; }
     .nav-inner       { padding: 0 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .nav-inner::-webkit-scrollbar { display: none; }
-    nav a            { padding: 13px 14px; font-size: 10.5px; letter-spacing: 1.5px; white-space: nowrap; }
+    nav a            { padding: 15px 14px; font-size: 10.5px; letter-spacing: 1.5px; white-space: nowrap; }
     .nav-tail        { display: none; }
 
     /* Main layout */
@@ -870,16 +873,30 @@
     .field-card      { padding: 18px 16px 16px; }
     .field-name      { font-size: 17px; }
     .state-filter    { gap: 6px; margin-bottom: 20px; }
-    .state-btn       { padding: 7px 12px; font-size: 9px; }
+    .state-btn       { padding: 10px 14px; font-size: 9.5px; } /* 44px touch target */
+    .field-link      { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 0; }
 
     /* Events */
     .events-list     { gap: 1px; }
-    .event-row       { grid-template-columns: 68px 1fr; min-height: 62px; }
+    .event-row       { grid-template-columns: 78px 1fr; min-height: 62px; } /* wider date col */
     .ev-right        { display: none; }
     .ev-day          { font-size: 28px; }
     .ev-body         { padding: 10px 12px; }
     .ev-name         { font-size: 14px; }
     .ev-venue        { font-size: 10px; }
+    .ev-filter-lbl   { display: none; } /* label wastes space, buttons wrap cleanly without it */
+    .ev-filter-row   { gap: 6px; }
+    .ev-fbtn         { padding: 10px 14px; } /* 44px touch target */
+
+    /* Contact form — fix 2-column grid broken on phone */
+    .cf-grid         { grid-template-columns: 1fr; gap: 12px; }
+    .contact-wrap    { padding: 0 0 60px; }
+    .contact-form    { padding: 24px 18px; }
+
+    /* Prevent iOS zoom on input focus (requires font-size >= 16px) */
+    .cf-row input,
+    .cf-row select,
+    .cf-row textarea { font-size: 16px; }
 
     /* Section headers */
     .sec-hdr         { margin-bottom: 18px; flex-wrap: wrap; gap: 6px; }
@@ -887,6 +904,7 @@
     /* Footer */
     footer .footer-inner { flex-direction: column; gap: 8px; padding: 18px 14px; text-align: center; }
     .footer-note     { font-size: 9px; }
+    .footer-cta      { display: none; }
   }
 
   /* ─── MOBILE STATE PICKER (replaces map on mobile) ── */
@@ -959,8 +977,8 @@
 
   .mob-tile-name {
     font-family: 'DM Mono', monospace;
-    font-size: 7px;
-    letter-spacing: 1.5px;
+    font-size: 9px;
+    letter-spacing: 1px;
     color: var(--muted);
     text-transform: uppercase;
     text-align: center;
@@ -3624,6 +3642,16 @@ if (rCanvas) {
   }
   drawRadar();
 }
+
+// ─── MOBILE: FIX TILE COUNTS ─────────────────────────────
+// Mobile state picker counts were hardcoded and stale.
+// Read actual field counts from the DOM and update them.
+document.querySelectorAll('.mob-state-tile[data-state]').forEach(tile => {
+  const state = tile.dataset.state;
+  const count = document.querySelectorAll(`.field-card[data-state="${state}"]`).length;
+  const el    = tile.querySelector('.mob-tile-count');
+  if (el && count > 0) el.textContent = count + (count === 1 ? ' field' : ' fields');
+});
 
 // ─── SEO: JSON-LD STRUCTURED DATA ────────────────────────
 // Reads fields + events from the DOM and injects schema.org
