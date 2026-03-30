@@ -1,11 +1,8 @@
 {
   "name": "midwest-airsoft",
   "version": "1.0.0",
-  "description": "Midwest Airsoft fields and events hub with weekly auto-refresh",
+  "description": "Midwest Airsoft fields and events hub",
   "scripts": {
     "dev": "vercel dev"
-  },
-  "dependencies": {
-    "node-fetch": "^3.3.2"
   }
 }
