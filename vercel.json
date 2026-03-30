@@ -7,7 +7,7 @@
   ],
   "functions": {
     "api/update-events.js": {
-      "maxDuration": 60
+      "maxDuration": 120
     }
   }
 }
