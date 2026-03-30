@@ -142,15 +142,29 @@ export default async function handler(req, res) {
 
   events.sort((a, b) => a.date.localeCompare(b.date));
 
+  // Merge: keep all base (manually curated) events, add/replace auto-extracted ones
+  const baseEvents = (SEED_DATA.events || []).filter(ev => ev.base === true);
+  const autoKeys   = new Set(events.map(ev => `${ev.date}|${ev.name}`));
+  const mergedBase = baseEvents.filter(ev => {
+    if (ev.date === 'recurring') return true; // always keep recurring events
+    return !autoKeys.has(`${ev.date}|${ev.name}`);
+  });
+  const allEvents = [...mergedBase, ...events];
+  allEvents.sort((a, b) => {
+    const aKey = a.date === 'recurring' ? '0000' : a.date;
+    const bKey = b.date === 'recurring' ? '0000' : b.date;
+    return aKey.localeCompare(bKey);
+  });
+
   const nextRun = new Date();
   nextRun.setDate(nextRun.getDate() + 7);
 
   const payload = {
     lastUpdated: new Date().toISOString(),
     nextUpdate:  nextRun.toISOString(),
-    note:        `Auto-updated by Groq AI on ${today}`,
+    note:        `Auto-updated by Groq AI on ${today}. Base events preserved.`,
     fields:      SEED_DATA.fields,
-    events,
+    events:      allEvents,
   };
 
   const committed = await commitToGitHub(JSON.stringify(payload, null, 2));
