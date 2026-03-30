@@ -23,17 +23,48 @@ const GITHUB_REPO = 'vladimirbrusov83-hub/MidwestAirsoft';
 const SEED_PATH   = 'public/events-seed.json';
 
 const FIELDS = [
-  { id: 'bingfield',     name: 'Bing Field',              state: 'MO', location: 'Alton, IL',         url: 'https://bingfield.com/' },
-  { id: 'twincities',   name: 'Twin Cities Airsoft',      state: 'MN', location: 'Minneapolis, MN',   url: 'https://www.twincitiesairsoft.com/' },
-  { id: 'kankakee',     name: 'Kankakee Airsoft Factory', state: 'IL', location: 'Kankakee, IL',      url: 'https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/' },
-  { id: 'mirtactical',  name: 'MiR Tactical',             state: 'IL', location: 'Buffalo Grove, IL', url: 'https://mirtactical.com/events/' },
-  { id: 'blastcamp',    name: 'Blastcamp',                state: 'IN', location: 'Hobart, IN',        url: 'https://blastcamp.com/airsoft/' },
-  { id: 'cedar',        name: 'Cedar Airsoft Field',      state: 'WI', location: 'Wisconsin',         url: 'https://www.cedarairsoftfield.com/' },
-  { id: 'hellsurvivors',name: 'Hell Survivors',           state: 'MI', location: 'Pinckney, MI',      url: 'https://www.hellsurvivors.com/' },
-  { id: 'i70',          name: 'i70 Paintball & Airsoft',  state: 'OH', location: 'Huber Heights, OH', url: 'https://www.i70paintball.com/' },
-  { id: 'crossfire',    name: 'Crossfire Airsoft',        state: 'MN', location: 'Clearwater, MN',    url: 'https://www.crossfire-airsoft.com/' },
-  { id: 'wardenoh',     name: 'War Den Airsoft',          state: 'OH', location: 'Stone Creek, OH',   url: 'https://www.theairsoftden.com/' },
-  { id: 'blackops',     name: 'Black Ops Airsoft',        state: 'WI', location: 'Bristol, WI',       url: 'https://www.blackops-airsoft.com/' },
+  // ── Illinois ──────────────────────────────────────────────────
+  { id: 'bingfield',      name: 'Bing Field',                    state: 'IL', location: 'Alton, IL',           url: 'https://bingfield.com/index.php/category/events/' },
+  { id: 'kankakee',       name: 'Kankakee Airsoft Factory',      state: 'IL', location: 'Kankakee, IL',        url: 'https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/' },
+  { id: 'mirtactical',    name: 'MiR Tactical',                  state: 'IL', location: 'Buffalo Grove, IL',   url: 'https://mirtactical.com/events/' },
+  { id: 'megastore',      name: 'Airsoft Megastore Chicago',     state: 'IL', location: 'Countryside, IL',     url: 'https://www.airsoftmegastore.com/pages/events' },
+  { id: 'legacy',         name: 'Legacy Paintball & Airsoft',    state: 'IL', location: 'Lockport, IL',        url: 'https://www.legacyadventurepark.com/' },
+  { id: 'saltfork',       name: 'Saltfork Paintball',            state: 'IL', location: 'St. Joseph, IL',      url: 'https://www.saltforkpaintball.com/' },
+  { id: 'pbbomb',         name: 'Paintball Explosion (PBX)',     state: 'IL', location: 'East Dundee, IL',     url: 'https://www.pbbomb.com/' },
+  // ── Indiana ───────────────────────────────────────────────────
+  { id: 'blastcamp',      name: 'Blastcamp',                     state: 'IN', location: 'Hobart, IN',          url: 'https://blastcamp.com/airsoft/' },
+  { id: 'surgestrike',    name: 'Surge Strike Airsoft',          state: 'IN', location: 'Auburn, IN',          url: 'https://www.surgestrikeshootingsports.com/' },
+  { id: 'htkairsoft',     name: 'HTK Airsoft',                   state: 'IN', location: 'Jasper, IN',          url: 'https://www.htkairsoft.com/' },
+  // ── Michigan ──────────────────────────────────────────────────
+  { id: 'hellsurvivors',  name: 'Hell Survivors',                state: 'MI', location: 'Pinckney, MI',        url: 'https://www.hellsurvivors.com/' },
+  { id: 'motorcity',      name: 'Motor City Airsoft',            state: 'MI', location: 'Clinton Twp, MI',     url: 'https://www.motorcityairsoft.com/' },
+  { id: 'tcpaintball',    name: 'TC Paintball North',            state: 'MI', location: 'Copemish, MI',        url: 'https://www.tcpaintballnorth.com/tcp-events' },
+  { id: 'futureball',     name: 'Futureball',                    state: 'MI', location: 'Whitmore Lake, MI',   url: 'https://www.futureball.com/futureball-calendar/' },
+  { id: 'darkfire',       name: 'DarkFire Airsoft',              state: 'MI', location: 'Coldwater, MI',       url: 'https://www.darkfireairsoft.com/' },
+  { id: 'holewall',       name: 'Hole in the Wall Paintball',    state: 'MI', location: 'Northwest Michigan',  url: 'https://www.holeinthewallpaintballmi.com/' },
+  // ── Minnesota ─────────────────────────────────────────────────
+  { id: 'twincities',     name: 'Twin Cities Airsoft',           state: 'MN', location: 'Minneapolis, MN',     url: 'https://www.twincitiesairsoft.com/specials/special-events.html' },
+  { id: 'crossfire',      name: 'Crossfire Airsoft',             state: 'MN', location: 'Clearwater, MN',      url: 'https://www.crossfire-airsoft.com/' },
+  { id: 'sfpgames',       name: 'Special Forces Paintball',      state: 'MN', location: 'Buffalo, MN',         url: 'https://www.sfpgames.com/' },
+  { id: 'mnpropaintball', name: 'MN Pro Paintball',              state: 'MN', location: 'Lakeville, MN',       url: 'http://mnpropaintball.com/' },
+  // ── Ohio ──────────────────────────────────────────────────────
+  { id: 'i70',            name: 'i70 Paintball & Airsoft',       state: 'OH', location: 'Huber Heights, OH',   url: 'https://www.i70paintball.com/' },
+  { id: 'g2tact',         name: 'G2 Tactical',                   state: 'OH', location: 'Springfield, OH',     url: 'https://www.g2tact.com/' },
+  { id: 'sektor7',        name: 'Sektor7 Airsoft',               state: 'OH', location: 'Lorain, OH',          url: 'https://www.sektor7airsoft.com/' },
+  { id: 'splatterpark',   name: 'Splatter Park',                 state: 'OH', location: 'Mount Gilead, OH',    url: 'https://www.splatterpark.com/' },
+  { id: 'parkersairsoft', name: 'Parkers Airsoft Field',         state: 'OH', location: 'Bethel, OH',          url: 'https://parkersairsoft.com/' },
+  { id: 'undergroundwars',name: 'Underground Wars',              state: 'OH', location: 'Newark, OH',          url: 'https://www.underground-wars.com/' },
+  { id: 'bigpearl',       name: 'Big Pearl Paintball',           state: 'OH', location: 'Conneaut, OH',        url: 'https://bigpearlpaintball.net/' },
+  // ── Wisconsin ─────────────────────────────────────────────────
+  { id: 'cedar',          name: 'Cedar Airsoft Field',           state: 'WI', location: 'Wisconsin',           url: 'https://www.cedarairsoftfield.com/' },
+  { id: 'blackops',       name: 'Black Ops Airsoft',             state: 'WI', location: 'Bristol, WI',         url: 'https://www.blackops-airsoft.com/' },
+  { id: 'actionsportswi', name: 'Action Sports Wisconsin',       state: 'WI', location: 'Mauston, WI',         url: 'https://www.actionsportswisconsin.com/' },
+  { id: 'commandopb',     name: 'Commando Paintball',            state: 'WI', location: 'Little Suamico, WI',  url: 'https://www.commandopaintballsports.com/' },
+  { id: 'edge608',        name: 'Edge Paintball and Airsoft',    state: 'WI', location: 'Janesville, WI',      url: 'https://www.608pb.com/tournaments' },
+  // ── Missouri ──────────────────────────────────────────────────
+  { id: 'sogoairsoft',    name: 'So Go Airsoft',                 state: 'MO', location: 'Ozark, MO',           url: 'https://www.sogoairsoft.com/' },
+  { id: 'therockairsoft', name: 'The Rock Airsoft',              state: 'MO', location: 'Bolivar, MO',         url: 'https://therockairsoft.com/' },
+  { id: 'massairsoft',    name: 'MASS',                          state: 'MO', location: 'Lawson, MO',          url: 'https://www.massairsoft.com/event-list' },
 ];
 
 function cleanHtml(html) {
@@ -139,8 +170,9 @@ export default async function handler(req, res) {
     } catch (err) {
       log.push(`${field.id}: error — ${err.message}`);
     }
-    // 6-second pause between requests to stay under Groq free tier 12k TPM limit
-    if (i < FIELDS.length - 1) await new Promise(r => setTimeout(r, 6000));
+    // 5-second pause between requests to stay under Groq free tier 12k TPM limit
+    // 35 fields × ~8s each ≈ 280s total — within Vercel Pro 300s maxDuration
+    if (i < FIELDS.length - 1) await new Promise(r => setTimeout(r, 5000));
   }
 
   events.sort((a, b) => a.date.localeCompare(b.date));
