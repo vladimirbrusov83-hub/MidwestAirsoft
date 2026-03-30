@@ -1153,6 +1153,10 @@
 
 
   /* ─── MAP OUTER LAYOUT ──────────────────────────────── */
+  .map-section {
+    padding: 0 0 8px;
+  }
+
   .map-outer {
     display: grid;
     grid-template-columns: 148px 1fr 148px;
@@ -1408,6 +1412,232 @@
   <h2 class="seo-h2">All Midwest Airsoft Events in One Place</h2>
   <p class="seo-p">MilSim ops, big games, and open play days — automatically updated every week from field websites across IL, MN, WI, IN, MO, MI, and OH.</p>
 </section>
+
+<!-- ── MAP FILTER ── -->
+<div class="map-section">
+    <!-- ── INTERACTIVE MAP + TERMINAL ── -->
+    <div class="map-outer">
+
+      <!-- LEFT PANEL: terminal feed -->
+      <div class="term-panel term-left">
+        <div class="term-header"><span class="term-blink">█</span>&nbsp;SYS.FEED</div>
+        <div class="term-aoo">AREA OF OPERATION</div>
+        <div class="term-lines" id="term-lines-left"></div>
+        <div class="term-radar-wrap">
+          <canvas id="radar-canvas" width="110" height="110"></canvas>
+          <div class="radar-label">RDR · ACTIVE</div>
+        </div>
+        <div class="term-footer" id="term-clock"></div>
+      </div>
+
+      <!-- CENTER: the actual map -->
+      <div class="map-wrap">
+        <div class="map-hint">Click a state · <span onclick="mapFilterState('all')" style="color:var(--green);cursor:pointer;border-bottom:1px solid var(--green)">Reset all</span></div>
+      <svg id="midwest-map" viewBox="130 10 440 360" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="st-glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <!-- ND -->
+        <path class="map-state map-inactive" data-state="ND" d="M184,112 L248,112 L248,160 L184,160 Z"/>
+        <text class="map-label map-label-inactive" x="216" y="140">ND</text>
+        <!-- SD -->
+        <path class="map-state map-inactive" data-state="SD" d="M184,160 L248,160 L252,186 L268,196 L184,196 Z"/>
+        <text class="map-label map-label-inactive" x="216" y="181">SD</text>
+        <!-- NE -->
+        <path class="map-state map-inactive" data-state="NE" d="M184,196 L268,196 L270,214 L266,232 L268,248 L184,248 Z"/>
+        <text class="map-label map-label-inactive" x="224" y="226">NE</text>
+
+        <!-- Minnesota -->
+        <path class="map-state" id="map-MN" data-state="MN" data-name="Minnesota" data-count="4"
+          d="M248,18 L340,18 L344,56 L356,70 L356,112 L346,120 L344,140 L318,144 L316,162 L298,168 L292,180 L268,180 L262,160 L248,160 L248,112 Z"/>
+        <text class="map-label" x="300" y="96">MN</text>
+
+        <!-- Wisconsin -->
+        <path class="map-state" id="map-WI" data-state="WI" data-name="Wisconsin" data-count="6"
+          d="M344,140 L346,120 L356,112 L362,92 L378,82 L394,90 L402,106 L412,112 L416,126 L408,138 L414,154 L410,172 L396,180 L390,198 L378,204 L364,198 L356,180 L344,178 L316,162 L318,144 Z"/>
+        <text class="map-label" x="374" y="148">WI</text>
+
+        <!-- Michigan (lower peninsula only) -->
+        <path class="map-state" id="map-MI" data-state="MI" data-name="Michigan" data-count="10"
+          d="M414,126 L432,108 L452,102 L470,106 L476,118 L468,130 L480,140 L490,154 L486,168 L470,174 L456,170 L444,178 L436,192 L424,190 L414,180 L410,172 L414,154 L408,138 Z"/>
+        <text class="map-label" x="450" y="150">MI</text>
+
+        <!-- Iowa -->
+        <path class="map-state map-inactive" data-state="IA" d="M248,160 L262,160 L268,180 L292,180 L298,168 L316,162 L344,178 L356,180 L364,198 L360,218 L354,230 L338,232 L322,242 L298,242 L282,238 L268,248 L266,232 L270,214 L268,196 L252,186 L248,160 Z"/>
+        <text class="map-label map-label-inactive" x="304" y="206">IA</text>
+
+        <!-- Illinois -->
+        <path class="map-state" id="map-IL" data-state="IL" data-name="Illinois" data-count="11"
+          d="M364,198 L378,204 L390,198 L396,180 L410,172 L414,180 L424,190 L436,192 L440,208 L430,220 L432,236 L424,250 L420,268 L408,276 L398,292 L390,312 L378,320 L368,314 L360,300 L358,282 L362,266 L354,250 L354,230 L360,218 Z"/>
+        <text class="map-label" x="397" y="248">IL</text>
+
+        <!-- Indiana -->
+        <path class="map-state" id="map-IN" data-state="IN" data-name="Indiana" data-count="8"
+          d="M436,192 L444,178 L456,170 L470,174 L486,168 L492,182 L496,200 L492,218 L488,236 L480,250 L472,258 L458,262 L446,258 L436,246 L432,236 L430,220 L440,208 Z"/>
+        <text class="map-label" x="463" y="218">IN</text>
+
+        <!-- Ohio -->
+        <path class="map-state" id="map-OH" data-state="OH" data-name="Ohio" data-count="12"
+          d="M486,168 L498,160 L514,158 L532,162 L546,172 L552,188 L550,206 L542,218 L534,230 L520,238 L506,240 L492,236 L488,236 L492,218 L496,200 L492,182 Z"/>
+        <text class="map-label" x="519" y="200">OH</text>
+
+        <!-- Missouri -->
+        <path class="map-state" id="map-MO" data-state="MO" data-name="Missouri" data-count="4"
+          d="M268,248 L282,238 L298,242 L322,242 L338,232 L354,230 L354,250 L362,266 L358,282 L360,300 L354,312 L342,322 L326,324 L310,320 L296,314 L284,304 L272,292 L262,280 L260,262 Z"/>
+        <text class="map-label" x="308" y="280">MO</text>
+
+        <!-- Kansas -->
+        <path class="map-state" id="map-KS" data-state="KS" data-name="Kansas" data-count="1"
+          d="M184,248 L268,248 L260,262 L262,280 L272,292 L284,304 L284,340 L184,340 Z"/>
+        <text class="map-label" x="232" y="298">KS</text>
+
+        <!-- Field dot markers -->
+        <!-- MN: 2 fields -->
+        <circle class="field-dot" data-state="MN" cx="292" cy="136" r="4"/>
+        <circle class="field-dot" data-state="MN" cx="310" cy="120" r="4"/>
+        <!-- WI: 2 fields — Cedar + Black Ops -->
+        <circle class="field-dot" data-state="WI" cx="360" cy="164" r="4"/>
+        <circle class="field-dot" data-state="WI" cx="390" cy="155" r="4"/>
+        <!-- MI: 3 fields -->
+        <circle class="field-dot" data-state="MI" cx="438" cy="148" r="4"/>
+        <circle class="field-dot" data-state="MI" cx="455" cy="140" r="4"/>
+        <circle class="field-dot" data-state="MI" cx="466" cy="156" r="4"/>
+        <!-- IL: 5 fields -->
+        <circle class="field-dot" data-state="IL" cx="398" cy="216" r="4"/>
+        <circle class="field-dot" data-state="IL" cx="408" cy="230" r="4"/>
+        <circle class="field-dot" data-state="IL" cx="386" cy="238" r="4"/>
+        <circle class="field-dot" data-state="IL" cx="378" cy="252" r="4"/>
+        <circle class="field-dot" data-state="IL" cx="370" cy="262" r="4"/>
+        <!-- IN: 3 fields -->
+        <circle class="field-dot" data-state="IN" cx="452" cy="210" r="4"/>
+        <circle class="field-dot" data-state="IN" cx="464" cy="226" r="4"/>
+        <circle class="field-dot" data-state="IN" cx="474" cy="238" r="4"/>
+        <!-- OH: 3 fields -->
+        <circle class="field-dot" data-state="OH" cx="508" cy="192" r="4"/>
+        <circle class="field-dot" data-state="OH" cx="522" cy="206" r="4"/>
+        <circle class="field-dot" data-state="OH" cx="514" cy="218" r="4"/>
+        <!-- MO: 1 field — Bing Field (St. Louis metro, eastern MO) -->
+        <circle class="field-dot" data-state="MO" cx="348" cy="262" r="4"/>
+        <!-- KS: 1 field -->
+        <circle class="field-dot" data-state="KS" cx="234" cy="294" r="4"/>
+
+        <!-- State count badges -->
+        <g class="map-badge-grp" data-state="MN" onclick="mapFilterState('MN')">
+          <circle cx="300" cy="62" r="11" class="badge-ring"/>
+          <text x="300" y="67" class="badge-num">4</text>
+        </g>
+        <g class="map-badge-grp" data-state="WI" onclick="mapFilterState('WI')">
+          <circle cx="374" cy="175" r="11" class="badge-ring"/>
+          <text x="374" y="180" class="badge-num">6</text>
+        </g>
+        <g class="map-badge-grp" data-state="MI" onclick="mapFilterState('MI')">
+          <circle cx="452" cy="170" r="11" class="badge-ring"/>
+          <text x="452" y="175" class="badge-num">10</text>
+        </g>
+        <g class="map-badge-grp" data-state="IL" onclick="mapFilterState('IL')">
+          <circle cx="396" cy="270" r="11" class="badge-ring"/>
+          <text x="396" y="275" class="badge-num">11</text>
+        </g>
+        <g class="map-badge-grp" data-state="IN" onclick="mapFilterState('IN')">
+          <circle cx="462" cy="254" r="11" class="badge-ring"/>
+          <text x="462" y="259" class="badge-num">8</text>
+        </g>
+        <g class="map-badge-grp" data-state="OH" onclick="mapFilterState('OH')">
+          <circle cx="522" cy="224" r="11" class="badge-ring"/>
+          <text x="522" y="229" class="badge-num">12</text>
+        </g>
+        <g class="map-badge-grp" data-state="MO" onclick="mapFilterState('MO')">
+          <circle cx="308" cy="308" r="11" class="badge-ring"/>
+          <text x="308" y="313" class="badge-num">4</text>
+        </g>
+        <g class="map-badge-grp" data-state="KS" onclick="mapFilterState('KS')">
+          <circle cx="220" cy="298" r="11" class="badge-ring"/>
+          <text x="220" y="303" class="badge-num">1</text>
+        </g>
+
+        <!-- Tooltip (JS-controlled) -->
+        <g id="map-tooltip" style="pointer-events:none;display:none">
+          <rect id="tt-bg" rx="2" height="38" fill="#0a0d08" stroke="rgba(136,180,32,0.5)" stroke-width="1"/>
+          <text id="tt-name" dy="16" font-family="'Barlow Condensed',sans-serif" font-size="13" font-weight="700" fill="#e4ecd4"/>
+          <text id="tt-sub"  dy="30" font-family="'DM Mono',monospace" font-size="9" fill="#88b420"/>
+        </g>
+      </svg>
+      </div><!-- /map-wrap -->
+
+      <!-- RIGHT PANEL: intel readout -->
+      <div class="term-panel term-right">
+        <div class="term-header"><span class="term-blink">█</span>&nbsp;INTEL</div>
+        <div class="term-aoo" style="color:var(--red)">THREAT MATRIX</div>
+        <div class="term-lines" id="term-lines-right"></div>
+        <div class="term-statblock" id="term-statblock"></div>
+        <div class="term-footer" id="term-coords"></div>
+      </div>
+
+    </div><!-- /map-outer -->
+
+
+    <!-- ── MOBILE STATE PICKER (hidden on desktop) ── -->
+    <div class="mobile-state-picker" id="mob-picker">
+      <div class="mob-pick-hdr">
+        <span style="animation:termBlink 1.1s steps(1) infinite;font-size:7px">█</span>
+        Select Area of Operation
+      </div>
+      <div class="mob-pick-grid">
+        <button class="mob-state-tile" data-state="IL" onclick="mapFilterState('IL')">
+          <span class="mob-tile-code">IL</span>
+          <span class="mob-tile-name">Illinois</span>
+          <span class="mob-tile-count">4 fields</span>
+        </button>
+        <button class="mob-state-tile" data-state="IN" onclick="mapFilterState('IN')">
+          <span class="mob-tile-code">IN</span>
+          <span class="mob-tile-name">Indiana</span>
+          <span class="mob-tile-count">3 fields</span>
+        </button>
+        <button class="mob-state-tile" data-state="OH" onclick="mapFilterState('OH')">
+          <span class="mob-tile-code">OH</span>
+          <span class="mob-tile-name">Ohio</span>
+          <span class="mob-tile-count">3 fields</span>
+        </button>
+        <button class="mob-state-tile" data-state="MI" onclick="mapFilterState('MI')">
+          <span class="mob-tile-code">MI</span>
+          <span class="mob-tile-name">Michigan</span>
+          <span class="mob-tile-count">3 fields</span>
+        </button>
+        <button class="mob-state-tile" data-state="WI" onclick="mapFilterState('WI')">
+          <span class="mob-tile-code">WI</span>
+          <span class="mob-tile-name">Wisconsin</span>
+          <span class="mob-tile-count">2 fields</span>
+        </button>
+        <button class="mob-state-tile" data-state="MN" onclick="mapFilterState('MN')">
+          <span class="mob-tile-code">MN</span>
+          <span class="mob-tile-name">Minnesota</span>
+          <span class="mob-tile-count">2 fields</span>
+        </button>
+        <button class="mob-state-tile" data-state="MO" onclick="mapFilterState('MO')">
+          <span class="mob-tile-code">MO</span>
+          <span class="mob-tile-name">Missouri</span>
+          <span class="mob-tile-count">4 fields</span>
+        </button>
+        <button class="mob-state-tile" data-state="KS" onclick="mapFilterState('KS')">
+          <span class="mob-tile-code">KS</span>
+          <span class="mob-tile-name">Kansas</span>
+          <span class="mob-tile-count">1 field</span>
+        </button>
+        <button class="mob-state-tile" data-state="IA" onclick="mapFilterState('IA')" style="opacity:0.35;pointer-events:none">
+          <span class="mob-tile-code" style="color:var(--muted)">IA</span>
+          <span class="mob-tile-name">Iowa</span>
+          <span class="mob-tile-count" style="color:var(--muted)">—</span>
+        </button>
+      </div>
+      <button class="mob-all-tile active" id="mob-btn-all" onclick="mapFilterState('all')">
+        ◈ &nbsp; Show All States
+      </button>
+    </div>
+</div>
 
   <!-- ── UPCOMING EVENTS ── -->
   <section id="events">
@@ -2043,228 +2273,6 @@
       <div class="sec-meta" id="field-count">56 locations</div>
     </div>
 
-    <!-- ── INTERACTIVE MAP + TERMINAL ── -->
-    <div class="map-outer">
-
-      <!-- LEFT PANEL: terminal feed -->
-      <div class="term-panel term-left">
-        <div class="term-header"><span class="term-blink">█</span>&nbsp;SYS.FEED</div>
-        <div class="term-aoo">AREA OF OPERATION</div>
-        <div class="term-lines" id="term-lines-left"></div>
-        <div class="term-radar-wrap">
-          <canvas id="radar-canvas" width="110" height="110"></canvas>
-          <div class="radar-label">RDR · ACTIVE</div>
-        </div>
-        <div class="term-footer" id="term-clock"></div>
-      </div>
-
-      <!-- CENTER: the actual map -->
-      <div class="map-wrap">
-        <div class="map-hint">Click a state · <span onclick="filterState('all',null)" style="color:var(--green);cursor:pointer;border-bottom:1px solid var(--green)">Reset all</span></div>
-      <svg id="midwest-map" viewBox="130 10 440 360" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="st-glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="4" result="blur"/>
-            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-        </defs>
-
-        <!-- ND -->
-        <path class="map-state map-inactive" data-state="ND" d="M184,112 L248,112 L248,160 L184,160 Z"/>
-        <text class="map-label map-label-inactive" x="216" y="140">ND</text>
-        <!-- SD -->
-        <path class="map-state map-inactive" data-state="SD" d="M184,160 L248,160 L252,186 L268,196 L184,196 Z"/>
-        <text class="map-label map-label-inactive" x="216" y="181">SD</text>
-        <!-- NE -->
-        <path class="map-state map-inactive" data-state="NE" d="M184,196 L268,196 L270,214 L266,232 L268,248 L184,248 Z"/>
-        <text class="map-label map-label-inactive" x="224" y="226">NE</text>
-
-        <!-- Minnesota -->
-        <path class="map-state" id="map-MN" data-state="MN" data-name="Minnesota" data-count="4"
-          d="M248,18 L340,18 L344,56 L356,70 L356,112 L346,120 L344,140 L318,144 L316,162 L298,168 L292,180 L268,180 L262,160 L248,160 L248,112 Z"/>
-        <text class="map-label" x="300" y="96">MN</text>
-
-        <!-- Wisconsin -->
-        <path class="map-state" id="map-WI" data-state="WI" data-name="Wisconsin" data-count="6"
-          d="M344,140 L346,120 L356,112 L362,92 L378,82 L394,90 L402,106 L412,112 L416,126 L408,138 L414,154 L410,172 L396,180 L390,198 L378,204 L364,198 L356,180 L344,178 L316,162 L318,144 Z"/>
-        <text class="map-label" x="374" y="148">WI</text>
-
-        <!-- Michigan (lower peninsula only) -->
-        <path class="map-state" id="map-MI" data-state="MI" data-name="Michigan" data-count="10"
-          d="M414,126 L432,108 L452,102 L470,106 L476,118 L468,130 L480,140 L490,154 L486,168 L470,174 L456,170 L444,178 L436,192 L424,190 L414,180 L410,172 L414,154 L408,138 Z"/>
-        <text class="map-label" x="450" y="150">MI</text>
-
-        <!-- Iowa -->
-        <path class="map-state map-inactive" data-state="IA" d="M248,160 L262,160 L268,180 L292,180 L298,168 L316,162 L344,178 L356,180 L364,198 L360,218 L354,230 L338,232 L322,242 L298,242 L282,238 L268,248 L266,232 L270,214 L268,196 L252,186 L248,160 Z"/>
-        <text class="map-label map-label-inactive" x="304" y="206">IA</text>
-
-        <!-- Illinois -->
-        <path class="map-state" id="map-IL" data-state="IL" data-name="Illinois" data-count="11"
-          d="M364,198 L378,204 L390,198 L396,180 L410,172 L414,180 L424,190 L436,192 L440,208 L430,220 L432,236 L424,250 L420,268 L408,276 L398,292 L390,312 L378,320 L368,314 L360,300 L358,282 L362,266 L354,250 L354,230 L360,218 Z"/>
-        <text class="map-label" x="397" y="248">IL</text>
-
-        <!-- Indiana -->
-        <path class="map-state" id="map-IN" data-state="IN" data-name="Indiana" data-count="8"
-          d="M436,192 L444,178 L456,170 L470,174 L486,168 L492,182 L496,200 L492,218 L488,236 L480,250 L472,258 L458,262 L446,258 L436,246 L432,236 L430,220 L440,208 Z"/>
-        <text class="map-label" x="463" y="218">IN</text>
-
-        <!-- Ohio -->
-        <path class="map-state" id="map-OH" data-state="OH" data-name="Ohio" data-count="12"
-          d="M486,168 L498,160 L514,158 L532,162 L546,172 L552,188 L550,206 L542,218 L534,230 L520,238 L506,240 L492,236 L488,236 L492,218 L496,200 L492,182 Z"/>
-        <text class="map-label" x="519" y="200">OH</text>
-
-        <!-- Missouri -->
-        <path class="map-state" id="map-MO" data-state="MO" data-name="Missouri" data-count="4"
-          d="M268,248 L282,238 L298,242 L322,242 L338,232 L354,230 L354,250 L362,266 L358,282 L360,300 L354,312 L342,322 L326,324 L310,320 L296,314 L284,304 L272,292 L262,280 L260,262 Z"/>
-        <text class="map-label" x="308" y="280">MO</text>
-
-        <!-- Kansas -->
-        <path class="map-state" id="map-KS" data-state="KS" data-name="Kansas" data-count="1"
-          d="M184,248 L268,248 L260,262 L262,280 L272,292 L284,304 L284,340 L184,340 Z"/>
-        <text class="map-label" x="232" y="298">KS</text>
-
-        <!-- Field dot markers -->
-        <!-- MN: 2 fields -->
-        <circle class="field-dot" data-state="MN" cx="292" cy="136" r="4"/>
-        <circle class="field-dot" data-state="MN" cx="310" cy="120" r="4"/>
-        <!-- WI: 2 fields — Cedar + Black Ops -->
-        <circle class="field-dot" data-state="WI" cx="360" cy="164" r="4"/>
-        <circle class="field-dot" data-state="WI" cx="390" cy="155" r="4"/>
-        <!-- MI: 3 fields -->
-        <circle class="field-dot" data-state="MI" cx="438" cy="148" r="4"/>
-        <circle class="field-dot" data-state="MI" cx="455" cy="140" r="4"/>
-        <circle class="field-dot" data-state="MI" cx="466" cy="156" r="4"/>
-        <!-- IL: 5 fields -->
-        <circle class="field-dot" data-state="IL" cx="398" cy="216" r="4"/>
-        <circle class="field-dot" data-state="IL" cx="408" cy="230" r="4"/>
-        <circle class="field-dot" data-state="IL" cx="386" cy="238" r="4"/>
-        <circle class="field-dot" data-state="IL" cx="378" cy="252" r="4"/>
-        <circle class="field-dot" data-state="IL" cx="370" cy="262" r="4"/>
-        <!-- IN: 3 fields -->
-        <circle class="field-dot" data-state="IN" cx="452" cy="210" r="4"/>
-        <circle class="field-dot" data-state="IN" cx="464" cy="226" r="4"/>
-        <circle class="field-dot" data-state="IN" cx="474" cy="238" r="4"/>
-        <!-- OH: 3 fields -->
-        <circle class="field-dot" data-state="OH" cx="508" cy="192" r="4"/>
-        <circle class="field-dot" data-state="OH" cx="522" cy="206" r="4"/>
-        <circle class="field-dot" data-state="OH" cx="514" cy="218" r="4"/>
-        <!-- MO: 1 field — Bing Field (St. Louis metro, eastern MO) -->
-        <circle class="field-dot" data-state="MO" cx="348" cy="262" r="4"/>
-        <!-- KS: 1 field -->
-        <circle class="field-dot" data-state="KS" cx="234" cy="294" r="4"/>
-
-        <!-- State count badges -->
-        <g class="map-badge-grp" data-state="MN" onclick="filterState('MN',null)">
-          <circle cx="300" cy="62" r="11" class="badge-ring"/>
-          <text x="300" y="67" class="badge-num">4</text>
-        </g>
-        <g class="map-badge-grp" data-state="WI" onclick="filterState('WI',null)">
-          <circle cx="374" cy="175" r="11" class="badge-ring"/>
-          <text x="374" y="180" class="badge-num">6</text>
-        </g>
-        <g class="map-badge-grp" data-state="MI" onclick="filterState('MI',null)">
-          <circle cx="452" cy="170" r="11" class="badge-ring"/>
-          <text x="452" y="175" class="badge-num">10</text>
-        </g>
-        <g class="map-badge-grp" data-state="IL" onclick="filterState('IL',null)">
-          <circle cx="396" cy="270" r="11" class="badge-ring"/>
-          <text x="396" y="275" class="badge-num">11</text>
-        </g>
-        <g class="map-badge-grp" data-state="IN" onclick="filterState('IN',null)">
-          <circle cx="462" cy="254" r="11" class="badge-ring"/>
-          <text x="462" y="259" class="badge-num">8</text>
-        </g>
-        <g class="map-badge-grp" data-state="OH" onclick="filterState('OH',null)">
-          <circle cx="522" cy="224" r="11" class="badge-ring"/>
-          <text x="522" y="229" class="badge-num">12</text>
-        </g>
-        <g class="map-badge-grp" data-state="MO" onclick="filterState('MO',null)">
-          <circle cx="308" cy="308" r="11" class="badge-ring"/>
-          <text x="308" y="313" class="badge-num">4</text>
-        </g>
-        <g class="map-badge-grp" data-state="KS" onclick="filterState('KS',null)">
-          <circle cx="220" cy="298" r="11" class="badge-ring"/>
-          <text x="220" y="303" class="badge-num">1</text>
-        </g>
-
-        <!-- Tooltip (JS-controlled) -->
-        <g id="map-tooltip" style="pointer-events:none;display:none">
-          <rect id="tt-bg" rx="2" height="38" fill="#0a0d08" stroke="rgba(136,180,32,0.5)" stroke-width="1"/>
-          <text id="tt-name" dy="16" font-family="'Barlow Condensed',sans-serif" font-size="13" font-weight="700" fill="#e4ecd4"/>
-          <text id="tt-sub"  dy="30" font-family="'DM Mono',monospace" font-size="9" fill="#88b420"/>
-        </g>
-      </svg>
-      </div><!-- /map-wrap -->
-
-      <!-- RIGHT PANEL: intel readout -->
-      <div class="term-panel term-right">
-        <div class="term-header"><span class="term-blink">█</span>&nbsp;INTEL</div>
-        <div class="term-aoo" style="color:var(--red)">THREAT MATRIX</div>
-        <div class="term-lines" id="term-lines-right"></div>
-        <div class="term-statblock" id="term-statblock"></div>
-        <div class="term-footer" id="term-coords"></div>
-      </div>
-
-    </div><!-- /map-outer -->
-
-
-    <!-- ── MOBILE STATE PICKER (hidden on desktop) ── -->
-    <div class="mobile-state-picker" id="mob-picker">
-      <div class="mob-pick-hdr">
-        <span style="animation:termBlink 1.1s steps(1) infinite;font-size:7px">█</span>
-        Select Area of Operation
-      </div>
-      <div class="mob-pick-grid">
-        <button class="mob-state-tile" data-state="IL" onclick="filterState('IL',null)">
-          <span class="mob-tile-code">IL</span>
-          <span class="mob-tile-name">Illinois</span>
-          <span class="mob-tile-count">4 fields</span>
-        </button>
-        <button class="mob-state-tile" data-state="IN" onclick="filterState('IN',null)">
-          <span class="mob-tile-code">IN</span>
-          <span class="mob-tile-name">Indiana</span>
-          <span class="mob-tile-count">3 fields</span>
-        </button>
-        <button class="mob-state-tile" data-state="OH" onclick="filterState('OH',null)">
-          <span class="mob-tile-code">OH</span>
-          <span class="mob-tile-name">Ohio</span>
-          <span class="mob-tile-count">3 fields</span>
-        </button>
-        <button class="mob-state-tile" data-state="MI" onclick="filterState('MI',null)">
-          <span class="mob-tile-code">MI</span>
-          <span class="mob-tile-name">Michigan</span>
-          <span class="mob-tile-count">3 fields</span>
-        </button>
-        <button class="mob-state-tile" data-state="WI" onclick="filterState('WI',null)">
-          <span class="mob-tile-code">WI</span>
-          <span class="mob-tile-name">Wisconsin</span>
-          <span class="mob-tile-count">2 fields</span>
-        </button>
-        <button class="mob-state-tile" data-state="MN" onclick="filterState('MN',null)">
-          <span class="mob-tile-code">MN</span>
-          <span class="mob-tile-name">Minnesota</span>
-          <span class="mob-tile-count">2 fields</span>
-        </button>
-        <button class="mob-state-tile" data-state="MO" onclick="filterState('MO',null)">
-          <span class="mob-tile-code">MO</span>
-          <span class="mob-tile-name">Missouri</span>
-          <span class="mob-tile-count">4 fields</span>
-        </button>
-        <button class="mob-state-tile" data-state="KS" onclick="filterState('KS',null)">
-          <span class="mob-tile-code">KS</span>
-          <span class="mob-tile-name">Kansas</span>
-          <span class="mob-tile-count">1 field</span>
-        </button>
-        <button class="mob-state-tile" data-state="IA" onclick="filterState('IA',null)" style="opacity:0.35;pointer-events:none">
-          <span class="mob-tile-code" style="color:var(--muted)">IA</span>
-          <span class="mob-tile-name">Iowa</span>
-          <span class="mob-tile-count" style="color:var(--muted)">—</span>
-        </button>
-      </div>
-      <button class="mob-all-tile active" id="mob-btn-all" onclick="filterState('all',null)">
-        ◈ &nbsp; Show All States
-      </button>
-    </div>
 
     <!-- pill buttons as secondary selector -->
     <div class="state-filter" id="state-filter">
@@ -3103,6 +3111,41 @@ function evFilter(type, val, btn) {
   applyEvFilters();
 }
 
+function mapFilterState(state) {
+  // toggle: clicking same state resets to all
+  if (typeof mapActiveState === 'undefined') window.mapActiveState = 'all';
+  if (mapActiveState === state && state !== 'all') state = 'all';
+  mapActiveState = state;
+
+  // sync mobile tiles
+  document.querySelectorAll('.mob-state-tile').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.mob-all-tile').forEach(t => t.classList.remove('active'));
+  if (state === 'all') {
+    document.querySelectorAll('.mob-all-tile').forEach(t => t.classList.add('active'));
+  } else {
+    document.querySelectorAll(`.mob-state-tile[data-state="${state}"]`).forEach(t => t.classList.add('active'));
+  }
+
+  // sync SVG map styling
+  document.querySelectorAll('.map-state').forEach(p => p.classList.remove('map-selected'));
+  document.querySelectorAll('.map-badge-grp').forEach(g => g.classList.remove('badge-selected'));
+  document.querySelectorAll('.field-dot').forEach(d => d.classList.remove('dot-active'));
+  if (state !== 'all') {
+    const sel = document.getElementById('map-' + state);
+    if (sel) sel.classList.add('map-selected');
+    const badge = document.querySelector(`.map-badge-grp[data-state="${state}"]`);
+    if (badge) badge.classList.add('badge-selected');
+    document.querySelectorAll(`.field-dot[data-state="${state}"]`).forEach(d => d.classList.add('dot-active'));
+  }
+
+  // filter events by state
+  const evState = state === 'all' ? 'all' : state;
+  const evBtn = evState === 'all'
+    ? document.querySelector('.ev-filter-row:first-child .ev-fbtn')
+    : document.querySelector(`.ev-filter-row:first-child .ev-fbtn[onclick*="'${evState}'"]`);
+  if (evBtn) evFilter('state', evState, evBtn);
+}
+
 function filterState(state, btn) {
   // toggle: clicking same state resets to all
   if (activeState === state && state !== 'all') {
@@ -3161,7 +3204,7 @@ function filterState(state, btn) {
 // ── Map: click state paths ──
 document.querySelectorAll('.map-state:not(.map-inactive)').forEach(path => {
   path.addEventListener('click', function() {
-    filterState(this.dataset.state, null);
+    mapFilterState(this.dataset.state);
   });
 
   // Tooltip on hover
@@ -3511,15 +3554,7 @@ const _origFilter = filterState;
 filterState = function(state, btn) {
   _origFilter(state, btn);
   updateStatBlock(state === activeState ? 'all' : state);
-  // sync events section state filter when map is clicked
-  const evState = (state === 'all' || state === activeState) ? 'all' : state;
-  const evBtn = document.querySelector('.ev-filter-row:first-child .ev-fbtn[onclick*=\'"'+ evState +'\'"');
-  if (!evBtn) {
-    const allBtn = document.querySelector('.ev-filter-row:first-child .ev-fbtn');
-    if (allBtn) { evActiveState = 'all'; document.querySelectorAll('.ev-filter-row:first-child .ev-fbtn').forEach(b => b.classList.remove('active')); allBtn.classList.add('active'); applyEvFilters(); }
-  } else {
-    evFilter('state', evState, evBtn);
-  }
+
   // inject a flash line on state select
   if (state !== 'all') {
     RIGHT_LINES.unshift({ t:'alert', s:'> FILTERED: ' + state });
