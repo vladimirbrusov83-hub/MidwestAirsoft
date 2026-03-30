@@ -715,6 +715,7 @@
     position: absolute;
     top: 20px;
     right: 48px;
+    z-index: 3;
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 10px;
     font-weight: 600;
@@ -728,7 +729,13 @@
   }
   .hdr-owner-btn:hover { color: var(--green); border-color: var(--green); }
   @media (max-width: 700px) {
-    .hdr-owner-btn { top: 12px; right: 14px; font-size: 9px; padding: 5px 10px; }
+    .hdr-owner-btn {
+      position: static;
+      display: inline-block;
+      margin-top: 18px;
+      font-size: 10px;
+      padding: 7px 14px;
+    }
   }
 
   /* ── CONTACT SECTION ── */
@@ -1377,7 +1384,6 @@
 
 <!-- ═══════════════════════ HEADER ═══════════════════════ -->
 <header>
-  <a href="https://brusovcoach.org" target="_blank" rel="noopener" class="hdr-owner-btn">Owner Website →</a>
   <div class="hdr-grid"></div>
   <div class="hdr-mark">MIDWEST</div>
   <div class="hdr-inner">
@@ -1389,6 +1395,7 @@
       <h1>MIDWEST<em>AIRSOFT</em></h1>
       <p class="hdr-sub">All Midwest airsoft events in one place — the best airsoft intel in the Midwest. Fields, ops &amp; calendar across Illinois, Missouri, Indiana, Michigan, Minnesota, Ohio, Wisconsin &amp; beyond.</p>
       <a href="#contact" class="hdr-contact-link">Know something we don't? →</a>
+      <a href="https://brusovcoach.org" target="_blank" rel="noopener" class="hdr-owner-btn">Owner Website →</a>
     </div>
     <div class="hdr-stats">
       <div class="stat-block">
