@@ -127,7 +127,8 @@ export default async function handler(req, res) {
   const events = [];
   const log    = [];
 
-  for (const field of FIELDS) {
+  for (let i = 0; i < FIELDS.length; i++) {
+    const field = FIELDS[i];
     try {
       const text = await fetchPage(field.url);
       if (!text) { log.push(`${field.id}: fetch failed`); continue; }
@@ -138,6 +139,8 @@ export default async function handler(req, res) {
     } catch (err) {
       log.push(`${field.id}: error — ${err.message}`);
     }
+    // 6-second pause between requests to stay under Groq free tier 12k TPM limit
+    if (i < FIELDS.length - 1) await new Promise(r => setTimeout(r, 6000));
   }
 
   events.sort((a, b) => a.date.localeCompare(b.date));
