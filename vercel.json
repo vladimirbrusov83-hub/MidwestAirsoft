@@ -1,13 +1,6 @@
 {
-  "crons": [
-    {
-      "path": "/api/update-events",
-      "schedule": "0 23 * * 3"
-    }
-  ],
   "functions": {
-    "api/update-events.js": {
-      "maxDuration": 300
-    }
+    "api/contact.js": { "maxDuration": 10 },
+    "api/events.js":  { "maxDuration": 10 }
   }
 }
