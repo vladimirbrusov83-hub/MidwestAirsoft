@@ -711,6 +711,26 @@
   }
   .hdr-contact-link:hover { opacity: 1; }
 
+  .hdr-owner-btn {
+    position: absolute;
+    top: 20px;
+    right: 48px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,.12);
+    padding: 6px 14px;
+    transition: color .15s, border-color .15s;
+  }
+  .hdr-owner-btn:hover { color: var(--green); border-color: var(--green); }
+  @media (max-width: 700px) {
+    .hdr-owner-btn { top: 12px; right: 14px; font-size: 9px; padding: 5px 10px; }
+  }
+
   /* ── CONTACT SECTION ── */
   #contact { position: relative; z-index: 1; }
 
@@ -1357,6 +1377,7 @@
 
 <!-- ═══════════════════════ HEADER ═══════════════════════ -->
 <header>
+  <a href="https://brusovcoach.org" target="_blank" rel="noopener" class="hdr-owner-btn">Owner Website →</a>
   <div class="hdr-grid"></div>
   <div class="hdr-mark">MIDWEST</div>
   <div class="hdr-inner">
