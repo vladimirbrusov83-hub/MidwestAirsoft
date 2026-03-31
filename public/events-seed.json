@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-03-29T00:00:00.000Z",
-  "nextUpdate": "2026-04-02T22:08:16.994Z",
+  "lastUpdated": "2026-03-31T00:00:00.000Z",
+  "nextUpdate": "2026-04-08T00:00:00.000Z",
   "note": "Base events manually curated. Auto-update merges new Groq-extracted events weekly.",
   "fields": [
     {
@@ -186,28 +186,6 @@
       "base": true,
       "recurringLabel": "Sat–Sun",
       "recurringDay": "∞"
-    },
-    {
-      "date": "2026-03-29",
-      "name": "Kankakee Factory Open Play",
-      "type": "open",
-      "price": "$30",
-      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/",
-      "venue": "Kankakee Airsoft Factory · Kankakee, IL · Hosted by MiR Tactical",
-      "state": "IL",
-      "badge": "Open Play",
-      "base": true
-    },
-    {
-      "date": "2026-03-29",
-      "name": "Dragon's Tooth IX — Airsoft Big Game",
-      "type": "big",
-      "price": "$30",
-      "url": "https://bingfield.com/index.php/category/events/",
-      "venue": "Bing Field Airsoft & Paintball Park · Alton, IL (St. Louis)",
-      "state": "IL",
-      "badge": "Big Game",
-      "base": true
     },
     {
       "date": "2026-04-04",
