@@ -1,6 +1,6 @@
 # Midwest Airsoft — Events Hub
 
-Deployed on Vercel. Events are updated manually once a week.
+Deployed on Vercel. Auto-deploys on push to `main`.
 
 ---
 
@@ -9,37 +9,60 @@ Deployed on Vercel. Events are updated manually once a week.
 ```
 midwest-airsoft/
 ├── api/
-│   ├── contact.js     ← Contact form endpoint
-│   └── events.js      ← Public endpoint: serves events data to the frontend
+│   ├── events.js          ← Serves events-seed.json to the frontend
+│   └── contact.js         ← Contact form (logs + optional Resend email)
 ├── public/
-│   ├── index.html     ← Frontend (fetches /api/events on load)
-│   └── events-seed.json ← Event data — edit this to update the site
-├── vercel.json
-└── package.json
+│   ├── index.html         ← Frontend (fetches /api/events on load)
+│   └── events-seed.json   ← Master event data — source of truth
+├── scripts/
+│   └── fetch-changes.mjs  ← Detects changed field pages, outputs changes-report.json
+├── fields.json            ← All 35 scrapable fields (id, name, state, url)
+├── field-hashes.json      ← MD5 hashes of last-fetched pages (do not edit manually)
+└── vercel.json
 ```
 
 ---
 
-## How to update events (weekly)
+## Weekly Update Workflow
 
-1. Edit `public/events-seed.json` with the latest events
-2. Push to GitHub — Vercel auto-deploys
-
----
-
-## Setup
-
+### Step 1 — Detect changes
 ```bash
-npm i -g vercel
-cd midwest-airsoft
-vercel deploy --prod
+node scripts/fetch-changes.mjs
 ```
+Fetches all field pages, compares MD5 hashes to `field-hashes.json`, and extracts
+event-relevant text only for fields whose page changed. Writes `changes-report.json`.
 
-### Optional: email notifications for contact form
+### Step 2 — Update events with Claude Code
+Open Claude Code in this directory and say:
+```
+Update events from changes-report.json
+```
+Claude reads the compact report and edits `public/events-seed.json` directly.
 
-Go to: vercel.com → Your project → Settings → Environment Variables
+### Step 3 — Push to GitHub
+```bash
+git add public/events-seed.json field-hashes.json
+git commit -m "Weekly update YYYY-MM-DD"
+git push
+```
+Vercel auto-deploys on push.
+
+---
+
+## How it works
+
+- `changes-report.json` is gitignored (temporary file, not committed)
+- `field-hashes.json` is committed so hashes persist across sessions
+- First run of `fetch-changes.mjs` builds the baseline (all fields show as changed once)
+- Subsequent runs: only changed fields appear (~3–6 per week)
+
+---
+
+## Optional: contact form email notifications
+
+Vercel → Project Settings → Environment Variables:
 
 | Variable | Value |
 |---|---|
 | `RESEND_API_KEY` | Your Resend API key |
-| `CONTACT_EMAIL` | Email address to receive contact submissions |
+| `CONTACT_EMAIL` | Email address to receive contact form submissions |
