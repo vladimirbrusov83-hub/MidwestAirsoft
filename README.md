@@ -1,68 +1,85 @@
-# Midwest Airsoft — Events Hub
+# Midwest Airsoft — Fields & Events Hub
 
-Deployed on Vercel. Auto-deploys on push to `main`.
+A weekly-updated directory of airsoft fields and events across the Midwest — Illinois, Minnesota, Wisconsin, Indiana, Missouri, Michigan, and Ohio.
 
----
-
-## Project Structure
-
-```
-midwest-airsoft/
-├── api/
-│   ├── events.js          ← Serves events-seed.json to the frontend
-│   └── contact.js         ← Contact form (logs + optional Resend email)
-├── public/
-│   ├── index.html         ← Frontend (fetches /api/events on load)
-│   └── events-seed.json   ← Master event data — source of truth
-├── scripts/
-│   └── fetch-changes.mjs  ← Detects changed field pages, outputs changes-report.json
-├── fields.json            ← All 35 scrapable fields (id, name, state, url)
-├── field-hashes.json      ← MD5 hashes of last-fetched pages (do not edit manually)
-└── vercel.json
-```
+Live: **[midwestairsoft.space](https://www.midwestairsoft.space)**
 
 ---
 
-## Weekly Update Workflow
+## What it does
 
-### Step 1 — Detect changes
+One place to find airsoft fields and upcoming events in the Midwest. MilSim ops, big games, open play days — updated every week.
+
+35 fields tracked across 7 states. The site checks each field's page for changes, pulls out event info, and updates the listings.
+
+---
+
+## How it stays updated
+
+The update process is semi-automated and runs weekly in three steps:
+
+**Step 1 — Detect changes**
 ```bash
 node scripts/fetch-changes.mjs
 ```
-Fetches all field pages, compares MD5 hashes to `field-hashes.json`, and extracts
-event-relevant text only for fields whose page changed. Writes `changes-report.json`.
+Checks all 35 field pages, finds which ones changed since last week, pulls out the relevant event text. Saves results to `changes-report.json`.
 
-### Step 2 — Update events with Claude Code
-Open Claude Code in this directory and say:
+**Step 2 — Update the event listings**
+
+Open Claude Code in this folder and say:
 ```
 Update events from changes-report.json
 ```
-Claude reads the compact report and edits `public/events-seed.json` directly.
+Claude reads the report and edits the events file directly.
 
-### Step 3 — Push to GitHub
+**Step 3 — Push to GitHub**
 ```bash
 git add public/events-seed.json field-hashes.json
 git commit -m "Weekly update YYYY-MM-DD"
 git push
 ```
-Vercel auto-deploys on push.
+Vercel auto-deploys on push. Done.
 
 ---
 
-## How it works
+## Stack
 
-- `changes-report.json` is gitignored (temporary file, not committed)
-- `field-hashes.json` is committed so hashes persist across sessions
-- First run of `fetch-changes.mjs` builds the baseline (all fields show as changed once)
-- Subsequent runs: only changed fields appear (~3–6 per week)
+- Frontend: single `index.html` in `/public`
+- Backend: two serverless API routes (`/api/events.js`, `/api/contact.js`)
+- Event data: `public/events-seed.json` — manually curated, source of truth
+- Deployed on [Vercel](https://vercel.com)
+- Contact form email via [Resend](https://resend.com) (optional)
 
 ---
 
-## Optional: contact form email notifications
+## Project structure
 
-Vercel → Project Settings → Environment Variables:
+```
+midwest-airsoft/
+├── api/
+│   ├── events.js          ← serves event data to the frontend
+│   └── contact.js         ← contact form handler
+├── public/
+│   ├── index.html         ← the whole frontend
+│   └── events-seed.json   ← all event data, edit this to update listings
+├── scripts/
+│   └── fetch-changes.mjs  ← weekly change detector
+├── fields.json            ← list of all 35 tracked fields
+├── field-hashes.json      ← tracks what each field page looked like last check
+└── vercel.json
+```
+
+---
+
+## Optional: contact form emails
+
+Add these in Vercel → Project Settings → Environment Variables:
 
 | Variable | Value |
 |---|---|
 | `RESEND_API_KEY` | Your Resend API key |
-| `CONTACT_EMAIL` | Email address to receive contact form submissions |
+| `CONTACT_EMAIL` | Where to send contact form submissions |
+
+---
+
+Built by an airsofter, for airsofters.
