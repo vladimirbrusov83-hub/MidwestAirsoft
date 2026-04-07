@@ -284,6 +284,24 @@
     border-bottom-color: var(--green);
   }
 
+  a.nav-tool-link {
+    margin-left: 12px;
+    color: var(--green) !important;
+    border: 1px solid rgba(200,240,50,0.25);
+    border-bottom: 2px solid var(--green) !important;
+    padding: 10px 16px !important;
+    background: rgba(200,240,50,0.05);
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: background .18s !important;
+  }
+  a.nav-tool-link:hover {
+    background: rgba(200,240,50,0.12) !important;
+  }
+  a.nav-tool-link .nav-idx {
+    opacity: 1;
+    font-size: 11px;
+  }
+
   .nav-tail {
     margin-left: auto;
     display: flex;
@@ -1437,6 +1455,9 @@
       </a></li>
       <li><a href="#contact" onclick="setActive(this)">
         <span class="nav-idx">03</span> Submit Intel
+      </a></li>
+      <li><a href="https://ballistics.midwestairsoft.space" target="_blank" class="nav-tool-link">
+        <span class="nav-idx">⊕</span> BB Calculator
       </a></li>
 
     </ul>
@@ -3334,3 +3355,4 @@ document.querySelectorAll('.mob-state-tile[data-state]').forEach(tile => {
 
 </body>
 </html>
+
