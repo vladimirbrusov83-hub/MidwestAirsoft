@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-03-31T00:00:00.000Z",
-  "nextUpdate": "2026-04-08T00:00:00.000Z",
+  "lastUpdated": "2026-04-07T00:00:00.000Z",
+  "nextUpdate": "2026-04-14T00:00:00.000Z",
   "note": "Base events manually curated. Auto-update merges new Groq-extracted events weekly.",
   "fields": [
     {
@@ -188,61 +188,6 @@
       "recurringDay": "∞"
     },
     {
-      "date": "2026-04-04",
-      "name": "HOLY GRAIL — High Intensity Airsoft Weekend",
-      "type": "big",
-      "price": "$40–50",
-      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
-      "venue": "Twin Cities Airsoft · Minneapolis/St. Paul Metro, MN",
-      "state": "MN",
-      "badge": "Scenario Weekend",
-      "base": true
-    },
-    {
-      "date": "2026-04-04",
-      "name": "Kankakee Factory Open Play",
-      "type": "open",
-      "price": "$30",
-      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/",
-      "venue": "Kankakee Airsoft Factory · Kankakee, IL · MiR Tactical",
-      "state": "IL",
-      "badge": "Open Play",
-      "base": true
-    },
-    {
-      "date": "2026-04-11",
-      "name": "Operation: BLACKLIST — Tier 1 MilSim",
-      "type": "milsim",
-      "price": "$175",
-      "url": "https://mirtactical.com/estreamly/operation-blacklist-2026/",
-      "venue": "MiR Tactical · Illinois Region",
-      "state": "",
-      "badge": "Tier 1 MilSim",
-      "base": true
-    },
-    {
-      "date": "2026-05-02",
-      "name": "BLACKOUT — High Intensity Airsoft Weekend",
-      "type": "big",
-      "price": "$40–50",
-      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
-      "venue": "Twin Cities Airsoft · MN",
-      "state": "MN",
-      "badge": "Scenario Weekend",
-      "base": true
-    },
-    {
-      "date": "2026-05-23",
-      "name": "ARMAGEDDON — Giant Airsoft Game #26",
-      "type": "big",
-      "price": "$70–80",
-      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
-      "venue": "Twin Cities Airsoft · MN · Early bird before May 17",
-      "state": "MN",
-      "badge": "Giant Game",
-      "base": true
-    },
-    {
       "date": "recurring",
       "name": "Kankakee Factory Open Plays (Weekly)",
       "type": "open",
@@ -254,28 +199,6 @@
       "base": true,
       "recurringLabel": "May–Nov",
       "recurringDay": "∞"
-    },
-    {
-      "date": "2026-07-04",
-      "name": "RED, WHITE & RELOAD — High Intensity Airsoft",
-      "type": "big",
-      "price": "$40–50",
-      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
-      "venue": "Twin Cities Airsoft · MN · Free camping Fri–Sat",
-      "state": "MN",
-      "badge": "Scenario Weekend",
-      "base": true
-    },
-    {
-      "date": "2026-08-01",
-      "name": "GHOST DIRECTIVE — High Intensity Airsoft Weekend",
-      "type": "big",
-      "price": "$40–50",
-      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
-      "venue": "Twin Cities Airsoft · MN",
-      "state": "MN",
-      "badge": "Scenario Weekend",
-      "base": true
     },
     {
       "date": "recurring",
@@ -291,28 +214,6 @@
       "recurringDay": "∞"
     },
     {
-      "date": "2026-09-05",
-      "name": "TOTAL WAR — High Intensity Airsoft Weekend",
-      "type": "big",
-      "price": "$40–50",
-      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
-      "venue": "Twin Cities Airsoft · MN · Free patch for first 150",
-      "state": "MN",
-      "badge": "Scenario Weekend",
-      "base": true
-    },
-    {
-      "date": "2026-09-19",
-      "name": "GIANT Game #27 — \"DOMINATION\"",
-      "type": "big",
-      "price": "$70–80",
-      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
-      "venue": "Twin Cities Airsoft · MN · Early bird before Sept 7",
-      "state": "MN",
-      "badge": "Giant Game",
-      "base": true
-    },
-    {
       "date": "recurring",
       "name": "Bing Field Monthly Airsoft Big Games",
       "type": "big",
@@ -324,6 +225,17 @@
       "base": true,
       "recurringLabel": "Monthly",
       "recurringDay": "∞"
+    },
+    {
+      "date": "2026-04-11",
+      "name": "Operation: BLACKLIST — Tier 1 MilSim",
+      "type": "milsim",
+      "price": "$175",
+      "url": "https://mirtactical.com/estreamly/operation-blacklist-2026/",
+      "venue": "MiR Tactical · Illinois Region",
+      "state": "",
+      "badge": "Tier 1 MilSim",
+      "base": true
     },
     {
       "date": "2026-04-11",
@@ -345,6 +257,17 @@
       "venue": "Futureball · Whitmore Lake, MI · 1-day or 2-day",
       "state": "MI",
       "badge": "Big Game",
+      "base": true
+    },
+    {
+      "date": "2026-04-11",
+      "name": "HOLY GRAIL — High Intensity Airsoft Weekend",
+      "type": "big",
+      "price": "$40–50",
+      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
+      "venue": "Twin Cities Airsoft · Minneapolis/St. Paul Metro, MN",
+      "state": "MN",
+      "badge": "Scenario Weekend",
       "base": true
     },
     {
@@ -370,6 +293,17 @@
       "base": true
     },
     {
+      "date": "2026-04-12",
+      "name": "Airsoft Swap Meet — Bing Field",
+      "type": "open",
+      "price": "Free entry",
+      "url": "https://bingfield.com/index.php/2026/04/06/airsoft-swap-meet-26/",
+      "venue": "Bing Field · Alton, IL · Buy/sell/trade airsoft gear",
+      "state": "IL",
+      "badge": "Swap Meet",
+      "base": true
+    },
+    {
       "date": "2026-04-17",
       "name": "10th Annual G&G Event",
       "type": "milsim",
@@ -378,6 +312,17 @@
       "venue": "The Rock Airsoft · Bolivar, MO · 3-day MilSim · laser-engraved coin for first 75",
       "state": "MO",
       "badge": "MilSim Weekend",
+      "base": true
+    },
+    {
+      "date": "2026-04-17",
+      "name": "Airsoft Night Game — Bing Field",
+      "type": "open",
+      "price": "$30",
+      "url": "https://bingfield.com/index.php/2026/04/06/airsoft-night-game-34/",
+      "venue": "Bing Field · Alton, IL · Pre-register for bonus ammo & raffle",
+      "state": "IL",
+      "badge": "Night Game",
       "base": true
     },
     {
@@ -425,6 +370,28 @@
       "base": true
     },
     {
+      "date": "2026-04-26",
+      "name": "Broken Arrow IX — Airsoft Big Game",
+      "type": "big",
+      "price": "$30",
+      "url": "https://bingfield.com/index.php/2026/04/06/broken-arrow-ix-airsoft-big-game/",
+      "venue": "Bing Field · Alton, IL · Pre-register by Apr 25 for bonus ammo",
+      "state": "IL",
+      "badge": "Big Game",
+      "base": true
+    },
+    {
+      "date": "2026-05-02",
+      "name": "BLACKOUT — High Intensity Airsoft Weekend",
+      "type": "big",
+      "price": "$40–50",
+      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
+      "venue": "Twin Cities Airsoft · MN",
+      "state": "MN",
+      "badge": "Scenario Weekend",
+      "base": true
+    },
+    {
       "date": "2026-05-02",
       "name": "Open Play",
       "type": "open",
@@ -444,6 +411,17 @@
       "venue": "MASS · Lawson, MO",
       "state": "MO",
       "badge": "Open Play",
+      "base": true
+    },
+    {
+      "date": "2026-05-08",
+      "name": "Airsoft Night Game — Bing Field",
+      "type": "open",
+      "price": "$30",
+      "url": "https://bingfield.com/index.php/2026/04/06/airsoft-night-game-33/",
+      "venue": "Bing Field · Alton, IL · Pre-register for bonus ammo & raffle",
+      "state": "IL",
+      "badge": "Night Game",
       "base": true
     },
     {
@@ -469,6 +447,17 @@
       "base": true
     },
     {
+      "date": "2026-05-16",
+      "name": "OPERATION: SKY SHIELD — Tier 1 MilSim",
+      "type": "milsim",
+      "price": "$165",
+      "url": "https://mirtactical.com/estreamly/operation-sky-shield-05-16-2026-05-17-2026-airsoft-tier-1-milsim-event/",
+      "venue": "MiR Tactical · Illinois Region · 2-day Tier 1 MilSim",
+      "state": "IL",
+      "badge": "Tier 1 MilSim",
+      "base": true
+    },
+    {
       "date": "2026-05-17",
       "name": "Game Day",
       "type": "open",
@@ -491,6 +480,39 @@
       "base": true
     },
     {
+      "date": "2026-05-17",
+      "name": "5th Annual Seth Kimbro Memorial Airsoft Game",
+      "type": "big",
+      "price": "$30",
+      "url": "https://bingfield.com/index.php/2026/04/06/5th-annual-seth-kimbro-memorial-airsoft-game/",
+      "venue": "Bing Field · Alton, IL · Memorial game · gates 9:30 AM",
+      "state": "IL",
+      "badge": "Big Game",
+      "base": true
+    },
+    {
+      "date": "2026-05-23",
+      "name": "ARMAGEDDON — Giant Airsoft Game #26",
+      "type": "big",
+      "price": "$70–80",
+      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
+      "venue": "Twin Cities Airsoft · MN · Early bird before May 17",
+      "state": "MN",
+      "badge": "Giant Game",
+      "base": true
+    },
+    {
+      "date": "2026-05-31",
+      "name": "Steel Diamond X — Airsoft Big Game",
+      "type": "big",
+      "price": "$30",
+      "url": "https://bingfield.com/index.php/2026/04/06/steel-diamond-x-airsoft-big-game/",
+      "venue": "Bing Field · Alton, IL · Pre-register by May 30 for bonus ammo",
+      "state": "IL",
+      "badge": "Big Game",
+      "base": true
+    },
+    {
       "date": "2026-06-13",
       "name": "Future War — Space Force vs. Invaders",
       "type": "big",
@@ -510,6 +532,17 @@
       "venue": "The Den Airsoft · New Philadelphia, OH",
       "state": "OH",
       "badge": "Open Play",
+      "base": true
+    },
+    {
+      "date": "2026-06-13",
+      "name": "WWII Operation Overlord — D-Day",
+      "type": "big",
+      "price": "$40–50",
+      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
+      "venue": "Twin Cities Airsoft · Minneapolis/St. Paul Metro, MN · Free camping Fri–Sat",
+      "state": "MN",
+      "badge": "Scenario Weekend",
       "base": true
     },
     {
@@ -558,6 +591,17 @@
     },
     {
       "date": "2026-07-11",
+      "name": "RED, WHITE & RELOAD — High Intensity Airsoft",
+      "type": "big",
+      "price": "$40–50",
+      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
+      "venue": "Twin Cities Airsoft · MN · Free camping Fri–Sat",
+      "state": "MN",
+      "badge": "Scenario Weekend",
+      "base": true
+    },
+    {
+      "date": "2026-07-11",
       "name": "Open Play",
       "type": "open",
       "price": "TBD",
@@ -587,6 +631,17 @@
       "venue": "TC Paintball North · Copemish, MI · Camping included",
       "state": "MI",
       "badge": "MilSim Weekend",
+      "base": true
+    },
+    {
+      "date": "2026-08-01",
+      "name": "GHOST DIRECTIVE — High Intensity Airsoft Weekend",
+      "type": "big",
+      "price": "$40–50",
+      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
+      "venue": "Twin Cities Airsoft · MN",
+      "state": "MN",
+      "badge": "Scenario Weekend",
       "base": true
     },
     {
@@ -646,6 +701,17 @@
     },
     {
       "date": "2026-09-05",
+      "name": "TOTAL WAR — High Intensity Airsoft Weekend",
+      "type": "big",
+      "price": "$40–50",
+      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
+      "venue": "Twin Cities Airsoft · MN · Free patch for first 150",
+      "state": "MN",
+      "badge": "Scenario Weekend",
+      "base": true
+    },
+    {
+      "date": "2026-09-05",
       "name": "Open Play",
       "type": "open",
       "price": "TBD",
@@ -664,6 +730,17 @@
       "venue": "TC Paintball North · Copemish, MI",
       "state": "MI",
       "badge": "Open Play",
+      "base": true
+    },
+    {
+      "date": "2026-09-19",
+      "name": "GIANT Game #27 — \"DOMINATION\"",
+      "type": "big",
+      "price": "$70–80",
+      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
+      "venue": "Twin Cities Airsoft · MN · Early bird before Sept 7",
+      "state": "MN",
+      "badge": "Giant Game",
       "base": true
     },
     {
@@ -722,6 +799,17 @@
       "base": true
     },
     {
+      "date": "2026-10-03",
+      "name": "GLOBAL RESPONSE — High Intensity Airsoft Weekend",
+      "type": "big",
+      "price": "$40–50",
+      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
+      "venue": "Twin Cities Airsoft · Minneapolis/St. Paul Metro, MN",
+      "state": "MN",
+      "badge": "Scenario Weekend",
+      "base": true
+    },
+    {
       "date": "2026-10-10",
       "name": "Resident Evil Paintball Big Game",
       "type": "big",
@@ -766,6 +854,28 @@
       "base": true
     },
     {
+      "date": "2026-10-31",
+      "name": "Halloween Costume Game — Twin Cities Airsoft",
+      "type": "open",
+      "price": "$30 ($20 in costume)",
+      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
+      "venue": "Twin Cities Airsoft · Minneapolis/St. Paul Metro, MN",
+      "state": "MN",
+      "badge": "Special Event",
+      "base": true
+    },
+    {
+      "date": "2026-11-07",
+      "name": "IRON VIPER — High Intensity Airsoft Weekend",
+      "type": "big",
+      "price": "$40–50",
+      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
+      "venue": "Twin Cities Airsoft · Minneapolis/St. Paul Metro, MN",
+      "state": "MN",
+      "badge": "Scenario Weekend",
+      "base": true
+    },
+    {
       "date": "2026-11-14",
       "name": "Honor Vets Open Play",
       "type": "open",
@@ -785,6 +895,17 @@
       "venue": "The Den Airsoft · New Philadelphia, OH",
       "state": "OH",
       "badge": "Open Play",
+      "base": true
+    },
+    {
+      "date": "2026-12-26",
+      "name": "Operation HO HO HO — Twin Cities Airsoft",
+      "type": "open",
+      "price": "$30",
+      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
+      "venue": "Twin Cities Airsoft · Minneapolis/St. Paul Metro, MN",
+      "state": "MN",
+      "badge": "Special Event",
       "base": true
     }
   ]
