@@ -5,6 +5,9 @@ on:
     - cron: "0 10 * * 3"  # Every Wednesday at 10:00 AM UTC
   workflow_dispatch:         # Allow manual run from GitHub UI
 
+permissions:
+  contents: write            # needed to commit and push the report
+
 jobs:
   detect-changes:
     runs-on: ubuntu-latest
