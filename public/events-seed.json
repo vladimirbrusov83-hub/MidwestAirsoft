@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-15T13:32:16.366Z",
+  "lastUpdated": "2026-04-15T13:42:08.904Z",
   "nextUpdate": "2026-04-22T00:00:00.000Z",
   "note": "Base events manually curated. Auto-update merges new Groq-extracted events weekly.",
   "fields": [
@@ -163,41 +163,15 @@
   "events": [
     {
       "date": "recurring",
-      "name": "Bing Field Monthly Airsoft Big Games",
-      "type": "big",
-      "price": "$30",
-      "url": "https://bingfield.com/index.php/category/events/",
-      "venue": "Bing Field · Alton, IL · Pre-register for bonus ammo & raffle",
-      "state": "IL",
-      "badge": "Big Game",
-      "base": true,
-      "recurringLabel": "Monthly",
-      "recurringDay": "∞"
-    },
-    {
-      "date": "recurring",
-      "name": "Blastcamp Monthly Airsoft Ops",
+      "name": "WilSim Saturdays — Black Ops Airsoft",
       "type": "milsim",
-      "price": "$40–45",
-      "url": "https://blastcamp.com/events/",
-      "venue": "Blastcamp · Hobart, IN · Produced by Cobra Airsoft Legion",
-      "state": "IN",
-      "badge": "Full-Day Op",
+      "price": "$20",
+      "url": "https://www.blackops-airsoft.com/willsim-saturday.htm",
+      "venue": "Black Ops Airsoft · Bristol, WI · Scenario MilSim gameplay",
+      "state": "WI",
+      "badge": "WilSim / MilSim",
       "base": true,
-      "recurringLabel": "Monthly",
-      "recurringDay": "∞"
-    },
-    {
-      "date": "recurring",
-      "name": "Kankakee Factory Open Plays (Weekly)",
-      "type": "open",
-      "price": "$30",
-      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/",
-      "venue": "Kankakee Airsoft Factory · IL · Select Sat & Sun through Nov",
-      "state": "IL",
-      "badge": "Open Play",
-      "base": true,
-      "recurringLabel": "May–Nov",
+      "recurringLabel": "Bi-Weekly",
       "recurringDay": "∞"
     },
     {
@@ -215,15 +189,41 @@
     },
     {
       "date": "recurring",
-      "name": "WilSim Saturdays — Black Ops Airsoft",
-      "type": "milsim",
-      "price": "$20",
-      "url": "https://www.blackops-airsoft.com/willsim-saturday.htm",
-      "venue": "Black Ops Airsoft · Bristol, WI · Scenario MilSim gameplay",
-      "state": "WI",
-      "badge": "WilSim / MilSim",
+      "name": "Kankakee Factory Open Plays (Weekly)",
+      "type": "open",
+      "price": "$30",
+      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/",
+      "venue": "Kankakee Airsoft Factory · IL · Select Sat & Sun through Nov",
+      "state": "IL",
+      "badge": "Open Play",
       "base": true,
-      "recurringLabel": "Bi-Weekly",
+      "recurringLabel": "May–Nov",
+      "recurringDay": "∞"
+    },
+    {
+      "date": "recurring",
+      "name": "Blastcamp Monthly Airsoft Ops",
+      "type": "milsim",
+      "price": "$40–45",
+      "url": "https://blastcamp.com/events/",
+      "venue": "Blastcamp · Hobart, IN · Produced by Cobra Airsoft Legion",
+      "state": "IN",
+      "badge": "Full-Day Op",
+      "base": true,
+      "recurringLabel": "Monthly",
+      "recurringDay": "∞"
+    },
+    {
+      "date": "recurring",
+      "name": "Bing Field Monthly Airsoft Big Games",
+      "type": "big",
+      "price": "$30",
+      "url": "https://bingfield.com/index.php/category/events/",
+      "venue": "Bing Field · Alton, IL · Pre-register for bonus ammo & raffle",
+      "state": "IL",
+      "badge": "Big Game",
+      "base": true,
+      "recurringLabel": "Monthly",
       "recurringDay": "∞"
     },
     {
@@ -257,6 +257,17 @@
       "venue": "The Den Airsoft · New Philadelphia, OH",
       "state": "OH",
       "badge": "Open Play",
+      "base": true
+    },
+    {
+      "date": "2026-04-18",
+      "name": "Based on the Infantry Classes and Game Modes from Huckleberry's hit game series Mechanized inspired by the Battlefield series.",
+      "type": "big",
+      "price": "55",
+      "url": "huckleberryridgeairsoft@gmail.com",
+      "venue": "SMT-AIRSOFT",
+      "state": "AR",
+      "badge": "Big Game",
       "base": true
     },
     {
