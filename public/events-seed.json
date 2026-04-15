@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-15T13:26:28.895Z",
+  "lastUpdated": "2026-04-15T13:32:16.366Z",
   "nextUpdate": "2026-04-22T00:00:00.000Z",
   "note": "Base events manually curated. Auto-update merges new Groq-extracted events weekly.",
   "fields": [
@@ -163,41 +163,15 @@
   "events": [
     {
       "date": "recurring",
-      "name": "WilSim Saturdays — Black Ops Airsoft",
-      "type": "milsim",
-      "price": "$20",
-      "url": "https://www.blackops-airsoft.com/willsim-saturday.htm",
-      "venue": "Black Ops Airsoft · Bristol, WI · Scenario MilSim gameplay",
-      "state": "WI",
-      "badge": "WilSim / MilSim",
-      "base": true,
-      "recurringLabel": "Bi-Weekly",
-      "recurringDay": "∞"
-    },
-    {
-      "date": "recurring",
-      "name": "Black Ops Open Play — Year Round",
-      "type": "open",
-      "price": "$10–20",
-      "url": "https://www.blackops-airsoft.com/",
-      "venue": "Black Ops Airsoft · Bristol, WI · Fri $10 / Sat–Sun $20 · Rentals $15",
-      "state": "WI",
-      "badge": "Open Play",
-      "base": true,
-      "recurringLabel": "Sat–Sun",
-      "recurringDay": "∞"
-    },
-    {
-      "date": "recurring",
-      "name": "Kankakee Factory Open Plays (Weekly)",
-      "type": "open",
+      "name": "Bing Field Monthly Airsoft Big Games",
+      "type": "big",
       "price": "$30",
-      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/",
-      "venue": "Kankakee Airsoft Factory · IL · Select Sat & Sun through Nov",
+      "url": "https://bingfield.com/index.php/category/events/",
+      "venue": "Bing Field · Alton, IL · Pre-register for bonus ammo & raffle",
       "state": "IL",
-      "badge": "Open Play",
+      "badge": "Big Game",
       "base": true,
-      "recurringLabel": "May–Nov",
+      "recurringLabel": "Monthly",
       "recurringDay": "∞"
     },
     {
@@ -215,15 +189,41 @@
     },
     {
       "date": "recurring",
-      "name": "Bing Field Monthly Airsoft Big Games",
-      "type": "big",
+      "name": "Kankakee Factory Open Plays (Weekly)",
+      "type": "open",
       "price": "$30",
-      "url": "https://bingfield.com/index.php/category/events/",
-      "venue": "Bing Field · Alton, IL · Pre-register for bonus ammo & raffle",
+      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/",
+      "venue": "Kankakee Airsoft Factory · IL · Select Sat & Sun through Nov",
       "state": "IL",
-      "badge": "Big Game",
+      "badge": "Open Play",
       "base": true,
-      "recurringLabel": "Monthly",
+      "recurringLabel": "May–Nov",
+      "recurringDay": "∞"
+    },
+    {
+      "date": "recurring",
+      "name": "Black Ops Open Play — Year Round",
+      "type": "open",
+      "price": "$10–20",
+      "url": "https://www.blackops-airsoft.com/",
+      "venue": "Black Ops Airsoft · Bristol, WI · Fri $10 / Sat–Sun $20 · Rentals $15",
+      "state": "WI",
+      "badge": "Open Play",
+      "base": true,
+      "recurringLabel": "Sat–Sun",
+      "recurringDay": "∞"
+    },
+    {
+      "date": "recurring",
+      "name": "WilSim Saturdays — Black Ops Airsoft",
+      "type": "milsim",
+      "price": "$20",
+      "url": "https://www.blackops-airsoft.com/willsim-saturday.htm",
+      "venue": "Black Ops Airsoft · Bristol, WI · Scenario MilSim gameplay",
+      "state": "WI",
+      "badge": "WilSim / MilSim",
+      "base": true,
+      "recurringLabel": "Bi-Weekly",
       "recurringDay": "∞"
     },
     {
@@ -454,6 +454,17 @@
       "url": "https://www.futureball.com/future-war/",
       "venue": "Futureball · Whitmore Lake, MI · Airsoft Scenario 2-day",
       "state": "MI",
+      "badge": "Big Game",
+      "base": true
+    },
+    {
+      "date": "2026-06-20",
+      "name": "Operation Nightshade June 20th 2026 at Big Lake Tactical Wargames hosted by the Night Stalkers Airsoft Team",
+      "type": "big",
+      "price": null,
+      "url": "NightStalkersAirsoftTeam2016@outlook.com",
+      "venue": "Big Lake Tactical Wargames",
+      "state": "MN",
       "badge": "Big Game",
       "base": true
     },
