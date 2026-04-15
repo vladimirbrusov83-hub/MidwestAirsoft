@@ -151,6 +151,16 @@ Reset baseline (force re-check all fields): `rm field-hashes.json && node script
 node update.mjs   # menu: add/remove/edit events, save & push
 ```
 
+### IMPORTANT: Token-efficient update process
+
+**DO NOT** read `events-seed.json` or `changes-report.json` into context. Both are large (900+ lines / 10k+ tokens each) and reading them wastes tokens.
+
+Instead:
+1. Run `node scripts/fetch-changes.mjs` (one command)
+2. Write a one-shot Node.js script that reads both JSONs, removes past events, applies changes (new events, date fixes, deduplication), and writes the updated `events-seed.json` — all without reading data into Claude's context
+3. Run the script
+4. Commit with `git diff --stat` only (not full diff), then push
+
 ## How to Add a New Field
 
 1. Add to `fields.json` (change detector uses this)

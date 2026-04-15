@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Midwest Airsoft — Admin</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, sans-serif; background: #0a0d08; color: #b0c880; padding: 20px; max-width: 900px; margin: 0 auto; }
+  h1 { color: #c8f032; font-size: 1.5rem; margin-bottom: 4px; }
+  .sub { color: #667750; font-size: .85rem; margin-bottom: 24px; }
+  h2 { color: #c8f032; font-size: 1.1rem; margin: 24px 0 12px; border-bottom: 1px solid #1a2010; padding-bottom: 6px; }
+
+  form { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; background: #111a08; padding: 16px; border-radius: 8px; border: 1px solid #1a2010; }
+  label { font-size: .8rem; color: #667750; }
+  input, select { width: 100%; padding: 8px; background: #0a0d08; color: #e4ecd4; border: 1px solid #2a3520; border-radius: 4px; font-size: .95rem; }
+  input:focus, select:focus { outline: none; border-color: #c8f032; }
+  .span2 { grid-column: span 2; }
+  .full { grid-column: 1 / -1; }
+  .btn-row { grid-column: 1 / -1; display: flex; gap: 10px; margin-top: 4px; }
+  button { padding: 10px 20px; border: none; border-radius: 4px; font-size: .9rem; cursor: pointer; font-weight: 600; }
+  .btn-add { background: #c8f032; color: #0a0d08; }
+  .btn-add:hover { background: #d4f850; }
+  .btn-push { background: #bf2e08; color: #fff; }
+  .btn-push:hover { background: #d93a10; }
+  .btn-del { background: none; border: 1px solid #3a1508; color: #bf2e08; padding: 4px 10px; font-size: .75rem; border-radius: 3px; cursor: pointer; }
+  .btn-del:hover { background: #1a0a04; }
+
+  #msg { padding: 10px; border-radius: 4px; margin-top: 10px; display: none; font-size: .85rem; }
+  #msg.ok { display: block; background: #1a2a08; color: #c8f032; border: 1px solid #2a3520; }
+  #msg.err { display: block; background: #1a0a04; color: #bf2e08; border: 1px solid #3a1508; }
+
+  table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+  th { text-align: left; color: #667750; font-size: .75rem; text-transform: uppercase; padding: 6px 8px; border-bottom: 1px solid #1a2010; }
+  td { padding: 6px 8px; border-bottom: 1px solid #0f1508; }
+  tr:hover td { background: #111a08; }
+  .tag { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: .7rem; font-weight: 600; }
+  .tag-milsim { background: #2a0808; color: #bf2e08; }
+  .tag-big { background: #2a1a04; color: #c99010; }
+  .tag-open { background: #0a1a08; color: #6a9a40; }
+  .recurring { color: #667750; font-style: italic; }
+  .count { color: #667750; font-size: .85rem; font-weight: normal; }
+</style>
+</head>
+<body>
+
+<h1>MIDWEST AIRSOFT — Event Manager</h1>
+<p class="sub">Local admin tool &middot; <code>node admin-server.mjs</code></p>
+
+<h2>Add Event</h2>
+<form id="form">
+  <div>
+    <label>Date *</label>
+    <input type="date" id="date" required>
+  </div>
+  <div>
+    <label>State *</label>
+    <input type="text" id="state" maxlength="2" placeholder="IL" style="text-transform:uppercase" required>
+  </div>
+  <div>
+    <label>Type</label>
+    <select id="type">
+      <option value="open">Open Play</option>
+      <option value="big">Big Game</option>
+      <option value="milsim">MilSim</option>
+    </select>
+  </div>
+  <div class="full">
+    <label>Field / Venue Name *</label>
+    <input type="text" id="venue" placeholder="e.g. Bing Field, Alton IL" required>
+  </div>
+  <div class="full">
+    <label>Event Description *</label>
+    <input type="text" id="name" placeholder="e.g. Spring Big Game — objective-based, 200+ players" required>
+  </div>
+  <div class="span2">
+    <label>URL or Email</label>
+    <input type="text" id="url" placeholder="https://... or contact@field.com">
+  </div>
+  <div>
+    <label>Price</label>
+    <input type="text" id="price" placeholder="$30 or leave blank">
+  </div>
+  <div class="btn-row">
+    <button type="submit" class="btn-add">Add Event</button>
+    <button type="button" class="btn-push" onclick="push()">Save &amp; Push to Website</button>
+  </div>
+</form>
+<div id="msg"></div>
+
+<h2>Current Events <span class="count" id="count"></span></h2>
+<table>
+  <thead><tr><th>Date</th><th>Event</th><th>Venue</th><th>ST</th><th>Type</th><th>Price</th><th></th></tr></thead>
+  <tbody id="list"></tbody>
+</table>
+
+<script>
+const API = "/api/admin";
+
+function msg(text, ok) {
+  const el = document.getElementById("msg");
+  el.textContent = text;
+  el.className = ok ? "ok" : "err";
+  setTimeout(() => el.className = "", 3000);
+}
+
+async function load() {
+  const r = await fetch(API);
+  const d = await r.json();
+  const list = document.getElementById("list");
+  list.innerHTML = d.events.map((e, i) => {
+    const tagClass = `tag tag-${e.type}`;
+    const dateStr = e.date === "recurring"
+      ? `<span class="recurring">${e.recurringLabel || "Recurring"}</span>`
+      : e.date;
+    return `<tr>
+      <td>${dateStr}</td>
+      <td>${e.name}</td>
+      <td>${e.venue || ""}</td>
+      <td>${e.state || ""}</td>
+      <td><span class="${tagClass}">${e.badge || e.type}</span></td>
+      <td>${e.price || ""}</td>
+      <td><button class="btn-del" onclick="del(${i})">remove</button></td>
+    </tr>`;
+  }).join("");
+  document.getElementById("count").textContent = `(${d.events.length})`;
+}
+
+document.getElementById("form").onsubmit = async (ev) => {
+  ev.preventDefault();
+  const body = {
+    date: document.getElementById("date").value,
+    name: document.getElementById("name").value.trim(),
+    venue: document.getElementById("venue").value.trim(),
+    state: document.getElementById("state").value.trim().toUpperCase(),
+    type: document.getElementById("type").value,
+    price: document.getElementById("price").value.trim() || "",
+    url: document.getElementById("url").value.trim() || "",
+  };
+  const r = await fetch(API, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  const d = await r.json();
+  if (d.ok) {
+    msg(`Added — ${body.name}`, true);
+    document.getElementById("form").reset();
+    load();
+  } else {
+    msg(d.error, false);
+  }
+};
+
+async function del(idx) {
+  if (!confirm("Remove this event?")) return;
+  const r = await fetch(API, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ index: idx }),
+  });
+  const d = await r.json();
+  if (d.ok) { msg(`Removed: ${d.removed}`, true); load(); }
+  else msg(d.error, false);
+}
+
+async function push() {
+  if (!confirm("Commit & push to live site?")) return;
+  const r = await fetch(API, { method: "PUT" });
+  const d = await r.json();
+  if (d.ok) msg(d.message, true);
+  else msg(d.error || "Push failed", false);
+}
+
+load();
+</script>
+</body>
+</html>

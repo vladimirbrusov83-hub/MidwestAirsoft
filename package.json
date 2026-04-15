@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "description": "Midwest Airsoft fields and events hub",
   "scripts": {
-    "dev": "vercel dev"
+    "dev": "echo 'Run vercel dev directly'"
   }
 }
