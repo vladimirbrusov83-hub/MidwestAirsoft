@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-15T00:00:00.000Z",
+  "lastUpdated": "2026-04-15T13:26:28.895Z",
   "nextUpdate": "2026-04-22T00:00:00.000Z",
   "note": "Base events manually curated. Auto-update merges new Groq-extracted events weekly.",
   "fields": [
@@ -425,17 +425,6 @@
       "base": true
     },
     {
-      "date": "2026-06-14",
-      "name": "Future War — Space Force vs. Invaders",
-      "type": "big",
-      "price": "$35–55 pre",
-      "url": "https://www.futureball.com/future-war/",
-      "venue": "Futureball · Whitmore Lake, MI · Airsoft Scenario 2-day",
-      "state": "MI",
-      "badge": "Big Game",
-      "base": true
-    },
-    {
       "date": "2026-06-13",
       "name": "Open Play",
       "type": "open",
@@ -455,6 +444,17 @@
       "venue": "Twin Cities Airsoft · Minneapolis/St. Paul Metro, MN · Free camping Fri–Sat",
       "state": "MN",
       "badge": "Scenario Weekend",
+      "base": true
+    },
+    {
+      "date": "2026-06-14",
+      "name": "Future War — Space Force vs. Invaders",
+      "type": "big",
+      "price": "$35–55 pre",
+      "url": "https://www.futureball.com/future-war/",
+      "venue": "Futureball · Whitmore Lake, MI · Airsoft Scenario 2-day",
+      "state": "MI",
+      "badge": "Big Game",
       "base": true
     },
     {
@@ -503,17 +503,6 @@
     },
     {
       "date": "2026-07-11",
-      "name": "RED, WHITE & RELOAD — High Intensity Airsoft",
-      "type": "big",
-      "price": "$40–50",
-      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
-      "venue": "Twin Cities Airsoft · MN · Free camping Fri–Sat",
-      "state": "MN",
-      "badge": "Scenario Weekend",
-      "base": true
-    },
-    {
-      "date": "2026-07-11",
       "name": "PANDORA'S BOX — Tier 2 MilSim",
       "type": "milsim",
       "price": "$85",
@@ -532,6 +521,17 @@
       "venue": "The Den Airsoft · New Philadelphia, OH",
       "state": "OH",
       "badge": "Open Play",
+      "base": true
+    },
+    {
+      "date": "2026-07-11",
+      "name": "RED, WHITE & RELOAD — High Intensity Airsoft",
+      "type": "big",
+      "price": "$40–50",
+      "url": null,
+      "venue": "Twin Cities Airsoft · MN · Free camping Fri–Sat",
+      "state": "MN",
+      "badge": "Scenario Weekend",
       "base": true
     },
     {
