@@ -271,6 +271,17 @@
       "base": true
     },
     {
+      "date": "2026-04-24",
+      "name": "Airsoft Night Game — Bing Field",
+      "type": "open",
+      "price": "$30",
+      "url": "https://bingfield.com/index.php/category/events/",
+      "venue": "Bing Field · Alton, IL",
+      "state": "IL",
+      "badge": "Night Game",
+      "base": true
+    },
+    {
       "date": "2026-04-25",
       "name": "Anniversary Event",
       "type": "open",
