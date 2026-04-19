@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-15T13:42:08.904Z",
+  "lastUpdated": "2026-04-19T12:38:45.620Z",
   "nextUpdate": "2026-04-22T00:00:00.000Z",
   "note": "Base events manually curated. Auto-update merges new Groq-extracted events weekly.",
   "fields": [
@@ -158,46 +158,33 @@
         "MilSim"
       ],
       "url": "https://www.blackops-airsoft.com/"
+    },
+    {
+      "id": "biglake",
+      "name": "Big Lake Tactical Wargames",
+      "location": "Big Lake, MN",
+      "state": "MN",
+      "description": "MBA (Minnesota's Best Airsoft) monthly big games. 100+ players, objective-based scenario ops, vehicles, free camping Fri/Sat nights. Hosts Op Nightshade and year-round events.",
+      "tags": [
+        "Outdoor",
+        "Big Games",
+        "MilSim"
+      ],
+      "url": "https://biglaketactical.zohosites.com/schedule"
     }
   ],
   "events": [
     {
       "date": "recurring",
-      "name": "WilSim Saturdays — Black Ops Airsoft",
-      "type": "milsim",
-      "price": "$20",
-      "url": "https://www.blackops-airsoft.com/willsim-saturday.htm",
-      "venue": "Black Ops Airsoft · Bristol, WI · Scenario MilSim gameplay",
-      "state": "WI",
-      "badge": "WilSim / MilSim",
-      "base": true,
-      "recurringLabel": "Bi-Weekly",
-      "recurringDay": "∞"
-    },
-    {
-      "date": "recurring",
-      "name": "Black Ops Open Play — Year Round",
-      "type": "open",
-      "price": "$10–20",
-      "url": "https://www.blackops-airsoft.com/",
-      "venue": "Black Ops Airsoft · Bristol, WI · Fri $10 / Sat–Sun $20 · Rentals $15",
-      "state": "WI",
-      "badge": "Open Play",
-      "base": true,
-      "recurringLabel": "Sat–Sun",
-      "recurringDay": "∞"
-    },
-    {
-      "date": "recurring",
-      "name": "Kankakee Factory Open Plays (Weekly)",
-      "type": "open",
+      "name": "Bing Field Monthly Airsoft Big Games",
+      "type": "big",
       "price": "$30",
-      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/",
-      "venue": "Kankakee Airsoft Factory · IL · Select Sat & Sun through Nov",
+      "url": "https://bingfield.com/index.php/category/events/",
+      "venue": "Bing Field · Alton, IL · Pre-register for bonus ammo & raffle",
       "state": "IL",
-      "badge": "Open Play",
+      "badge": "Big Game",
       "base": true,
-      "recurringLabel": "May–Nov",
+      "recurringLabel": "Monthly",
       "recurringDay": "∞"
     },
     {
@@ -215,15 +202,41 @@
     },
     {
       "date": "recurring",
-      "name": "Bing Field Monthly Airsoft Big Games",
-      "type": "big",
+      "name": "Kankakee Factory Open Plays (Weekly)",
+      "type": "open",
       "price": "$30",
-      "url": "https://bingfield.com/index.php/category/events/",
-      "venue": "Bing Field · Alton, IL · Pre-register for bonus ammo & raffle",
+      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/",
+      "venue": "Kankakee Airsoft Factory · IL · Select Sat & Sun through Nov",
       "state": "IL",
-      "badge": "Big Game",
+      "badge": "Open Play",
       "base": true,
-      "recurringLabel": "Monthly",
+      "recurringLabel": "May–Nov",
+      "recurringDay": "∞"
+    },
+    {
+      "date": "recurring",
+      "name": "Black Ops Open Play — Year Round",
+      "type": "open",
+      "price": "$10–20",
+      "url": "https://www.blackops-airsoft.com/",
+      "venue": "Black Ops Airsoft · Bristol, WI · Fri $10 / Sat–Sun $20 · Rentals $15",
+      "state": "WI",
+      "badge": "Open Play",
+      "base": true,
+      "recurringLabel": "Sat–Sun",
+      "recurringDay": "∞"
+    },
+    {
+      "date": "recurring",
+      "name": "WilSim Saturdays — Black Ops Airsoft",
+      "type": "milsim",
+      "price": "$20",
+      "url": "https://www.blackops-airsoft.com/willsim-saturday.htm",
+      "venue": "Black Ops Airsoft · Bristol, WI · Scenario MilSim gameplay",
+      "state": "WI",
+      "badge": "WilSim / MilSim",
+      "base": true,
+      "recurringLabel": "Bi-Weekly",
       "recurringDay": "∞"
     },
     {
@@ -293,6 +306,18 @@
       "base": true
     },
     {
+      "date": "2026-04-25",
+      "name": "Cold War 1980s — Red Storm Battle of Alfeld",
+      "type": "big",
+      "price": null,
+      "url": "https://biglaketactical.zohosites.com/schedule",
+      "venue": "Big Lake Tactical Wargames · Big Lake, MN",
+      "state": "MN",
+      "badge": "Big Game",
+      "fieldId": "biglake",
+      "base": true
+    },
+    {
       "date": "2026-04-26",
       "name": "35th Birthday Celebration",
       "type": "big",
@@ -334,6 +359,18 @@
       "venue": "The Den Airsoft · New Philadelphia, OH",
       "state": "OH",
       "badge": "Open Play",
+      "base": true
+    },
+    {
+      "date": "2026-05-02",
+      "name": "Mexican Drug Wars",
+      "type": "big",
+      "price": null,
+      "url": "https://biglaketactical.zohosites.com/schedule",
+      "venue": "Big Lake Tactical Wargames · Big Lake, MN",
+      "state": "MN",
+      "badge": "Big Game",
+      "fieldId": "biglake",
       "base": true
     },
     {
@@ -389,6 +426,18 @@
       "venue": "MiR Tactical · Illinois Region · 2-day Tier 1 MilSim",
       "state": "IL",
       "badge": "Tier 1 MilSim",
+      "base": true
+    },
+    {
+      "date": "2026-05-16",
+      "name": "OP Thors Hammer",
+      "type": "big",
+      "price": null,
+      "url": "https://biglaketactical.zohosites.com/schedule",
+      "venue": "Big Lake Tactical Wargames · Big Lake, MN",
+      "state": "MN",
+      "badge": "Big Game",
+      "fieldId": "biglake",
       "base": true
     },
     {
@@ -469,6 +518,18 @@
       "base": true
     },
     {
+      "date": "2026-06-13",
+      "name": "OP Viking Raid",
+      "type": "big",
+      "price": null,
+      "url": "https://biglaketactical.zohosites.com/schedule",
+      "venue": "Big Lake Tactical Wargames · Big Lake, MN",
+      "state": "MN",
+      "badge": "Big Game",
+      "fieldId": "biglake",
+      "base": true
+    },
+    {
       "date": "2026-06-14",
       "name": "Future War — Space Force vs. Invaders",
       "type": "big",
@@ -483,12 +544,13 @@
       "date": "2026-06-20",
       "name": "Operation Nightshade June 20th 2026 at Big Lake Tactical Wargames hosted by the Night Stalkers Airsoft Team",
       "type": "big",
-      "price": null,
+      "price": "$45 early / $50 door",
       "url": "https://www.facebook.com/share/17Z3Zf4dDE/?mibextid=wwXIfr",
-      "venue": "Big Lake Tactical Wargames",
+      "venue": "Big Lake Tactical Wargames · Big Lake, MN",
       "state": "MN",
       "badge": "Big Game",
-      "base": true
+      "base": true,
+      "fieldId": "biglake"
     },
     {
       "date": "2026-06-27",
@@ -568,6 +630,18 @@
       "base": true
     },
     {
+      "date": "2026-07-11",
+      "name": "BIG FUN GAME (MBA 200-player event)",
+      "type": "big",
+      "price": null,
+      "url": "https://biglaketactical.zohosites.com/schedule",
+      "venue": "Big Lake Tactical Wargames · Big Lake, MN",
+      "state": "MN",
+      "badge": "Big Game",
+      "fieldId": "biglake",
+      "base": true
+    },
+    {
       "date": "2026-07-25",
       "name": "DenOp/MilSim: CARTEL",
       "type": "milsim",
@@ -609,6 +683,18 @@
       "venue": "The Den Airsoft · New Philadelphia, OH",
       "state": "OH",
       "badge": "Open Play",
+      "base": true
+    },
+    {
+      "date": "2026-08-08",
+      "name": "Warlords and Mercenaries",
+      "type": "big",
+      "price": null,
+      "url": "https://biglaketactical.zohosites.com/schedule",
+      "venue": "Big Lake Tactical Wargames · Big Lake, MN",
+      "state": "MN",
+      "badge": "Big Game",
+      "fieldId": "biglake",
       "base": true
     },
     {
@@ -689,6 +775,18 @@
       "base": true
     },
     {
+      "date": "2026-09-12",
+      "name": "OP Battle Ax",
+      "type": "milsim",
+      "price": null,
+      "url": "https://biglaketactical.zohosites.com/schedule",
+      "venue": "Big Lake Tactical Wargames · Big Lake, MN",
+      "state": "MN",
+      "badge": "MilSim",
+      "fieldId": "biglake",
+      "base": true
+    },
+    {
       "date": "2026-09-19",
       "name": "GIANT Game #27 — \"DOMINATION\"",
       "type": "big",
@@ -766,6 +864,18 @@
       "base": true
     },
     {
+      "date": "2026-10-03",
+      "name": "Drug Wars 2.0 — Border Raid",
+      "type": "big",
+      "price": null,
+      "url": "https://biglaketactical.zohosites.com/schedule",
+      "venue": "Big Lake Tactical Wargames · Big Lake, MN",
+      "state": "MN",
+      "badge": "Big Game",
+      "fieldId": "biglake",
+      "base": true
+    },
+    {
       "date": "2026-10-10",
       "name": "Resident Evil Paintball Big Game",
       "type": "big",
@@ -799,6 +909,18 @@
       "base": true
     },
     {
+      "date": "2026-10-17",
+      "name": "OP Raging Bull",
+      "type": "milsim",
+      "price": null,
+      "url": "https://biglaketactical.zohosites.com/schedule",
+      "venue": "Big Lake Tactical Wargames · Big Lake, MN",
+      "state": "MN",
+      "badge": "MilSim",
+      "fieldId": "biglake",
+      "base": true
+    },
+    {
       "date": "2026-10-27",
       "name": "Pumpkin Hunt — Airsoft",
       "type": "open",
@@ -818,6 +940,18 @@
       "venue": "Twin Cities Airsoft · Minneapolis/St. Paul Metro, MN",
       "state": "MN",
       "badge": "Special Event",
+      "base": true
+    },
+    {
+      "date": "2026-10-31",
+      "name": "Zombie Games",
+      "type": "big",
+      "price": null,
+      "url": "https://biglaketactical.zohosites.com/schedule",
+      "venue": "Big Lake Tactical Wargames · Big Lake, MN",
+      "state": "MN",
+      "badge": "Big Game",
+      "fieldId": "biglake",
       "base": true
     },
     {
@@ -862,6 +996,18 @@
       "venue": "The Den Airsoft · New Philadelphia, OH · Veteran appreciation game day",
       "state": "OH",
       "badge": "Special Event",
+      "base": true
+    },
+    {
+      "date": "2026-11-14",
+      "name": "OP Bloody Bayonet",
+      "type": "milsim",
+      "price": null,
+      "url": "https://biglaketactical.zohosites.com/schedule",
+      "venue": "Big Lake Tactical Wargames · Big Lake, MN",
+      "state": "MN",
+      "badge": "MilSim",
+      "fieldId": "biglake",
       "base": true
     },
     {
