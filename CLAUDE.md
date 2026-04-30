@@ -151,15 +151,49 @@ Reset baseline (force re-check all fields): `rm field-hashes.json && node script
 node update.mjs   # menu: add/remove/edit events, save & push
 ```
 
-### IMPORTANT: Token-efficient update process
+### IMPORTANT: Token-efficient update process — exactly 3 node -e commands
 
-**DO NOT** read `events-seed.json` or `changes-report.json` into context. Both are large (900+ lines / 10k+ tokens each) and reading them wastes tokens.
+**DO NOT** read `events-seed.json` or `changes-report.json` into context. **DO NOT** print raw text for all changed fields. **DO NOT** run exploratory queries to understand data structure (it doesn't change). **DO NOT** read `local-update-guide.md` — this file has everything.
 
-Instead:
-1. Run `node scripts/fetch-changes.mjs` (one command)
-2. Write a one-shot Node.js script that reads both JSONs, removes past events, applies changes (new events, date fixes, deduplication), and writes the updated `events-seed.json` — all without reading data into Claude's context
-3. Run the script
-4. Commit with `git diff --stat` only (not full diff), then push
+**Step 1** — Filter to event-rich fields only (skip empties):
+```js
+node -e "
+const r = JSON.parse(require('fs').readFileSync('./changes-report.json'));
+r.changed.filter(f => f.text.length > 300 || /\d{4}/.test(f.text))
+  .forEach(f => console.log('---', f.name, f.state, '---\n', f.text.substring(0, 600)));
+"
+```
+
+**Step 2** — Check existing future events for just those fields (one query, by venue keywords or state):
+```js
+node -e "
+const d = JSON.parse(require('fs').readFileSync('./public/events-seed.json'));
+const today = new Date().toISOString().split('T')[0];
+d.events.filter(e => e.date >= today || e.date === 'recurring')
+  .filter(e => /* venue keywords from step 1 */)
+  .forEach(e => console.log(e.date, '|', e.name, '|', e.venue));
+"
+```
+
+**Step 3** — One update pass: remove past events + add new ones + write file:
+```js
+node -e "
+const fs = require('fs'), path = './public/events-seed.json';
+const data = JSON.parse(fs.readFileSync(path));
+const today = new Date().toISOString().split('T')[0];
+data.events = data.events.filter(e => e.date === 'recurring' || e.date >= today);
+// push new events here...
+data.lastUpdated = new Date().toISOString();
+data.nextUpdate = new Date(Date.now() + 7*24*60*60*1000).toISOString();
+fs.writeFileSync(path, JSON.stringify(data, null, 2));
+"
+```
+
+Then commit:
+```bash
+git diff --stat
+git add public/events-seed.json && git commit -m "Weekly update YYYY-MM-DD" && git push
+```
 
 ## How to Add a New Field
 
