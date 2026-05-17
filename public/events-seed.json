@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-30T02:15:37.249Z",
-  "nextUpdate": "2026-05-07T02:15:37.250Z",
+  "lastUpdated": "2026-05-17T00:03:42.195Z",
+  "nextUpdate": "2026-05-24T00:03:42.195Z",
   "note": "Base events manually curated. Auto-update merges new Groq-extracted events weekly.",
   "fields": [
     {
@@ -238,107 +238,6 @@
       "base": true,
       "recurringLabel": "Bi-Weekly",
       "recurringDay": "∞"
-    },
-    {
-      "date": "2026-05-02",
-      "name": "BLACKOUT — High Intensity Airsoft Weekend",
-      "type": "big",
-      "price": "$40–50",
-      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
-      "venue": "Twin Cities Airsoft · MN",
-      "state": "MN",
-      "badge": "Scenario Weekend",
-      "base": true
-    },
-    {
-      "date": "2026-05-02",
-      "name": "Open Play",
-      "type": "open",
-      "price": "TBD",
-      "url": "https://www.thedenairsoft.com/events",
-      "venue": "The Den Airsoft · New Philadelphia, OH",
-      "state": "OH",
-      "badge": "Open Play",
-      "base": true
-    },
-    {
-      "date": "2026-05-02",
-      "name": "Mexican Drug Wars",
-      "type": "big",
-      "price": null,
-      "url": "https://biglaketactical.zohosites.com/schedule",
-      "venue": "Big Lake Tactical Wargames · Big Lake, MN",
-      "state": "MN",
-      "badge": "Big Game",
-      "fieldId": "biglake",
-      "base": true
-    },
-    {
-      "date": "2026-05-03",
-      "name": "Game Day",
-      "type": "open",
-      "price": "TBD",
-      "url": "https://www.massairsoft.com/event-list",
-      "venue": "MASS · Lawson, MO",
-      "state": "MO",
-      "badge": "Open Play",
-      "base": true
-    },
-    {
-      "date": "2026-05-08",
-      "name": "Airsoft Night Game — Bing Field",
-      "type": "open",
-      "price": "$30",
-      "url": "https://bingfield.com/index.php/2026/04/06/airsoft-night-game-33/",
-      "venue": "Bing Field · Alton, IL · Pre-register for bonus ammo & raffle",
-      "state": "IL",
-      "badge": "Night Game",
-      "base": true
-    },
-    {
-      "date": "2026-05-09",
-      "name": "Bad Blood — Cartel vs. Mafia",
-      "type": "big",
-      "price": "$35 pre",
-      "url": "https://www.futureball.com/bad-blood/",
-      "venue": "Futureball · Whitmore Lake, MI · Airsoft Big Game",
-      "state": "MI",
-      "badge": "Big Game",
-      "base": true
-    },
-    {
-      "date": "2026-05-16",
-      "name": "Open Play",
-      "type": "open",
-      "price": "TBD",
-      "url": "https://www.thedenairsoft.com/events",
-      "venue": "The Den Airsoft · New Philadelphia, OH",
-      "state": "OH",
-      "badge": "Open Play",
-      "base": true
-    },
-    {
-      "date": "2026-05-16",
-      "name": "OPERATION: SKY SHIELD — Tier 1 MilSim",
-      "type": "milsim",
-      "price": "$165",
-      "url": "https://mirtactical.com/estreamly/operation-sky-shield-05-16-2026-05-17-2026-airsoft-tier-1-milsim-event/",
-      "venue": "MiR Tactical · Illinois Region · 2-day Tier 1 MilSim",
-      "state": "IL",
-      "badge": "Tier 1 MilSim",
-      "base": true
-    },
-    {
-      "date": "2026-05-16",
-      "name": "OP Thors Hammer",
-      "type": "big",
-      "price": null,
-      "url": "https://biglaketactical.zohosites.com/schedule",
-      "venue": "Big Lake Tactical Wargames · Big Lake, MN",
-      "state": "MN",
-      "badge": "Big Game",
-      "fieldId": "biglake",
-      "base": true
     },
     {
       "date": "2026-05-17",
@@ -933,17 +832,6 @@
       "base": true
     },
     {
-      "date": "2026-05-03",
-      "name": "6mm Adventures — Open Play",
-      "type": "open",
-      "price": "$30",
-      "url": "https://therockairsoft.com/",
-      "venue": "The Rock Airsoft · Bolivar, MO",
-      "state": "MO",
-      "badge": "Open Play",
-      "base": true
-    },
-    {
       "date": "2026-09-18",
       "name": "10 Year Rockaversary",
       "type": "milsim",
@@ -952,17 +840,6 @@
       "venue": "The Rock Airsoft · Bolivar, MO · 3-day anniversary event",
       "state": "MO",
       "badge": "MilSim Weekend",
-      "base": true
-    },
-    {
-      "date": "2026-05-02",
-      "name": "Opening Day — Airsoft Field",
-      "type": "open",
-      "price": "TBD",
-      "url": "https://bigpearlpaintball.net/",
-      "venue": "Big Pearl Paintball · Conneaut, OH",
-      "state": "OH",
-      "badge": "Opening Day",
       "base": true
     },
     {
@@ -1030,6 +907,30 @@
       "state": "OH",
       "badge": "Open Play",
       "base": true
+    },
+    {
+      "date": "2026-05-17",
+      "name": "6mm Adventures Open Play",
+      "type": "open",
+      "price": "$25",
+      "url": "https://www.therockairsoft.com/",
+      "venue": "The Rock Airsoft · Bolivar, MO",
+      "state": "MO",
+      "fieldName": "The Rock Airsoft",
+      "location": "Bolivar, MO"
+    },
+    {
+      "date": "recurring",
+      "name": "Drop-in Airsoft — Every 2nd & 4th Sunday",
+      "type": "open",
+      "url": "https://www.hellsurvivors.com/",
+      "venue": "Hell Survivors · Pinckney, MI · Apr–Nov (check calendar for exceptions)",
+      "state": "MI",
+      "recurringLabel": "Bi-Monthly",
+      "recurringDay": "∞",
+      "base": true,
+      "fieldName": "Hell Survivors",
+      "location": "Pinckney, MI"
     }
   ]
 }
