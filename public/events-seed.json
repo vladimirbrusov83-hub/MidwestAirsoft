@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-17T00:03:42.195Z",
-  "nextUpdate": "2026-05-24T00:03:42.195Z",
+  "lastUpdated": "2026-05-28T16:35:46.006Z",
+  "nextUpdate": "2026-06-04T16:35:46.006Z",
   "note": "Base events manually curated. Auto-update merges new Groq-extracted events weekly.",
   "fields": [
     {
@@ -238,50 +238,6 @@
       "base": true,
       "recurringLabel": "Bi-Weekly",
       "recurringDay": "∞"
-    },
-    {
-      "date": "2026-05-17",
-      "name": "Game Day",
-      "type": "open",
-      "price": "TBD",
-      "url": "https://www.massairsoft.com/event-list",
-      "venue": "MASS · Lawson, MO",
-      "state": "MO",
-      "badge": "Open Play",
-      "base": true
-    },
-    {
-      "date": "2026-05-17",
-      "name": "3-Man Tournament",
-      "type": "open",
-      "price": "TBD",
-      "url": "https://www.608pb.com/tournaments",
-      "venue": "Edge Paintball and Airsoft · Janesville, WI",
-      "state": "WI",
-      "badge": "Tournament",
-      "base": true
-    },
-    {
-      "date": "2026-05-17",
-      "name": "5th Annual Seth Kimbro Memorial Airsoft Game",
-      "type": "big",
-      "price": "$30",
-      "url": "https://bingfield.com/index.php/2026/04/06/5th-annual-seth-kimbro-memorial-airsoft-game/",
-      "venue": "Bing Field · Alton, IL · Memorial game · gates 9:30 AM",
-      "state": "IL",
-      "badge": "Big Game",
-      "base": true
-    },
-    {
-      "date": "2026-05-23",
-      "name": "ARMAGEDDON — Giant Airsoft Game #26",
-      "type": "big",
-      "price": "$70–80",
-      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
-      "venue": "Twin Cities Airsoft · MN · Early bird before May 17",
-      "state": "MN",
-      "badge": "Giant Game",
-      "base": true
     },
     {
       "date": "2026-05-31",
@@ -909,17 +865,6 @@
       "base": true
     },
     {
-      "date": "2026-05-17",
-      "name": "6mm Adventures Open Play",
-      "type": "open",
-      "price": "$25",
-      "url": "https://www.therockairsoft.com/",
-      "venue": "The Rock Airsoft · Bolivar, MO",
-      "state": "MO",
-      "fieldName": "The Rock Airsoft",
-      "location": "Bolivar, MO"
-    },
-    {
       "date": "recurring",
       "name": "Drop-in Airsoft — Every 2nd & 4th Sunday",
       "type": "open",
@@ -931,6 +876,18 @@
       "base": true,
       "fieldName": "Hell Survivors",
       "location": "Pinckney, MI"
+    },
+    {
+      "date": "2026-09-25",
+      "name": "Stronghold 3 — 2-Day MilSim",
+      "type": "milsim",
+      "price": "$89.99",
+      "url": "https://www.mir-tactical.com/",
+      "venue": "MiR Tactical · Illinois Region · 2-day MilSim (Hosted by Tryhards)",
+      "state": "IL",
+      "badge": "MilSim",
+      "fieldName": "MiR Tactical",
+      "location": "Illinois Region"
     }
   ]
 }
