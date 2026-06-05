@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-05T00:33:30.999Z",
+  "lastUpdated": "2026-06-05T00:37:28.994Z",
   "nextUpdate": "2026-06-12T00:33:30.999Z",
   "note": "Base events manually curated. Auto-update merges new Groq-extracted events weekly.",
   "fields": [
@@ -1087,6 +1087,71 @@
       "fieldId": "hellsurvivors",
       "fieldName": "Hell Survivors",
       "location": "Pinckney, MI"
+    },
+    {
+      "date": "2026-06-12",
+      "name": "Airsoft Night Game",
+      "type": "open",
+      "price": "$20",
+      "url": "https://bingfield.com/index.php/2026/06/04/airsoft-night-game-35/",
+      "venue": "Bing Field · Alton, IL · 5PM–Midnight",
+      "state": "IL",
+      "badge": "Night Game",
+      "fieldId": "bingfield",
+      "fieldName": "Bing Field Airsoft & Paintball Park",
+      "location": "Alton, IL"
+    },
+    {
+      "date": "2026-06-21",
+      "name": "Airsoft Swap Meet",
+      "type": "open",
+      "price": "Open play admission",
+      "url": "https://bingfield.com/index.php/2026/06/04/airsoft-swap-meet-27/",
+      "venue": "Bing Field · Alton, IL · 10AM–5PM",
+      "state": "IL",
+      "badge": "Swap Meet",
+      "fieldId": "bingfield",
+      "fieldName": "Bing Field Airsoft & Paintball Park",
+      "location": "Alton, IL"
+    },
+    {
+      "date": "2026-06-28",
+      "name": "Days of Darkness XI — Airsoft Big Game",
+      "type": "big",
+      "price": "$30",
+      "url": "https://bingfield.com/index.php/2026/06/04/days-of-darkness-xi-airsoft-big-game/",
+      "venue": "Bing Field · Alton, IL · Pre-reg for 1k rounds + raffle",
+      "state": "IL",
+      "badge": "Big Game",
+      "fieldId": "bingfield",
+      "fieldName": "Bing Field Airsoft & Paintball Park",
+      "location": "Alton, IL"
+    },
+    {
+      "date": "2026-07-17",
+      "name": "Airsoft Night Game",
+      "type": "open",
+      "price": "$20",
+      "url": "https://bingfield.com/index.php/2026/06/03/airsoft-night-game-36/",
+      "venue": "Bing Field · Alton, IL · 5PM–Midnight",
+      "state": "IL",
+      "badge": "Night Game",
+      "fieldId": "bingfield",
+      "fieldName": "Bing Field Airsoft & Paintball Park",
+      "location": "Alton, IL"
+    },
+    {
+      "date": "2026-07-26",
+      "name": "Operation Red Storm Rising XI — Airsoft Big Game",
+      "type": "big",
+      "price": "$30",
+      "url": "https://bingfield.com/index.php/2026/06/02/operation-red-storm-rising-xi-airsoft-big-game/",
+      "venue": "Bing Field · Alton, IL · Pre-reg for 1k rounds + raffle",
+      "state": "IL",
+      "badge": "Big Game",
+      "fieldId": "bingfield",
+      "fieldName": "Bing Field Airsoft & Paintball Park",
+      "location": "Alton, IL"
     }
   ]
 }
