@@ -241,6 +241,14 @@
       "location": "Lawson, MO",
       "url": "https://www.massairsoft.com/event-list",
       "text": "MASS Events- Upcoming Exciting Airsoft Adventures\ntop of page Upcoming Events Hell on the High plains Sat, Nov 07 Lawson More info Details Anniversary event Sat, Apr 25 Missouri Airsoft & Simulation Site More info Details bottom of page"
+    },
+    {
+      "id": "bingfield",
+      "name": "Bing Field",
+      "state": "IL",
+      "location": "Alton, IL",
+      "url": "https://bingfield.com/index.php/category/events/",
+      "text": ""
     }
   ],
   "errors": [

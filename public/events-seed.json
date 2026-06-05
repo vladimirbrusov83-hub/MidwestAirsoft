@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-28T16:35:46.006Z",
-  "nextUpdate": "2026-06-04T16:35:46.006Z",
+  "lastUpdated": "2026-06-05T00:33:30.999Z",
+  "nextUpdate": "2026-06-12T00:33:30.999Z",
   "note": "Base events manually curated. Auto-update merges new Groq-extracted events weekly.",
   "fields": [
     {
@@ -238,17 +238,6 @@
       "base": true,
       "recurringLabel": "Bi-Weekly",
       "recurringDay": "∞"
-    },
-    {
-      "date": "2026-05-31",
-      "name": "Steel Diamond X — Airsoft Big Game",
-      "type": "big",
-      "price": "$30",
-      "url": "https://bingfield.com/index.php/2026/04/06/steel-diamond-x-airsoft-big-game/",
-      "venue": "Bing Field · Alton, IL · Pre-register by May 30 for bonus ammo",
-      "state": "IL",
-      "badge": "Big Game",
-      "base": true
     },
     {
       "date": "2026-06-13",
@@ -888,6 +877,216 @@
       "badge": "MilSim",
       "fieldName": "MiR Tactical",
       "location": "Illinois Region"
+    },
+    {
+      "date": "2026-06-06",
+      "name": "Kankakee Factory Airsoft Open Play",
+      "type": "open",
+      "price": "$30",
+      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical",
+      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
+      "state": "IL",
+      "fieldId": "kankakee",
+      "fieldName": "Kankakee Airsoft Factory",
+      "location": "Kankakee, IL"
+    },
+    {
+      "date": "2026-06-14",
+      "name": "Kankakee Factory Airsoft Open Play",
+      "type": "open",
+      "price": "$30",
+      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical",
+      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
+      "state": "IL",
+      "fieldId": "kankakee",
+      "fieldName": "Kankakee Airsoft Factory",
+      "location": "Kankakee, IL"
+    },
+    {
+      "date": "2026-06-20",
+      "name": "Kankakee Factory Airsoft Open Play",
+      "type": "open",
+      "price": "$30",
+      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical",
+      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
+      "state": "IL",
+      "fieldId": "kankakee",
+      "fieldName": "Kankakee Airsoft Factory",
+      "location": "Kankakee, IL"
+    },
+    {
+      "date": "2026-06-28",
+      "name": "Kankakee Factory Airsoft Open Play",
+      "type": "open",
+      "price": "$30",
+      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical",
+      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
+      "state": "IL",
+      "fieldId": "kankakee",
+      "fieldName": "Kankakee Airsoft Factory",
+      "location": "Kankakee, IL"
+    },
+    {
+      "date": "2026-07-05",
+      "name": "Kankakee Factory Airsoft Open Play",
+      "type": "open",
+      "price": "$30",
+      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical",
+      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
+      "state": "IL",
+      "fieldId": "kankakee",
+      "fieldName": "Kankakee Airsoft Factory",
+      "location": "Kankakee, IL"
+    },
+    {
+      "date": "2026-07-11",
+      "name": "Kankakee Factory Airsoft Open Play",
+      "type": "open",
+      "price": "$30",
+      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical",
+      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
+      "state": "IL",
+      "fieldId": "kankakee",
+      "fieldName": "Kankakee Airsoft Factory",
+      "location": "Kankakee, IL"
+    },
+    {
+      "date": "2026-07-19",
+      "name": "Kankakee Factory Airsoft Open Play",
+      "type": "open",
+      "price": "$30",
+      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical",
+      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
+      "state": "IL",
+      "fieldId": "kankakee",
+      "fieldName": "Kankakee Airsoft Factory",
+      "location": "Kankakee, IL"
+    },
+    {
+      "date": "2026-07-25",
+      "name": "Kankakee Factory Airsoft Open Play",
+      "type": "open",
+      "price": "$30",
+      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical",
+      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
+      "state": "IL",
+      "fieldId": "kankakee",
+      "fieldName": "Kankakee Airsoft Factory",
+      "location": "Kankakee, IL"
+    },
+    {
+      "date": "2026-08-02",
+      "name": "Kankakee Factory Airsoft Open Play",
+      "type": "open",
+      "price": "$30",
+      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical",
+      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
+      "state": "IL",
+      "fieldId": "kankakee",
+      "fieldName": "Kankakee Airsoft Factory",
+      "location": "Kankakee, IL"
+    },
+    {
+      "date": "2026-08-08",
+      "name": "Kankakee Factory Airsoft Open Play",
+      "type": "open",
+      "price": "$30",
+      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical",
+      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
+      "state": "IL",
+      "fieldId": "kankakee",
+      "fieldName": "Kankakee Airsoft Factory",
+      "location": "Kankakee, IL"
+    },
+    {
+      "date": "2026-08-16",
+      "name": "Kankakee Factory Airsoft Open Play",
+      "type": "open",
+      "price": "$30",
+      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical",
+      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
+      "state": "IL",
+      "fieldId": "kankakee",
+      "fieldName": "Kankakee Airsoft Factory",
+      "location": "Kankakee, IL"
+    },
+    {
+      "date": "2026-08-22",
+      "name": "Kankakee Factory Airsoft Open Play",
+      "type": "open",
+      "price": "$30",
+      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical",
+      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
+      "state": "IL",
+      "fieldId": "kankakee",
+      "fieldName": "Kankakee Airsoft Factory",
+      "location": "Kankakee, IL"
+    },
+    {
+      "date": "2026-08-30",
+      "name": "Kankakee Factory Airsoft Open Play",
+      "type": "open",
+      "price": "$30",
+      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical",
+      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
+      "state": "IL",
+      "fieldId": "kankakee",
+      "fieldName": "Kankakee Airsoft Factory",
+      "location": "Kankakee, IL"
+    },
+    {
+      "date": "2026-09-05",
+      "name": "Kankakee Factory Airsoft Open Play",
+      "type": "open",
+      "price": "$30",
+      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical",
+      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
+      "state": "IL",
+      "fieldId": "kankakee",
+      "fieldName": "Kankakee Airsoft Factory",
+      "location": "Kankakee, IL"
+    },
+    {
+      "date": "2026-07-11",
+      "name": "Pandoras Box — MilSim Event",
+      "type": "milsim",
+      "price": "$85",
+      "url": "https://mirtactical.com/collections/events",
+      "venue": "MiR Tactical HQ · Buffalo Grove, IL",
+      "state": "IL",
+      "badge": "MilSim",
+      "fieldId": "mirtactical",
+      "fieldName": "MiR Tactical HQ — Buffalo Grove",
+      "location": "Buffalo Grove, IL"
+    },
+    {
+      "date": "2026-09-25",
+      "name": "Stronghold 3 — Hosted by Tryhards",
+      "type": "milsim",
+      "price": "$90",
+      "url": "https://mirtactical.com/collections/events",
+      "venue": "MiR Tactical HQ · Buffalo Grove, IL",
+      "state": "IL",
+      "badge": "MilSim",
+      "fieldId": "mirtactical",
+      "fieldName": "MiR Tactical HQ — Buffalo Grove",
+      "location": "Buffalo Grove, IL"
+    },
+    {
+      "date": "recurring",
+      "name": "Drop-In Airsoft Open Play",
+      "type": "open",
+      "price": "See website",
+      "url": "https://www.hellsurvivors.com/",
+      "venue": "Hell Survivors · Pinckney, MI · 2nd & 4th Sunday (Apr–Nov)",
+      "state": "MI",
+      "badge": "Open Play",
+      "base": true,
+      "recurringLabel": "2nd & 4th Sun",
+      "recurringDay": "∞",
+      "fieldId": "hellsurvivors",
+      "fieldName": "Hell Survivors",
+      "location": "Pinckney, MI"
     }
   ]
 }
