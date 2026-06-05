@@ -90,22 +90,39 @@ function extractEventText(html) {
   return deduped.join("\n").slice(0, 1800);
 }
 
+// ── RSS XML → compact event text ─────────────────────────────────────────────
+function extractRssText(xml) {
+  const items = [];
+  const itemRe = /<item>([\s\S]*?)<\/item>/gi;
+  let match;
+  while ((match = itemRe.exec(xml)) !== null) {
+    const block = match[1];
+    const title   = (block.match(/<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>/) || block.match(/<title>([\s\S]*?)<\/title>/))?.[1]?.trim() || "";
+    const pubDate = (block.match(/<pubDate>([\s\S]*?)<\/pubDate>/))?.[1]?.trim() || "";
+    const link    = (block.match(/<link>([\s\S]*?)<\/link>/)     || block.match(/<guid[^>]*>([\s\S]*?)<\/guid>/))?.[1]?.trim() || "";
+    if (title) items.push(`${pubDate ? pubDate + " — " : ""}${title}${link ? " | " + link : ""}`);
+  }
+  return items.join("\n").slice(0, 1800);
+}
+
 // ── Fetch one field ───────────────────────────────────────────────────────────
 async function fetchField(field) {
+  const fetchUrl = field.rssUrl || field.url;
+  const isRss    = !!field.rssUrl;
   try {
-    const res = await fetch(field.url, {
+    const res = await fetch(fetchUrl, {
       headers: {
         "User-Agent":
           "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        Accept: "text/html,application/xhtml+xml",
+        Accept: isRss ? "application/rss+xml,application/xml,text/xml" : "text/html,application/xhtml+xml",
       },
       signal: AbortSignal.timeout(TIMEOUT_MS),
       redirect: "follow",
     });
     if (!res.ok) return { error: `HTTP ${res.status}` };
-    const html = await res.text();
-    const hash = createHash("md5").update(html).digest("hex");
-    return { html, hash };
+    const body = await res.text();
+    const hash = createHash("md5").update(body).digest("hex");
+    return { html: body, hash, isRss };
   } catch (err) {
     return { error: err.message.split("\n")[0] };
   }
@@ -159,7 +176,7 @@ async function main() {
         state:    field.state,
         location: field.location,
         url:      field.url,
-        text:     extractEventText(result.html),
+        text:     result.isRss ? extractRssText(result.html) : extractEventText(result.html),
       });
     });
   }

@@ -1,5 +1,5 @@
 [
-  { "id": "bingfield",       "name": "Bing Field",                    "state": "IL", "location": "Alton, IL",           "url": "https://bingfield.com/index.php/category/events/" },
+  { "id": "bingfield",       "name": "Bing Field",                    "state": "IL", "location": "Alton, IL",           "url": "https://bingfield.com/index.php/category/events/", "rssUrl": "https://bingfield.com/index.php/feed/" },
   { "id": "kankakee",        "name": "Kankakee Airsoft Factory",      "state": "IL", "location": "Kankakee, IL",        "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/" },
   { "id": "mirtactical",     "name": "MiR Tactical",                  "state": "IL", "location": "Buffalo Grove, IL",   "url": "https://mirtactical.com/events/" },
   { "id": "megastore",       "name": "Airsoft Megastore Chicago",     "state": "IL", "location": "Countryside, IL",     "url": "https://www.airsoftmegastore.com/pages/events" },
