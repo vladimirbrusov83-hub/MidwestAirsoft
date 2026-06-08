@@ -103,6 +103,28 @@ Static import of `events-seed.json`. Returns full JSON. Headers: `Cache-Control:
 ### `POST /api/contact`
 Fields: `name`, `email` (optional), `type`, `state` (optional), `message`. Always logs to Vercel. Sends email if `RESEND_API_KEY` + `CONTACT_EMAIL` env vars are set.
 
+**Contact form details (`api/contact.js`):**
+- Required fields: `name`, `type`, `message` — returns 400 if missing
+- Optional fields: `email`, `state`
+- Always writes a log line to Vercel function logs (works even without email configured)
+- Email provider: **Resend** (`https://api.resend.com/emails`)
+- Sender: `Midwest Airsoft Hub <onboarding@resend.dev>`
+- Subject format: `[MidwestAirsoft] {TYPE} submission — {STATE}`
+
+**To activate email delivery, set these two Vercel env vars:**
+```
+RESEND_API_KEY   ← API key from resend.com
+CONTACT_EMAIL    ← recipient email address
+```
+Without these, submissions are logged only — no email is sent.
+
+**Form UX** (in `public/index.html`):
+- Type dropdown: New Field / Upcoming Event / Correction / Update / Other
+- State dropdown: IL / MN / WI / IN / MO / MI / OH / Other
+- Submit button: "Transmit →" / loading: "Transmitting…"
+- Success: "// Intel received. Thanks for the report."
+- Error: "// Transmission failed. Try again."
+
 ## CSS Theme
 
 Military dark aesthetic.
