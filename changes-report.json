@@ -1,15 +1,7 @@
 {
-  "checkedAt": "2026-07-08",
-  "summary": "30 changed, 2 unchanged, 3 errors",
+  "checkedAt": "2026-07-15",
+  "summary": "26 changed, 5 unchanged, 4 errors",
   "changed": [
-    {
-      "id": "bingfield",
-      "name": "Bing Field",
-      "state": "IL",
-      "location": "Alton, IL",
-      "url": "https://bingfield.com/index.php/category/events/",
-      "text": ""
-    },
     {
       "id": "kankakee",
       "name": "Kankakee Airsoft Factory",
@@ -25,14 +17,6 @@
       "location": "Buffalo Grove, IL",
       "url": "https://mirtactical.com/events/",
       "text": "MiR Tactical Airsoft Events | Tickets On Sale Now!\nSkip to main content\nDon't miss out on unique Airsoft Events\nRegister Today\nEVENTS\nBy Review\nPrice: Ascending\nPrice: Descending\nCompare\nMIR TACTICAL\nOPERATION: SOUTHERN WATCH - 12/12/2026 - 12/13/2026 AIRSOFT TIER 1 MILSIM EVENT\n$175.00\nOPERATION: PHOENIX RISING - 09/05/2026 - 09/06/2026 AIRSOFT TIER 1 MILSIM EVENT\n$160.00\nOP: MEMPHIS BELLE JULY 17-19 2026\n$200.00\nSTRONGHOLD 3 | 09/26/2026 (Hosted by Tryhards)\n$89.99\nPANDORAS BOX - 07/11/2026 - 07/12/2026 AIRSOFT TIER 2 MILSIM EVENT\n$85.00\nKANKAKEE FACTORY AIRSOFT OPEN PLAY - HOSTED BY MIR TACTICAL\n$30.00\nNATIONWIDE LEADER IN THE MOST EXCITING AND FUN AIRSOFT AND PAINTBALL EVENTS !!\nMiR Tactical offers a wide variety of recreational themed airsoft and paintball events, open plays, and military simulations in some of the most unique venues ever played. Our trained and knowledgeable staff is committed to providing you with the best experience available. Be sure to check out our events calendar for upcoming airsoft milsim and simulation functions. For our full schedule, check out our Facebook Page!\nLooking for Coalition of Ordered Republics and United American Empire events story line? Find it right here\nMir Tactical Airsoft / Strikeball / MilsimRules Set - SOP here\n2020 Airsoft Milsim Calendar\nAll participants must complete a safety waiver prior to events."
-    },
-    {
-      "id": "legacy",
-      "name": "Legacy Paintball & Airsoft",
-      "state": "IL",
-      "location": "Lockport, IL",
-      "url": "https://www.legacyadventurepark.com/",
-      "text": "Legacy News & Updates\nSign Up for VIP Info\nHours of Operation\nFacebook"
     },
     {
       "id": "saltfork",
@@ -104,7 +88,7 @@
       "state": "MI",
       "location": "Coldwater, MI",
       "url": "https://www.darkfireairsoft.com/",
-      "text": "top of page home top Join us!\nBuild day 6-14-26\nHelp create the new CQC Arena Getting here GETTING HERE ***Store and field WILL NOT BE OPEN TO THE PUBLIC EXCEPT ON SCHEDULED EVENT DAYS or by appointment*** DarkFire Airsoft\n1609 S Lake Wilson Rd, Hillsdale Michigan 49242 We are about 100 yards south of the railroad tracks on Lake Wilson RD\nThe admins are great, very welcoming and there guidance for new players are awesome, it s is a relaxed and fun atmosphere with plenty of field to play on. No matter what load out you choose there s always spots to take advantage of. Very well rounded airsoft field with plenty of potential to keep going Jon (Facebook) bottom of page"
+      "text": "Airsoft Pro Shop | Darkfire Airsoft | Hillsdale\ntop of page home top Dale Buehrer and Family Charity Event\n- July 25th and 26th. Tickets Getting here GETTING HERE ***Store and field WILL NOT BE OPEN TO THE PUBLIC EXCEPT ON SCHEDULED EVENT DAYS or by appointment*** DarkFire Airsoft\n1609 S Lake Wilson Rd, Hillsdale Michigan 49242 We are about 100 yards south of the railroad tracks on Lake Wilson RD\nThe admins are great, very welcoming and there guidance for new players are awesome, it s is a relaxed and fun atmosphere with plenty of field to play on. No matter what load out you choose there s always spots to take advantage of. Very well rounded airsoft field with plenty of potential to keep going Jon (Facebook) bottom of page"
     },
     {
       "id": "holewall",
@@ -121,14 +105,6 @@
       "location": "Clearwater, MN",
       "url": "https://www.crossfire-airsoft.com/",
       "text": ""
-    },
-    {
-      "id": "sfpgames",
-      "name": "Special Forces Paintball",
-      "state": "MN",
-      "location": "Buffalo, MN",
-      "url": "https://www.sfpgames.com/",
-      "text": "Special Forces Paintball\nWelcome to Special Forces Paintball, where adrenaline meets excitement! Whether you're planning a fun outing for kids or a thrilling event for adults, we've got you covered with public and private games tailored to your group's needs. Get ready to strategize, compete, and create unforgettable memories!\nView Public Events\nExperience Thrilling Private Paintball Adventures\nAt Special Forces Paintball, we transform any gathering into an action-packed adventure! Our private paintball games offer a thrilling experience tailored for groups of all ages, whether you're celebrating a birthday, organizing a team-building event, or just looking for some fun with friends. With expert guidance and carefully designed courses, you'll dive into heart-pounding scenarios that foster teamwork and excitement. Gather your squad and gear up for an unforgettable day at Special Forces Paintball, where every match is a mission!\nLearn More\nJoin the adrenaline-fueled excitement at Special Forces Paintball, your premier destination for thrilling public paintball games! Whether you're a seasoned warrior or a newbie eager for adventure, we cater to all ages, ensuring that both adults and kids can experience the rush of competition and teamwork. Gather your friends, form your squads, and navigate our dynamic game zones for an unforgettable day filled with strategy, laughter, and fun. Come and unleash your inner soldier with us!\nCheck Out Our Public Events"
     },
     {
       "id": "mnpropaintball",
@@ -168,15 +144,7 @@
       "state": "OH",
       "location": "Mount Gilead, OH",
       "url": "https://www.splatterpark.com/",
-      "text": "HOME\nPLAY ˇ\nOPEN/Public PLAY\nGROUPS & PARTIES\nOhio's Premier Paintball & Airsoft Facility\nDon't just play the game - BE the game. Discover why SplatterPark has been Ohio's ultimate fun sport destination since 1983.\nBOOK NOW\nReady for real-life safe fun that gets your heart racing? SplatterPark is the Midwest's top-rated Paintball and Airsoft facility, where you become the hero of your own action-packed adventure.\nGET TICKETS\nCLOSED Saturday July 4th for the holiday, Stay SAFE and Stay HYDRATED!\nPlay Your Way - We're Here for You - Paintball or Airsoft.\nAt SplatterPark, we believe everyone deserves to experience team sports exactly how they want. That's why we offer flexible options that fit your style, schedule, and group size.\nOpen Play - Jump Right In\nPerfect for: First-timers, individuals, small groups wanting to meet new warriors Drop in any weekend and join the action! Our friendly staff will team you up with other players for non-stop fun across our themed fields. No planning required - just show up ready to dominate. Meet new people and make buddies Guided gameplay with professional referees All skill levels welcome Equipment rentals available on-site No Reservations Required!\nOPEN PLAY INFO\nPrivate Groups - Your Exclusive Battlefield\nPerfect for: Birthday parties, corporate events, bachelor parties, team building, special celebrations Want the entire field to yourself? Book a private session and we'll customize the experience just for your group. Choose your game modes, set your own pace, and create memories that'll last a lifetime. Exclusive use of facilities Customized game scenarios Professional instruction and safety briefing Available year-round by appointment Perfect for groups of 10 or more\nBOOK A PRIVATE GROUP\n13 Themed Battle Zones\nUnique terrain and fo"
-    },
-    {
-      "id": "parkersairsoft",
-      "name": "Parkers Airsoft Field",
-      "state": "OH",
-      "location": "Bethel, OH",
-      "url": "https://parkersairsoft.com/",
-      "text": "Parker&#x27;s Airsoft\nSigned in as: filler@godaddy.com Home BECOME A MEMBER Our Hours and Events Event Details Extinction Event Wave 5 NO FRONT LINE P.A.F Action Acres Shop Field Location/Schedule Parker&#x27;s Airsoft Field Action Acres A.A Field Rules Weapon Class/ Game Rules Field Rules FPS LIMITS AND MED Game Modes MILSIM Live Action Novel Modern Conquest OPEN PLAY Game Modes Airsoft Gun Training Media Parker&#x27;s Comics Account Bookings My Account Sign out Sign In Bookings My Account Choose From Two Locations Parker’s Airsoft Field Large 25 acre field in Bethel, OH enter Action Acres Smaller 1.5 acre field in New Richmond OH Enter View Calendar Copyright © 2026 Parker's Airsoft - All Rights Reserved. Home BECOME A MEMBER NO FRONT LINE P.A.F The Map Parker&#x27;s Airsoft Field Action Acres A.A Field Rules OPEN PLAY Game Modes Media Privacy Policy Terms and Conditions Powered by This website uses cookies. We use cookies to analyze website traffic and optimize your website experience. By accepting our use of cookies, your data will be aggregated with all other user data. Decline Accept"
+      "text": "HOME\nPLAY ˇ\nOPEN/Public PLAY\nGROUPS & PARTIES\nOhio's Premier Paintball & Airsoft Facility\nDon't just play the game - BE the game. Discover why SplatterPark has been Ohio's ultimate fun sport destination since 1983.\nBOOK NOW\nReady for real-life safe fun that gets your heart racing? SplatterPark is the Midwest's top-rated Paintball and Airsoft facility, where you become the hero of your own action-packed adventure.\nGET TICKETS\nREFEREES WANTED - APPLY TODAY\nPlay Your Way - We're Here for You - Paintball or Airsoft.\nAt SplatterPark, we believe everyone deserves to experience team sports exactly how they want. That's why we offer flexible options that fit your style, schedule, and group size.\nOpen Play - Jump Right In\nPerfect for: First-timers, individuals, small groups wanting to meet new warriors Drop in any weekend and join the action! Our friendly staff will team you up with other players for non-stop fun across our themed fields. No planning required - just show up ready to dominate. Meet new people and make buddies Guided gameplay with professional referees All skill levels welcome Equipment rentals available on-site No Reservations Required!\nOPEN PLAY INFO\nPrivate Groups - Your Exclusive Battlefield\nPerfect for: Birthday parties, corporate events, bachelor parties, team building, special celebrations Want the entire field to yourself? Book a private session and we'll customize the experience just for your group. Choose your game modes, set your own pace, and create memories that'll last a lifetime. Exclusive use of facilities Customized game scenarios Professional instruction and safety briefing Available year-round by appointment Perfect for groups of 10 or more\nBOOK A PRIVATE GROUP\n13 Themed Battle Zones\nUnique terrain and fortifications - play among cargo crates, s"
     },
     {
       "id": "undergroundwars",
@@ -211,20 +179,20 @@
       "text": "Action Sports | Airsoft and Paintball Fields | Mauston\ntop of page ACTION SPORTS Wisconsin PLAY EVENTS Largest Multi-Story Outdoor Urban Combat field in the Midwest.\nAction Sports Wisconsin is proud to offer an airsoft experience like no other. Experience combat in an urban type environment with a mock city covering 86 acres, built with over 70 shipping containers. Our modernized realistic facility is equipped with multiple playing fields including open fields, multiple woods with natural terrain, man-made bunkers, barricades, and other obstacles.\nOur goal is to provide the ultimate place to play whether you re a beginner or skilled player.\nABOUT Check out our FB page for latest updates and weather post Night Play! Our Facility is fully lit for evening and nightplay, with complete streetlights and interior lighting. This means ANYONE can play day or night regardless of equipment and experience.\nAll players for night play will need:\n-Flashlight attatched to your gun\nJust without the mess, lower cost for rounds and best of all they shoot about 3 times as far and 3 times more accurate!\nAirsoft is fun and safe for ages 12 +, and all levels of experience. It is the largest growing action hobby and at this point rivals paintball for popularity while offering a wider range of play style.\nWe have Walk-on Open play EVERY WEEKEND YEAR-ROUND (with the exceptions of events ). Our Walk-on players do fantastic with small groups and new players.\n-Available Private Play Wed-Fri Call Ahead, Sat-Sun Walk-on Play-\nWe offer an immersive and entertaining experience for all types of airsoft players. Casual to milsim, the field and games allow for a wide variety to suit your groups tastes.\nAirsoft features slightly realistic looking replicas that use electric or gas/air to fire 6mm plastic pe"
     },
     {
+      "id": "commandopb",
+      "name": "Commando Paintball",
+      "state": "WI",
+      "location": "Little Suamico, WI",
+      "url": "https://www.commandopaintballsports.com/",
+      "text": "GIFT CARDS\nWALK ON PLAYERS WELCOME ON WEEKENDS\nAGES 10+ BEGINNERS WELCOME\nOPEN YEAR ROUND\nWe are open every Saturday and Sunday and by reservation throughout the week, year-round.\nRAIN OR SHINE\nGames are played in all weather. Even in rain, a paintball game is very enjoyable, so don t be afraid to get a little wet!\nREFEREE SUPERVISION\nAll play is under the supervision of our trained referees for your safety and to maximize your enjoyment of the game.\nSPECIAL EVENTS\nWe hold regular tournaments and scenario games throughout the year.\nFOOD AVAILABLE\nPERFECT FOR ANY SIZE GROUP\nCome by yourself or bring friends and you will play some of the best paintball of your life. We have 3 wooded fields with numerous 2 story forts, bunkers, and cover that will test your ability to outsmart the opposition before they eliminate you. Always changing and improving, our wooded fields are considered to be some of the best in the country.\nMULTIPLE FIELDS TO CHOOSE FROM\nDo you love the fast action of speedball? Well, we have the best of that also! Our hyperball field is the best. Designed and constructed by an experienced hyperball field company, this field is one of the best laid out and most competitive you will find anywhere. We are continually upgrading and improving our facilities. Our shipment field is a fan favorite, with 3 levels of play, and lots of places to sneak around in.\nVARIED FIELDS TO CHOOSE FROM\nDo you love the fast action of speedball? Well, we have the best of that also! Our hyperball field is the best. Designed and constructed by an experienced hyperball field company, this field is one of the best laid out and most competitive you will find anywhere. We are continually upgrading and improving our facilities. Our shipment field is a fan favorite, with 3 levels of play, and"
+    },
+    {
       "id": "edge608",
       "name": "Edge Paintball and Airsoft",
       "state": "WI",
       "location": "Janesville, WI",
       "url": "https://www.608pb.com/tournaments",
-      "text": "top of page CEPS EVENTS Shop All\nCEPS D5 3-MAN JULY 11TH Price $180.00 CEPS D4 3-MAN JULY 11TH Price $180.00 CEPS 5 MAN JULY 12TH Price $700.00 5-MAN SERIES 2026 Rules / Info RULES & INFORMATION\n3-MAN x-ball Team Roster ALL teams must submit their roster by Thursday at 12:00 PM (Noon CST) prior to each event weekend. No roster changes are allowed after this deadline.\nRosters are officially locked at check-in. Any team found with an ineligible or unregistered player will be immediately disqualified. #playceps SUBMIT\n5-man x ELITE Event Layouts Head over to GunzUp to get a printedable layout and walk it! Learn More\nbottom of page"
-    },
-    {
-      "id": "sogoairsoft",
-      "name": "So Go Airsoft",
-      "state": "MO",
-      "location": "Ozark, MO",
-      "url": "https://www.sogoairsoft.com/",
-      "text": "So Go Airsoft Retail and Indoor Nerf Game Play\n(417)485-2579 public@sogoairsoft.com\nAGES 12 - ADULT\nPARTIES - EVENTS - OPEN PLAY\nBLOCK PLAY\nTHURSDAYS 6:00 - 9:00\nSATURDAYS 5:00 - 9:00\nBook Now Play Info\nOzark MO\nSTARTING 2026\nSo Go Airsoft is the perfect place for Birthday Parties, Corporate Events, Bachelor Parties or any group that wants to play privately.\nBOOK NOW\nOzark Hours:\nMonday (2:00 PM - 6:00 PM)\nTuesday ( Closed )\nWednesday (2:00 PM - 7:00 PM)\nThursday (2:00 PM - 9:00 PM)\nFriday (2:00 PM - 7:00 PM)\nSaturday (12:00 PM - 9:00 PM)\nSunday (2:00 PM - 6:00 PM)\nImportant Reminder"
+      "text": "top of page CEPS EVENTS Shop All\nCEPS D5 3-MAN JULY 11TH Price $180.00 CEPS D4 3-MAN JULY 11TH Price $180.00 CEPS 5 MAN JULY 12TH Price $700.00 5-MAN SERIES Team signed up\nHavoc\n2026 Rules / Info RULES & INFORMATION\n3-MAN x-ball Team Roster ALL teams must submit their roster by Thursday at 12:00 PM (Noon CST) prior to each event weekend. No roster changes are allowed after this deadline.\nRosters are officially locked at check-in. Any team found with an ineligible or unregistered player will be immediately disqualified. #playceps SUBMIT\n5-man x ELITE Event Layouts Head over to GunzUp to get a printedable layout and walk it! Learn More\nbottom of page"
     },
     {
       "id": "therockairsoft",
@@ -244,6 +212,11 @@
     }
   ],
   "errors": [
+    {
+      "id": "bingfield",
+      "name": "Bing Field",
+      "error": "HTTP 403"
+    },
     {
       "id": "megastore",
       "name": "Airsoft Megastore Chicago",
