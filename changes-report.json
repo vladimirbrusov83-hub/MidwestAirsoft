@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-07-29",
-  "summary": "27 changed, 3 unchanged, 5 errors",
+  "checkedAt": "2026-08-05",
+  "summary": "26 changed, 5 unchanged, 4 errors",
   "changed": [
     {
       "id": "kankakee",
@@ -35,12 +35,20 @@
       "text": "WAIVER\nCOME PLAY PAINTBALL\nPLAY\nPAINTBALL\nPAINTBALL THEME PARK\nWE ARE OPEN SATURDAY & SUNDAY\nAVAILABLE 7 DAYS A WEEK FOR PRIVATE GROUP BOOKINGS!\nBOOK NOW\nEXPLORE PAINTBALL EXPLOSION Modeled after the most popular video games, like Call of Duty and Modern Warfare, with our movie quality sets! We are always upgrading our facilities and now offer Airsoft and Laser Tag parties and Walk-On play as well!\nOUR PARK\nUPCOMING EVENTS & SPECIALS\nClick to watch exciting game play!\nCHOOSE A\nGAME TO PLAY CHOOSE A\nGAME TO PLAY Paintball Explosion offers a variety of game styles to play at our theme park. Choose from Paintball, Low Impact Paintball, Airsoft, Laser Tag, or just come enjoy the Bar & Grill. Don't worry, you can always return to try each game style!\nAIRSOFT\nCOMING SOON\nBOOK YOUR NEXT PARTY WITH US BOOK YOUR NEXT PARTY WITH US Paintball Explosion offers a variety of game styles to play at our theme park. Choose your style, get your team ready, and book your event! We welcome all groups and events, including private groups, birthday parties, bachelor parties, and corporate groups.\nPRIVATE GROUPS"
     },
     {
+      "id": "blastcamp",
+      "name": "Blastcamp",
+      "state": "IN",
+      "location": "Hobart, IN",
+      "url": "https://blastcamp.com/airsoft/",
+      "text": "Airsoft\nCome Play Airsoft in Hobart, Indiana! Airsoft at Blastcamp Is\nAbout as Real as It Gets!\nAirsoft is a fun sport that allows players to act out realistic combat-themed scenarios. Players eliminate each other by “hitting” or “tagging” other players using realistic military-replica airsoft weapons. Airsoft replicas shoot round 6mm plastic BBs.\nIn addition to private groups,  we also offer smaller, walk-on play games as well as themed, full-day light mil-sim “ops” events for hundreds of players .\nWe’ve been running airsoft ops at Blastcamp for nearly two decades—the longest in the area.  Airsofters love the realism that comes from playing on our historic location. Adding to the realism are our multiple types of terrain, including close quarter battles, woods, and open areas.\nCHECK OUT OUR EVENTS! CLICK HERE\nWho Can Play Airsoft?\nAlmost anyone can enjoy airsoft, as long as participants follow the safety protocols put in place and come into the game with a good attitude. And if you’re a novice, no worries; even the veterans were once noobies. With practice and determination, anyone can become a proficient player over time.\nAirsoft Walk-on Play\nThese are  shorter, quicker games in a designated section of the field. Walk-on play features mission-based objectives that incorporate props, and we have hundreds of different game modes. Once players get registered, they get a safety briefing and get put on teams; then a ref takes them out to the field. Cost is $30 per person; Tippmann rentals available at $30 per day.\nOPEN PLAY DATES\nOPEN PLAY EVERY SUNDAY EXCEPT ON EVENT WEEKENDS\nClick Here For Pricing\nAirsoft Events\nOn airsoft event days, all 23 acres are available for airsoft only (no paintball). These full-day mission/objective-based theme events can run for hours, dependi"
+    },
+    {
       "id": "htkairsoft",
       "name": "HTK Airsoft",
       "state": "IN",
       "location": "Jasper, IN",
       "url": "https://www.htkairsoft.com/",
-      "text": "Southern Indiana Airsoft | HTK Airsoft\ntop of page Welcome To HTK Airsoft FRIDAY (indoor)\n5:30-9:30pm\nSaturday\noutdoor\n11:00-5:00\nsunday\nindoor\nLevel 2:\nClose Quarter Battle Game Play Area, Simulated Night and Daytime Operations.\nLevel 3:\nClose Quarter Battle Game Play Area, SpeedQB 5v5 Tournament Court hosting National Tourneys as well as Local Events. OUTDOOR FIELD\n13706 E 550 S Loogootee, IN 47553 Operating on a 160-acre farm, HTK Outdoor Airsoft Campus boasts the are a s best gameplay, no questions asked.\nBuildings, vehicles, bridges, obstacles, creeks, wooded areas, wide open f ields, and a 3 story Sniper Tower all add up to one amazing field.\nMulti-day MILSIM events, single-day special events, a fully stocked pro-shop, and open-play games make this a must-play field.\nMass events are held on this campus each year, including the famous Red Arrow event.\nCamping is available during events, and we provide port-toilets, outdoor shower facilities, and free campfire wood."
+      "text": "top of page Welcome To HTK Airsoft EVENTS\ndear players, with weekly operations paused, please see our event calendar right here on the front page to see when we will be playing. events are posted on our socials as well so, please follow us there! events added regularly\nPRICING\nLevel 2:\nClose Quarter Battle Game Play Area, Simulated Night and Daytime Operations.\nLevel 3:\nClose Quarter Battle Game Play Area, SpeedQB 5v5 Tournament Court hosting National Tourneys as well as Local Events. OUTDOOR FIELD\n13706 E 550 S Loogootee, IN 47553 Operating on a 160-acre farm, HTK Outdoor Airsoft Campus boasts the are a s best gameplay, no questions asked.\nBuildings, vehicles, bridges, obstacles, creeks, wooded areas, wide open f ields, and a 3 story Sniper Tower all add up to one amazing field.\nMulti-day MILSIM events, single-day special events, a fully stocked pro-shop, and open-play games make this a must-play field.\nMass events are held on this campus each year, including the famous Red Arrow event.\nCamping is available during events, and we provide port-toilets, outdoor shower facilities, and free campfire wood."
     },
     {
       "id": "hellsurvivors",
@@ -81,14 +89,6 @@
       "location": "Coldwater, MI",
       "url": "https://www.darkfireairsoft.com/",
       "text": "Airsoft Pro Shop | Darkfire Airsoft | Hillsdale\ntop of page home top Dale Buehrer and Family Charity Event\nAugust 8th and 9th. Tickets Getting here GETTING HERE ***Store and field WILL NOT BE OPEN TO THE PUBLIC EXCEPT ON SCHEDULED EVENT DAYS or by appointment*** DarkFire Airsoft\n1609 S Lake Wilson Rd, Hillsdale Michigan 49242 We are about 100 yards south of the railroad tracks on Lake Wilson RD\nThe admins are great, very welcoming and there guidance for new players are awesome, it s is a relaxed and fun atmosphere with plenty of field to play on. No matter what load out you choose there s always spots to take advantage of. Very well rounded airsoft field with plenty of potential to keep going Jon (Facebook) bottom of page"
-    },
-    {
-      "id": "holewall",
-      "name": "Hole in the Wall Paintball",
-      "state": "MI",
-      "location": "Northwest Michigan",
-      "url": "https://www.holeinthewallpaintballmi.com/",
-      "text": ""
     },
     {
       "id": "crossfire",
@@ -155,14 +155,6 @@
       "text": ""
     },
     {
-      "id": "bigpearl",
-      "name": "Big Pearl Paintball",
-      "state": "OH",
-      "location": "Conneaut, OH",
-      "url": "https://bigpearlpaintball.net/",
-      "text": "Big Pearl Paintball - Home\n(440) 969-4817 Welcome to Keeler&#x27;s Big Pearl Paintball Welcome to Keeler&#x27;s Big Pearl Paintball Welcome to Keeler&#x27;s Big Pearl Paintball Welcome to Keeler&#x27;s Big Pearl Paintball Book Now Upcoming Events Upcoming Events 8/1/2026 Open play Paintball Starting at 10am 8/22/2026 Open Play Airsoft field open at 8am rules briefing at 8:30 am 9/19/2026 Open Play Airsoft field open at 8am rules briefing at 8:30 am 10/17/2026 Open Play Airsoft field open at 8am rules briefing at 8:30 am Learn More Social About Us We are located in Conneaut, Ohio. We have airsoft and paintball events all summer long. Please contact us if you would like to schedule a group 440-969-4817. Groups & Parties To have a Private Groups close to other public is an extra $100 Our complete rental package is $50.00, per person that includes rental gun all day air or CO2 and 500 paintball. waivers waivers Waver (pdf) Download Last Years winners at G-Dayy Price List Entries and Rental Packages Add a description about this category Entry 25 ENTRY, ALL DAY AIR OR CO2 INCLUDED WITH ENTRY. Rental Package 50 Gun Rental & 500 paintballs ALL DAY AIR OR CO2 INCLUDED Paintball Gun Rental 20 Add a description about this item Paintball Prices All Boxes of 2000 include entry fee and all day air or Co2 Thirds Box of 2000 40 Low grade paintballs “do not use in high end guns” Seconds Box of 2000 50 A low grade paintballs no reel consistency in size Infinity Box of 2000 55 Good mid level Paintballs with good consistency on size and some dimples. Should shoot well out of any semi auto mid range gun like Tippmann 98s. New World 2000 65 Ad Highend paintballs for people with high end guns. Good consistency on size and not very many dimples. Graffiti 70 Ad Highend paintballs for people wit"
-    },
-    {
       "id": "cedar",
       "name": "Cedar Airsoft Field",
       "state": "WI",
@@ -208,7 +200,7 @@
       "state": "MO",
       "location": "Bolivar, MO",
       "url": "https://therockairsoft.com/",
-      "text": "6mm Adventures\nSun. August 2\nBriefing starts at 10:00 AM\n$25.00 per player\nAwesome weather for Sunday sooooo…………..\nGame on!!!!!!! Sunday Aug 2nd\n$25- $$$ continued Reduction due to gas prices.\n10 Year Rockaversary\nFri. September 18 - Sun. September 20\nSaturday team line up starts at 9:30 AM\nPreregister:\n$90.00 per player\nCome celebrate The Rock’s 10-Year Anniversary with an unforgettable weekend of airsoft action, community, and surprises! Saturday games run 2–3 hours each. 350+ players last year!\nSponsor Giveaways + Prizes\nChallenge coin for the first 150 registered players\nFREE event patch for the first 300 registered players\nSpecial giveaway drawing for the first 75 pre-registered players\nLimited E&L GOLD AK giveaway for those registered by July 4th (to celebrate America’s 250th birthday!)\nHuge giveaway at the end of Saturday lunch — don’t miss it (winners can use what they win!)\nFriday Early Check-In & Play (weather permitting): Check-In starts at 5:00 PM\nSaturday Check-in begins: 7:30 AM\nTeam lineup: 9:30 AM\nFriday and Saturday Night Free camping (no services) — porta-potties available\nPrice increases by $10 after Labor Day (Saturday/Both Days)\nVendors + Food\nFood by Pitts BBQ\nLunch available for $10 (add when purchasing your ticket) Includes sandwich, chips, and a drink\nOnsite purchases available while supplies last.\nCivilians will be used to balance teams as needed\nStay tuned to our Facebook page for updates, giveaways, and the official event gun post!\nRegister Sat. and Sun. $90.00 Bonus Friday Night\nRegister Sat. Only $75.00 Bonus Friday Night\nRegister Sun. Only $20.00\nFirst & Last Name:\nEmail Address:\nTan Black Green Civilian Multicam No Food Reserved Saturday Lunch(Add $10.00) Have you attended previous Rock Events? Yes No\nYou agree to Rules and Terms Below PA"
+      "text": "10 Year Rockaversary\nFri. September 18 - Sun. September 20\nSaturday team line up starts at 9:30 AM\nPreregister:\n$90.00 per player\nCome celebrate The Rock’s 10-Year Anniversary with an unforgettable weekend of airsoft action, community, and surprises! Saturday games run 2–3 hours each. 350+ players last year!\nSponsor Giveaways + Prizes\nChallenge coin for the first 150 registered players\nFREE event patch for the first 300 registered players\nSpecial giveaway drawing for the first 75 pre-registered players\nLimited E&L GOLD AK giveaway for those registered by July 4th (to celebrate America’s 250th birthday!)\nHuge giveaway at the end of Saturday lunch — don’t miss it (winners can use what they win!)\nFriday Early Check-In & Play (weather permitting): Check-In starts at 5:00 PM\nSaturday Check-in begins: 7:30 AM\nTeam lineup: 9:30 AM\nFriday and Saturday Night Free camping (no services) — porta-potties available\nPrice increases by $10 after Labor Day (Saturday/Both Days)\nVendors + Food\nFood by Pitts BBQ\nLunch available for $10 (add when purchasing your ticket) Includes sandwich, chips, and a drink\nOnsite purchases available while supplies last.\nCivilians will be used to balance teams as needed\nStay tuned to our Facebook page for updates, giveaways, and the official event gun post!\nRegister Sat. and Sun. $90.00 Bonus Friday Night\nRegister Sat. Only $75.00 Bonus Friday Night\nRegister Sun. Only $20.00\nFirst & Last Name:\nEmail Address:\nTan Black Green Civilian Multicam No Food Reserved Saturday Lunch(Add $10.00) Have you attended previous Rock Events? Yes No\nYou agree to Rules and Terms Below PAY NOW\nYou are not approved until payment has been received. No refunds.\nOp Bad Moon\nSat. October 17 - Sun. October 18\nThis Event is being put on by MSAT. (not a Rock Airsoft Managed Event) This"
     },
     {
       "id": "massairsoft",
@@ -229,11 +221,6 @@
       "id": "megastore",
       "name": "Airsoft Megastore Chicago",
       "error": "HTTP 404"
-    },
-    {
-      "id": "blastcamp",
-      "name": "Blastcamp",
-      "error": "The operation was aborted due to timeout"
     },
     {
       "id": "surgestrike",
