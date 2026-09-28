@@ -23,6 +23,8 @@ if (file && existsSync(file)) {
     const f = allFields.find(x => x.id === n.fieldId);
     if (!f) { skipped.push(`${n.fieldId}: unknown field`); continue; }
     if (seed.events.some(e => e.date === n.date && (e.fieldId === n.fieldId || (e.venue || '').startsWith(f.name)))) { skipped.push(`${n.fieldId} ${n.date}: duplicate`); continue; }
+    const rec = seed.events.find(e => e.date === 'recurring' && (e.fieldId === f.id || (e.venue || '').startsWith(f.name)));
+    if (rec && (n.type || 'open') === 'open') { skipped.push(`${n.fieldId} ${n.date}: covered by recurring "${rec.name}"`); continue; }
     const loc = f.location;
     seed.events.push({
       date: n.date, name: n.name, type: n.type || 'open', price: n.price || 'TBD',

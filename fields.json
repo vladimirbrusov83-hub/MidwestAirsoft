@@ -26,7 +26,7 @@
   { "id": "parkersairsoft",  "name": "Parkers Airsoft Field",         "state": "OH", "location": "Bethel, OH",          "url": "https://parkersairsoft.com/" },
   { "id": "undergroundwars", "name": "Underground Wars",              "state": "OH", "location": "Newark, OH",          "url": "https://www.underground-wars.com/" },
   { "id": "bigpearl",        "name": "Big Pearl Paintball",           "state": "OH", "location": "Conneaut, OH",        "url": "https://bigpearlpaintball.net/" },
-  { "id": "cedar",           "name": "Cedar Airsoft Field",           "state": "WI", "location": "Wisconsin",           "url": "https://www.cedarairsoftfield.com/" },
+  { "id": "cedar",           "name": "Cedar Airsoft Field",           "state": "MI", "location": "Cedar Springs, MI",   "url": "https://www.cedarairsoftfield.com/" },
   { "id": "blackops",        "name": "Black Ops Airsoft",             "state": "WI", "location": "Bristol, WI",         "url": "https://www.blackops-airsoft.com/" },
   { "id": "actionsportswi",  "name": "Action Sports Wisconsin",       "state": "WI", "location": "Mauston, WI",         "url": "https://www.actionsportswisconsin.com/" },
   { "id": "commandopb",      "name": "Commando Paintball",            "state": "WI", "location": "Little Suamico, WI",  "url": "https://www.commandopaintballsports.com/" },

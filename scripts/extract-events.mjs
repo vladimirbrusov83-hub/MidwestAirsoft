@@ -68,6 +68,9 @@ for (const f of Object.values(fields)) {
   if (!lines.length) continue;
   total += lines.length;
   console.log(`## ${f.id} (${f.name}, ${f.location}) ${f.url}`);
+  // recurring entries already cover regular open plays — skip candidates they include
+  const rec = seed.events.filter(e => e.date === 'recurring' && (e.fieldId === f.id || (e.venue || '').startsWith(f.name)));
+  if (rec.length) console.log(`  (already listed as recurring: ${rec.map(e => e.name).join('; ')})`);
   console.log(lines.slice(0, 15).join('\n') + (lines.length > 15 ? `\n  …+${lines.length - 15} more` : ''));
 }
 const past = seed.events.filter(e => e.date !== 'recurring' && e.date < today).length;

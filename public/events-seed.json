@@ -220,18 +220,6 @@
       "base": true
     },
     {
-      "date": "2026-10-03",
-      "name": "Kankakee Factory Open Play",
-      "type": "open",
-      "price": "TBD",
-      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/",
-      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
-      "state": "IL",
-      "fieldId": "kankakee",
-      "fieldName": "Kankakee Airsoft Factory",
-      "location": "Kankakee, IL"
-    },
-    {
       "date": "2026-10-10",
       "name": "Resident Evil Paintball Big Game",
       "type": "big",
@@ -241,18 +229,6 @@
       "state": "MI",
       "badge": "Big Game",
       "base": true
-    },
-    {
-      "date": "2026-10-11",
-      "name": "Kankakee Factory Open Play",
-      "type": "open",
-      "price": "TBD",
-      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/",
-      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
-      "state": "IL",
-      "fieldId": "kankakee",
-      "fieldName": "Kankakee Airsoft Factory",
-      "location": "Kankakee, IL"
     },
     {
       "date": "2026-10-17",
@@ -300,30 +276,6 @@
       "base": true
     },
     {
-      "date": "2026-10-17",
-      "name": "Kankakee Factory Open Play",
-      "type": "open",
-      "price": "TBD",
-      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/",
-      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
-      "state": "IL",
-      "fieldId": "kankakee",
-      "fieldName": "Kankakee Airsoft Factory",
-      "location": "Kankakee, IL"
-    },
-    {
-      "date": "2026-10-25",
-      "name": "Kankakee Factory Open Play",
-      "type": "open",
-      "price": "TBD",
-      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/",
-      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
-      "state": "IL",
-      "fieldId": "kankakee",
-      "fieldName": "Kankakee Airsoft Factory",
-      "location": "Kankakee, IL"
-    },
-    {
       "date": "2026-10-27",
       "name": "Pumpkin Hunt — Airsoft",
       "type": "open",
@@ -356,18 +308,6 @@
       "badge": "Big Game",
       "fieldId": "biglake",
       "base": true
-    },
-    {
-      "date": "2026-10-31",
-      "name": "Kankakee Factory Open Play",
-      "type": "open",
-      "price": "TBD",
-      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/",
-      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
-      "state": "IL",
-      "fieldId": "kankakee",
-      "fieldName": "Kankakee Airsoft Factory",
-      "location": "Kankakee, IL"
     },
     {
       "date": "2026-11-07",
@@ -416,18 +356,6 @@
       "base": true
     },
     {
-      "date": "2026-11-08",
-      "name": "Kankakee Factory Open Play",
-      "type": "open",
-      "price": "TBD",
-      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/",
-      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
-      "state": "IL",
-      "fieldId": "kankakee",
-      "fieldName": "Kankakee Airsoft Factory",
-      "location": "Kankakee, IL"
-    },
-    {
       "date": "2026-11-14",
       "name": "Honor Vets Open Play",
       "type": "open",
@@ -451,30 +379,6 @@
       "base": true
     },
     {
-      "date": "2026-11-14",
-      "name": "Kankakee Factory Open Play",
-      "type": "open",
-      "price": "TBD",
-      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/",
-      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
-      "state": "IL",
-      "fieldId": "kankakee",
-      "fieldName": "Kankakee Airsoft Factory",
-      "location": "Kankakee, IL"
-    },
-    {
-      "date": "2026-11-22",
-      "name": "Kankakee Factory Open Play",
-      "type": "open",
-      "price": "TBD",
-      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/",
-      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
-      "state": "IL",
-      "fieldId": "kankakee",
-      "fieldName": "Kankakee Airsoft Factory",
-      "location": "Kankakee, IL"
-    },
-    {
       "date": "2026-11-28",
       "name": "Open Play",
       "type": "open",
@@ -484,18 +388,6 @@
       "state": "OH",
       "badge": "Open Play",
       "base": true
-    },
-    {
-      "date": "2026-11-28",
-      "name": "Kankakee Factory Open Play",
-      "type": "open",
-      "price": "TBD",
-      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/",
-      "venue": "Kankakee Airsoft Factory · Kankakee, IL",
-      "state": "IL",
-      "fieldId": "kankakee",
-      "fieldName": "Kankakee Airsoft Factory",
-      "location": "Kankakee, IL"
     },
     {
       "date": "2026-12-05",

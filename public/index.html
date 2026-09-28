@@ -39,25 +39,27 @@
 }
 </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@600;700;800&family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:       #070a06;
-    --bg2:      #0a0d08;
-    --panel:    #0d1009;
-    --panel2:   #11160d;
-    --border:   rgba(110, 148, 36, 0.12);
-    --border2:  rgba(110, 148, 36, 0.28);
-    --green:    #c8f032;
-    --green-lo: rgba(136, 180, 32, 0.10);
-    --green-md: rgba(136, 180, 32, 0.18);
-    --red:      #bf2e08;
-    --amber:    #c99010;
-    --tan:      #b0a480;
-    --text:     #b0c880;
-    --bright:   #cad6a4;
-    --muted:    #8ea070;
-    --white:    #e4ecd4;
+    --bg:       #e9e1cc;
+    --bg2:      #f4eedd;
+    --panel:    #f4eedd;
+    --panel2:   #efe7d3;
+    --border:   rgba(60, 45, 20, 0.16);
+    --border2:  rgba(60, 45, 20, 0.30);
+    --green:    #b8441a;
+    --green-lo: rgba(184, 68, 26, 0.07);
+    --green-md: rgba(184, 68, 26, 0.14);
+    --red:      #8f2a14;
+    --amber:    #a86d12;
+    --tan:      #6e5a36;
+    --text:     #3d3424;
+    --bright:   #2a2418;
+    --muted:    #6a5d45;
+    --white:    #1e1a12;
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -66,39 +68,10 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'Barlow', sans-serif;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
     font-size: 14px;
     line-height: 1.65;
     overflow-x: hidden;
-  }
-
-  /* atmospheric glow */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 40% at 15% 60%, rgba(136,180,32,.025) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 30% at 85% 20%, rgba(191,46,8,.018) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* scanlines */
-  body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent 0px,
-      transparent 3px,
-      rgba(0,0,0,0.07) 3px,
-      rgba(0,0,0,0.07) 4px
-    );
-    pointer-events: none;
-    z-index: 999;
-    opacity: 0.45;
   }
 
   /* ─── HEADER ──────────────────────────────────────── */
@@ -125,9 +98,9 @@
     right: -2%;
     top: 50%;
     transform: translateY(-50%) rotate(-6deg);
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Big Shoulders Stencil Display', sans-serif;
     font-size: clamp(120px, 22vw, 320px);
-    color: rgba(136,180,32,.028);
+    color: rgba(184,68,26,.028);
     letter-spacing: -4px;
     pointer-events: none;
     user-select: none;
@@ -156,7 +129,7 @@
   .kicker-rule { width: 28px; height: 1px; background: var(--green); }
 
   .kicker-label {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 10px;
     letter-spacing: 3.5px;
     color: var(--green);
@@ -164,7 +137,7 @@
   }
 
   h1 {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Big Shoulders Stencil Display', sans-serif;
     font-size: clamp(76px, 10.5vw, 136px);
     line-height: .85;
     letter-spacing: 4px;
@@ -217,7 +190,7 @@
   }
 
   .stat-lbl {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 9px;
     letter-spacing: 2.5px;
     color: var(--muted);
@@ -227,7 +200,7 @@
   }
 
   .stat-val {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Big Shoulders Stencil Display', sans-serif;
     font-size: 42px;
     line-height: 1;
     color: var(--tan);
@@ -262,7 +235,7 @@
     align-items: center;
     gap: 8px;
     padding: 14px 22px;
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
     font-size: 11.5px;
     font-weight: 600;
     letter-spacing: 2.5px;
@@ -274,7 +247,7 @@
   }
 
   .nav-idx {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 8.5px;
     opacity: .45;
   }
@@ -287,15 +260,15 @@
   a.nav-tool-link {
     margin-left: 12px;
     color: var(--green) !important;
-    border: 1px solid rgba(200,240,50,0.25);
+    border: 1px solid rgba(184,68,26,0.25);
     border-bottom: 2px solid var(--green) !important;
     padding: 10px 16px !important;
-    background: rgba(200,240,50,0.05);
+    background: rgba(184,68,26,0.05);
     clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
     transition: background .18s !important;
   }
   a.nav-tool-link:hover {
-    background: rgba(200,240,50,0.12) !important;
+    background: rgba(184,68,26,0.12) !important;
   }
   a.nav-tool-link .nav-idx {
     opacity: 1;
@@ -306,7 +279,7 @@
     margin-left: auto;
     display: flex;
     align-items: center;
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 9px;
     letter-spacing: 1.5px;
     color: var(--muted);
@@ -360,7 +333,7 @@
   }
 
   .sec-eyebrow {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 9px;
     letter-spacing: 3px;
     color: var(--green);
@@ -369,7 +342,7 @@
   }
 
   .sec-title {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Big Shoulders Stencil Display', sans-serif;
     font-size: 50px;
     letter-spacing: 3px;
     color: var(--white);
@@ -377,7 +350,7 @@
   }
 
   .sec-meta {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 10px;
     color: var(--muted);
     letter-spacing: 1.5px;
@@ -394,7 +367,7 @@
   }
 
   .state-btn {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 9.5px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -412,7 +385,7 @@
   .state-btn.active {
     background: var(--green);
     border-color: var(--green);
-    color: #090c07;
+    color: #fbf6ea;
     font-weight: 500;
   }
 
@@ -420,7 +393,7 @@
   .ev-filters { margin-bottom: 28px; display: flex; flex-direction: column; gap: 8px; }
   .ev-filter-row { display: flex; flex-wrap: wrap; gap: 5px; }
   .ev-filter-lbl {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 8px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -429,7 +402,7 @@
     min-width: 44px;
   }
   .ev-fbtn {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 9.5px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -442,8 +415,8 @@
     clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 0 100%);
   }
   .ev-fbtn:hover { border-color: var(--border2); color: var(--text); }
-  .ev-fbtn.active { background: var(--green); border-color: var(--green); color: #090c07; font-weight: 500; }
-  .ev-no-results { color: var(--muted); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1px; padding: 32px 0; display: none; }
+  .ev-fbtn.active { background: var(--green); border-color: var(--green); color: #fbf6ea; font-weight: 500; }
+  .ev-no-results { color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1px; padding: 32px 0; display: none; }
   .ev-no-results.visible { display: block; }
 
   /* ─── FIELDS GRID ─────────────────────────────────── */
@@ -510,7 +483,7 @@
   }
 
   .field-state {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 9px;
     letter-spacing: 2.5px;
     color: var(--green);
@@ -520,7 +493,7 @@
   .state-rule { flex: 1; height: 1px; background: var(--border); }
 
   .field-name {
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
     font-size: 20px;
     font-weight: 700;
     color: var(--white);
@@ -530,7 +503,7 @@
   }
 
   .field-location {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 11px;
     color: var(--muted);
     letter-spacing: .5px;
@@ -545,7 +518,7 @@
   }
 
   .tag {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 9px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -557,7 +530,7 @@
 
   .tag.milsim  { border-color: rgba(191,46,8,.4);  color: #d45030; background: rgba(191,46,8,.05); }
   .tag.indoor  { border-color: rgba(201,144,16,.35); color: var(--amber);  background: rgba(201,144,16,.05); }
-  .tag.outdoor { border-color: rgba(136,180,32,.25); color: #7a9e20;       background: rgba(136,180,32,.04); }
+  .tag.outdoor { border-color: rgba(184,68,26,.25); color: #7a9e20;       background: rgba(184,68,26,.04); }
 
   .field-desc {
     font-size: 12.5px;
@@ -570,7 +543,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -618,7 +591,7 @@
     justify-content: center;
     padding: 16px 0;
     border-right: 1px solid var(--border);
-    background: rgba(0,0,0,.18);
+    background: rgba(60,45,20,.05);
     position: relative;
   }
 
@@ -632,7 +605,7 @@
   .ev-stripe.big    { background: var(--amber); }
 
   .ev-month {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 9px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -640,7 +613,7 @@
   }
 
   .ev-day {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Big Shoulders Stencil Display', sans-serif;
     font-size: 36px;
     line-height: 1;
     color: var(--white);
@@ -648,7 +621,7 @@
   }
 
   .ev-year {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 9px;
     color: var(--muted);
   }
@@ -662,7 +635,7 @@
   }
 
   .ev-name {
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
     font-size: 17px;
     font-weight: 700;
     color: var(--white);
@@ -671,7 +644,7 @@
   }
 
   .ev-venue {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 11px;
     color: var(--muted);
     letter-spacing: .3px;
@@ -688,7 +661,7 @@
   }
 
   .ev-price {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Big Shoulders Stencil Display', sans-serif;
     font-size: 28px;
     color: var(--amber);
     letter-spacing: 1px;
@@ -696,7 +669,7 @@
   }
 
   .ev-badge {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 8.5px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -719,7 +692,7 @@
   .hdr-contact-link {
     display: inline-block;
     margin-top: 12px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 10px;
     letter-spacing: 1.5px;
     color: var(--green);
@@ -734,14 +707,14 @@
     top: 20px;
     right: 48px;
     z-index: 3;
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
     font-size: 10px;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--muted);
     text-decoration: none;
-    border: 1px solid rgba(255,255,255,.12);
+    border: 1px solid rgba(60,45,20,.25);
     padding: 6px 14px;
     transition: color .15s, border-color .15s;
   }
@@ -758,14 +731,14 @@
       border-top: 1px solid var(--border);
     }
     .owner-btn-mobile a {
-      font-family: 'Barlow Condensed', sans-serif;
+      font-family: 'IBM Plex Sans Condensed', sans-serif;
       font-size: 11px;
       font-weight: 600;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--muted);
       text-decoration: none;
-      border: 1px solid rgba(255,255,255,.12);
+      border: 1px solid rgba(60,45,20,.25);
       padding: 10px 22px;
       transition: color .15s, border-color .15s;
     }
@@ -799,7 +772,7 @@
   .cf-row { margin-bottom: 20px; }
   .cf-row label {
     display: block;
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 9px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -814,7 +787,7 @@
     border: 1px solid var(--border);
     border-radius: 2px;
     color: var(--white);
-    font-family: 'Barlow', sans-serif;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
     font-size: 14px;
     padding: 10px 14px;
     outline: none;
@@ -834,7 +807,7 @@
     background: transparent;
     border: 1px solid var(--green);
     color: var(--green);
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 3px;
@@ -849,7 +822,7 @@
 
   .cf-status {
     margin-top: 14px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 11px;
     letter-spacing: 1px;
     text-align: center;
@@ -875,14 +848,14 @@
   }
 
   .footer-note {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 10px;
     color: var(--muted);
     letter-spacing: 1px;
   }
 
   .footer-cta {
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 3px;
@@ -927,9 +900,6 @@
     section          { padding-top: 40px; }
     .sec-title       { font-size: 36px; }
 
-    /* Map + terminal — hide everything, show mobile state picker instead */
-    .map-outer       { display: none; }
-    .mobile-state-picker { display: flex; }
 
     /* Fields */
     .fields-grid     { grid-template-columns: 1fr; gap: 1px; }
@@ -942,7 +912,6 @@
     /* Events */
     .events-list     { gap: 1px; }
     .event-row       { grid-template-columns: 78px 1fr; min-height: 62px; } /* wider date col */
-    .ev-right        { display: none; }
     .ev-day          { font-size: 28px; }
     .ev-body         { padding: 10px 12px; }
     .ev-name         { font-size: 14px; }
@@ -970,418 +939,6 @@
     .footer-cta      { display: none; }
   }
 
-  /* ─── MOBILE STATE PICKER (replaces map on mobile) ── */
-  .mobile-state-picker {
-    display: none; /* shown only on mobile via media query above */
-    flex-direction: column;
-    gap: 0;
-    margin-bottom: 20px;
-    border: 1px solid var(--border);
-    overflow: hidden;
-    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
-  }
-
-  .mob-pick-hdr {
-    background: rgba(136,180,32,0.06);
-    border-bottom: 1px solid var(--border);
-    padding: 8px 14px;
-    font-family: 'DM Mono', monospace;
-    font-size: 8.5px;
-    letter-spacing: 2.5px;
-    color: var(--green);
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .mob-pick-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-  }
-
-  .mob-state-tile {
-    background: var(--panel);
-    padding: 13px 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    cursor: pointer;
-    transition: background 0.15s;
-    border: none;
-    color: inherit;
-    font-family: inherit;
-  }
-
-  .mob-state-tile:active,
-  .mob-state-tile.active {
-    background: rgba(136,180,32,0.12);
-  }
-
-  .mob-state-tile.active .mob-tile-code {
-    color: var(--green);
-  }
-
-  .mob-state-tile.active .mob-tile-name {
-    color: var(--bright);
-  }
-
-  .mob-tile-code {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    line-height: 1;
-    color: var(--tan);
-    letter-spacing: 2px;
-    transition: color 0.15s;
-  }
-
-  .mob-tile-name {
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 1px;
-    color: var(--muted);
-    text-transform: uppercase;
-    text-align: center;
-    transition: color 0.15s;
-  }
-
-  .mob-tile-count {
-    font-family: 'DM Mono', monospace;
-    font-size: 8px;
-    color: var(--red);
-    letter-spacing: 1px;
-  }
-
-  .mob-all-tile {
-    grid-column: 1 / -1;
-    background: var(--panel2);
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    cursor: pointer;
-    border: none;
-    border-top: 1px solid var(--border);
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: var(--muted);
-    text-transform: uppercase;
-    transition: background 0.15s, color 0.15s;
-  }
-
-  .mob-all-tile.active {
-    color: var(--green);
-    background: rgba(136,180,32,0.07);
-  }
-  /* ─── INTERACTIVE MAP ───────────────────────────────── */
-  .map-wrap {
-    position: relative;
-    margin-bottom: 32px;
-    background: var(--panel);
-    border: 1px solid var(--border);
-    clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
-    overflow: hidden;
-  }
-
-  .map-wrap::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 40px 40px;
-    opacity: 0.5;
-    pointer-events: none;
-  }
-
-  .map-hint {
-    position: absolute;
-    top: 12px;
-    right: 16px;
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--muted);
-    z-index: 2;
-  }
-
-  #midwest-map {
-    display: block;
-    width: 100%;
-    max-height: 380px;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* inactive states (no fields) */
-  .map-state.map-inactive {
-    fill: rgba(255,255,255,0.02);
-    stroke: rgba(110,148,36,0.12);
-    stroke-width: 1;
-    cursor: default;
-  }
-
-  /* active states */
-  .map-state {
-    fill: rgba(136,180,32,0.055);
-    stroke: rgba(136,180,32,0.25);
-    stroke-width: 1;
-    cursor: pointer;
-    transition: fill 0.2s, stroke 0.2s, stroke-width 0.2s;
-  }
-
-  .map-state:not(.map-inactive):hover {
-    fill: rgba(136,180,32,0.14);
-    stroke: rgba(136,180,32,0.6);
-    stroke-width: 1.5;
-    filter: url(#st-glow);
-  }
-
-  /* selected state */
-  .map-state.map-selected {
-    fill: rgba(136,180,32,0.18);
-    stroke: var(--green);
-    stroke-width: 2;
-    filter: url(#st-glow);
-  }
-
-  .map-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    fill: var(--green);
-    text-anchor: middle;
-    dominant-baseline: middle;
-    pointer-events: none;
-    letter-spacing: 1px;
-    opacity: 0.7;
-  }
-
-  .map-label-inactive {
-    fill: var(--muted);
-    opacity: 0.45;
-  }
-
-  /* field dot markers */
-  .field-dot {
-    fill: var(--red);
-    opacity: 0.7;
-    pointer-events: none;
-    transition: r 0.2s, opacity 0.2s;
-  }
-
-  .map-state.map-selected ~ .field-dot,
-  .field-dot.dot-active {
-    opacity: 1;
-    r: 5;
-  }
-
-  /* count badges */
-  .map-badge-grp {
-    cursor: pointer;
-  }
-
-  .badge-ring {
-    fill: rgba(191,46,8,0.85);
-    stroke: rgba(255,100,60,0.4);
-    stroke-width: 1;
-    transition: r 0.15s, fill 0.15s;
-  }
-
-  .map-badge-grp:hover .badge-ring {
-    fill: var(--red);
-    r: 13;
-  }
-
-  .map-badge-grp.badge-selected .badge-ring {
-    fill: var(--green);
-    stroke: rgba(136,180,32,0.6);
-  }
-
-  .badge-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    font-weight: 500;
-    fill: #fff;
-    text-anchor: middle;
-    dominant-baseline: middle;
-    pointer-events: none;
-  }
-
-
-  /* ─── MAP OUTER LAYOUT ──────────────────────────────── */
-  .map-section {
-    padding: 0 0 8px;
-  }
-
-  .map-outer {
-    display: grid;
-    grid-template-columns: 148px 1fr 148px;
-    gap: 2px;
-    margin-bottom: 32px;
-    align-items: stretch;
-  }
-
-  /* ─── TERMINAL PANELS ──────────────────────────────── */
-  .term-panel {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    position: relative;
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    color: var(--green);
-    letter-spacing: 0.5px;
-  }
-
-  /* scanline overlay on panels */
-  .term-panel::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      0deg, transparent 0px, transparent 2px,
-      rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 3px
-    );
-    pointer-events: none;
-    z-index: 3;
-  }
-
-  .term-header {
-    padding: 6px 8px 5px;
-    border-bottom: 1px solid var(--border);
-    font-size: 8.5px;
-    letter-spacing: 2.5px;
-    color: var(--green);
-    text-transform: uppercase;
-    background: rgba(136,180,32,0.05);
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    flex-shrink: 0;
-  }
-
-  .term-blink {
-    animation: termBlink 1.1s steps(1) infinite;
-    color: var(--green);
-    font-size: 7px;
-  }
-  @keyframes termBlink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
-
-  .term-aoo {
-    padding: 5px 8px 4px;
-    font-size: 8px;
-    letter-spacing: 2px;
-    color: var(--green);
-    border-bottom: 1px solid var(--border);
-    opacity: 0.8;
-    flex-shrink: 0;
-    text-transform: uppercase;
-  }
-
-  .term-lines {
-    flex: 1;
-    overflow: hidden;
-    padding: 6px 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    min-height: 0;
-  }
-
-  .term-line {
-    font-size: 8.5px;
-    color: var(--green);
-    opacity: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: clip;
-    animation: termFadeIn 0.18s ease forwards;
-    letter-spacing: 0.3px;
-    line-height: 1.4;
-  }
-
-  .term-line.dim  { opacity: 0.35; color: var(--muted); }
-  .term-line.warn { color: var(--amber); }
-  .term-line.alert{ color: var(--red); }
-
-  @keyframes termFadeIn {
-    from { opacity: 0; transform: translateX(-4px); }
-    to   { opacity: 1; transform: translateX(0); }
-  }
-
-  /* ─── RADAR ─────────────────────────────────────────── */
-  .term-radar-wrap {
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 8px 0 4px;
-    border-top: 1px solid var(--border);
-    gap: 4px;
-  }
-
-  #radar-canvas {
-    display: block;
-    opacity: 0.92;
-  }
-
-  .radar-label {
-    font-size: 8px;
-    letter-spacing: 2px;
-    color: var(--muted);
-    text-transform: uppercase;
-  }
-
-  /* ─── STAT BLOCK (right panel) ─────────────────────── */
-  .term-statblock {
-    flex-shrink: 0;
-    border-top: 1px solid var(--border);
-    padding: 8px 8px 6px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .stat-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-
-  .stat-row-lbl {
-    font-size: 7.5px;
-    color: var(--muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .stat-row-val {
-    font-size: 11px;
-    color: var(--green);
-    font-weight: 500;
-  }
-
-  /* ─── TERM FOOTER ───────────────────────────────────── */
-  .term-footer {
-    flex-shrink: 0;
-    padding: 5px 8px;
-    border-top: 1px solid var(--border);
-    font-size: 8px;
-    color: var(--muted);
-    letter-spacing: 1.2px;
-    text-align: center;
-    background: rgba(0,0,0,0.2);
-  }
-
   /* ─── SEO BAND ──────────────────────────────────────── */
   .seo-band {
     max-width: 860px;
@@ -1391,7 +948,7 @@
   }
 
   .seo-h2 {
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
     font-size: clamp(1.1rem, 2.5vw, 1.5rem);
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -1408,12 +965,190 @@
     margin: 0 auto;
   }
 
-  /* responsive: hide terminal panels, collapse map */
-  @media (max-width: 900px) {
-    .map-outer       { grid-template-columns: 1fr; }
-    .term-panel      { display: none; }
+
+  /* ═══════════ TOPO RECON THEME ═══════════ */
+  body {
+    background-color: var(--bg);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .25 0 0 0 0 .2 0 0 0 0 .1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  h1, .sec-title, .stat-val, .ev-day, .ev-price, .hdr-mark { text-transform: uppercase; font-weight: 800; }
+  h1 { letter-spacing: 2px; }
+  h1 em { color: var(--green); }
+  header { background: var(--panel2); }
+  .hdr-grid {
+    background-image: none;
+    -webkit-mask-image: none; mask-image: none;
+    opacity: .5;
+  }
+  .hdr-mark { color: rgba(60,45,20,.05); }
+  .stat-block { background: var(--bright); border-color: var(--bright); }
+  .stat-block .stat-lbl { color: #d8c9a6; }
+  .stat-block .stat-val { color: var(--bg); }
+  nav { background: rgba(42,36,24,.96); }
+  nav a { color: #b9aa88; }
+  nav a:hover, nav a.active { color: #f1c9a0; border-bottom-color: #f1c9a0; }
+  a.nav-tool-link { color: #f1c9a0 !important; border-color: rgba(241,201,160,.35); border-bottom-color: #f1c9a0 !important; background: rgba(241,201,160,.06); }
+  .nav-tail { color: #b9aa88; }
+  .nav-dot { background: #f1c9a0; }
+  .state-btn.active, .ev-fbtn.active { color: #fbf6ea; }
+  .field-card { background: var(--panel); }
+  .fields-grid, .events-list { background: var(--border2); }
+  .ev-date { background: rgba(60,45,20,.05); }
+  .ev-stripe.open { background: #4d6b2e; }
+  .tag.milsim  { border-color: rgba(143,42,20,.45); color: var(--red); background: rgba(143,42,20,.06); }
+  .tag.indoor  { border-color: rgba(168,109,18,.45); color: var(--amber); background: rgba(168,109,18,.06); }
+  .tag.outdoor { border-color: rgba(77,107,46,.45); color: #4d6b2e; background: rgba(77,107,46,.06); }
+  .seo-h2 { color: var(--bright); }
+  .cf-submit:hover { color: #fbf6ea; }
+  .ev-filter-row { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; padding-bottom: 2px; }
+  .ev-filter-row::-webkit-scrollbar { display: none; }
+  .ev-fbtn, .ev-filter-lbl { flex: none; white-space: nowrap; }
+  .ev-fbtn.past { display: none; }
+  .ev-month { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; padding: 0 6px; }
+
+  /* ═══════════ FIELD ATLAS (map + range-ring radar) ═══════════ */
+  .map-section { margin-top: 14px; }
+  .atlas {
+    position: relative;
+    background: var(--panel);
+    border: 1px solid var(--border2);
+    box-shadow: 0 22px 40px -28px rgba(40,30,10,.55);
+  }
+  .atlas::before {
+    content: ''; position: absolute; top: -9px; left: 46%; width: 92px; height: 22px;
+    background: rgba(214,196,150,.8); transform: rotate(-2.5deg); z-index: 3;
+    box-shadow: 0 1px 2px rgba(0,0,0,.08);
+  }
+  .atlas-bar {
+    display: flex; align-items: center; gap: 14px 22px; flex-wrap: wrap;
+    padding: 14px 18px; border-bottom: 1px solid var(--border2);
+  }
+  .atlas-title { display: flex; flex-direction: column; margin-right: auto; }
+  .atlas-title b {
+    font-family: 'Big Shoulders Stencil Display', sans-serif; font-weight: 800;
+    font-size: 30px; line-height: .9; letter-spacing: 1px; color: var(--white); text-transform: uppercase;
+  }
+  .atlas-title span {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--muted); margin-top: 4px;
+  }
+  .zip-form { display: flex; align-items: center; gap: 6px; }
+  .zip-form label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .zip-form input {
+    width: 86px; height: 40px; padding: 0 12px; border-radius: 20px;
+    border: 1px solid var(--border2); background: var(--bg); color: var(--white);
+    font: 600 16px 'IBM Plex Mono', monospace; letter-spacing: 1px; outline: none;
+  }
+  .zip-form input:focus { border-color: var(--green); }
+  .zip-form button {
+    height: 40px; padding: 0 14px; border-radius: 20px; cursor: pointer;
+    font: 600 12px 'IBM Plex Sans Condensed', sans-serif; letter-spacing: 1px; text-transform: uppercase;
+    border: 1px solid var(--white); background: var(--white); color: var(--bg);
+  }
+  .zip-form button.ghost { background: transparent; color: var(--white); }
+  .zip-form button:hover { background: var(--green); border-color: var(--green); color: #fbf6ea; }
+  .zip-status { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); min-width: 1px; }
+
+  .atlas-map { position: relative; background: #ece5d2; overflow: hidden; }
+  .atlas-map svg { display: block; width: 100%; height: auto; }
+  .atlas-map canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .map-hint {
+    position: absolute; right: 14px; top: 12px; z-index: 2;
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--muted); background: rgba(244,238,221,.88); padding: 6px 10px; border: 1px solid var(--border);
+  }
+  .map-hint a { color: var(--green); cursor: pointer; text-decoration: underline; }
+
+  #midwest-map .map-canada { fill: #e8e1ce; }
+  #midwest-map .map-ctx { fill: #e4dcc6; stroke: none; }
+  #midwest-map .map-state { fill: #d9cca8; cursor: pointer; transition: fill .2s; }
+  #midwest-map .map-state:hover { fill: #cdbb8c; }
+  #midwest-map .map-state.map-selected { fill: #e3b596; }
+  #midwest-map.has-sel .map-state:not(.map-selected) { fill: #ddd3b6; }
+  #midwest-map .map-contour { fill: none; stroke: #8a7650; stroke-width: .6; opacity: .22; pointer-events: none; }
+  #midwest-map .map-lake { fill: #a9c1bf; stroke: #6f8f8e; stroke-width: .8; vector-effect: non-scaling-stroke; pointer-events: none; }
+  #midwest-map .map-river { fill: none; stroke: #86a5a6; stroke-width: 1.2; stroke-linejoin: round; vector-effect: non-scaling-stroke; pointer-events: none; }
+  #midwest-map .map-borders { fill: none; stroke: #6b5b3b; stroke-width: 1; stroke-dasharray: 5 2 1 2; vector-effect: non-scaling-stroke; pointer-events: none; }
+  #midwest-map .map-shore { fill: none; stroke: #5d4e31; stroke-width: 1.2; vector-effect: non-scaling-stroke; pointer-events: none; }
+  #midwest-map .map-border-sel { fill: none; stroke: #b8441a; stroke-width: 2.4; vector-effect: non-scaling-stroke; pointer-events: none; stroke-linejoin: round; }
+  #midwest-map .map-label {
+    font-family: 'Big Shoulders Stencil Display', sans-serif; font-weight: 800; font-size: 19px;
+    letter-spacing: 4px; fill: #3a3020; text-anchor: middle; pointer-events: none;
+  }
+  #midwest-map .map-count {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 1.5px;
+    fill: #b8441a; text-anchor: middle; pointer-events: none;
+  }
+  #midwest-map .map-ctx-lbl {
+    font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 10.5px; letter-spacing: 3px;
+    fill: #a1937a; text-anchor: middle; pointer-events: none;
+  }
+  #midwest-map .map-lake-lbl {
+    font-family: 'IBM Plex Sans Condensed', sans-serif; font-style: italic; font-size: 11px; letter-spacing: 3.5px;
+    fill: #4f7071; text-anchor: middle; pointer-events: none;
+  }
+  #midwest-map .map-cities rect { fill: #2a2418; }
+  #midwest-map .map-cities text {
+    font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 10.5px; fill: #4a3f2c;
+    paint-order: stroke; stroke: #ece5d2; stroke-width: 3px; stroke-linejoin: round;
+  }
+  #midwest-map .map-cities { pointer-events: none; }
+  #midwest-map .field-dot {
+    fill: #b8441a; stroke: #f6f0e1; stroke-width: 1.6; vector-effect: non-scaling-stroke;
+    cursor: pointer; transition: opacity .2s;
+  }
+  #midwest-map .field-dot:hover, #midwest-map .field-dot.dot-hot { fill: #2a2418; }
+  #midwest-map.has-sel .field-dot:not(.dot-active) { opacity: .25; }
+  #midwest-map .tt-bg { fill: #2a2418; }
+  #midwest-map .tt-name { font: 700 14px 'IBM Plex Sans Condensed', sans-serif; fill: #f4eedd; }
+  #midwest-map .tt-sub { font: 10.5px 'IBM Plex Mono', monospace; fill: #f1c9a0; }
+
+  .atlas-foot {
+    display: grid; grid-template-columns: 1fr auto; gap: 10px 24px; align-items: start;
+    padding: 12px 18px 14px; border-top: 1px solid var(--border2);
+  }
+  .atlas-readout { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--green); min-height: 18px; }
+  .atlas-legend { display: flex; gap: 16px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--muted); }
+  .atlas-legend i { display: inline-block; vertical-align: middle; margin-right: 6px; }
+  .lg-ring { width: 18px; border-top: 1.5px dashed #b8441a; }
+  .lg-dot { width: 9px; height: 9px; border-radius: 50%; background: #b8441a; border: 1.5px solid #f6f0e1; box-shadow: 0 0 0 1px #b8441a; }
+  .lg-water { width: 14px; height: 9px; background: #a9c1bf; border: 1px solid #6f8f8e; }
+  .nearest { grid-column: 1 / -1; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .nearest-lbl { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+  .nearest button {
+    display: inline-flex; align-items: baseline; gap: 6px; min-height: 36px; padding: 6px 12px; border-radius: 18px;
+    border: 1px solid var(--border2); background: var(--bg); color: var(--white); cursor: pointer;
+    font: 600 13px 'IBM Plex Sans Condensed', sans-serif;
+  }
+  .nearest button em { font: 11px 'IBM Plex Mono', monospace; font-style: normal; color: var(--green); }
+  .nearest button:hover { border-color: var(--green); }
+  .field-card.flash { outline: 2px solid var(--green); outline-offset: -2px; }
+
+  @media (max-width: 768px) {
+    .atlas-bar { padding: 12px; gap: 10px; }
+    .atlas-title b { font-size: 24px; }
+    .zip-form { width: 100%; flex-wrap: wrap; }
+    .zip-form input { flex: 1; min-width: 90px; height: 44px; }
+    .zip-form button { height: 44px; }
+    .zip-status { width: 100%; }
+    .map-hint { top: 8px; right: 8px; font-size: 9px; padding: 4px 7px; }
+    #midwest-map .map-label { font-size: 21px; letter-spacing: 2px; }
+    #midwest-map .map-count, #midwest-map .map-ctx-lbl, #midwest-map .map-cities text { display: none; }
+    #midwest-map .map-lake-lbl { font-size: 17px; letter-spacing: 2px; }
+    #midwest-map .map-contour { opacity: .14; }
+    .atlas-foot { grid-template-columns: 1fr; padding: 10px 12px 12px; }
+    .event-row { grid-template-columns: 78px 1fr auto; }
+    .ev-right { display: flex; padding: 10px 12px 10px 0; border-left: 0; }
+    .ev-price { font-size: 20px; }
+    .ev-badge { font-size: 8px; }
+    .ev-arrow { display: none; }
   }
 
+  .map-hint button, .readout-go { all: unset; color: var(--green); text-decoration: underline; cursor: pointer; }
+  .readout-go { margin-left: 6px; font-weight: 600; }
 </style>
 </head>
 <body>
@@ -1435,11 +1170,11 @@
     <div class="hdr-stats">
       <div class="stat-block">
         <span class="stat-lbl">Active Fields</span>
-        <span class="stat-val">56</span>
+        <span class="stat-val" id="stat-fields">56</span>
       </div>
       <div class="stat-block" style="margin-top:2px">
-        <span class="stat-lbl">Events in 2026</span>
-        <span class="stat-val">80+</span>
+        <span class="stat-lbl">Upcoming Events</span>
+        <span class="stat-val" id="stat-events">—</span>
       </div>
     </div>
   </div>
@@ -1481,228 +1216,28 @@
 
 <!-- ── MAP FILTER ── -->
 <div class="map-section">
-    <!-- ── INTERACTIVE MAP + TERMINAL ── -->
-    <div class="map-outer">
-
-      <!-- LEFT PANEL: terminal feed -->
-      <div class="term-panel term-left">
-        <div class="term-header"><span class="term-blink">█</span>&nbsp;SYS.FEED</div>
-        <div class="term-aoo">AREA OF OPERATION</div>
-        <div class="term-lines" id="term-lines-left"></div>
-        <div class="term-radar-wrap">
-          <canvas id="radar-canvas" width="110" height="110"></canvas>
-          <div class="radar-label">RDR · ACTIVE</div>
-        </div>
-        <div class="term-footer" id="term-clock"></div>
-      </div>
-
-      <!-- CENTER: the actual map -->
-      <div class="map-wrap">
-        <div class="map-hint">Click a state · <span onclick="mapFilterState('all')" style="color:var(--green);cursor:pointer;border-bottom:1px solid var(--green)">Reset all</span></div>
-      <svg id="midwest-map" viewBox="130 10 440 360" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="st-glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="4" result="blur"/>
-            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-        </defs>
-
-        <!-- ND -->
-        <path class="map-state map-inactive" data-state="ND" d="M184,112 L248,112 L248,160 L184,160 Z"/>
-        <text class="map-label map-label-inactive" x="216" y="140">ND</text>
-        <!-- SD -->
-        <path class="map-state map-inactive" data-state="SD" d="M184,160 L248,160 L252,186 L268,196 L184,196 Z"/>
-        <text class="map-label map-label-inactive" x="216" y="181">SD</text>
-        <!-- NE -->
-        <path class="map-state map-inactive" data-state="NE" d="M184,196 L268,196 L270,214 L266,232 L268,248 L184,248 Z"/>
-        <text class="map-label map-label-inactive" x="224" y="226">NE</text>
-
-        <!-- Minnesota -->
-        <path class="map-state" id="map-MN" data-state="MN" data-name="Minnesota" data-count="4"
-          d="M248,18 L340,18 L344,56 L356,70 L356,112 L346,120 L344,140 L318,144 L316,162 L298,168 L292,180 L268,180 L262,160 L248,160 L248,112 Z"/>
-        <text class="map-label" x="300" y="96">MN</text>
-
-        <!-- Wisconsin -->
-        <path class="map-state" id="map-WI" data-state="WI" data-name="Wisconsin" data-count="6"
-          d="M344,140 L346,120 L356,112 L362,92 L378,82 L394,90 L402,106 L412,112 L416,126 L408,138 L414,154 L410,172 L396,180 L390,198 L378,204 L364,198 L356,180 L344,178 L316,162 L318,144 Z"/>
-        <text class="map-label" x="374" y="148">WI</text>
-
-        <!-- Michigan (lower peninsula only) -->
-        <path class="map-state" id="map-MI" data-state="MI" data-name="Michigan" data-count="10"
-          d="M414,126 L432,108 L452,102 L470,106 L476,118 L468,130 L480,140 L490,154 L486,168 L470,174 L456,170 L444,178 L436,192 L424,190 L414,180 L410,172 L414,154 L408,138 Z"/>
-        <text class="map-label" x="450" y="150">MI</text>
-
-        <!-- Iowa -->
-        <path class="map-state map-inactive" data-state="IA" d="M248,160 L262,160 L268,180 L292,180 L298,168 L316,162 L344,178 L356,180 L364,198 L360,218 L354,230 L338,232 L322,242 L298,242 L282,238 L268,248 L266,232 L270,214 L268,196 L252,186 L248,160 Z"/>
-        <text class="map-label map-label-inactive" x="304" y="206">IA</text>
-
-        <!-- Illinois -->
-        <path class="map-state" id="map-IL" data-state="IL" data-name="Illinois" data-count="11"
-          d="M364,198 L378,204 L390,198 L396,180 L410,172 L414,180 L424,190 L436,192 L440,208 L430,220 L432,236 L424,250 L420,268 L408,276 L398,292 L390,312 L378,320 L368,314 L360,300 L358,282 L362,266 L354,250 L354,230 L360,218 Z"/>
-        <text class="map-label" x="397" y="248">IL</text>
-
-        <!-- Indiana -->
-        <path class="map-state" id="map-IN" data-state="IN" data-name="Indiana" data-count="8"
-          d="M436,192 L444,178 L456,170 L470,174 L486,168 L492,182 L496,200 L492,218 L488,236 L480,250 L472,258 L458,262 L446,258 L436,246 L432,236 L430,220 L440,208 Z"/>
-        <text class="map-label" x="463" y="218">IN</text>
-
-        <!-- Ohio -->
-        <path class="map-state" id="map-OH" data-state="OH" data-name="Ohio" data-count="12"
-          d="M486,168 L498,160 L514,158 L532,162 L546,172 L552,188 L550,206 L542,218 L534,230 L520,238 L506,240 L492,236 L488,236 L492,218 L496,200 L492,182 Z"/>
-        <text class="map-label" x="519" y="200">OH</text>
-
-        <!-- Missouri -->
-        <path class="map-state" id="map-MO" data-state="MO" data-name="Missouri" data-count="4"
-          d="M268,248 L282,238 L298,242 L322,242 L338,232 L354,230 L354,250 L362,266 L358,282 L360,300 L354,312 L342,322 L326,324 L310,320 L296,314 L284,304 L272,292 L262,280 L260,262 Z"/>
-        <text class="map-label" x="308" y="280">MO</text>
-
-        <!-- Kansas -->
-        <path class="map-state" id="map-KS" data-state="KS" data-name="Kansas" data-count="1"
-          d="M184,248 L268,248 L260,262 L262,280 L272,292 L284,304 L284,340 L184,340 Z"/>
-        <text class="map-label" x="232" y="298">KS</text>
-
-        <!-- Field dot markers -->
-        <!-- MN: 2 fields -->
-        <circle class="field-dot" data-state="MN" cx="292" cy="136" r="4"/>
-        <circle class="field-dot" data-state="MN" cx="310" cy="120" r="4"/>
-        <!-- WI: 2 fields — Cedar + Black Ops -->
-        <circle class="field-dot" data-state="WI" cx="360" cy="164" r="4"/>
-        <circle class="field-dot" data-state="WI" cx="390" cy="155" r="4"/>
-        <!-- MI: 3 fields -->
-        <circle class="field-dot" data-state="MI" cx="438" cy="148" r="4"/>
-        <circle class="field-dot" data-state="MI" cx="455" cy="140" r="4"/>
-        <circle class="field-dot" data-state="MI" cx="466" cy="156" r="4"/>
-        <!-- IL: 5 fields -->
-        <circle class="field-dot" data-state="IL" cx="398" cy="216" r="4"/>
-        <circle class="field-dot" data-state="IL" cx="408" cy="230" r="4"/>
-        <circle class="field-dot" data-state="IL" cx="386" cy="238" r="4"/>
-        <circle class="field-dot" data-state="IL" cx="378" cy="252" r="4"/>
-        <circle class="field-dot" data-state="IL" cx="370" cy="262" r="4"/>
-        <!-- IN: 3 fields -->
-        <circle class="field-dot" data-state="IN" cx="452" cy="210" r="4"/>
-        <circle class="field-dot" data-state="IN" cx="464" cy="226" r="4"/>
-        <circle class="field-dot" data-state="IN" cx="474" cy="238" r="4"/>
-        <!-- OH: 3 fields -->
-        <circle class="field-dot" data-state="OH" cx="508" cy="192" r="4"/>
-        <circle class="field-dot" data-state="OH" cx="522" cy="206" r="4"/>
-        <circle class="field-dot" data-state="OH" cx="514" cy="218" r="4"/>
-        <!-- MO: 1 field — Bing Field (St. Louis metro, eastern MO) -->
-        <circle class="field-dot" data-state="MO" cx="348" cy="262" r="4"/>
-        <!-- KS: 1 field -->
-        <circle class="field-dot" data-state="KS" cx="234" cy="294" r="4"/>
-
-        <!-- State count badges -->
-        <g class="map-badge-grp" data-state="MN" onclick="mapFilterState('MN')">
-          <circle cx="300" cy="62" r="11" class="badge-ring"/>
-          <text x="300" y="67" class="badge-num">4</text>
-        </g>
-        <g class="map-badge-grp" data-state="WI" onclick="mapFilterState('WI')">
-          <circle cx="374" cy="175" r="11" class="badge-ring"/>
-          <text x="374" y="180" class="badge-num">6</text>
-        </g>
-        <g class="map-badge-grp" data-state="MI" onclick="mapFilterState('MI')">
-          <circle cx="452" cy="170" r="11" class="badge-ring"/>
-          <text x="452" y="175" class="badge-num">10</text>
-        </g>
-        <g class="map-badge-grp" data-state="IL" onclick="mapFilterState('IL')">
-          <circle cx="396" cy="270" r="11" class="badge-ring"/>
-          <text x="396" y="275" class="badge-num">11</text>
-        </g>
-        <g class="map-badge-grp" data-state="IN" onclick="mapFilterState('IN')">
-          <circle cx="462" cy="254" r="11" class="badge-ring"/>
-          <text x="462" y="259" class="badge-num">8</text>
-        </g>
-        <g class="map-badge-grp" data-state="OH" onclick="mapFilterState('OH')">
-          <circle cx="522" cy="224" r="11" class="badge-ring"/>
-          <text x="522" y="229" class="badge-num">12</text>
-        </g>
-        <g class="map-badge-grp" data-state="MO" onclick="mapFilterState('MO')">
-          <circle cx="308" cy="308" r="11" class="badge-ring"/>
-          <text x="308" y="313" class="badge-num">4</text>
-        </g>
-        <g class="map-badge-grp" data-state="KS" onclick="mapFilterState('KS')">
-          <circle cx="220" cy="298" r="11" class="badge-ring"/>
-          <text x="220" y="303" class="badge-num">1</text>
-        </g>
-
-        <!-- Tooltip (JS-controlled) -->
-        <g id="map-tooltip" style="pointer-events:none;display:none">
-          <rect id="tt-bg" rx="2" height="38" fill="#0a0d08" stroke="rgba(136,180,32,0.5)" stroke-width="1"/>
-          <text id="tt-name" dy="16" font-family="'Barlow Condensed',sans-serif" font-size="13" font-weight="700" fill="#e4ecd4"/>
-          <text id="tt-sub"  dy="30" font-family="'DM Mono',monospace" font-size="9" fill="#88b420"/>
-        </g>
-      </svg>
-      </div><!-- /map-wrap -->
-
-      <!-- RIGHT PANEL: intel readout -->
-      <div class="term-panel term-right">
-        <div class="term-header"><span class="term-blink">█</span>&nbsp;INTEL</div>
-        <div class="term-aoo" style="color:var(--red)">THREAT MATRIX</div>
-        <div class="term-lines" id="term-lines-right"></div>
-        <div class="term-statblock" id="term-statblock"></div>
-        <div class="term-footer" id="term-coords"></div>
-      </div>
-
-    </div><!-- /map-outer -->
-
-
-    <!-- ── MOBILE STATE PICKER (hidden on desktop) ── -->
-    <div class="mobile-state-picker" id="mob-picker">
-      <div class="mob-pick-hdr">
-        <span style="animation:termBlink 1.1s steps(1) infinite;font-size:7px">█</span>
-        Select Area of Operation
-      </div>
-      <div class="mob-pick-grid">
-        <button class="mob-state-tile" data-state="IL" onclick="mapFilterState('IL')">
-          <span class="mob-tile-code">IL</span>
-          <span class="mob-tile-name">Illinois</span>
-          <span class="mob-tile-count">4 fields</span>
-        </button>
-        <button class="mob-state-tile" data-state="IN" onclick="mapFilterState('IN')">
-          <span class="mob-tile-code">IN</span>
-          <span class="mob-tile-name">Indiana</span>
-          <span class="mob-tile-count">3 fields</span>
-        </button>
-        <button class="mob-state-tile" data-state="OH" onclick="mapFilterState('OH')">
-          <span class="mob-tile-code">OH</span>
-          <span class="mob-tile-name">Ohio</span>
-          <span class="mob-tile-count">3 fields</span>
-        </button>
-        <button class="mob-state-tile" data-state="MI" onclick="mapFilterState('MI')">
-          <span class="mob-tile-code">MI</span>
-          <span class="mob-tile-name">Michigan</span>
-          <span class="mob-tile-count">3 fields</span>
-        </button>
-        <button class="mob-state-tile" data-state="WI" onclick="mapFilterState('WI')">
-          <span class="mob-tile-code">WI</span>
-          <span class="mob-tile-name">Wisconsin</span>
-          <span class="mob-tile-count">2 fields</span>
-        </button>
-        <button class="mob-state-tile" data-state="MN" onclick="mapFilterState('MN')">
-          <span class="mob-tile-code">MN</span>
-          <span class="mob-tile-name">Minnesota</span>
-          <span class="mob-tile-count">2 fields</span>
-        </button>
-        <button class="mob-state-tile" data-state="MO" onclick="mapFilterState('MO')">
-          <span class="mob-tile-code">MO</span>
-          <span class="mob-tile-name">Missouri</span>
-          <span class="mob-tile-count">4 fields</span>
-        </button>
-        <button class="mob-state-tile" data-state="KS" onclick="mapFilterState('KS')">
-          <span class="mob-tile-code">KS</span>
-          <span class="mob-tile-name">Kansas</span>
-          <span class="mob-tile-count">1 field</span>
-        </button>
-        <button class="mob-state-tile" data-state="IA" onclick="mapFilterState('IA')" style="opacity:0.35;pointer-events:none">
-          <span class="mob-tile-code" style="color:var(--muted)">IA</span>
-          <span class="mob-tile-name">Iowa</span>
-          <span class="mob-tile-count" style="color:var(--muted)">—</span>
-        </button>
-      </div>
-      <button class="mob-all-tile active" id="mob-btn-all" onclick="mapFilterState('all')">
-        ◈ &nbsp; Show All States
-      </button>
+  <div class="atlas" id="atlas">
+    <div class="atlas-bar">
+      <div class="atlas-title"><b>Field Atlas</b><span id="atlas-sub">Every field on a real map · range rings from your ZIP</span></div>
+      <form class="zip-form" id="zip-form" autocomplete="off">
+        <label for="zip-in">From</label>
+        <input id="zip-in" inputmode="numeric" maxlength="5" pattern="[0-9]{5}" placeholder="ZIP" aria-label="Your ZIP code">
+        <button type="submit">Set</button>
+        <button type="button" class="ghost" id="geo-btn">◎ Locate me</button>
+        <span class="zip-status" id="zip-status" aria-live="polite"></span>
+      </form>
     </div>
+    <div class="atlas-map" id="atlas-map">
+      <div class="map-hint">Click a state · <button type="button" onclick="mapFilterState('all')">Reset</button></div>
+      <svg id="midwest-map" viewBox="0 0 1000 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Map of Midwest airsoft fields"><path class="map-canada" d="M1000,173.2L999.9,173.2L1000,173.2L1000,191.1L1000,191.1L990.4,202.2L988.5,202.7L985.1,203.1L980.4,205.6L974.5,210.2L967.6,217.9L955.7,234L955,235.6L953.3,238.6L948.6,242.1L944.3,245.8L943.5,249.1L941.5,250.8L934.8,260L931.4,267.4L928.3,275.1L925,283.6L915.7,285.1L908.7,285.9L896.5,287.6L886.2,288.8L873.8,290.4L865,291.5L855.4,293L851,295.7L845.7,299.2L839.8,303L843.8,309.5L845,312.1L845.8,320.9L846.6,321.8L847.4,323L847.8,325.3L848.4,326.3L849.7,326.9L851,327.7L852.1,329L852.6,330.3L851.9,332.7L848.6,336.3L843.9,339.6L834.2,345.7L823.2,352.7L813.5,358.8L805.9,363.4L789.9,368.4L777.1,372.3L768,375.1L759.8,381.3L750.6,388.1L743,393.8L734.5,400.1L726.3,406.1L716.7,406.8L709.7,403.3L703.3,399.7L698.5,392.7L697.7,384.2L698.8,378.5L700,375.9L702.4,374.1L707.4,371L711.6,365.2L715.1,361.5L718.5,357.9L720.2,351.9L721.8,337.4L722,334.6L725,324.5L728.4,313.4L730,308.3L726.7,295.6L724.4,285.9L722.2,277L719.7,266.9L717.5,257.8L715.4,249.1L713.3,240.5L711.2,232.1L709.7,225.9L707.9,218.8L700,214.2L694.1,211L684.3,205.8L676.3,201.4L669.1,197.3L672.9,188L672.4,186.5L670.6,184.9L667.2,182L665.3,181.9L662,182.8L656.9,185L654.6,184.5L652.5,181.4L650.2,177.5L649.3,174.3L648.8,170.2L647.4,166.5L648.1,164.4L648.1,163.4L648.1,162.2L647.1,161.5L645.6,161.2L640.6,163.1L638.4,163.4L637,164.3L634.9,166.3L632.8,166.6L628.9,162.4L624.7,157.8L622.8,151.3L620.7,144.5L613.7,140.8L606.7,137L599.8,133.2L592.9,129.4L586.1,125.6L579.2,121.8L572.3,117.9L565.4,114L563,112.7L556.8,109.3L548.1,104.5L538.1,99L528.2,93.4L519.4,88.5L513.4,85L511.1,83.7L505.2,80.3L497.6,76.4L489.6,78.4L479.9,83.9L474.2,87.1L470,89.4L467.1,90.8L460.8,92L457.5,91.9L449.8,91L445.4,91.9L442.3,90.9L440.8,87.7L438.9,85.7L431.2,86.5L421.3,85.6L416.6,85.9L414.8,84.5L413.4,81L410.8,80.5L406.5,81.2L400.3,85.5L394.5,87.8L390,87.6L385.6,85.1L378.6,80.2L373.8,74.7L368.1,72.7L363.7,72.9L361.9,75.5L359.7,75.4L358.3,70.9L357.1,67.3L354.3,65.7L349.5,62L346,60.1L340.6,57.5L338.8,57.1L335.2,56.6L331.8,56.2L327.6,56.6L324.7,59.3L321.2,60.4L316.3,60.7L313,59.3L311.6,56.3L304.8,53.2L292.9,50.2L285.9,47.8L284.2,46.1L283.4,44.3L283.3,41.5L283.3,41.4L280.6,34.2L279.8,28.2L279.7,21.1L280,18.7L279.4,18L277.3,16.3L270.2,14.8L269.5,23.2L268.6,33.9L260.6,33.3L246.3,32.2L231.9,31L217.6,29.8L203.3,28.4L188.9,27L174.6,25.6L160.3,24L146,22.4L131.6,20.8L117.4,19L103.2,17.2L88.8,15.3L74.6,13.4L60.3,11.3L46.1,9.2L31.8,7L17.7,4.8L3.4,2.5L0,1.9L0,0L1000,0ZM1000,200.5L992,201.9L990.4,202.2L995.2,199.4L1000,194.5L1000,200.5Z"/><path class="map-ctx" d="M1000,662.8L994.9,667L985.8,667.3L986.7,672.8L997.7,668.6L999.4,670.5L1000,670.3L1000,700.1L1000,700.1L998.6,700.1L993.4,693.7L994.6,699.8L975.3,696L1000,705.5L1000,706L1000,706L997.2,714.4L991.1,720L983.1,720L983.1,720L980.3,718.7L980.5,720L707.4,720L707.4,720L716.2,712.1L726.3,709L730.6,699.5L732.9,700.9L740.2,693L741.3,697.8L747.6,695.4L749.5,691.2L757.1,686.9L764.9,687.8L769.1,678.6L775.6,673L777.4,663.3L777.4,663.3L834.3,660.2L866.3,657L972.3,643.5L1000,639.1L1000,662.8ZM996.7,720L1000,717.7L1000,720ZM0,0.9L127,19.9L199.1,27.6L202,44L199.1,50.8L199.3,64.5L198.2,71.6L205.1,99.3L203.3,132L205.2,134L202.7,147.6L204.5,159.4L208.1,165.2L207.6,185.5L142.2,178.9L63.3,168.9L0,158.9L0,0.9ZM0,622.5L19.5,625.1L94.6,634.4L246.7,647.6L245,673.1L248.4,720L15.6,720L15.6,720L24.4,651.7L0,648.1L0,622.5ZM1000,469.4L993.3,475.9L849.8,495.1L809,499.4L804.3,452.6L797.6,384.3L797.6,384.3L824.5,366.4L826.2,380.2L939.5,365.8L991.6,358L996.3,364.2L1000,364.4L1000,469.4ZM0,158.9L63.3,168.9L142.2,178.9L207.6,185.5L206.6,191L195.7,201.4L201,211.8L208.8,218.2L200.7,310.1L195.5,309.6L197.6,315.3L195.5,323.8L199.7,329.6L196.6,332.9L194.5,343L190.6,350.1L194.6,354.3L196.5,361.7L190.4,360.4L188.3,352.6L177.9,346.1L172.2,345L166.1,339.5L152,339.4L146.1,337.5L139.1,342.2L123.4,330.9L122.5,328.2L6.8,313.3L0,312.2L0,158.9ZM0,648.1L24.4,651.7L15.6,720L0,720ZM732.7,572.8L743.5,570.6L744.2,564.1L748.9,561.5L746.3,552.6L752.9,540.1L759.1,547.5L763.3,539.7L763,531.4L765.6,526.4L770,526.4L773.3,519.1L776.9,521.9L783.6,518.7L797,500.9L795.2,498.9L798.8,490.7L798.7,482.1L802.9,469.1L802.3,461.8L799,456.5L804.3,452.6L809,499.4L849.8,495.1L852.3,521.4L866.1,506.1L871.8,507.1L877.6,497L883,500.9L890.4,500.9L894.1,494L900.4,490.4L912.8,495.9L917.7,500.2L920.9,507.1L918,517.2L895.5,502.9L895.2,518.4L879.2,541.1L873.8,537.3L867.3,556.4L863.8,561L857,559.4L849.4,553.4L848.7,561.7L840.7,575.5L838.2,585.7L832,593.2L828.3,601.9L831.7,604.8L829.1,611.2L822.5,616.3L820.7,613.4L810.8,620L806.9,617.6L805,624L793,628.7L787,624L779.7,631.3L774.8,632.1L763.9,624.9L761.5,615.9L755.3,615.3L747.8,610.2L745.5,604.5L738.4,597.5L739.8,594.9L732.1,587.4L734.2,580.8ZM248.4,720L245,673.1L245,673.1L429,680.4L432.5,686.2L431.6,692L421.7,701.2L419.3,705.9L445.9,706L449.2,711.8L442.5,718.2L436.4,720L248.4,720ZM200.7,310.1L394.3,321L394.7,328.8L399.9,334.1L395.3,340L396.2,351.6L399.4,360.2L412.3,365.9L414.6,372.3L422.8,381.6L424.4,387.6L432.4,392.7L431.5,408.5L426.4,411.8L425.2,419.6L413.3,425.8L398.2,428L395.3,437L401.5,444.5L400.6,453.5L395.6,458.3L394.3,466L384.9,469.5L382.4,480.8L370.6,468.4L308,467.6L259.6,465.2L214.4,461.2L210.3,453.9L213.9,445.1L210.9,425.2L211.5,415.8L205.8,411.8L205,407.6L207.9,398.2L204.7,392.5L206.2,389.2L201.1,384.9L196.5,361.7L194.6,354.3L190.6,350.1L194.5,343L196.6,332.9L199.7,329.6L195.5,323.8L197.6,315.3L195.5,309.6ZM471,656L469,653.7L473.2,646.2L479.8,643.6L498.5,651.3L499.9,647.4L496.1,640.5L497.6,635.3L513.6,630.7L510.5,621L515.6,614L520.7,613.3L519.2,609.3L529.6,608.5L533.4,610.6L532.8,604.9L536.9,608.1L541.8,606.6L552.1,614.2L555.3,608.5L565.3,603.4L567.1,607.2L577,606.1L576.4,600.4L584,594.4L586.5,599.3L596,602.4L600.4,600.4L603.7,587.4L609.8,586L612.3,578.8L619.7,573.3L617.9,564.8L625.5,563L629.8,565.1L636.6,560.3L643.3,559.3L644.1,555.3L639.2,546.4L642.1,543.4L644.5,541.1L650.8,544.5L657,542.1L661.9,546.3L666.9,557.4L681.7,559.6L689.3,565.2L694.8,561L703.6,565.7L709.7,564.3L714.6,558.4L719.6,556.6L722.1,564.7L727.1,566.3L732.7,572.8L734.2,580.8L732.1,587.4L739.8,594.9L738.4,597.5L745.5,604.5L747.8,610.2L755.3,615.3L761.5,615.9L746.9,631.1L732.5,639.8L732.7,643.6L727.1,647.3L727,651.8L719.2,654.2L717,660L695.3,668.7L694.8,669.6L659.7,671L628.9,670.9L620.8,671.8L575.5,671.5L523.5,673.5L514.7,671.3L515.4,680.6L464,680.2L459.2,680.7L461.1,674.4L465.7,677.3L469.8,672.1L469.1,664.9ZM456.3,680.7L454.1,680.7L456.3,680.7ZM939.4,268.8L939.4,268.8L939.4,268.8ZM936.4,268.4L936.4,268.4L936.4,268.4ZM1000,364.4L996.3,364.2L991.6,358L939.5,365.8L826.2,380.2L824.5,366.4L824.5,366.4L845.9,349.4L848.9,342.1L855.6,336.4L851.7,328L848.4,326.8L844.7,313L865.4,304.7L879.6,302.9L894.3,303.6L901.5,307.3L906.5,304.4L922.7,302.5L931.5,297.4L940.5,286.9L947.1,285.5L947.6,279.2L945.3,271.6L947.6,264.4L938.2,260.8L939.2,252L952.4,241.3L956.6,233L970.3,214.1L981.2,204.7L986,202.3L1000,200.6L1000,364.4ZM436.4,720L442.5,718.2L449.2,711.8L445.9,706L445.9,706L451.3,697.3L447.2,694L454.2,692L454.1,680.7L456.3,680.7L459.2,680.7L464,680.2L515.4,680.6L514.7,671.3L523.5,673.5L575.5,671.5L620.8,671.8L628.9,670.9L659.7,671L694.8,669.6L695.3,668.7L777.4,663.3L775.6,673L769.1,678.6L764.9,687.8L757.1,686.9L749.5,691.2L747.6,695.4L741.3,697.8L740.2,693L732.9,700.9L730.6,699.5L726.3,709L716.2,712.1L707.4,720L436.4,720ZM999.7,572L999.7,572L999.7,572ZM999.1,566.7L997.1,567L999.1,566.7ZM1000,639.1L972.3,643.5L866.3,657L834.3,660.2L777.4,663.3L695.3,668.7L717,660L719.2,654.2L727,651.8L727.1,647.3L732.7,643.6L732.5,639.8L746.9,631.1L761.5,615.9L761.5,615.9L763.9,624.9L774.8,632.1L779.7,631.3L787,624L793,628.7L805,624L806.9,617.6L810.8,620L820.7,613.4L822.5,616.3L829.1,611.2L831.7,604.8L828.3,601.9L832,593.2L838.2,585.7L840.7,575.5L848.7,561.7L849.4,553.4L857,559.4L863.8,561L867.3,556.4L873.8,537.3L879.2,541.1L895.2,518.4L895.5,502.9L918,517.2L920.9,507.1L927.2,507.2L931.8,510.4L930.2,516.2L941.5,519.5L947.3,523.5L951.4,530.3L949,538.7L942.7,546.9L945.7,554.8L955.5,551.3L958.5,559.2L972.8,560.5L977.7,566.1L990,571.4L987.7,575.7L987,586.2L993.3,596.8L992.7,600.9L986.4,597.1L988.6,605.9L994.6,612.3L989.1,619L980.3,612.6L978.2,607.6L974.1,609.7L979.4,616.9L987.4,623.1L994.2,622.6L993.2,619L1000,618.9L1000,639.1ZM0,312.2L6.8,313.3L122.5,328.2L123.4,330.9L139.1,342.2L146.1,337.5L152,339.4L166.1,339.5L172.2,345L177.9,346.1L188.3,352.6L190.4,360.4L196.5,361.7L201.1,384.9L206.2,389.2L204.7,392.5L207.9,398.2L205,407.6L205.8,411.8L211.5,415.8L210.9,425.2L213.9,445.1L210.3,453.9L214.4,461.2L219,475.5L223.9,479.3L229.8,492.5L0,466.3L0,312.2Z"/><path class="map-state" id="map-IN" data-state="IN" data-name="Indiana" data-count="0" d="M532.7,413.5L536.5,416.8L544.2,417.6L559.3,410.2L636,407.4L636.1,410.7L639.8,482L642.1,543.4L639.2,546.4L644.1,555.3L643.3,559.3L636.6,560.3L629.8,565.1L625.5,563L617.9,564.8L619.7,573.3L612.3,578.8L609.8,586L603.7,587.4L600.4,600.4L596,602.4L586.5,599.3L584,594.4L576.4,600.4L577,606.1L567.1,607.2L565.3,603.4L555.3,608.5L552.1,614.2L541.8,606.6L536.9,608.1L532.8,604.9L533.4,610.6L529.6,608.5L519.2,609.3L520.7,613.3L515.6,614L512.8,608.8L515.2,601.1L519.6,596.2L519.5,588.4L522.4,589.6L530.3,577.4L532.5,569.4L536.4,565.4L534,559.5L535.5,554.6L530.2,543.8L534.5,534.5Z"/><path class="map-state" id="map-KS" data-state="KS" data-name="Kansas" data-count="0" d="M0,466.3L229.8,492.5L233.7,497.8L244.3,499.2L246,502.5L236.1,516.9L243.1,526.6L245.6,533.8L255,537.6L254.2,539.4L246.7,647.6L94.6,634.4L19.5,625.1L0,622.5L0,466.3Z"/><path class="map-state" id="map-MN" data-state="MN" data-name="Minnesota" data-count="0" d="M199.1,27.6L268.8,33.6L270.2,14L276.8,15.2L281,19.3L285.3,47.8L288.7,50L297.9,50.8L299.1,53.4L312.3,55.4L313.3,61L324.6,60.1L328.7,56.2L341,57L349.6,61.6L349.9,65.6L356.8,66.6L361.2,78.4L365.1,71.7L372.1,71.7L373.6,76.6L383.5,80.3L383.4,84.6L388.7,85.1L388.3,88.3L399.3,86.6L411.9,78.7L416,86.2L437.6,85.9L446.4,92.5L456.5,92L442.8,100.3L423.3,106.6L411.7,113.8L402.6,121.6L390,135.3L368,151.8L370.6,156.1L368,153.8L360.7,157.9L359.5,188L357.4,190.9L344.2,196.7L338.5,205.1L337.4,212.4L341.3,213.1L345.7,219.8L341.2,227.4L340.1,250.6L338.4,254L347.6,264.7L355.6,266.2L358.6,271.4L369.6,277.6L371.1,284.3L381.7,293.7L386.8,295.1L392.5,303.7L394.3,321L200.7,310.1L208.8,218.2L201,211.8L195.7,201.4L206.6,191L207.6,185.5L208.1,165.2L204.5,159.4L202.7,147.6L205.2,134L203.3,132L205.1,99.3L198.2,71.6L199.3,64.5L199.1,50.8L202,44Z"/><path class="map-state" id="map-MO" data-state="MO" data-name="Missouri" data-count="0" d="M214.4,461.2L259.6,465.2L308,467.6L370.6,468.4L382.4,480.8L378.7,487.9L378.9,498.3L383.3,514L397.3,530L408.3,540.2L410.2,555.8L413.3,558.9L417.8,554.4L426.6,556.5L432,560.2L428.1,566.7L429.1,572.4L421.5,586.1L421.9,592.6L436.1,605.6L437.9,609.7L442.3,608.6L455.5,619.6L455.5,627.7L459.2,634.8L455.3,640.4L464.4,655.5L465.8,651.8L471,656L469.1,664.9L469.8,672.1L465.7,677.3L461.1,674.4L459.2,680.7L456.3,680.7L454.1,680.7L454.2,692L447.2,694L451.3,697.3L445.9,706L419.3,705.9L421.7,701.2L431.6,692L432.5,686.2L429,680.4L245,673.1L246.7,647.6L254.2,539.4L255,537.6L245.6,533.8L243.1,526.6L236.1,516.9L246,502.5L244.3,499.2L233.7,497.8L229.8,492.5L223.9,479.3L219,475.5Z"/><path class="map-state" id="map-IL" data-state="IL" data-name="Illinois" data-count="0" d="M382.4,480.8L384.9,469.5L394.3,466L395.6,458.3L400.6,453.5L401.5,444.5L395.3,437L398.2,428L413.3,425.8L425.2,419.6L426.4,411.8L431.5,408.5L432.4,392.7L424.4,387.6L422.8,381.6L414.6,372.3L451.3,373L484.4,373.8L521.6,373.5L520.3,383.2L526.4,394.7L529.3,406.5L532.7,413.5L534.5,534.5L530.2,543.8L535.5,554.6L534,559.5L536.4,565.4L532.5,569.4L530.3,577.4L522.4,589.6L519.5,588.4L519.6,596.2L515.2,601.1L512.8,608.8L515.6,614L510.5,621L513.6,630.7L497.6,635.3L496.1,640.5L499.9,647.4L498.5,651.3L479.8,643.6L473.2,646.2L469,653.7L471,656L465.8,651.8L464.4,655.5L455.3,640.4L459.2,634.8L455.5,627.7L455.5,619.6L442.3,608.6L437.9,609.7L436.1,605.6L421.9,592.6L421.5,586.1L429.1,572.4L428.1,566.7L432,560.2L426.6,556.5L417.8,554.4L413.3,558.9L410.2,555.8L408.3,540.2L397.3,530L383.3,514L378.9,498.3L378.7,487.9Z"/><path class="map-state" id="map-MI" data-state="MI" data-name="Michigan" data-count="0" d="M631.2,197.2L641.9,201.3L636.9,203.3ZM605,202.7L605,202.7L605,202.7ZM600.2,200.2L600.2,200.2L600.2,200.2ZM597,212.2L598.9,203.9L601.9,211.4ZM594.2,205.3L594.2,205.3L594.2,205.3ZM588.2,220.5L588.2,220.5L588.2,220.5ZM582.1,236.2L582.1,236.2L582.1,236.2ZM579.1,243L579.1,243L579.1,243ZM559,212.5L559,212.5L559,212.5ZM559.3,410.2L566.8,403.2L571.6,391.6L576,385L579.6,374.6L581.1,360.4L579.7,345.3L573.1,330L567.3,312.6L570.9,305.8L567.6,292.7L576.2,277.2L577.5,265.8L576,259.4L582.1,256.7L582.3,249.3L587.2,244.8L591.8,245.6L598.2,233.3L600.3,240.5L597.6,250.6L599.7,254.8L603.8,243L602.4,255.6L606.8,246L607,228.6L614.8,223.2L622.9,221.6L616.5,217.6L615.3,212.7L621.2,205.4L618.6,203L627.1,201.1L638.5,207.6L647.4,208L653.5,215.1L658.8,215L670.3,221.1L674,220.6L683.2,237.1L678.4,235L677.4,241.7L681.9,244.5L684.1,252.9L683.3,272.2L676,277.4L675.1,287.3L666.2,291.3L662.3,303.8L664.3,307.7L672.9,311.4L687.1,290.8L699.5,284.9L706.2,288.6L710.3,295.4L715.7,316.3L717.1,327.1L721.6,337.9L719.4,358.7L713.7,363.7L715.5,356L708.2,358.5L706.3,371.1L700.2,375L698,379.4L696.5,391.2L687.7,402L687.5,405.9L636.1,410.7L636,407.4ZM467.7,98.2L470.3,95.2L488.1,84.8L496.1,82.1L487.8,91.3L476.3,96.5L472.1,100.6ZM426.5,164.7L440.3,159.3L448.6,152.1L461.1,151.1L471.4,143.7L477.8,142.5L479.7,138.5L491.2,130.3L497.6,123.2L504.8,119.4L518,118.5L521,122.1L512.6,122.9L513.2,125L503.2,132.6L495.9,144.3L495.5,155.2L502.8,146.4L517.8,148.2L522.9,150.9L533.1,166.7L537.8,168.5L547.6,166.3L549.5,169.4L557.6,170.5L557.1,165.2L561.5,169.2L576.9,158L586,156.7L600,156.7L607.6,152.7L618.4,151.3L615.8,155.1L616.5,166.1L624.5,167.6L630.4,165.3L631.8,168.8L644.5,162L648.6,163.3L647.6,167.8L649.1,179.9L651.1,184.1L658.5,189L662.3,187.4L660,183.2L668.5,183.4L672.7,188.5L669.9,192.4L658.3,190.2L650,190.2L640.9,193.1L630.6,187.5L627.9,193L629.4,197.7L624.8,197L618,190.2L607.1,186.8L600.1,186.7L595,193.4L586.8,193.7L586.1,196.2L576.1,194.3L571.6,197.3L570.4,203.3L561.1,210.3L557.9,209.9L564.4,200.3L555.3,200.4L553.6,207.3L549.8,208.7L547,201.5L545.7,208.2L541.7,210.7L536.5,222.9L526.4,238.5L527.2,239.9L521.7,234.8L524.9,227.5L523.2,224.9L517.7,227.5L517.7,227.5L519.9,210.4L516.4,206.3L507.2,203.2L508.4,197.9L493.9,193.1L484.1,193.2L473.1,187L436.8,176.6L433.5,168L428.8,166.2L428.8,166.2Z"/><path class="map-state" id="map-OH" data-state="OH" data-name="Ohio" data-count="0" d="M715.3,410.6L715.3,410.6L715.3,410.6ZM711,408.7L711,408.7L711,408.7ZM636.1,410.7L687.5,405.9L702.7,411.9L708.1,415.7L711.5,411.7L720.4,419.3L725.8,421.2L743.2,413L753.7,413.5L764.1,403.1L779.7,392.4L797.6,384.3L804.3,452.6L799,456.5L802.3,461.8L802.9,469.1L798.7,482.1L798.8,490.7L795.2,498.9L797,500.9L783.6,518.7L776.9,521.9L773.3,519.1L770,526.4L765.6,526.4L763,531.4L763.3,539.7L759.1,547.5L752.9,540.1L746.3,552.6L748.9,561.5L744.2,564.1L743.5,570.6L732.7,572.8L727.1,566.3L722.1,564.7L719.6,556.6L714.6,558.4L709.7,564.3L703.6,565.7L694.8,561L689.3,565.2L681.7,559.6L666.9,557.4L661.9,546.3L657,542.1L650.8,544.5L644.5,541.1L642.1,543.4L639.8,482Z"/><path class="map-state" id="map-WI" data-state="WI" data-name="Wisconsin" data-count="0" d="M549.8,226.3L554.5,223.4L551.7,229.1ZM534.9,234.5L534.9,234.5L534.9,234.5ZM425.2,142.4L425.2,142.4L425.2,142.4ZM423,148.8L423,148.8L423,148.8ZM418.6,146.2L418.6,146.2L418.6,146.2ZM414.7,150.5L414.7,150.5L414.7,150.5ZM415.6,144.1L415.6,144.1L415.6,144.1ZM414.4,141.1L418.8,139.6L422.1,142.5L418,144.9ZM413.5,153.2L419.8,148.8L418.3,153.2ZM407.1,142.8L407.1,142.8L407.1,142.8ZM370.6,156.1L377.4,157.1L388.3,154L407.4,145.1L412.2,144.4L415.1,148L410.2,154.7L407.8,162.7L415.4,158L420.6,162.9L426.5,164.7L428.8,166.2L428.8,166.2L433.5,168L436.8,176.6L473.1,187L484.1,193.2L493.9,193.1L508.4,197.9L507.2,203.2L516.4,206.3L519.9,210.4L517.7,227.5L517.7,227.5L523.2,224.9L524.9,227.5L521.7,234.8L527.2,239.9L525.9,246L521.1,246.7L513.3,259.4L511.2,267.3L513.8,269.1L520.9,263.4L526.8,253.1L534.1,249.6L539.8,236L544.1,234.7L546.3,229.4L546.8,239.9L541.8,246.2L532.1,267.7L529.6,279.5L530.6,286.8L526.1,290.7L522.9,302.2L524.2,312.5L518,328.5L516.9,335.4L520.4,355.9L522.6,358.5L520.7,367.1L521.6,373.5L484.4,373.8L451.3,373L414.6,372.3L412.3,365.9L399.4,360.2L396.2,351.6L395.3,340L399.9,334.1L394.7,328.8L394.3,321L392.5,303.7L386.8,295.1L381.7,293.7L371.1,284.3L369.6,277.6L358.6,271.4L355.6,266.2L347.6,264.7L338.4,254L340.1,250.6L341.2,227.4L345.7,219.8L341.3,213.1L337.4,212.4L338.5,205.1L344.2,196.7L357.4,190.9L359.5,188L360.7,157.9L368,153.8Z"/><path class="map-contour" d="M24,663L19,667L12,669L9,671L7,675L3,678L-3,678L-9,677L-14,675L-16,671L-14,666L-14,663L-17,659L-19,654L-15,650L-8,650L-2,650L2,651L7,652L11,654L16,655L22,658L24,663ZM50,663L38,671L26,675L22,681L18,692L7,699L-7,698L-18,693L-28,687L-32,678L-32,670L-34,663L-43,654L-45,642L-33,635L-17,636L-5,638L5,637L16,637L27,640L38,645L49,652L50,663ZM70,663L53,675L39,682L37,694L31,713L12,722L-10,716L-26,705L-39,696L-48,686L-52,674L-59,663L-71,647L-70,630L-48,622L-23,625L-7,627L8,621L28,618L46,624L61,634L72,647L70,663ZM87,663L69,678L56,690L55,710L45,735L16,744L-13,731L-32,715L-49,705L-67,695L-78,680L-89,663L-100,641L-92,619L-60,612L-28,617L-9,615L12,602L41,596L66,607L81,624L91,643L87,663ZM101,663L88,682L78,700L77,728L58,758L19,762L-15,741L-36,722L-61,715L-90,706L-109,687L-120,663L-125,636L-108,612L-68,604L-33,609L-12,600L16,578L56,572L84,591L97,617L103,640L101,663ZM119,663L113,688L106,713L99,748L70,777L22,775L-16,747L-41,729L-76,728L-119,719L-143,694L-148,663L-143,632L-119,606L-76,598L-41,597L-16,579L22,551L70,549L99,578L106,612L113,638L119,663ZM143,663L146,695L136,728L119,765L79,791L23,783L-17,753L-47,740L-97,746L-152,736L-176,701L-170,663L-155,629L-127,602L-86,589L-51,580L-21,553L27,523L83,529L109,570L111,610L124,636L143,663ZM229,525L224,528L223,531L223,536L220,541L214,541L208,539L203,537L199,535L197,531L195,528L191,525L188,520L191,516L199,515L204,515L208,514L213,512L219,512L224,514L229,516L232,521L229,525ZM247,525L240,532L240,539L241,552L233,561L217,560L205,554L195,550L186,546L179,540L173,533L164,525L160,514L170,506L187,505L198,505L205,499L217,493L230,493L241,499L250,507L253,516L247,525ZM266,525L260,536L262,550L262,569L245,581L220,576L203,565L189,561L172,558L157,551L146,539L136,525L135,509L153,498L177,496L191,494L202,481L221,470L243,473L257,486L266,499L270,512L266,525ZM287,525L284,541L287,562L282,586L255,598L223,588L201,574L181,573L154,573L131,563L118,545L111,525L116,505L140,491L167,488L183,480L198,459L226,445L254,454L269,475L278,493L286,509L287,525ZM314,525L314,548L314,574L300,602L263,611L224,596L199,583L172,588L132,592L102,577L92,551L92,525L102,502L128,486L155,478L171,462L193,434L231,421L264,439L277,468L288,488L304,505L314,525ZM348,525L347,555L338,586L313,613L269,620L226,604L197,596L159,608L108,613L74,590L72,555L80,525L91,499L113,479L138,463L158,439L188,408L235,400L270,428L283,464L298,483L328,500L348,525ZM387,525L379,562L356,594L322,620L273,626L228,614L193,614L144,633L82,635L50,602L59,558L74,525L79,496L93,469L117,445L143,415L183,384L238,384L274,422L287,460L313,476L360,493L387,525ZM344,541L344,545L347,550L345,555L339,557L332,555L327,553L322,553L318,551L314,549L310,546L306,541L308,537L315,535L320,534L323,531L326,527L332,525L338,527L343,530L346,534L346,538L344,541ZM363,541L366,550L370,561L365,572L349,573L334,568L325,565L314,567L302,565L292,559L284,551L280,541L286,532L300,528L310,525L314,517L322,506L337,504L348,510L356,518L363,526L365,534L363,541ZM388,541L393,555L395,573L382,587L357,586L336,578L322,578L303,584L282,582L268,571L260,556L258,541L268,528L286,521L297,514L303,499L318,483L341,483L357,496L367,509L377,519L385,529L388,541ZM417,541L421,561L418,584L396,599L363,596L338,588L319,593L291,604L260,600L245,582L241,561L242,541L252,525L270,513L281,500L290,478L313,459L344,464L364,486L375,502L393,511L410,524L417,541ZM450,541L448,567L436,592L406,607L368,605L341,600L315,613L276,628L239,619L226,591L228,564L229,541L235,521L250,504L261,483L276,455L309,438L347,450L368,479L384,495L412,502L440,517L450,541ZM483,541L469,572L448,598L414,614L374,615L344,617L311,637L261,653L220,635L213,597L220,565L216,541L212,516L223,491L239,464L263,435L306,421L349,441L372,473L395,486L438,490L476,510L483,541ZM511,541L482,575L455,601L422,621L383,629L348,640L305,665L246,676L205,647L206,600L213,567L198,541L182,509L192,476L217,446L253,418L304,411L350,435L377,465L411,472L469,475L514,501L511,541ZM557,493L557,496L559,501L557,505L552,507L546,508L540,508L535,505L533,501L530,499L524,497L519,493L521,488L527,485L532,484L536,482L540,480L545,480L551,479L558,480L562,484L560,489L557,493ZM573,493L577,500L582,512L576,521L562,524L549,524L537,522L527,518L521,512L512,508L497,503L489,493L497,483L512,478L521,475L528,468L537,462L549,461L562,461L575,465L582,474L578,485L573,493ZM591,493L601,506L609,524L596,538L572,539L551,536L535,535L519,532L505,525L489,519L469,509L461,493L477,479L500,472L511,466L518,452L533,441L553,440L573,444L590,452L598,467L593,482L591,493ZM614,493L631,512L636,537L613,553L578,551L553,545L532,548L509,548L486,541L464,530L442,515L439,493L462,475L489,467L498,455L506,432L528,417L557,419L582,430L601,443L612,460L611,478L614,493ZM644,493L662,519L662,550L627,565L583,558L555,554L529,563L496,569L464,560L440,542L420,519L422,493L450,473L476,461L482,441L491,409L523,391L561,401L588,420L609,436L626,453L633,473L644,493ZM677,493L693,525L682,559L636,572L587,564L557,565L525,584L480,594L442,579L419,552L406,523L410,493L436,470L458,452L461,423L476,384L519,369L563,388L591,414L617,429L644,445L662,467L677,493ZM712,493L718,531L696,566L642,577L591,571L560,581L520,610L464,621L422,596L406,558L397,525L399,493L418,466L433,440L437,402L461,360L515,351L565,381L594,410L628,420L669,433L698,459L712,493ZM836,174L835,178L831,181L827,183L824,185L820,190L813,192L808,189L806,184L804,180L801,178L798,174L798,170L799,166L802,161L808,160L814,162L819,164L823,163L830,163L836,165L837,170L836,174ZM856,174L853,182L848,189L840,194L834,202L824,211L809,213L798,204L795,193L790,187L779,182L772,174L773,165L777,155L786,148L799,145L812,150L821,152L833,148L850,146L860,154L860,165L856,174ZM871,174L870,186L867,198L857,209L845,221L828,232L806,231L791,216L786,201L774,194L754,188L741,174L746,159L758,146L772,136L791,133L809,137L824,136L845,129L870,128L883,143L878,161L871,174ZM884,174L890,190L891,209L877,226L857,240L831,250L803,246L785,226L776,209L755,204L723,195L709,174L722,154L743,139L762,128L784,122L806,121L828,117L858,108L891,111L902,133L891,158L884,174ZM899,174L915,196L919,223L899,244L868,257L834,263L801,256L779,235L763,220L730,216L689,202L677,174L703,149L733,134L754,120L776,108L803,101L832,94L871,86L908,96L916,127L901,156L899,174ZM919,174L947,203L951,238L918,261L875,269L836,272L799,265L771,248L745,235L701,230L655,209L652,174L691,147L726,131L743,112L764,89L798,76L837,69L882,68L920,86L925,122L911,154L919,174ZM948,174L985,211L983,253L934,274L880,276L837,278L797,277L761,265L723,255L670,244L625,216L634,174L684,145L719,128L729,99L750,65L792,48L841,47L891,54L928,79L933,119L926,150L948,174ZM730,503L731,508L726,511L719,512L714,513L710,515L705,516L700,516L694,515L689,512L688,507L692,503L695,500L694,496L694,491L699,487L705,487L711,488L716,490L719,493L720,497L724,499L730,503ZM759,503L759,514L744,520L729,521L721,524L714,532L702,535L689,534L677,529L668,522L668,511L675,503L678,496L674,486L675,474L687,468L702,470L713,474L724,477L732,482L738,488L748,494L759,503ZM787,503L782,519L759,527L739,529L729,537L717,552L697,558L677,552L662,542L651,530L650,515L657,503L657,492L650,475L654,456L676,450L699,457L716,463L731,465L747,469L760,478L775,488L787,503ZM811,503L800,523L771,532L749,538L739,554L722,576L693,582L667,569L651,551L638,536L633,519L636,503L631,486L623,462L634,439L667,435L697,447L718,453L740,450L766,453L786,465L802,482L811,503ZM829,503L813,526L783,538L762,549L752,574L727,602L688,604L660,581L643,558L627,541L613,523L608,503L601,479L597,450L617,425L660,425L696,440L720,442L752,432L788,434L813,453L825,477L829,503ZM841,503L826,528L799,546L780,565L767,598L732,627L685,622L655,589L638,562L612,548L586,529L574,503L569,472L574,439L605,415L656,418L694,431L723,426L766,409L813,413L837,441L842,473L841,503ZM849,503L842,532L821,557L803,584L782,623L736,649L682,634L652,593L632,568L593,557L551,537L536,503L541,466L558,431L598,409L652,412L692,420L727,404L782,382L837,392L856,432L852,471L849,503ZM703,337L705,341L702,345L697,349L692,350L686,350L682,347L678,347L671,348L664,346L662,342L665,337L668,333L670,330L673,327L677,325L681,322L687,320L693,322L696,327L696,331L698,334L703,337ZM731,337L732,347L723,356L712,361L701,364L689,364L679,361L668,362L652,364L638,359L638,347L647,337L652,330L653,322L657,314L666,308L677,303L691,300L703,306L707,317L709,325L719,329L731,337ZM763,337L761,354L742,364L723,370L708,376L692,379L676,378L657,380L633,381L615,370L619,351L633,337L636,327L633,312L638,298L654,289L674,284L694,283L711,293L718,308L724,318L743,324L763,337ZM796,337L786,359L755,371L731,377L715,388L696,397L672,400L645,400L614,396L596,379L604,354L620,337L618,322L608,301L616,279L642,269L671,268L697,271L718,282L729,298L744,308L773,318L796,337ZM826,337L806,363L765,375L739,384L724,402L700,420L667,424L633,420L599,409L582,385L592,357L605,337L593,317L579,287L594,260L632,253L668,257L699,261L725,271L744,285L769,297L805,311L826,337ZM850,337L819,366L772,379L749,392L736,422L705,447L662,448L623,436L589,418L572,390L579,360L583,337L562,310L547,272L574,243L625,241L667,251L700,252L734,256L764,268L797,283L836,304L850,337ZM867,337L827,368L780,383L763,405L751,446L711,476L658,470L616,447L583,423L563,395L560,364L553,337L526,303L517,257L558,229L621,235L666,246L703,241L746,236L788,248L826,269L861,298L867,337ZM826,88L821,91L819,94L820,99L817,104L811,105L805,103L800,101L796,98L794,95L792,92L788,88L785,84L787,79L795,78L801,78L805,77L810,75L816,75L821,77L826,80L829,84L826,88ZM846,88L838,95L836,102L837,114L830,124L814,125L802,118L792,113L783,109L776,104L770,97L762,88L757,78L766,69L782,67L795,68L803,63L814,57L827,56L838,62L846,70L850,79L846,88ZM864,88L857,99L857,112L857,131L842,145L818,141L799,130L786,123L769,121L754,114L743,102L734,88L732,72L748,60L772,58L788,57L799,46L818,34L840,36L854,48L863,62L868,75L864,88ZM884,88L881,104L882,124L877,148L853,163L820,154L798,138L779,134L752,135L727,126L715,109L709,88L713,68L734,54L763,50L780,44L795,26L823,10L852,16L867,37L875,56L883,72L884,88ZM911,88L911,111L908,136L896,164L862,176L822,163L796,147L770,148L731,153L698,141L687,115L689,88L698,65L722,48L751,40L770,27L790,1L828,-15L862,-1L876,29L884,52L900,68L911,88ZM944,88L944,118L933,148L910,176L867,186L823,171L794,158L759,167L707,174L669,155L665,119L677,88L688,62L708,41L735,26L756,5L785,-25L832,-38L870,-13L882,25L893,47L922,64L944,88ZM983,88L978,125L952,157L919,183L871,192L825,181L791,176L744,191L681,196L643,167L651,122L670,88L677,60L689,32L713,8L741,-19L781,-49L835,-54L874,-20L886,21L907,41L951,57L983,88ZM938,496L936,499L938,503L938,508L933,511L926,511L921,509L916,507L912,505L910,502L906,500L901,496L900,491L906,488L913,487L917,486L921,483L926,481L932,482L937,484L941,487L942,492L938,496ZM956,496L955,503L959,513L958,525L944,530L929,526L918,522L908,520L898,517L890,512L881,505L872,496L875,485L889,479L903,478L910,474L917,465L930,460L943,464L953,470L960,478L961,487L956,496ZM976,496L978,508L984,525L978,542L955,547L931,538L916,532L900,534L881,532L866,523L854,511L847,496L854,481L875,473L893,470L901,459L913,443L935,437L954,446L966,459L975,471L979,484L976,496ZM1002,496L1006,514L1010,537L996,558L962,559L933,547L914,543L890,550L860,550L840,535L830,516L826,496L838,477L862,467L881,459L889,441L908,418L939,415L962,432L975,451L988,465L998,479L1002,496ZM1033,496L1036,520L1033,548L1009,569L968,568L935,556L911,558L877,571L837,569L815,547L811,520L812,496L824,474L847,460L864,445L876,419L903,393L943,395L969,422L982,446L1001,459L1023,474L1033,496ZM1069,496L1065,527L1052,557L1019,577L973,576L937,567L907,577L861,596L813,590L794,557L798,523L802,496L809,471L827,450L844,428L861,396L899,371L945,381L973,416L988,440L1019,450L1055,467L1069,496ZM1105,496L1088,532L1063,562L1025,583L978,585L940,583L903,602L845,622L792,608L780,564L792,524L792,496L788,466L799,437L820,407L848,374L896,354L947,372L975,411L997,432L1044,438L1092,459L1105,496ZM593,657L596,661L597,666L593,670L585,669L580,668L575,668L570,669L565,668L560,665L556,661L555,657L560,653L566,651L568,649L569,644L574,640L581,640L586,643L589,646L592,650L593,653L593,657ZM617,657L622,666L622,678L609,684L593,681L582,679L572,683L559,686L547,683L538,675L533,666L533,657L542,649L551,644L554,637L558,625L570,618L584,621L594,630L601,636L609,642L613,649L617,657ZM644,657L649,672L644,688L622,695L599,691L584,691L569,701L546,707L527,700L518,685L514,670L515,657L525,645L535,636L538,623L545,604L566,596L587,605L600,620L612,627L627,633L638,643L644,657ZM674,657L673,677L661,696L633,704L605,701L587,706L565,722L532,730L509,716L502,693L500,674L498,657L505,641L513,626L518,606L532,583L562,577L590,594L605,612L624,617L650,622L668,637L674,657ZM701,657L692,681L673,702L642,712L613,714L591,725L560,747L518,752L493,729L491,698L489,676L480,657L479,635L487,614L497,588L521,564L559,563L591,585L610,603L638,605L677,609L701,630L701,657ZM723,657L703,684L683,707L653,722L623,730L595,749L555,774L506,772L483,738L484,701L477,678L455,657L447,628L458,600L478,572L512,550L557,553L593,578L617,592L658,588L709,594L733,623L723,657ZM736,657L710,685L693,712L669,735L637,753L601,776L550,797L497,786L476,743L479,704L460,682L423,657L409,620L430,586L464,560L506,542L556,546L595,568L628,575L682,568L742,578L761,617L736,657Z"/><path class="map-lake" d="M698.8,376.7L699.9,377.2L699.1,380.3L698.9,385.2L699.4,387.7L701.3,388.7L706.1,390.6L710.1,390.8L715.4,388.4L717.1,388.2L718.6,388.7L720.1,389.9L722.5,393.2L723.1,392.5L723.1,389.4L723.9,386.6L725.6,384.2L729.2,381L734.6,377.3L738.8,375.2L742.8,374.3L743.1,373.7L745,371.7L745.3,372L744.7,373.9L744.8,374.7L745.5,374.6L746.3,372.6L747.2,368.8L749.9,364.5L758,356.4L761.2,354.1L766.8,352.4L774.7,351.2L782.8,351.4L790.9,353.1L796.3,353.7L799.2,353.2L810.7,353.6L811.8,353.1L810.1,352.4L802.5,352.2L800.1,351.5L797.2,352L797,351.6L798.7,348.2L799.8,347.7L801.2,346.3L802.5,344.6L804.7,342.5L809.1,340.6L815.6,338.9L821.9,336.3L823.7,336L825.1,336.4L827.6,336L835.2,333.7L839.7,333.2L843.1,333.3L845.2,333.8L847.5,333.3L851.8,330.5L852.2,329.6L851.1,328.3L848.5,326.5L847.2,325.1L847.3,323.9L846.9,323L845.6,321.6L845.8,320.9L851.8,322L852.4,322.6L852.3,323.9L852.3,323.9L852.3,323.9L852.3,323.9L852.3,323.9L852.3,323.9L851.7,325.8L852.1,328.3L853.8,331.3L854.6,333.8L854.6,335.7L853.3,337.7L850.7,339.7L848.4,342.6L846.5,346.4L843.7,349.6L840,352.2L836.5,355.5L833.3,359.2L826.6,364.6L813.5,374L811.7,375.1L810.2,376.2L807.2,378.3L804.3,380.4L784.8,389.9L771.8,397.4L764,403.2L757.3,410.1L754.2,412.3L750.6,413.1L744.9,413.3L739.1,414.5L733.1,416.8L729.2,418.6L727.5,419.9L725.8,420.4L724.1,420.1L719.3,417.4L719,417.6L718.2,418.1L715.5,417.8L712.5,417.9L709.9,419.3L707.3,419.6L704.7,419L706.8,417.8L716.9,414.7L716.8,414.3L713,413.3L711.7,412.1L710.8,412.3L710.2,413.7L708.8,414.4L706.8,414.4L704.7,413.5L702.6,411.7L695.8,409L693.8,407.5L691.4,406.6L687.9,406.3L687.4,405.4L687.9,404.2L690.5,398.1L692.1,395.8L692.7,395.2L693.7,395.1L694.1,394.5L693.8,393.3L694.2,392.5L695.9,390.2L696.9,389L696.4,387.3L696.6,384L697.6,379.8ZM849.3,326.4L849.3,326.4L849.3,326.4L849.3,326.4L850.4,326.4L851.3,324.6L851.8,323.5L851.6,322.9L848.9,322.7L848,323.5L848,324.9L848.4,325.9ZM718.4,403L718.4,403L718.4,403L718.4,403L718.7,401.8L718,399.5L717.5,398.9L716.8,400.1L716.6,402.6L716.7,403.7ZM956,234.7L956,234.7L956,234.7L956.6,235.9L956.3,237.4L955.1,239.3L942.1,252.4L938.5,256.9L940.4,258.9L940.6,259.9L941.5,259.6L944.3,257.2L945.2,257.3L945.7,257.7L946.1,258.9L945.1,261.3L945.8,261.7L948.4,260.8L949.5,260.8L948.8,262.6L947.5,263.8L947.5,264.9L945.8,267.8L945,268.5L944.5,268.2L944.4,267L942.7,268.6L942.8,269.6L944,270.5L945.1,271.9L946,273.9L947,278.2L947.5,279.1L947.7,279.5L947.6,280L947.6,281.1L948.1,281.9L948,283.1L947.1,284.4L945.1,285.4L941.9,286L938.6,287.9L935.1,291.2L932.7,294.1L931.6,296.5L930.6,297.6L929.9,297.3L924.9,299.9L923.1,301.4L922.8,302.6L922.4,302.9L921.8,302.3L917.9,302.3L910.8,302.9L905.3,304L901.5,305.6L897.9,305.5L894.6,303.6L889.5,302.5L876.9,302.2L866.5,303.9L858.1,306.2L845.2,311.7L839.5,314.6L836.8,316.7L835.2,317.4L832.8,317.1L828.1,317.6L823.9,316.7L820.4,316.2L818.5,313.9L818.4,312.9L822,305.7L823.3,302.4L823.6,300.4L824.5,298.9L826.9,296.9L827.4,295.6L828.6,294.9L830.5,294.8L833.6,292.2L838.1,287L841.6,283.7L844.2,282.4L851.2,280.5L855.5,278.6L858.7,277.7L860.7,277.9L863.6,277L867.5,275L872.8,273.2L879.5,271.7L883.7,270.4L885.5,269.3L889.2,268.8L889.7,267.5L890.6,266.8L894.2,266.7L895.6,267.2L895.9,267.7L895,268.2L895.6,269L897.7,270.1L900.8,270.2L904.1,268.8L906.6,268.8L906.1,269.6L904.8,269.7L904.7,270L905.8,271.1L906.6,271L909.2,269.3L909.4,269.8L908.5,271.9L909,273.1L911.2,273.3L914.6,271.9L918.6,268.9L920.6,268L920.7,266.8L919.3,267L915.6,268L914.6,268.8L914.5,268.4L915,266.5L918,263.4L919.3,261.7L920,259.9L919,260.1L916.4,262.2L913.9,263.4L911.7,263.9L910.9,262.3L911.7,258.6L910.3,257.5L904.9,260L904.3,260.7L904.4,261.2L905,261.5L905,261.8L904.3,262.2L903,262.1L902.9,261.3L903.3,260L902.6,259.6L900.9,260.2L898.6,261.3L893.9,264.3L893.8,263.8L895,262.2L900.1,259.6L902.7,258.3L904.3,258.2L905.3,257.4L906.2,257.3L907.1,257.8L909.1,257.3L912.1,255.6L913.6,255.8L913.4,257.9L914.3,258L916.2,256L917.5,255.2L918.2,255.7L914,259.1L913,260.6L912.8,261.4L913.7,262.3L915.5,261.9L922.2,255.4L925.5,253L928.9,251.5L932.5,250.7L935.3,249.3L937.5,247.3L947.2,242.1L951,239.2L954.4,234.6L955.3,234.2ZM926.1,257.1L926.1,257.1L926.1,257.1L927.5,254.6L927.3,253.7L923.2,255.7L921.9,256.8L921.7,257.6L922.6,258L924.6,257.9ZM942,261.4L942,261.4L942,261.4L942.1,262.5L942.6,262.3L943.5,260.7L943.5,260.2L942.5,260.7ZM941.7,249.9L941.7,249.9L941.7,249.9L941.9,248.7L940.1,249.4L938.3,250L934.8,251.2L934.2,252.6L933.2,254L933,254.8L933.6,255.2L933.8,255.8L933.5,256.5L934.1,256.6L935.8,256.5L937.7,254.4L938,253.4L938.5,251.6ZM946.9,245.9L946.9,245.9L946.9,245.9L947,245.3L945.4,245.5L944.6,246.4L944.5,247L944.8,247.5L945.9,246.9ZM699.9,377.2L698.8,376.7L700.2,374.7L701.9,373.4L705.2,371.7L706,370.6L706.6,368.2L706.8,364.2L707.7,361.6L709.3,360.4L709.7,359.1L708.8,357.9L709.4,356.5L711.3,355.1L713,354.6L714.4,355L715.2,356.3L715.5,359.6L715.2,360.7L715.1,361.6L715.6,362.3L716.4,363.2L721.5,364.1L722.5,364.2L723.3,364L723.9,365.3L724.3,368.4L724,370.7L722.8,372.2L720.8,373.3L718.1,373.9L707.6,373.6L703.7,374.3L702.1,375.1L701,376ZM627.5,200.9L627.1,200.8L626,201.9L623.8,202.3L620.8,202.1L619.7,202.6L620.7,203.8L620,205.7L617.6,208.4L616.3,211L616,213.7L616.5,216.1L617.8,218.1L619.6,219.3L621.9,219.8L622.4,220.6L621.1,221.7L618.8,222.4L615.4,222.7L612,224L608.7,226.3L606.7,228.3L606.2,230L606.2,232.5L606.9,238.5L606.8,240.8L605.5,245.1L603.7,250.8L601.5,254.4L601.1,253.9L601.4,252.2L603.1,246.5L603.3,244.2L603.1,242.9L602.4,242.8L601.7,243.9L600.9,246.3L600.8,247.5L601.3,247.7L601,249.3L599.8,252.2L598.8,252.9L597.8,251.2L597.8,248.9L599.1,244.3L598.6,243.5L599.3,240.6L599.6,238.6L599.1,236.5L599.3,234.5L600.4,232.7L600,232.2L598.2,232.9L595.7,236.4L592.6,242.4L590,245.1L588.1,244.4L586.5,245L585.4,246.8L584.2,247.7L582.8,247.7L582.1,249.8L581.9,254L580.7,256.4L576.7,257.9L575.9,259.1L575.9,260.6L576.6,262.6L576.8,266.6L576.4,272.6L575.2,278L573.2,282.5L571.1,286.4L567.4,291.4L567.4,292.3L569.4,296.1L570.2,299L570.8,304.7L570.7,305.6L567.2,312.7L567.2,313.8L571.5,325.4L575.3,333.8L575.7,334.7L576.9,338L579,344.6L580.3,351.2L580.5,357.7L580.3,364L579.4,370.1L578.1,376L576.3,381.6L574.4,386.1L570.3,393.4L568.4,398.3L566.3,402.3L564.1,405.4L560.2,408.8L549.9,415.1L546.6,416.4L543,416.9L539.1,416.7L536.9,416.1L536.4,414.9L535.6,414.9L534.4,414.1L533,412.9L531.3,410.6L529.5,405.8L527.6,398.6L525.8,394.3L524.4,392.9L523.1,390.8L521.9,387.9L521.2,381.2L521.1,370.9L521.4,363.8L522.1,360.1L521.8,357.2L520.6,355.2L519.8,352.8L519.5,349.8L518.9,347.9L517.9,346.8L517.7,345.4L518.2,343.5L518.2,342.2L517.7,341.5L517.5,340.4L517.8,339L517.2,334.9L517.3,332.4L518,329.7L520,324.7L520.6,322.3L520.8,319.8L521.7,316.7L524.4,310.3L524.4,308.8L523.4,305.9L523.2,303.7L523.3,300.9L524.2,297.3L525.6,293.1L527.6,289.6L530.1,287.1L530.8,284.2L529.9,281L530.2,276.2L531.5,269.9L533.1,265.2L534.9,262L536.1,259L536.7,256.1L536.4,254.9L535,253.5L533.6,251.6L531.4,251.2L528.7,252.5L528.3,252.5L527,252.7L524.4,255.6L522.1,260.7L520.5,262.8L518.2,264.2L516.5,265.8L515.4,267.6L513.9,268L512.1,267L511.7,264.6L512.8,260.8L514.4,257.1L517.8,251.1L517.9,249.6L518.7,247.9L524,245.2L526,243.2L526.6,240.6L526.8,236.8L527.1,235.7L527.9,235.2L530.1,232L533.9,226L537.3,219.8L540.2,213.5L542.4,209.9L543.8,209L544.8,207.1L546.3,201.2L547.4,198.5L548.2,197.4L548.6,198L547.9,201.3L548,204L548.7,207.4L550,208.5L552,207.4L553.6,205.1L554.9,201.6L556.4,200.2L558.2,200.7L559.7,200.5L560.9,199.4L563.2,198.8L563.6,200.1L563.4,202.7L562.7,204L561.6,203.9L560.3,205.3L558.8,208.2L559,210.5L560.6,212.1L561.4,212.2L561.4,210.7L562.1,209.1L564.4,206.3L564.6,205.4L569.1,202.8L570.8,201.2L571.2,199.4L573.4,195.7L575.6,194.5L578.7,193.9L581.6,194.1L584.5,195.2L586.2,195.1L586.5,193.9L588.9,193L593.4,192.4L596.6,190.6L598.6,187.6L601.3,186L604.6,185.8L609.1,186.6L614.8,188.5L619.5,191.2L625.9,196.8L627.5,197.3ZM601.5,203.8L599.8,203L598.7,205L597.6,209.2L597.6,211.6L598.5,212.2L599.7,211.9L601.2,210.7L601.7,208.7L601.2,204.3L601.5,203.8L601.5,203.8ZM582.6,235.4L582.4,235.9L583.2,238.1L584.1,238.8L585.1,238.8L585.5,238.1L585.3,236.6L584.6,235.6L582.6,235.4L582.6,235.4ZM550.8,223.1L550.4,222.5L549.4,225.5L550.2,226.6L552.1,226.8L553.2,226.2L553.3,224.1L553.1,223.4L552.5,223.1L550.8,223.1L550.8,223.1ZM546.5,228.9L545.2,230.2L544,233L542.4,234.8L540.5,235.7L539.2,237.5L538.5,240.4L537.2,243L534.4,247L534.2,248.1L534.4,249.7L535,251.6L536,252.9L537.4,253.5L538.7,253.1L542,248.5L542.2,247.5L541.8,247.1L542.2,245.4L543.5,242.4L544.5,241L545.1,241L545.8,240.5L546.4,239.2L546.3,238L545.4,237L545.4,236.6L546.4,236.7L546.8,235.6L546.5,233.3L546.9,232.3L548,232.7L548.7,232L548.8,230.3L548.1,229.2L546.5,228.9L546.5,228.9ZM637.2,163.1L640.3,162.4L639.9,163.8L638.9,164L637.6,164.6L636.2,166.1L634.1,167.6L631.8,167.4L630.2,165.5L628,165.1L625.2,166.4L622.6,166.5L620.3,165.3L616.1,164.9L615.5,164L615.6,163.1L616.2,162L616.5,159.5L616.4,155.7L616.8,152.9L617.8,151.3L616.1,150.7L611.8,151.2L606.9,152.7L601.3,155.3L595.2,156.4L588.6,155.9L583.6,156.2L578.1,157.6L577.1,157.2L573.7,158.9L567.8,162.6L563.4,166L559.7,169.7L559.1,169.8L558.2,169L556.3,167.9L554.3,167.9L552.1,169L549.9,168.4L547.7,166.1L545.6,165.5L543.8,166.6L540.9,167.1L534.2,166.7L533.5,165.9L532.9,163.3L532.2,162.2L530.9,161.5L528.8,158.6L524.2,151.4L522.9,150.6L519.2,148.3L515.7,147.4L506.9,146.1L504.9,145.1L503.8,145.3L498,149.3L497.8,150.1L497.4,151L496.5,152.4L495.7,153L495.2,152.4L494.8,151.2L494.8,148.7L495.4,144.8L495.1,142.2L493.7,141.1L493.1,139.6L493.3,138L492.3,136.7L490.2,135.7L489.2,134.4L489.4,132.7L489.1,131.6L488.6,131L486.3,132.3L482.3,135.5L479.6,138.3L478.2,140.7L476.1,142.1L473.3,142.4L471,143.5L467,147.1L464,148.9L459,150.3L452,151.1L446.2,153.4L441.5,157.1L435.9,160.3L429.2,162.9L424.7,163.7L422.4,162.9L419.6,161.2L415.4,158.2L414.8,158.5L415.1,159.1L415,159.6L414.2,160.4L408.8,162.4L408.1,161.6L410.1,158.7L411,156.5L411,154.4L411.9,151.9L413.8,149L414.5,147L414.1,145.9L412.1,144.1L410.4,144L408.4,144.5L401.9,148.8L401.3,148.4L399.3,147.6L398.8,147.8L393.8,151.5L388.7,153.6L376.8,156.5L373.8,156.8L371.5,156.5L368.6,154.5L367.4,153.1L367.6,151.7L369,150.3L384.1,138.9L393.3,130.8L408.6,115.4L412.5,112.3L421.2,107.3L435.1,102.5L442,99.8L447.9,96.8L451.7,94.5L453.3,92.9L454.6,92.1L455.6,92.2L457.6,91.2L461,87.1L461.4,86.8L464.6,85.7L465.6,83.8L466.2,81.5L467.8,77.6L468.8,76L469.1,74.3L468.6,72.4L468.7,70.6L469.6,68.9L473.5,66.5L484.1,62.2L484.4,62.7L482.6,66.1L480.6,72.4L479.9,72.6L479.3,73.4L478.7,74.8L480.2,74.7L483.8,73.1L485.5,72.3L485.9,70.7L486.4,67.6L487.2,65.9L488.2,65.5L488.8,64L489.1,61.3L489.9,59.8L491.2,59.2L491.7,58.3L491.6,57L491.9,53.5L492.2,51.8L493.2,49.4L494.8,48.6L496.9,48.8L498.3,50L499.1,52.3L499.4,54.2L499,55.7L497,58.4L491.2,64.9L490.6,66.8L491.1,67.7L491.4,69.1L492.1,69.2L493.4,68L494,67L493.8,66L494.2,64.8L495.3,63.3L496.2,62.8L496.8,63.4L497.9,63.1L499.3,62L502,61.4L502.5,61.3L505.6,56.9L506.6,54.4L506.6,52.2L505.3,49.9L502.6,47.6L501.9,45.1L501.8,43.8L501.3,42.2L501.8,41.6L503.4,42L504.7,41.7L505.8,40.9L507.8,40.7L509.4,40.8L511.3,42.8L518.3,44.7L520.9,45.7L524,46.8L524.9,47.1L525.4,48.3L526.6,48.7L528.4,48.5L530.3,48.9L533.6,50.6L536.6,51.7L541.3,51.5L543.9,50.9L548,51.7L550.3,51.6L552.6,50.1L554.5,49.7L556.2,50.3L557,51.2L558.4,52.4L562.5,51.6L563.4,52L564.7,53.3L564.9,54.2L565.6,55.5L567.3,58L567.7,58.9L568.8,60L569.7,62.4L570.5,66.4L571.3,68.8L572.2,69.6L572.6,70.7L573.5,74.8L575.5,79.5L578.4,84.1L582.3,88.5L587.1,91.3L592.8,92.6L597.8,92.7L602.1,91.7L607.9,91L615.1,90.6L618.9,91L619.2,92.1L618.5,93.7L617,95.9L616.9,97.3L616.9,99.1L615.7,101.6L615.1,103L615.3,104L615,105.4L614.1,107.1L614.8,109.3L617.1,112L619.8,114.2L622.9,115.7L625,117.4L625.8,119.2L626.7,120.2L627.7,120.3L628.6,121.1L629.4,122.6L628.7,125.4L626.5,129.4L625.5,131.9L625.9,133.1L624,137.4L624,139.1L624.9,140.2L628.3,141.7L629.4,143L630.3,143.1L630.9,142.2L632.2,141.6L634.1,141.6L636,142.2L637.8,143.4L638.5,144.7L638.1,146.1L637.2,146.6L634.5,146.5L633,147.3L632.2,148.8L632.2,152.7L633,154.3L633.4,154.3L634,153.5L634.7,151.9L635.5,151.6L636.5,152.8L635.6,155.4L633,159.3L632.3,160.5L632.4,162.2L634.9,165.2L635.8,164.8L636.3,164ZM415,144.1L414.6,144.8L414.8,145.5L416.1,146.4L416.7,146L416.5,145.3L415.6,144.3ZM418.5,151.2L420.8,149.8L420.5,149.1L419.7,149L415,151.8L413.9,152.9L413.6,153.9L414.4,154L416.4,153.4L417.5,152.7L417.6,151.9ZM422.3,146.6L422.7,144.8L422.5,144.3L421.3,144.6L418.7,145.6L418.6,146.3L421.1,146.8ZM427.2,140.3L427.2,139.3L426.8,138.9L425.9,139.1L425.3,140L425,141.6L425.4,142L426.6,141.2ZM508.3,49.1L507.3,50.6L507.7,54L508.4,55.2L509.3,55.1L510.4,53.8L512.3,53.1L515.1,53L516.5,52.5L516.6,51.6L517.7,51.1L518.1,50.3L518.2,48.7L516.6,47.8L513.1,47.6L510.4,48ZM479.5,95.1L489.3,89.7L490.4,88.2L490.2,87.4L490.8,86.2L494,83.3L493.6,82.9L490.5,83.8L484.8,86.6L471.4,94.3L469.8,95.5L469.5,96.1L470.6,96.1L470.6,96.9L469.5,98.4L469.7,99.4L471,100L473.6,99.5L477.4,97.9L478.8,97.2L479,96.7L477.8,96.5L477.9,95.7ZM518.4,121.6L520.1,120.5L518.2,118.8L515.3,117.9L511.3,118L507.2,118.6L500,121.3L497.4,123L491.6,129L490,131.8L489.8,134L491.3,135.6L496.1,136.6L496.4,135.9L496.2,135.5L495.4,135.1L496.7,133.1L497.1,133.9L497,136.1L496,137.8L495,138.9L495,140.4L496,142.3L497.3,141.9L498.8,139.1L503,134.7L502.9,133.7L503.5,132L510.6,126.3L512,124.6L511.7,123.9L510.2,123L510.4,122.7ZM520.8,53.3L523.1,52.9L523,51.8L521.5,49.7L520.3,48.7L519.3,48.8L518.8,49.1L518.6,49.6L519.4,51.1L519.4,51.9L519,52.6L519.4,53.1ZM593.5,102.7L593.8,101.9L592.2,100.7L587.9,99.6L585.7,99.8L583.8,100.6L582.2,101.9L581.6,102.9L581.9,103.6L584.8,104.2L591.4,103.2ZM640.3,162.4L644.1,160.9L646.5,160.5L648.2,161.6L649.4,163.2L649.6,164.9L649,167.1L649,169L649.7,170.6L651.8,171.4L655.3,171.3L657.2,171.6L657.9,172.9L658.6,173.1L665.1,173.3L667.5,173.8L668.3,174.6L672.4,175.6L687.9,177.4L692.5,176.7L698.6,175.3L700.7,176.8L701.6,176.9L703,176.5L711.7,175L713,176.5L717.4,177.6L720.3,177.5L723.9,177.4L730.9,177.5L732.6,177.9L732.9,179.6L733,180.3L733.5,180.2L734.2,179.4L735.6,179L736.5,178.2L736.9,177L738,176.7L740.6,177.9L740.8,178.7L737.5,180.8L737.9,181.5L738.1,181.9L739.1,182.1L739.3,182.9L738.2,183.9L739.3,184.4L742.5,182.8L744.4,182.5L749.7,183.1L752,182.9L753.4,181.9L753.5,181.1L754.1,180.6L754.5,180.7L754.8,181.7L754.8,183.6L757.1,184.1L761.7,183.1L764.4,182.9L767,182.7L767.5,183.1L768.2,184.2L770.4,186.1L771.1,187L771.9,189.2L773.5,190.3L774.1,191.4L774.3,192.5L774.8,193.4L776.3,195.6L778.1,197.1L779.2,198.4L779.7,200L780.6,200.6L782.1,200.1L782.6,199.3L782.4,197.9L783,198.1L784.1,200.4L784.4,204.1L784.8,206.3L786.4,209.2L788.2,209.8L789.4,210.9L792.8,211.3L793.2,211.1L792.3,209.2L792.6,208.7L793.7,208.4L795.6,208.5L797,209.3L797.7,210.9L797.6,213L795.6,215.4L795.5,217.3L796.1,218.4L796.7,218.5L797.2,217.7L798.2,218L799.5,219.3L800,220.4L799.5,221.3L797.3,222.1L797.3,222.9L799.9,224.6L801.9,227L802.9,227.1L803.5,227.9L803.7,229.2L804.8,230L807.5,230.8L808.8,233.3L809.6,234.8L810.2,236.5L811,236.6L811.5,235.7L811.4,234.1L812.6,233.4L812.9,234.2L812.3,236.2L812.6,237.7L813.9,238.7L812.5,239.3L808.5,239.3L806.6,238L806,237.5L804.7,237.4L804.3,236.9L804.7,235.3L804.3,234.9L801.9,235.5L799.6,236.9L798.2,238.4L798.3,240L799.5,241.6L801.8,243.1L803,245.9L803,250L802.3,252.9L800.7,254.5L795.5,254L786.6,251.4L781.5,248.8L779.1,244.8L778.3,244.6L774.1,246.3L771.9,248.3L770.2,251L769.5,250.2L770,246.1L770.1,243.6L769.9,242.6L768.9,241.9L767.3,241.4L765.2,241.9L762.2,244.1L761.5,243.9L761.5,243.3L764.5,239.9L765.4,238.1L765.3,236.5L765.6,235.1L766.5,233.8L766.2,233.2L764.8,233.5L764.1,234.1L762.8,236.4L760.6,236.4L760.3,235.9L760.8,234.6L760.2,233.9L758.7,233.7L758.1,232.3L757.6,232L755.6,231.2L755.2,228.5L754.3,226.4L753.1,224.8L752.8,223.2L753.7,220.4L753.2,220.1L749.5,220L742.5,220.3L738.9,221.2L738.7,222.6L739.6,223.6L741.6,224.2L743.1,225.2L743.6,226.2L745,227.2L746.7,229.2L748.8,232.5L750.2,233.8L751.6,233.8L752.4,234.1L752.6,237.5L753.4,239.5L755,241.3L756,243.4L756.3,247.2L756.7,250.9L756.2,253.3L754.5,256.3L753.4,258.7L753,260.6L752.1,261.9L750.6,262.7L749.1,264.1L747.6,266.3L746.7,268.9L746.4,271.9L745.3,275.1L743.4,278.4L742.8,282.1L743.6,286.1L745.2,303.4L746,307.7L746,312L745.4,316.3L744,319.7L741.9,322.3L739.7,324.3L737.4,325.6L735.4,327.7L733.6,330.6L730.3,333.3L725.6,335.8L721.8,337.4L721.2,336.4L719.9,334.3L717.1,324.3L712.8,306.4L709.5,295.3L707.2,291.1L704.4,288L700.9,286L698.3,285.2L696.6,285.6L694,287.7L689,289.6L686.9,290.8L685.8,292.3L684.5,293.2L682.8,293.6L682.7,294L684,294.4L684.1,295.8L681,302.2L681,302.2L681,302.2L681,302.2L681,302.2L681,302.2L680.3,303.7L678.2,304.3L676.6,305.7L675,308.9L673.3,309.8L670.8,309.6L666.6,308L664,306.3L663,304.4L662.8,302.1L663.4,299.4L663.2,297.3L664.5,292.8L666.5,291.1L669.6,290.5L671.2,289.7L671.5,288.6L672.4,287.8L673.9,287.3L675.1,284.4L675.8,279.1L676.9,276.2L677.8,275.6L678.7,275.7L678.8,276.4L682.1,272.8L683.2,270.4L683.2,268L683,261.1L683.1,256.6L683.5,254.6L683,249.4L681.7,245.1L677.4,240.7L676.8,239.2L676.8,237.5L677.5,235.7L679.2,235.2L682.3,236.3L682.8,236L681.9,235.2L681.3,233.7L681,231.3L680.5,230.1L679.9,229.9L678,227.3L677.7,225.9L677.8,224.6L677.1,223.4L674.7,221.5L670.4,219.7L660.3,216.4L658.4,214.9L656,214.2L652.9,214.1L650.8,213L649.9,210.9L648.4,209.1L646.4,207.5L643.3,206.6L639.2,206.3L634.8,204.7L630.1,201.8L627.5,200.9L627.5,197.3L628.5,197.3L629,196.9L629,196.3L628.5,195.6L628.7,193.1L628.4,192.4L630,188.5L631.4,187.4L633.2,187.7L634.4,188.4L634.9,189.7L635.5,190.2L636.6,190.2L637.2,190.3L637.6,190.2L638.1,189.4L641.9,189.6L654.9,190.8L656.6,190.4L657.6,189.6L657.7,188.6L656.9,187.6L653.4,185.8L652.3,184.4L651.9,183.2L652.4,181.9L651.6,180.9L649.6,180L645.4,179.9L644.6,179L644.9,178L646.1,176.7L646,174.8L645.6,173.8L644.8,170.6L643.8,168.6L641.8,165.5L641,164.4L639.9,163.8ZM677.2,187.8L675.6,188.1L674.1,189.5L673.1,191L672.7,192.5L673.8,193.6L676.2,194.2L678.1,193.5L680.1,190L680,189.2L679,188.5L677.2,187.8L677.2,187.8ZM670.6,186.6L668.6,183.9L667.6,183.1L664.9,182.8L664.4,183.3L665.1,184.6L665,185.3L664,186.3L661.9,187.8L660.4,188.2L659.2,187.6L658.5,187.7L658.4,189.1L658.8,189.7L660.4,190.8L663.7,191.2L668.8,191L671.2,190L672,188.2L671.6,187.1L670.6,186.6L670.6,186.6ZM659.6,181L660.3,180L660.6,177.5L659.5,175.6L657,174.1L654.1,173.3L650.9,173.2L649.7,174.4L650.5,177L652.1,179.9L654.4,183.2L656.2,184L657,183.7L657.6,182.6L657.9,181.1L658.6,180.5L659.6,181L659.6,181ZM647.1,172.6L646.4,172.7L646.2,173.8L646.6,175L648.5,176.9L649,176.6L649.1,175.8L648.9,174.6L648.2,173.5L647.1,172.6L647.1,172.6ZM648.3,171.7L648.2,170.6L647,168.3L646.8,165.9L647.7,163.5L647.4,162L646,161.6L644.8,161.9L642.9,164.5L644.4,166.6L645.5,169.7L646.3,170.9L647.2,171.6L648.3,171.7L648.3,171.7ZM639.3,199.6L634.7,199.1L634.5,200L637.4,202.4L639.1,203.3L640.1,203.2L640.8,202.6L641.3,201.6L641.1,200.5L639.7,199.2L639.3,199.6L639.3,199.6ZM691.4,195L692.4,196.1L699.6,196.3L703.6,197.3L707.9,199.2L711.6,200.5L714.7,201L717.2,202L719,203.5L723.3,205L724,206.1L724.7,206.4L725.7,206.1L732.5,199.1L734.7,198.6L734.8,199.2L731.3,203.4L730,203.9L729.3,203.9L727.5,205.8L727.5,206.2L728.6,205.9L729.8,206.2L731.1,207.2L732.9,206.5L735.3,204L737.5,200.5L740.2,193.3L739.9,192.9L736.9,193.1L736.4,192.4L737.2,190.9L737.3,189.4L736.9,188.2L736,188.4L734.9,190.1L734.1,192.3L733.2,196.5L732.9,196.4L731.5,194.2L731.2,192.5L731.6,190.4L731,189.3L729.6,189L728.9,188.2L728.9,186.7L728.3,185.6L727.1,184.8L725.4,185L723.1,186.4L721.5,188.3L720.4,191L719.2,191L718,188.4L716.8,187.3L715.6,187.9L714.9,187.5L714.6,186.1L713.2,185.8L710.8,186.5L709.3,187.5L708.8,188.6L708.1,188.8L707.5,188.2L706.4,188.5L705.1,189.8L704.7,190.8L705.7,192.1L705.6,192.6L707,193.1L707.3,193.8L706.8,195.3L706,195.3L704.8,193.8L703.9,193.4L703.3,193.9L702.6,193.7L702,192.9L700.9,192.8L699.3,193.5L698.3,193.2L697.9,192.1L697.2,191.3L696.1,190.7L695.6,189.4L695.9,187.3L695,186.7L692.9,187.5L691.5,188.4L690.9,189.3L689.8,189.5L688.4,188.9L687.2,189.1L686.2,190.1L685.3,190.1L684.2,188.8L683.3,188.6L682.5,189.4L682,190.6L681.9,192.1L684.2,193.4L691.4,195L691.4,195ZM737.1,207.2L736.3,207.1L733.1,209L732.8,209.7L733.1,210.3L733.7,210.7L734.7,210.5L736.7,208.6L737.1,207.2L737.1,207.2ZM795.9,239.2L795.8,238.6L796.2,236.5L795.6,235.7L793.9,235.5L793.2,236L793.5,237L794.2,238L795.9,239.2L795.9,239.2ZM284.7,24.9L284.7,24.9L284.7,24.9L281.9,24.6L281.9,25.7L283.4,29.8L285.9,30.1L286.7,31.9L287.9,33L290.1,32.8L291.1,29L293.3,26L293.3,24.9L291.1,24.1L287.4,25.1ZM299,0L299.4,0.7L298.5,2.9L299,5L297.4,6.1L297.1,6.7L299.2,9.3L303.4,10.5L304.6,13L304.2,14.1L307.1,17L307.1,17L307.1,17L307.1,17L307.4,17.8L306.9,22.3L306.2,23.8L305.3,24.7L304.3,25.3L304,25.1L304.6,24.1L304.8,22.4L302.6,18.9L301.5,15.6L299.6,14.8L300.7,12.3L300.6,11.6L297,10.8L293.3,11.1L287.4,12.1L284,13.7L283.1,14.5L282.3,16.4L282.7,17.2L287.3,16.8L288.4,17.3L289.3,19.7L291,21.4L292.8,23.3L296.6,21.8L298.3,22.6L299.3,24L299.3,25.6L300.2,26.4L304.9,27.4L305.7,28L304.2,29.4L301.4,30.8L299.2,29.7L297.6,30.2L297,31.8L289.5,37.7L283.3,41.5L279.7,41L276.6,37.8L273.8,35.7L272.6,35.9L267.6,38.7L264.4,39L263.2,36.8L263.3,34.6L265.2,31.8L265.3,30.2L265.1,27.9L265.8,26.3L268,25L271.8,24.7L275.3,24L277.1,21.9L277.2,17.7L275,16.5L274.9,15.2L277.4,13.7L278.6,11.9L281.8,8.3L286.3,6.1L288,4.1L287.9,3.2L286.6,2.9L284.7,3.2L283,4L278.9,7.4L276.3,8.7L272.1,10.1L271.1,9.6L272.1,6.1L271.2,2L273,1.2L276,1.6L277.5,2.5L277,4.3L277.5,4.8L278.5,4.8L279.8,4.5L281.5,3.2L280.7,0.6L281.5,0L299,0ZM496.9,8L496.9,8L496.9,8L497.3,5.8L496.6,5.3L495.7,6.1L493.5,7.3L493.4,9.8L496.5,9.5ZM505.5,0L505.4,0.9L506,4.6L505.3,8.5L504.3,11.3L504.6,15L503.8,17.1L499.7,17.5L497.6,18.8L496.3,21.1L495.2,20.9L494.3,18.4L493.4,17.4L492.7,14.8L491.7,13L491.4,13.3L491.6,16.1L491,17.4L489.1,19.2L487.5,18.9L486.3,18.5L484,17.7L483.6,16.1L484.4,14.2L486.1,11.1L489.4,10.1L490.1,10L490.2,9L489.5,8.1L486.8,8.7L484.9,8.9L483.6,12.1L482.3,13.5L480.8,14.5L479.4,15L477.7,15.5L476.4,14.1L475.8,12.1L475.9,11.3L477.7,12.5L479.1,12.5L479.5,11.5L479.5,9.6L478.8,5.7L478.7,2.6L477.9,2.5L476.2,4.7L474.9,4.1L473.3,1.5L473.5,0.1L473.6,0L475.1,0L475.1,0L476.3,1L477.8,0L490.1,0L490.1,0L490.1,0L490.1,0L505.5,0ZM967.3,298.2L968,299.1L965.8,300.8L960,301.9L954.5,299.5L954.3,298.7L955.6,298.1L963,297.7L967.3,298.2L967.3,298.2L967.3,298.2ZM501.2,292.9L500.9,299.5L499.1,303.3L497.4,306.2L496.1,306L495.1,299.5L494.1,294.9L495.3,290.7L497.7,286.4L499.9,286.3L501.3,287.1L501.2,292.9L501.2,292.9L501.2,292.9ZM923.3,334.8L922.3,341.4L919.9,346.6L919.3,346.1L920,342.1L920.5,339.2L921.7,339L922.5,334.7L923.3,334.8L923.3,334.8ZM931.6,345.5L930.1,343.5L928.9,336.8L926.5,329.9L924.9,322.5L925.5,322.9L929.5,332L930.6,339.4L931.5,344L931.6,345.5L931.6,345.5ZM944.3,339.2L944.1,339.9L941.5,337.3L938.1,334.9L932.9,326.5L932.6,319L933.1,318L935.7,327.2L937.7,331.5L940.5,335L944.3,339.2L944.3,339.2ZM778.4,164.5L779.7,164L782,164L783.2,165L785.4,165.5L789.1,164.7L790,163.6L789,162.5L789.5,161.3L791.9,159.9L798.9,159.5L801.6,158.8L805.9,157.8L811.8,159.6L814.3,163.2L812.8,166L809.8,167.2L802.6,165.6L799,167L795.3,169.1L794.6,168.9L794.9,167.1L793.9,165.5L792.1,165.1L784.1,166.9L778.4,164.5L778.4,164.5ZM914.5,327.2L913.1,329.8L912,334.1L911.5,333.4L911.4,331.9L912,329.1L913.3,326.3L913.6,323.2L914.7,324L914.5,327.2L914.5,327.2ZM943.8,325.4L941.6,322.3L940.3,319.3L940.6,318L944.1,324.8L944.2,325.4L943.8,325.4L943.8,325.4ZM951.4,323.4L947.6,320.7L944.7,318L944.4,315.4L946.9,318.8L950.3,321.2L951.4,323.4L951.4,323.4ZM293.8,127.6L293.2,129.6L291.6,132.3L290,133.3L288.2,133.6L286.9,133L286.1,131.3L284.1,129.4L282.5,130.5L282.2,132.8L281.8,133.4L281.6,132.5L281.1,130.3L280.7,128L281.2,126L281.9,126.3L285,125.5L287.3,125.1L289.3,124.7L292.3,122.7L292.8,123.5L292.1,125.9L291.6,127.9L292.7,127.8L293.8,127.6L293.8,127.6L293.8,127.6ZM432.8,43.9L432.9,44.9L432,46.8L431,49.7L429.8,51.5L427.6,51.5L427,50.8L424.8,50.4L422.2,50L421.1,48.9L421.2,47.2L420.6,44.7L419.5,44.4L419.4,43.2L420.1,42.1L421.5,41.8L422.7,42.5L423.6,44.2L424.1,45.8L426.4,46.4L429,46.4L430.4,46.1L431.6,44.9L432.8,43.9L432.8,43.9L432.8,43.9ZM940.3,112.2L940.7,113.4L940.7,115.8L940,118.9L939.7,121.5L938.2,121.9L935.5,120.2L932.7,120.5L930.3,121.5L929.6,120.9L930.3,119.9L931.3,117.6L931.5,115.5L931.4,114.7L933.6,113.6L935.5,112.7L936.8,109.2L938,107.3L938.5,108.4L940.3,112.2L940.3,112.2L940.3,112.2ZM316,177.1L316.4,179.1L316.5,180.8L315.6,182.1L313.4,182.7L311,182.5L309,181.4L307.4,179.1L306.8,176.2L308.3,173.6L311.2,171.9L313.7,171.3L315.1,171.5L315.6,172.3L315.9,174.4L315.9,176.1L316,177.1L316,177.1L316,177.1ZM824.8,261.2L823.9,263.3L824,265.1L823.4,265.6L822.4,263.3L821.3,259.4L819.7,257.5L819.3,256.9L819.7,255.5L821.9,253.6L823.7,251L824.6,248.2L825.1,246L825.1,244.1L825.3,241.1L826,241.5L826.8,244.1L829.9,247.6L832.1,248.7L833.6,250.8L834.3,252.9L834.2,254.5L833.3,256.4L828.4,259.1L824.8,261.2L824.8,261.2ZM342.9,66.8L340.3,65.8L338.5,64.2L337.8,62.9L338.4,62.5L340.8,63.7L344.8,65.4L347.4,65.9L348.9,64.8L350.3,63.5L350.6,62.8L346.7,61.5L342.6,60L342.1,59.4L342.2,58.9L340.4,58.5L337.8,58.5L336.7,59L337,59.8L336.4,60.3L334.9,60L333.8,58.9L331,57.3L329,57.6L327.6,56.7L328,55.6L328.1,54.6L327.1,53.3L327.1,52.1L327.9,51.9L328.8,51.6L328.5,50L326.8,48L324.2,46.5L321.4,45.7L320.3,45.2L321.3,44.8L324.4,45.2L326.4,44.9L326.3,43.7L326,42.8L325.6,42L327.4,41.5L329.6,40.8L330.4,40.6L331.2,43.2L332.2,46.3L333.3,47.3L334.1,48.1L334.1,49.3L334.1,50.4L333,51.8L331.7,53.3L331.8,54L332.3,54.3L333.1,54.2L334.9,52.7L336.6,51.4L336.2,52.5L335.6,54.1L336.6,54.5L340.2,53.9L341.4,53.7L342.4,54.1L344.2,54.1L347.7,53.6L348.2,54.5L345.6,56L345,56.6L345,57.1L345.1,57.6L347,58.2L349.6,59.1L351.2,59.1L352.2,58.7L352.7,59.3L353.9,60.5L354.4,62.1L354.5,63.4L354.9,63.9L353.8,64.6L354.9,65.5L357.5,66.2L358.2,67.1L358.8,67.9L359.3,69.6L359,71.3L358.5,71.6L357.7,70.8L356.4,69.1L353.7,67.7L348.1,67.1L342.9,66.8L342.9,66.8L342.9,66.8ZM0,44.1L1.9,44.6L6,46.6L9.5,49.2L11.7,52.3L12.4,56.8L11.2,59.5L10.9,61.8L10.8,63L12.3,64.3L14.4,65.1L16.2,65.8L17.1,65.2L17,62.2L17,59.1L18.5,58.6L20.7,58.3L22.1,57.8L22.6,57.9L22.3,58.7L21.6,59.8L21.3,60.4L20.9,61L21.1,64L21.4,67.3L21.6,68.7L23.3,69.9L23.7,70.9L21.9,73.3L23.2,76.3L25.4,77.6L27.7,79L32.2,80.9L37.9,81.4L41.2,81.3L42.1,81.1L42.6,80.5L47.3,80.7L53.5,80.6L56.1,80.1L57.4,80.8L58,82.3L56.3,83.2L54,83.8L51,85.1L48.4,86.1L41.9,84.7L38.7,85.1L35.5,85.2L31.5,85.6L30.3,85.6L29.3,84.2L26.9,81.7L24.9,80.2L23.2,79.2L23.2,79.2L23.2,79.2L23.2,79.2L23.2,79.2L20.3,77.6L17,77.2L14.2,77.9L13.5,77.9L14.1,76.6L16.4,75.1L18.7,73.9L18.8,71.4L18.3,68.6L15.3,67.8L10.8,66L9.2,64L8.8,58.9L10.1,57.1L10.7,55.3L9.6,52.9L6.4,49.8L2,47.3L0,46.8L0,44.1ZM271.6,83.1L274.9,84.8L277.8,86.7L277.9,88.4L277.3,89.8L273.6,90.4L266.3,90L261.6,88.8L261,86.9L261.8,84.6L264.2,82.5L267.8,81.2L270.3,81.6L271.6,83.1L271.6,83.1L271.6,83.1ZM270.2,78.3L271.9,77L276.6,75.7L281.8,75.1L284.4,75.5L286.1,76.6L286.1,78.6L284.5,80.2L282.3,81.2L279.3,81.9L274.3,81.7L270.5,81L269.8,79.8L270.2,78.3L270.2,78.3L270.2,78.3ZM911.3,104.1L911.3,104.1L911.3,104.1L911.3,104.1L911.3,104.1L913,104.7L914.4,104.5L915.6,104.4L916.9,105.1L916.8,106.1L915.9,107L914.9,107.8L913.1,107.7L910.8,106.5L909.6,105.8L908.9,105.3L907.5,102.6L906.3,99.5L905.4,98.2L904.4,97.9L903.9,98.6L904.7,100.7L905.5,102.5L904.3,101.9L902.7,100L902,96.5L900.7,94.5L899.3,94.5L898.9,93.2L899,91.5L899.1,89.8L898.5,88.5L896.9,87.6L896.9,86.6L899,84.2L901.7,81.1L904.6,77.8L905.8,76.4L906.1,77.3L903.8,80.1L900.6,83.3L900,85L900.4,85.8L902.2,84.1L903.8,82.8L903.6,84.3L903.3,86.1L906,86.3L909.5,86.9L911.5,88.2L911.3,90.6L910,94.3L909.9,96.8L910,98.5L909.9,100L909.6,101.1L910,102.6ZM774.6,35.2L775.4,33.9L776.1,31.7L776.6,29.8L778.2,29.3L781.6,28.2L783.8,28.5L784.8,30.1L785.8,30.8L785.9,31.9L785.5,34.3L785.8,36.4L786.7,38.1L788.9,38.5L791.2,38L792.7,37L793.8,35.3L795,33.8L797.8,35.3L801,37.3L804,37.5L806.3,38L806.8,39.2L806.9,42.6L807.7,45.3L808.3,47.3L808.6,48.9L808,49.8L806.9,50.3L805.8,50.2L805.8,49.1L805.6,47.9L805.4,46.2L805.7,43.8L805.5,42.3L804.6,41.2L802.7,40.7L800.5,40.8L799.2,41.3L799.1,41.9L799.1,42.5L798.2,42.8L795.1,42.8L791.7,42.1L789.9,42.2L788.2,43L786.1,43.1L784.3,42L782.2,40.2L781.8,39.3L781,38.5L780.4,37.8L778.8,36.2L777.8,36.8L775.8,36.2L774.6,35.2L774.6,35.2L774.6,35.2ZM69.8,217.6L67.9,217.9L66.7,218.6L66,220.5L65.3,223.2L63.7,225.5L61.6,228L59.3,229.3L57.8,229.6L56,228.7L55.5,229.5L55.7,233.7L55.9,237.2L57.1,238.3L58.8,238L59.6,239.1L58.7,241.7L59.5,243L61.6,243.6L62.2,244.8L62.4,245.9L62.1,246.7L61.3,247.4L59.1,245.8L55.9,245.2L54.5,243.8L53.7,242L54.6,240.6L54.4,238.4L53.4,235.5L53.5,233L53.6,231.1L52.2,229.9L50.5,228.9L49.6,228.1L48,227.7L44.4,228.1L39.7,228.2L36.4,228.1L35.5,227.9L36.7,227L40,226.6L42.8,226.3L43.6,225.3L44.4,224.4L46.2,224.6L48,224.3L50,224.3L51.5,223.7L51.3,222.1L52.8,222.2L55.1,223.3L57.2,225.7L58.7,226.8L59.6,225.4L61.2,224L62.8,224.2L63.5,222.9L63.7,220.8L64,217.7L66,215.3L68.3,213L69.1,210.2L69.9,207.4L70.4,205.1L69.7,202.7L67.8,200.2L63,199.3L60.5,198.9L63.7,198.2L68.3,198.5L70.3,198.4L70.2,196.7L69.5,195.3L67.9,192.2L64.6,187.7L62,184L61.8,183.2L62.9,183.2L65.4,185L68.4,185L70.3,183L70.8,181.9L70.8,180L70.7,176.9L69,172.4L66.2,165.9L64.2,159.9L64.1,157.7L65.5,154.7L66.7,153.5L67.8,150.4L68.3,146.4L68.6,141.4L68.4,138.9L68.2,136.7L65.9,133.2L64.2,131.4L63.7,130.1L64.2,129.2L66.3,129.9L67.7,132L70.2,135L70.5,138.1L70.7,141.9L70.6,147L69,152.3L67.6,156.9L67.9,159.3L67.5,161.5L68.1,163.5L69.1,167.4L70.8,170.9L72.6,172.6L73.2,174.8L73,179.3L72.3,183.4L71.7,185.4L70,186.5L69.2,189.3L70.1,191.4L72.2,194.5L72.8,196.8L72.5,199.8L72.3,203.5L72.5,206.3L71.3,210.4L70.4,214L71,215L70.9,216.3L69.8,217.6L69.8,217.6L69.8,217.6ZM101.1,303.3L101.1,303.3L101.1,303.3L101.1,303.3L104.6,307.6L109.2,311.9L111.4,316.3L115.6,320.4L120.5,322.6L120.6,324.8L116.7,324.4L113.9,321.9L108.6,318.4L107.9,314.8L103.3,309.9L99.6,306.2L95.2,300.8L94.5,297L93.5,293.5L90.7,289.9L92.3,285.8L95.6,281.5L96.4,279.3L96,276.1L96.6,274L97.9,275.9L98.3,278.7L97.4,281.8L94.9,285.9L93.1,288.4L95,291.7L97.8,300.7ZM515.2,671.8L515.2,671.8L515.2,671.8L515.2,671.8L516.7,679L517.4,684.1L519.5,690.4L521.5,696.3L520.6,702.1L519,708.7L516.2,708.6L518.6,700.9L518.1,694L516.1,690.3L515,689.9L514,692.7L512.9,691L512.8,687.9L514.1,683.2L514.1,677.6L512.3,672.5L506.2,657.5L505.7,653.9L508.9,656.5ZM834.3,90.8L834.3,90.8L834.3,90.8L834.3,90.8L832,92.1L829.8,92.7L828.8,91.6L828.3,90L827.6,88.5L828.1,86.7L830.4,86.8L834.3,86.5L835.9,87.6L835.6,89.2L835,90.1ZM880.8,85.1L880.8,85.1L880.8,85.1L880.8,85.1L882.4,87L884.4,86.8L885.9,85.9L887,86.6L888.5,88.3L892,88.1L893.1,88.7L892.4,91.1L886.9,90.1L884.8,91.5L885.3,93.7L885.9,94.8L885.5,95.9L883,97.4L881.7,95.5L881.8,91.5L880.2,89.2L879.2,86.2L879.6,84.4L880.1,84ZM660.2,66.8L660.2,66.8L660.2,66.8L660.2,66.8L657.7,69L654.6,70.9L652.8,70.5L649.7,71.1L652,69.4L656.3,64.9L659,64.4L659.8,64.4L661.3,64.4L665.9,59.9L664.9,63.7Z"/><path class="map-river" d="M291.7,116.5L296.2,114.1L298.2,113.9L299.8,115.6M285.6,113.5L281,114M96.6,274L97.3,279.1L95.9,282.8L92.6,287L91.8,289.7L93.6,291.1L94.8,294L95.5,298.4L99.2,304L105.9,310.8L109.3,315L109.5,316.8L112.3,319.4L120.6,324.8M64.2,129.2L68.7,135.3L70.1,140.4L69.7,146.5L68.4,151.8L66.3,156.2L67.2,164.3L71.3,176.2L71.6,182.3L71.4,183.9L70,185.3L68.7,186.7L68.1,189.3L68.1,190.6L68.9,192.3L70.8,195.4L71.5,202.4L70.1,211.6L68.9,215.6L67.8,216.3L66.8,216.3L65.5,218.3L64.8,222L63.1,225.1L60.6,227.5L57.6,228L54.3,226.6L53.8,226.9L53.5,227.8L54.6,230.1L55,233L54.7,236.1L55.3,238.3L56.9,239.7L56.9,241L56.5,242.3L57.2,243.8L61.3,245.8L62.1,246.7M48.3,86.1L47.7,83.7L43.6,82.9L35.8,82.8L28.9,81.1L23,77.6L19.9,73.4L19.6,68.6L18.3,66.4L16,66.8L13.3,65.9L10.1,63.9L9.6,60.8L11.6,56.8L11,53L7.8,49.3L3.1,46.5L0,45.7M438.4,720L439.1,718.7L444,715.9L444.6,714.8L444.5,713.9L444.4,712.9L444.4,712.5L444.7,711.7L445.7,711.2L447.2,710.8L447.8,710.1L447.8,708.9L447,706.9L447.5,704.5L449.8,700.7L450.1,697.5L448.5,694.8L449.4,693.4L450.4,693L451.8,692.8L452.3,692.2L452.3,691.4L451.1,689.6L451.5,688.1L453.5,687.1L454.1,684.3L453.3,679.9L453.5,678.5L453.8,677.9L454.4,677.7L455,677.8L455.9,679.1L456.4,680.7L457,681.2L457.8,680.7L460,676.1L462,674.9L462.8,674.7L464.9,675.5L465.9,675.8L468.1,674.2L470,669.6L471.1,664.8L471.4,659.6L470.1,655.5L467.2,652.4L465.3,651L464.9,651.1L464.5,651.5L464.3,652.4L464.4,653.1L464.7,653.9L464.5,654.4L464.1,654.5L462,653.3L459.5,649.8L456.5,644.2L455.9,639.7L457.6,636.4L457.6,632.9L456,629.2L455.2,625.6L455.2,622.1L451.2,616.8L443.2,609.7L437.3,605.4L433.5,603.7L429.1,600.1L424.2,594.7L421.6,590.5L421.3,587.7L423.7,580.1L430.6,563.7L431.3,561.8L431.5,561.1L431.3,560.3L430.6,559.7L427.9,557.7L422.6,555.9L417.7,554.9L413.7,556.8L410.3,552.8L407.6,542.8L400.6,532.1L389.4,520.8L383,513.1L381.3,509.1L379.8,503.1L378.7,495.1L379,488.6L381.4,480.8L383.5,479.9L383.9,477.3L383.5,472.8L385.8,469.4L390.6,467.2L395.1,462.1L399.2,454.3L401.2,448.6L400.9,445.2L399.5,441.9L397.1,438.8L396.6,435L398,430.4L402.2,427.6L409.3,426.5L415.8,424.4L421.5,421.1L425,417.5L426.1,413.5L427.8,410.4L430.1,408.3L431.7,404.7L432.7,399.7L432.8,396L432.2,393.6L429.7,390.8L425.5,387.6L423.1,384.6L422.6,381.9L420.4,378.9L416.5,375.7L414.1,371.7L413,367.1L409.3,363.6L402.9,361.2L398.9,357.6L397.2,352.8L396.2,347.4L395.9,341.5L396.5,336.5L398.1,332.5L397.8,329.8L395.6,328.3L394.1,326.4L393.5,324.1L392.4,305.7L391.1,298.6L388.9,295.7L384.1,292.3L376.8,288.4L372.4,284.8L370,279.9L364.9,274L361.6,271.5L358.3,270.6L355.7,268.6L353.9,265.8L351.2,263.9L347.8,263L344,260.6L337.9,254.6L332.8,252.7L330.4,250.1L329.2,246.2L327.5,244.9L325.4,246L323.4,243.3L321.7,236.9L319.8,232.7L317.7,230.8L299.3,220.2L294.9,217.4L292.5,214.3L290.8,210.1L290.2,207.2L290.6,205.7L289.5,203L286.8,199L285.2,195.6L284.7,192.8L285,189.5L286.1,185.5L286.2,181.7L285.5,178.1L287.9,173.6L293.5,168.3L297,164.1L298.4,161L301.9,159.9L307.6,160.8L311.4,159.6L313.4,156.3L315.9,154.1L319,152.8L322.1,148.8L325.2,142L326,138L324.4,136.8L322.9,134.4L321.6,130.7L319.5,128L316.7,126.2L313.8,125.8L310.9,126.7L309.5,125.9L309.8,123.4L308.7,122.3L306.2,122.4L303.6,120.8L299.8,115.6M266.6,127.6L269.2,119.5L272.8,112.9L275.8,111.5L281,114M285.6,113.5L291.7,116.5M120.6,324.8L134.9,337.1L141.3,340.2L144.7,338.3L151.6,337.7L162.1,338.4L168.7,340.1L171.2,342.8L176.3,346L184.1,349.7L188.6,353.4L189.9,357.1L192.5,359.6L196.4,360.9L198.6,365.6L198.9,373.8L200.6,380.5L203.8,385.7L205.2,389.5L205.1,391.8L205.7,394.3L207.2,397.1L207.5,401.6L206.6,407.8L207.1,411.2L208.9,411.8L209.6,412.7L209.2,414.1L209.7,415.1L211.1,415.9L211.4,417.8L210.5,420.7L210.9,422.6L212.5,423.5L212.7,425L211.5,427.1L211.5,428.8L212.8,430.1L213.3,435.7L213,445.5L212.3,451.2L211.4,452.8L212.4,456.4L215.3,462L217,467.5L217.5,472.9L219.4,476.5L222.6,478.4L224.5,481.9L225.3,487.2L227.8,491.8L236.9,499.6L239.2,499.8L242.1,499L244.1,500.6L245.3,504.8L244.9,506.9L243.1,506.8L240.6,509.1L237.5,513.7L237.8,518.3L241.7,522.8L244.2,527.3L245.3,531.6L247.8,535.2L253.7,539.1L258.4,539.4L261.7,538.3L265.3,535.8L269.1,535.8L273,538.5L277.3,539.1L281.9,537.5L287.5,536.7L294.3,536.7L297.9,535.9L298.4,534.3L299.7,534.3L301.6,536L304.7,534.6L308.9,530.2L314.2,530.5L320.6,535.7L322.9,539.5L321,542L320.5,544.8L321.3,547.7L324.9,549.8L331.3,550.9L337.1,555.6L345,567.7L351.6,571.7L357.4,571.3L364.6,567.9L371.9,566.2L379.4,566.4L387.1,568.7L395.1,573.1L401.6,573.5L406.5,570.1L410.1,568.5L412.6,568.5L416.1,566L420.5,560.8L424,559.6L426.4,560.4L431.3,561.8M62.1,246.6L62.7,247.8L63.4,250L67.5,252.8L74.6,256L77.9,258.5L77.2,260.5L77.4,262.3L78.6,263.9L81.4,265.3L85.7,266.3L87.2,265.5L85.9,262.9L86.3,261.7L88.4,261.8L89.6,263.4L89.9,266.7L91.7,269.8L96.6,274M48.4,86.1L47.4,87.1L47.5,89.9L48.4,94.7L51.9,98.2L58.1,100.2L60.8,102.1L60.3,103.8L60.7,106.3L62,109.6L62.1,112.4L61.1,114.6L61.5,119L64.2,129.2M628.5,565.1L627.5,564.6L626,563.5L623.6,563.1L619.7,563.6L618.2,566.1L619.2,570.5L618,573.9L614.6,576.4L612.2,579.6L610.9,583.6L608.6,586L605.3,587L602.8,590.7L601,597.1L598.9,601.1L596.5,602.7L593.2,602.4L588.9,600.3L586.4,598L585.7,595.6L584.4,593.9L583.2,593.2L582.5,593.2L582.4,593.5L582.8,594.2L582.4,595L579.8,595.3L578.7,596.3L579.1,598L578.6,599.3L577.1,600.1L576.4,601.8L576.3,604.4L575.3,606.8L573.4,609L570.4,608.4L566.3,604.9L562.3,604.1L558.3,606.2L555.4,608.9L553.5,612.3L551.6,613.1L548.7,610.6L542.1,607.3L538.6,606.6L536.2,607.5L534.5,607.1L533.8,606.2L533.4,605.8L532.9,606.3L532.9,609.3L532.3,611.3L531.2,612.1L530.4,611.5L529.7,609.4L528.3,608.7L526.1,609.5L523.8,609.2L521.8,608L521.1,608.1L520.6,608.7L520.8,611.1L520.4,613L519.3,614.3L517.9,614.6L516,614L515.1,614.6L513.9,615.5L511.7,619.2L511.3,623.2L512.6,627.6L509.3,631.2L501.2,634L497,636.4L496.5,638.5L497.1,641.7L498.7,645.9L499,648.9L498,650.5L492.2,649.4L481.6,645.6L474.5,645.8L470.9,649.9L469.7,653L470.1,655.5M825.8,460.3L819.3,457.1L816.1,454.2L814.1,450.5L810.9,449.5L804.4,452.2L800,454.9L799.4,457L801,459.5L802.1,462.8L802.6,466.9L800.9,476.3L797,490.9L795.2,500L795.4,503.6L792.4,508.7L786,515.2L781.5,519.2L778.8,520.7L776.5,520.8L774.5,519.5L772.5,520.7L770.5,524.2L768.5,526.2L766.5,526.4L765,528.8L763.9,533.1L762.8,535.7L761.6,536.4L761.6,538.6L763,542.1L763,543.4L762.5,543.5L761.9,543.4L760.6,544.3L759.2,546.5L758.7,546.6L758.2,546.2L757.5,543.6L756.1,541.8L754,540.9L751.4,543.6L748.3,549.9L747,553.9L747.8,556.6L748.5,560.5L747.7,562.2L745.8,563L744.4,565.2L743.6,569L741,571.6L736.7,572.9L731.6,571.4L725.8,567.2L722,563L720.3,558.9L715.5,559.1L707.7,563.5L701.6,564.5L697.3,562.1L694.2,561.2L691.1,562.3L688.3,564.2L685.7,563.3L682.5,560.3L677.6,558.4L671,557.6L666.2,554.4L663.4,549L660.5,545.3L657.6,543.3L654.4,542.9L651.1,543.9L648.4,543.6L646.5,541.9L644.2,542.2L641.5,544.6L640.6,546.8L641.8,549L641.8,550.8L640.8,552.2L641.2,553.3L643.1,553.9L643.9,555.4L643.6,557.9L639.7,560.7L632.2,563.9L630.5,564.8L629.2,565.2L628.5,565.1M641.5,479.1L645.7,479L646,478.2L642.5,475.8L641.2,474.9L640.7,472.7L640.9,470.6L639.5,468.5L635.8,467.6L631,464.7L625,459.7L618.6,456.2L611.9,454.1L604.7,454.8L597,458.3L588,460.6L577.6,461.6L568.7,466.4L561.1,475.2L555.9,479.5L553,479.4L549.6,480.8L545.7,483.6L538.6,490L537.1,494.5L537.5,500.1L538.3,504L539.6,506.4L540,510.8L539.8,517.3L538.9,523.1L537.5,528.3L535.3,532.2L532.5,534.7L531.3,537.4L531.7,540.3L531.3,542.4L530,543.7L530.7,546.9L533.3,551.9L534.9,557L535.4,561.9L535,565.5L532.9,568.7L530.9,575.8L529.2,578.6L527,579.6L525.1,582.2L523.4,586.5L521.6,588.6L519.7,588.5L518.3,589.3L517.4,591L517.5,592.8L518.7,594.6L518.3,596.3L516.4,597.9L516.5,598.7L517.1,599.2L516.8,599.9L515.6,600.7L514.9,603.1L515,607L514.4,609L513.1,609.1L512.9,610.1L515.1,614.6"/><path class="map-borders" d="M559.3,410.2L636,407.4L636.1,410.7L639.8,482L642.1,543.4L639.2,546.4L644.1,555.3L643.3,559.3L636.6,560.3L629.8,565.1L625.5,563L617.9,564.8L619.7,573.3L612.3,578.8L609.8,586L603.7,587.4L600.4,600.4L596,602.4L586.5,599.3L584,594.4L576.4,600.4L577,606.1L567.1,607.2L565.3,603.4L555.3,608.5L552.1,614.2L541.8,606.6L536.9,608.1L532.8,604.9L533.4,610.6L529.6,608.5L519.2,609.3L520.7,613.3L515.6,614L512.8,608.8L515.2,601.1L519.6,596.2L519.5,588.4L522.4,589.6L530.3,577.4L532.5,569.4L536.4,565.4L534,559.5L535.5,554.6L530.2,543.8L534.5,534.5L532.7,413.5M0,466.3L229.8,492.5L233.7,497.8L244.3,499.2L246,502.5L236.1,516.9L243.1,526.6L245.6,533.8L255,537.6L254.2,539.4L246.7,647.6L94.6,634.4L19.5,625.1L0,622.5M370.6,156.1L368,153.8L360.7,157.9L359.5,188L357.4,190.9L344.2,196.7L338.5,205.1L337.4,212.4L341.3,213.1L345.7,219.8L341.2,227.4L340.1,250.6L338.4,254L347.6,264.7L355.6,266.2L358.6,271.4L369.6,277.6L371.1,284.3L381.7,293.7L386.8,295.1L392.5,303.7L394.3,321L200.7,310.1L208.8,218.2L201,211.8L195.7,201.4L206.6,191L207.6,185.5L208.1,165.2L204.5,159.4L202.7,147.6L205.2,134L203.3,132L205.1,99.3L198.2,71.6L199.3,64.5L199.1,50.8L202,44L199.1,27.6M707.4,720L716.2,712.1L726.3,709L730.6,699.5L732.9,700.9L740.2,693L741.3,697.8L747.6,695.4L749.5,691.2L757.1,686.9L764.9,687.8L769.1,678.6L775.6,673L777.4,663.3L834.3,660.2L866.3,657L972.3,643.5L1000,639.1M207.6,185.5L142.2,178.9L63.3,168.9L0,158.9M246.7,647.6L245,673.1L248.4,720M15.6,720L24.4,651.7L0,648.1M824.5,366.4L826.2,380.2L939.5,365.8L991.6,358L996.3,364.2L1000,364.4M849.8,495.1L809,499.4L804.3,452.6L797.6,384.3M200.7,310.1L195.5,309.6L197.6,315.3L195.5,323.8L199.7,329.6L196.6,332.9L194.5,343L190.6,350.1L194.6,354.3L196.5,361.7L190.4,360.4L188.3,352.6L177.9,346.1L172.2,345L166.1,339.5L152,339.4L146.1,337.5L139.1,342.2L123.4,330.9L122.5,328.2L6.8,313.3L0,312.2M229.8,492.5L223.9,479.3L219,475.5L214.4,461.2L259.6,465.2L308,467.6L370.6,468.4L382.4,480.8L378.7,487.9L378.9,498.3L383.3,514L397.3,530L408.3,540.2L410.2,555.8L413.3,558.9L417.8,554.4L426.6,556.5L432,560.2L428.1,566.7L429.1,572.4L421.5,586.1L421.9,592.6L436.1,605.6L437.9,609.7L442.3,608.6L455.5,619.6L455.5,627.7L459.2,634.8L455.3,640.4L464.4,655.5L465.8,651.8L471,656L469.1,664.9L469.8,672.1L465.7,677.3L461.1,674.4L459.2,680.7L456.3,680.7L454.1,680.7L454.2,692L447.2,694L451.3,697.3L445.9,706L419.3,705.9L421.7,701.2L431.6,692L432.5,686.2L429,680.4L245,673.1M920.9,507.1L918,517.2L895.5,502.9L895.2,518.4L879.2,541.1L873.8,537.3L867.3,556.4L863.8,561L857,559.4L849.4,553.4L848.7,561.7L840.7,575.5L838.2,585.7L832,593.2L828.3,601.9L831.7,604.8L829.1,611.2L822.5,616.3L820.7,613.4L810.8,620L806.9,617.6L805,624L793,628.7L787,624L779.7,631.3L774.8,632.1L763.9,624.9L761.5,615.9L755.3,615.3L747.8,610.2L745.5,604.5L738.4,597.5L739.8,594.9L732.1,587.4L734.2,580.8L732.7,572.8L743.5,570.6L744.2,564.1L748.9,561.5L746.3,552.6L752.9,540.1L759.1,547.5L763.3,539.7L763,531.4L765.6,526.4L770,526.4L773.3,519.1L776.9,521.9L783.6,518.7L797,500.9L795.2,498.9L798.8,490.7L798.7,482.1L802.9,469.1L802.3,461.8L799,456.5L804.3,452.6M382.4,480.8L384.9,469.5L394.3,466L395.6,458.3L400.6,453.5L401.5,444.5L395.3,437L398.2,428L413.3,425.8L425.2,419.6L426.4,411.8L431.5,408.5L432.4,392.7L424.4,387.6L422.8,381.6L414.6,372.3L451.3,373L484.4,373.8L521.6,373.5M515.6,614L510.5,621L513.6,630.7L497.6,635.3L496.1,640.5L499.9,647.4L498.5,651.3L479.8,643.6L473.2,646.2L469,653.7L471,656M445.9,706L449.2,711.8L442.5,718.2L436.4,720M394.3,321L394.7,328.8L399.9,334.1L395.3,340L396.2,351.6L399.4,360.2L412.3,365.9L414.6,372.3M214.4,461.2L210.3,453.9L213.9,445.1L210.9,425.2L211.5,415.8L205.8,411.8L205,407.6L207.9,398.2L204.7,392.5L206.2,389.2L201.1,384.9L196.5,361.7M642.1,543.4L644.5,541.1L650.8,544.5L657,542.1L661.9,546.3L666.9,557.4L681.7,559.6L689.3,565.2L694.8,561L703.6,565.7L709.7,564.3L714.6,558.4L719.6,556.6L722.1,564.7L727.1,566.3L732.7,572.8M761.5,615.9L746.9,631.1L732.5,639.8L732.7,643.6L727.1,647.3L727,651.8L719.2,654.2L717,660L695.3,668.7L694.8,669.6L659.7,671L628.9,670.9L620.8,671.8L575.5,671.5L523.5,673.5L514.7,671.3L515.4,680.6L464,680.2L459.2,680.7M456.3,680.7L454.1,680.7M687.5,405.9L636.1,410.7M527.2,239.9L521.7,234.8L524.9,227.5L523.2,224.9L517.7,227.5L517.7,227.5L519.9,210.4L516.4,206.3L507.2,203.2L508.4,197.9L493.9,193.1L484.1,193.2L473.1,187L436.8,176.6L433.5,168L428.8,166.2L428.8,166.2L426.5,164.7M695.3,668.7L777.4,663.3"/><path class="map-shore" d="M631.2,197.2L641.9,201.3L636.9,203.3L631.2,197.2M605,202.7L605,202.7M600.2,200.2L600.2,200.2M597,212.2L598.9,203.9L601.9,211.4L597,212.2M594.2,205.3L594.2,205.3M588.2,220.5L588.2,220.5M582.1,236.2L582.1,236.2M579.1,243L579.1,243M559,212.5L559,212.5M467.7,98.2L470.3,95.2L488.1,84.8L496.1,82.1L487.8,91.3L476.3,96.5L472.1,100.6L467.7,98.2M939.4,268.8L939.4,268.8M936.4,268.4L936.4,268.4M715.3,410.6L715.3,410.6M711,408.7L711,408.7M999.7,572L999.7,572M997.1,567L999.1,566.7L997.1,567M549.8,226.3L554.5,223.4L551.7,229.1L549.8,226.3M534.9,234.5L534.9,234.5M425.2,142.4L425.2,142.4M423,148.8L423,148.8M418.6,146.2L418.6,146.2M414.7,150.5L414.7,150.5M415.6,144.1L415.6,144.1M414.4,141.1L418.8,139.6L422.1,142.5L418,144.9L414.4,141.1M413.5,153.2L419.8,148.8L418.3,153.2L413.5,153.2M407.1,142.8L407.1,142.8M521.6,373.5L520.3,383.2L526.4,394.7L529.3,406.5L532.7,413.5L536.5,416.8L544.2,417.6L559.3,410.2L566.8,403.2L571.6,391.6L576,385L579.6,374.6L581.1,360.4L579.7,345.3L573.1,330L567.3,312.6L570.9,305.8L567.6,292.7L576.2,277.2L577.5,265.8L576,259.4L582.1,256.7L582.3,249.3L587.2,244.8L591.8,245.6L598.2,233.3L600.3,240.5L597.6,250.6L599.7,254.8L603.8,243L602.4,255.6L606.8,246L607,228.6L614.8,223.2L622.9,221.6L616.5,217.6L615.3,212.7L621.2,205.4L618.6,203L627.1,201.1L638.5,207.6L647.4,208L653.5,215.1L658.8,215L670.3,221.1L674,220.6L683.2,237.1L678.4,235L677.4,241.7L681.9,244.5L684.1,252.9L683.3,272.2L676,277.4L675.1,287.3L666.2,291.3L662.3,303.8L664.3,307.7L672.9,311.4L687.1,290.8L699.5,284.9L706.2,288.6L710.3,295.4L715.7,316.3L717.1,327.1L721.6,337.9L719.4,358.7L713.7,363.7L715.5,356L708.2,358.5L706.3,371.1L700.2,375L698,379.4L696.5,391.2L687.7,402L687.5,405.9L702.7,411.9L708.1,415.7L711.5,411.7L720.4,419.3L725.8,421.2L743.2,413L753.7,413.5L764.1,403.1L779.7,392.4L797.6,384.3L824.5,366.4L845.9,349.4L848.9,342.1L855.6,336.4L851.7,328L848.4,326.8L844.7,313L865.4,304.7L879.6,302.9L894.3,303.6L901.5,307.3L906.5,304.4L922.7,302.5L931.5,297.4L940.5,286.9L947.1,285.5L947.6,279.2L945.3,271.6L947.6,264.4L938.2,260.8L939.2,252L952.4,241.3L956.6,233L970.3,214.1L981.2,204.7L986,202.3L1000,200.6M1000,469.4L993.3,475.9L849.8,495.1L852.3,521.4L866.1,506.1L871.8,507.1L877.6,497L883,500.9L890.4,500.9L894.1,494L900.4,490.4L912.8,495.9L917.7,500.2L920.9,507.1L927.2,507.2L931.8,510.4L930.2,516.2L941.5,519.5L947.3,523.5L951.4,530.3L949,538.7L942.7,546.9L945.7,554.8L955.5,551.3L958.5,559.2L972.8,560.5L977.7,566.1L990,571.4L987.7,575.7L987,586.2L993.3,596.8L992.7,600.9L986.4,597.1L988.6,605.9L994.6,612.3L989.1,619L980.3,612.6L978.2,607.6L974.1,609.7L979.4,616.9L987.4,623.1L994.2,622.6L993.2,619L1000,618.9M1000,662.8L994.9,667L985.8,667.3L986.7,672.8L997.7,668.6L999.4,670.5L1000,670.3M1000,700.1L998.6,700.1L993.4,693.7L994.6,699.8L975.3,696L1000,705.5M1000,706L997.2,714.4L991.1,720M983.1,720L980.3,718.7L980.5,720M996.7,720L1000,717.7M0,0.9L127,19.9L199.1,27.6L268.8,33.6L270.2,14L276.8,15.2L281,19.3L285.3,47.8L288.7,50L297.9,50.8L299.1,53.4L312.3,55.4L313.3,61L324.6,60.1L328.7,56.2L341,57L349.6,61.6L349.9,65.6L356.8,66.6L361.2,78.4L365.1,71.7L372.1,71.7L373.6,76.6L383.5,80.3L383.4,84.6L388.7,85.1L388.3,88.3L399.3,86.6L411.9,78.7L416,86.2L437.6,85.9L446.4,92.5L456.5,92L442.8,100.3L423.3,106.6L411.7,113.8L402.6,121.6L390,135.3L368,151.8L370.6,156.1L377.4,157.1L388.3,154L407.4,145.1L412.2,144.4L415.1,148L410.2,154.7L407.8,162.7L415.4,158L420.6,162.9L426.5,164.7L440.3,159.3L448.6,152.1L461.1,151.1L471.4,143.7L477.8,142.5L479.7,138.5L491.2,130.3L497.6,123.2L504.8,119.4L518,118.5L521,122.1L512.6,122.9L513.2,125L503.2,132.6L495.9,144.3L495.5,155.2L502.8,146.4L517.8,148.2L522.9,150.9L533.1,166.7L537.8,168.5L547.6,166.3L549.5,169.4L557.6,170.5L557.1,165.2L561.5,169.2L576.9,158L586,156.7L600,156.7L607.6,152.7L618.4,151.3L615.8,155.1L616.5,166.1L624.5,167.6L630.4,165.3L631.8,168.8L644.5,162L648.6,163.3L647.6,167.8L649.1,179.9L651.1,184.1L658.5,189L662.3,187.4L660,183.2L668.5,183.4L672.7,188.5L669.9,192.4L658.3,190.2L650,190.2L640.9,193.1L630.6,187.5L627.9,193L629.4,197.7L624.8,197L618,190.2L607.1,186.8L600.1,186.7L595,193.4L586.8,193.7L586.1,196.2L576.1,194.3L571.6,197.3L570.4,203.3L561.1,210.3L557.9,209.9L564.4,200.3L555.3,200.4L553.6,207.3L549.8,208.7L547,201.5L545.7,208.2L541.7,210.7L536.5,222.9L526.4,238.5L527.2,239.9L525.9,246L521.1,246.7L513.3,259.4L511.2,267.3L513.8,269.1L520.9,263.4L526.8,253.1L534.1,249.6L539.8,236L544.1,234.7L546.3,229.4L546.8,239.9L541.8,246.2L532.1,267.7L529.6,279.5L530.6,286.8L526.1,290.7L522.9,302.2L524.2,312.5L518,328.5L516.9,335.4L520.4,355.9L522.6,358.5L520.7,367.1L521.6,373.5"/><path class="map-border-sel" id="map-sel-outline" d=""/><text class="map-lake-lbl" x="525" y="112">LAKE SUPERIOR</text><text class="map-lake-lbl" x="551" y="326" transform="rotate(-90 551 326)">LAKE MICHIGAN</text><text class="map-lake-lbl" x="720" y="256">LAKE HURON</text><text class="map-lake-lbl" x="779" y="377" transform="rotate(-18 779 377)">LAKE ERIE</text><text class="map-ctx-lbl" x="880" y="688">NORTH CAROLINA</text><text class="map-ctx-lbl" x="101" y="95">NORTH DAKOTA</text><text class="map-ctx-lbl" x="125" y="678">OKLAHOMA</text><text class="map-ctx-lbl" x="901" y="428">PENNSYLVANIA</text><text class="map-ctx-lbl" x="103" y="251">SOUTH DAKOTA</text><text class="map-ctx-lbl" x="810" y="555">WEST VIRGINIA</text><text class="map-ctx-lbl" x="338" y="699">ARKANSAS</text><text class="map-ctx-lbl" x="306" y="390">IOWA</text><text class="map-ctx-lbl" x="627" y="624">KENTUCKY</text><text class="map-ctx-lbl" x="936" y="312">NEW YORK</text><text class="map-ctx-lbl" x="607" y="695">TENNESSEE</text><text class="map-ctx-lbl" x="885" y="604">VIRGINIA</text><text class="map-ctx-lbl" x="102" y="405">NEBRASKA</text><text class="map-label" data-state="IN" x="583" y="505">INDIANA</text><text class="map-count" data-state="IN" x="583" y="520"></text><text class="map-label" data-state="KS" x="199" y="583">KANSAS</text><text class="map-count" data-state="KS" x="199" y="598"></text><text class="map-label" data-state="MN" x="289" y="183">MINNESOTA</text><text class="map-count" data-state="MN" x="289" y="198"></text><text class="map-label" data-state="MO" x="338" y="592">MISSOURI</text><text class="map-count" data-state="MO" x="338" y="607"></text><text class="map-label" data-state="IL" x="473" y="499">ILLINOIS</text><text class="map-count" data-state="IL" x="473" y="514"></text><text class="map-label" data-state="MI" x="647" y="341">MICHIGAN</text><text class="map-count" data-state="MI" x="647" y="356"></text><text class="map-label" data-state="OH" x="718" y="478">OHIO</text><text class="map-count" data-state="OH" x="718" y="493"></text><text class="map-label" data-state="WI" x="440" y="272">WISCONSIN</text><text class="map-count" data-state="WI" x="440" y="287"></text><g class="map-cities"><rect x="526" y="402.3" width="5" height="5"/><text x="534.5" y="408.3">Chicago</text><rect x="426" y="568.9" width="5" height="5"/><text x="434.5" y="574.9">St. Louis</text><rect x="319.6" y="239.9" width="5" height="5"/><text x="328.1" y="245.9">Minneapolis</text><rect x="698.2" y="371.8" width="5" height="5"/><text x="706.7" y="377.8">Detroit</text><rect x="585.4" y="509" width="5" height="5"/><text x="593.9" y="515">Indianapolis</text><rect x="708.6" y="492.9" width="5" height="5"/><text x="717.1" y="498.9">Columbus</text><rect x="252.8" y="538" width="5" height="5"/><text x="261.3" y="544">Kansas City</text><rect x="514.6" y="342.9" width="5" height="5"/><text x="523.1" y="348.9">Milwaukee</text><rect x="651.9" y="540.5" width="5" height="5"/><text x="660.4" y="546.5">Cincinnati</text><rect x="753" y="410.3" width="5" height="5"/><text x="761.5" y="416.3">Cleveland</text><rect x="598.3" y="344.9" width="5" height="5"/><text x="606.8" y="350.9">Grand Rapids</text><rect x="298.4" y="412.8" width="5" height="5"/><text x="306.9" y="418.8">Des Moines</text></g><g id="map-dots"></g><g id="map-tooltip" style="pointer-events:none;display:none"><rect id="tt-bg" rx="3" height="44" class="tt-bg"/><text id="tt-name" dy="19" class="tt-name"/><text id="tt-sub" dy="35" class="tt-sub"/></g></svg>
+      <canvas id="rings-canvas" aria-hidden="true"></canvas>
+    </div>
+    <div class="atlas-foot">
+      <div class="atlas-readout" id="atlas-readout">◎ Sweeping…</div>
+      <div class="atlas-legend"><span><i class="lg-ring"></i>50-mile rings</span><span><i class="lg-dot"></i>Field</span><span><i class="lg-water"></i>Water</span></div>
+      <div class="nearest" id="nearest"></div>
+    </div>
+  </div>
 </div>
 
   <!-- ── UPCOMING EVENTS ── -->
@@ -1742,7 +1277,7 @@
     </div>
 
     <div class="events-list" id="events-list">
-      <div class="ev-loading" id="ev-loading" style="color:var(--muted);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;padding:32px 0">// Loading events...</div>
+      <div class="ev-loading" id="ev-loading" style="color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;padding:32px 0">// Loading events...</div>
       <div class="ev-no-results" id="ev-no-results">No events found for this filter combination.</div>
     </div>
   </section>  <!-- ── FIELDS ── -->
@@ -1772,7 +1307,7 @@
     <div class="fields-grid" id="fields-grid">
 
       <!-- ILLINOIS -->
-      <div class="field-card visible" data-state="IL">
+      <div class="field-card visible" data-state="IL" data-lat="41.12" data-lng="-87.861">
         <div class="card-corner"></div>
         <div class="field-state-row">
           <span class="field-state">Illinois</span>
@@ -1789,7 +1324,7 @@
         <a href="https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="IL">
+      <div class="field-card visible" data-state="IL" data-lat="42.151" data-lng="-87.96">
         <div class="card-corner"></div>
         <div class="field-state-row">
           <span class="field-state">Illinois</span>
@@ -1805,7 +1340,7 @@
         <a href="https://mirtactical.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="IL">
+      <div class="field-card visible" data-state="IL" data-lat="41.532" data-lng="-87.255">
         <div class="card-corner"></div>
         <div class="field-state-row">
           <span class="field-state">Illinois</span>
@@ -1822,7 +1357,7 @@
       </div>
 
       <!-- ILLINOIS (Bing Field) -->
-      <div class="field-card visible" data-state="IL">
+      <div class="field-card visible" data-state="IL" data-lat="38.891" data-lng="-90.184">
         <div class="card-corner"></div>
         <div class="field-state-row">
           <span class="field-state">Illinois</span>
@@ -1839,7 +1374,7 @@
       </div>
 
       <!-- INDIANA -->
-      <div class="field-card visible" data-state="IN">
+      <div class="field-card visible" data-state="IN" data-lat="39.165" data-lng="-86.526">
         <div class="card-corner"></div>
         <div class="field-state-row">
           <span class="field-state">Indiana</span>
@@ -1855,7 +1390,7 @@
         <a href="https://www.facebook.com/JokersCircusAirsoft/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="IN">
+      <div class="field-card visible" data-state="IN" data-lat="39.614" data-lng="-86.107">
         <div class="card-corner"></div>
         <div class="field-state-row">
           <span class="field-state">Indiana</span>
@@ -1871,7 +1406,7 @@
         <a href="https://www.facebook.com/search/top?q=center+mass+airsoft+indiana" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="IN">
+      <div class="field-card visible" data-state="IN" data-lat="41.532" data-lng="-87.255">
         <div class="card-corner"></div>
         <div class="field-state-row">
           <span class="field-state">Indiana</span>
@@ -1888,7 +1423,7 @@
       </div>
 
       <!-- MICHIGAN -->
-      <div class="field-card visible" data-state="MI">
+      <div class="field-card visible" data-state="MI" data-lat="42.292" data-lng="-85.587">
         <div class="card-corner"></div>
         <div class="field-state-row">
           <span class="field-state">Michigan</span>
@@ -1904,7 +1439,7 @@
         <a href="https://www.facebook.com/KalamazooAirsoft/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="MI">
+      <div class="field-card visible" data-state="MI" data-lat="42.457" data-lng="-83.946">
         <div class="card-corner"></div>
         <div class="field-state-row">
           <span class="field-state">Michigan</span>
@@ -1920,7 +1455,7 @@
         <a href="https://www.hellsurvivors.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="MI">
+      <div class="field-card visible" data-state="MI" data-lat="42.587" data-lng="-82.92">
         <div class="card-corner"></div>
         <div class="field-state-row">
           <span class="field-state">Michigan</span>
@@ -1936,7 +1471,7 @@
       </div>
 
       <!-- MINNESOTA -->
-      <div class="field-card visible" data-state="MN">
+      <div class="field-card visible" data-state="MN" data-lat="44.977" data-lng="-93.265">
         <div class="card-corner"></div>
         <div class="field-state-row">
           <span class="field-state">Minnesota</span>
@@ -1952,7 +1487,7 @@
         <a href="https://www.twincitiesairsoft.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="MN">
+      <div class="field-card visible" data-state="MN" data-lat="45.08" data-lng="-93.1">
         <div class="card-corner"></div>
         <div class="field-state-row">
           <span class="field-state">Minnesota</span>
@@ -1968,7 +1503,7 @@
       </div>
 
       <!-- OHIO -->
-      <div class="field-card visible" data-state="OH">
+      <div class="field-card visible" data-state="OH" data-lat="39.844" data-lng="-84.125">
         <div class="card-corner"></div>
         <div class="field-state-row">
           <span class="field-state">Ohio</span>
@@ -1984,7 +1519,7 @@
         <a href="https://www.i70paintball.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="OH">
+      <div class="field-card visible" data-state="OH" data-lat="40.397" data-lng="-81.562">
         <div class="card-corner"></div>
         <div class="field-state-row">
           <span class="field-state">Ohio</span>
@@ -2000,7 +1535,7 @@
         <a href="https://www.theairsoftden.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="OH">
+      <div class="field-card visible" data-state="OH" data-lat="39.314" data-lng="-84.23">
         <div class="card-corner"></div>
         <div class="field-state-row">
           <span class="field-state">Ohio</span>
@@ -2016,14 +1551,14 @@
       </div>
 
       <!-- WISCONSIN -->
-      <div class="field-card visible" data-state="WI">
+      <div class="field-card visible" data-state="MI" data-lat="43.223" data-lng="-85.551">
         <div class="card-corner"></div>
         <div class="field-state-row">
-          <span class="field-state">Wisconsin</span>
+          <span class="field-state">Michigan</span>
           <span class="state-rule"></span>
         </div>
         <div class="field-name">Cedar Airsoft Field</div>
-        <div class="field-location">Wisconsin (Cedar area)</div>
+        <div class="field-location">Cedar Springs, MI</div>
         <div class="field-tags">
           <span class="tag outdoor">Outdoor</span>
         </div>
@@ -2031,7 +1566,7 @@
         <a href="https://www.cedarairsoftfield.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="WI">
+      <div class="field-card visible" data-state="WI" data-lat="42.559" data-lng="-88.049">
         <div class="card-corner"></div>
         <div class="field-state-row">
           <span class="field-state">Wisconsin</span>
@@ -2049,7 +1584,7 @@
       </div>
 
       <!-- KANSAS -->
-      <div class="field-card visible" data-state="KS">
+      <div class="field-card visible" data-state="KS" data-lat="39.114" data-lng="-94.627">
         <div class="card-corner"></div>
         <div class="field-state-row">
           <span class="field-state">Kansas / Missouri</span>
@@ -2066,7 +1601,7 @@
       </div>
 
       <!-- EXTRA IL/IN/MI -->
-      <div class="field-card visible" data-state="IL">
+      <div class="field-card visible" data-state="IL" data-lat="41.783" data-lng="-87.878">
         <div class="card-corner"></div>
         <div class="field-state-row">
           <span class="field-state">Illinois</span>
@@ -2081,7 +1616,7 @@
         <a href="https://www.airsoftmegastore.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="IN">
+      <div class="field-card visible" data-state="IN" data-lat="41.43" data-lng="-84.871">
         <div class="card-corner"></div>
         <div class="field-state-row">
           <span class="field-state">Indiana</span>
@@ -2096,7 +1631,7 @@
         <a href="https://bpd35.proboards.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="MI">
+      <div class="field-card visible" data-state="MI" data-lat="44.64" data-lng="-85.62">
         <div class="card-corner"></div>
         <div class="field-state-row">
           <span class="field-state">Michigan</span>
@@ -2112,7 +1647,7 @@
       </div>
 
       <!-- ILLINOIS — new fields -->
-      <div class="field-card visible" data-state="IL">
+      <div class="field-card visible" data-state="IL" data-lat="41.589" data-lng="-88.058">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Illinois</span><span class="state-rule"></span></div>
         <div class="field-name">Legacy Paintball and Airsoft Park</div>
@@ -2122,7 +1657,7 @@
         <a href="https://www.legacyadventurepark.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="IL">
+      <div class="field-card visible" data-state="IL" data-lat="40.484" data-lng="-88.994">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Illinois</span><span class="state-rule"></span></div>
         <div class="field-name">Urban Warfare Paintball</div>
@@ -2132,7 +1667,7 @@
         <a href="https://www.facebook.com/search/top?q=urban+warfare+paintball+bloomington+illinois" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="IL">
+      <div class="field-card visible" data-state="IL" data-lat="40.112" data-lng="-88.042">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Illinois</span><span class="state-rule"></span></div>
         <div class="field-name">Saltfork Paintball</div>
@@ -2142,7 +1677,7 @@
         <a href="https://www.saltforkpaintball.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="IL">
+      <div class="field-card visible" data-state="IL" data-lat="41.789" data-lng="-89.696">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Illinois</span><span class="state-rule"></span></div>
         <div class="field-name">Sinnissippi Airsoft</div>
@@ -2152,7 +1687,7 @@
         <a href="https://www.facebook.com/p/Sinnissippi-Airsoft-100057609731381/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="IL">
+      <div class="field-card visible" data-state="IL" data-lat="42.099" data-lng="-88.271">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Illinois</span><span class="state-rule"></span></div>
         <div class="field-name">Paintball Explosion (PBX)</div>
@@ -2162,7 +1697,7 @@
         <a href="https://www.pbbomb.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="IL">
+      <div class="field-card visible" data-state="IL" data-lat="41.679" data-lng="-90.319">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Illinois</span><span class="state-rule"></span></div>
         <div class="field-name">Ronin Airsoft Home Field</div>
@@ -2173,7 +1708,7 @@
       </div>
 
       <!-- INDIANA — new fields -->
-      <div class="field-card visible" data-state="IN">
+      <div class="field-card visible" data-state="IN" data-lat="41.367" data-lng="-85.059">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Indiana</span><span class="state-rule"></span></div>
         <div class="field-name">Surge Strike Airsoft</div>
@@ -2183,7 +1718,7 @@
         <a href="https://www.surgestrikeshootingsports.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="IN">
+      <div class="field-card visible" data-state="IN" data-lat="38.391" data-lng="-86.931">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Indiana</span><span class="state-rule"></span></div>
         <div class="field-name">HTK Airsoft</div>
@@ -2194,7 +1729,7 @@
       </div>
 
 
-      <div class="field-card visible" data-state="IN">
+      <div class="field-card visible" data-state="IN" data-lat="39.165" data-lng="-86.526">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Indiana</span><span class="state-rule"></span></div>
         <div class="field-name">The Boneyard</div>
@@ -2205,7 +1740,7 @@
       </div>
 
 
-      <div class="field-card visible" data-state="IN">
+      <div class="field-card visible" data-state="IN" data-lat="41.24" data-lng="-85.4">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Indiana</span><span class="state-rule"></span></div>
         <div class="field-name">Paintball Plex</div>
@@ -2216,7 +1751,7 @@
       </div>
 
       <!-- OHIO — new fields -->
-      <div class="field-card visible" data-state="OH">
+      <div class="field-card visible" data-state="OH" data-lat="39.924" data-lng="-83.809">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Ohio</span><span class="state-rule"></span></div>
         <div class="field-name">G2 Tactical</div>
@@ -2226,7 +1761,7 @@
         <a href="https://www.g2tact.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="OH">
+      <div class="field-card visible" data-state="OH" data-lat="41.452" data-lng="-82.182">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Ohio</span><span class="state-rule"></span></div>
         <div class="field-name">Sektor7 Airsoft</div>
@@ -2236,7 +1771,7 @@
         <a href="https://www.sektor7airsoft.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="OH">
+      <div class="field-card visible" data-state="OH" data-lat="40.49" data-lng="-81.446">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Ohio</span><span class="state-rule"></span></div>
         <div class="field-name">The Den Airsoft</div>
@@ -2246,7 +1781,7 @@
         <a href="https://www.theairsoftden.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="OH">
+      <div class="field-card visible" data-state="OH" data-lat="40.549" data-lng="-82.827">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Ohio</span><span class="state-rule"></span></div>
         <div class="field-name">Splatter Park</div>
@@ -2256,7 +1791,7 @@
         <a href="https://www.splatterpark.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="OH">
+      <div class="field-card visible" data-state="OH" data-lat="40.361" data-lng="-83.76">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Ohio</span><span class="state-rule"></span></div>
         <div class="field-name">Patriots Ridge Airsoft</div>
@@ -2266,7 +1801,7 @@
         <a href="https://www.facebook.com/patriotsridgeairsoft/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="OH">
+      <div class="field-card visible" data-state="OH" data-lat="38.964" data-lng="-84.081">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Ohio</span><span class="state-rule"></span></div>
         <div class="field-name">Parkers Airsoft Field</div>
@@ -2276,7 +1811,7 @@
         <a href="https://parkersairsoft.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="OH">
+      <div class="field-card visible" data-state="OH" data-lat="40.058" data-lng="-82.401">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Ohio</span><span class="state-rule"></span></div>
         <div class="field-name">Underground Wars</div>
@@ -2286,7 +1821,7 @@
         <a href="https://www.underground-wars.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="OH">
+      <div class="field-card visible" data-state="OH" data-lat="39.333" data-lng="-82.982">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Ohio</span><span class="state-rule"></span></div>
         <div class="field-name">Fallen Warrior Airsoft</div>
@@ -2296,7 +1831,7 @@
         <a href="https://www.facebook.com/FallenWarriorsAirsoft/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="OH">
+      <div class="field-card visible" data-state="OH" data-lat="41.948" data-lng="-80.554">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Ohio</span><span class="state-rule"></span></div>
         <div class="field-name">Big Pearl Paintball</div>
@@ -2307,7 +1842,7 @@
       </div>
 
       <!-- MICHIGAN — new fields -->
-      <div class="field-card visible" data-state="MI">
+      <div class="field-card visible" data-state="MI" data-lat="44.482" data-lng="-85.922">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Michigan</span><span class="state-rule"></span></div>
         <div class="field-name">TC Paintball North</div>
@@ -2317,7 +1852,7 @@
         <a href="https://www.tcpaintballnorth.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="MI">
+      <div class="field-card visible" data-state="MI" data-lat="42.43" data-lng="-83.745">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Michigan</span><span class="state-rule"></span></div>
         <div class="field-name">Futureball</div>
@@ -2327,7 +1862,7 @@
         <a href="https://www.futureball.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="MI">
+      <div class="field-card visible" data-state="MI" data-lat="41.94" data-lng="-85.0">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Michigan</span><span class="state-rule"></span></div>
         <div class="field-name">DarkFire Airsoft</div>
@@ -2337,7 +1872,7 @@
         <a href="https://www.darkfireairsoft.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="MI">
+      <div class="field-card visible" data-state="MI" data-lat="42.383" data-lng="-83.297">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Michigan</span><span class="state-rule"></span></div>
         <div class="field-name">Michigan Tactical Airsoft Center (MTAC)</div>
@@ -2347,7 +1882,7 @@
         <a href="https://www.facebook.com/MichiganTacticalAirsoftCenter/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="MI">
+      <div class="field-card visible" data-state="MI" data-lat="43.189" data-lng="-85.937">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Michigan</span><span class="state-rule"></span></div>
         <div class="field-name">West Michigan Airsoft</div>
@@ -2357,7 +1892,7 @@
         <a href="https://www.facebook.com/groups/WESTMIAIRSOFT/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="MI">
+      <div class="field-card visible" data-state="MI" data-lat="42.587" data-lng="-82.92">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Michigan</span><span class="state-rule"></span></div>
         <div class="field-name">Phoenix Tactical</div>
@@ -2368,7 +1903,7 @@
       </div>
 
       <!-- MINNESOTA — new fields -->
-      <div class="field-card visible" data-state="MN">
+      <div class="field-card visible" data-state="MN" data-lat="45.172" data-lng="-93.875">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Minnesota</span><span class="state-rule"></span></div>
         <div class="field-name">Special Forces Paintball</div>
@@ -2378,7 +1913,7 @@
         <a href="https://www.sfpgames.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="MN">
+      <div class="field-card visible" data-state="MN" data-lat="44.65" data-lng="-93.243">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Minnesota</span><span class="state-rule"></span></div>
         <div class="field-name">MN Pro Paintball</div>
@@ -2389,7 +1924,7 @@
       </div>
 
       <!-- WISCONSIN — new fields -->
-      <div class="field-card visible" data-state="WI">
+      <div class="field-card visible" data-state="WI" data-lat="43.797" data-lng="-90.077">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Wisconsin</span><span class="state-rule"></span></div>
         <div class="field-name">Action Sports Wisconsin</div>
@@ -2399,7 +1934,7 @@
         <a href="https://www.actionsportswisconsin.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="WI">
+      <div class="field-card visible" data-state="WI" data-lat="43.039" data-lng="-87.906">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Wisconsin</span><span class="state-rule"></span></div>
         <div class="field-name">Airsoft Arena</div>
@@ -2409,7 +1944,7 @@
         <a href="https://www.facebook.com/AirsoftArenaWi/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="WI">
+      <div class="field-card visible" data-state="WI" data-lat="44.705" data-lng="-88.012">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Wisconsin</span><span class="state-rule"></span></div>
         <div class="field-name">Commando Paintball</div>
@@ -2419,7 +1954,7 @@
         <a href="https://www.commandopaintballsports.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="WI">
+      <div class="field-card visible" data-state="WI" data-lat="42.683" data-lng="-89.019">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Wisconsin</span><span class="state-rule"></span></div>
         <div class="field-name">Edge Paintball and Airsoft</div>
@@ -2430,7 +1965,7 @@
       </div>
 
       <!-- MISSOURI — new fields -->
-      <div class="field-card visible" data-state="MO">
+      <div class="field-card visible" data-state="MO" data-lat="37.021" data-lng="-93.206">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Missouri</span><span class="state-rule"></span></div>
         <div class="field-name">So Go Airsoft</div>
@@ -2440,7 +1975,7 @@
         <a href="https://www.sogoairsoft.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="MO">
+      <div class="field-card visible" data-state="MO" data-lat="37.614" data-lng="-93.41">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Missouri</span><span class="state-rule"></span></div>
         <div class="field-name">The Rock Airsoft</div>
@@ -2450,7 +1985,7 @@
         <a href="https://therockairsoft.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="MO">
+      <div class="field-card visible" data-state="MO" data-lat="39.438" data-lng="-94.204">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Missouri</span><span class="state-rule"></span></div>
         <div class="field-name">MASS — Missouri Airsoft Simulation Site</div>
@@ -2460,7 +1995,7 @@
         <a href="https://www.massairsoft.com/" target="_blank" class="field-link">Visit Field Website</a>
       </div>
 
-      <div class="field-card visible" data-state="MO">
+      <div class="field-card visible" data-state="MO" data-lat="36.594" data-lng="-94.384">
         <div class="card-corner"></div>
         <div class="field-state-row"><span class="field-state">Missouri</span><span class="state-rule"></span></div>
         <div class="field-name">Huckleberry Ridge Airsoft</div>
@@ -2865,309 +2400,319 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 // ═══════════════════════════════════════════════════════
-// TERMINAL + RADAR ANIMATIONS
+// FIELD ATLAS — real-geography map, field pins, range-ring radar
 // ═══════════════════════════════════════════════════════
+// Conic equal-area projection, pre-fitted offline to the map SVG (viewBox 0 0 1000 720).
+const MAP_P = {"rotate":89,"parallels":[38,46],"scale":2931.1733,"translate":[476.4038,2418.3778],"W":1000,"H":720};
+function mapProject(lon, lat) {
+  const R = Math.PI / 180, p0 = MAP_P.parallels[0] * R, p1 = MAP_P.parallels[1] * R;
+  const sy0 = Math.sin(p0), n = (sy0 + Math.sin(p1)) / 2, c = 1 + sy0 * (2 * n - sy0), r0 = Math.sqrt(c) / n;
+  const l = (lon + MAP_P.rotate) * R, r = Math.sqrt(c - 2 * n * Math.sin(lat * R)) / n;
+  return [r * Math.sin(l * n) * MAP_P.scale + MAP_P.translate[0], -(r0 - r * Math.cos(l * n)) * MAP_P.scale + MAP_P.translate[1]];
+}
+function milesBetween(a, b) {
+  const R = Math.PI / 180, dLat = (b.lat - a.lat) * R, dLng = (b.lng - a.lng) * R;
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * R) * Math.cos(b.lat * R) * Math.sin(dLng / 2) ** 2;
+  return 3958.8 * 2 * Math.asin(Math.sqrt(h));
+}
 
-// ── Terminal feed lines ──────────────────────────────
-const LEFT_LINES = [
-  { t:'warn', s:'> SYSTEM BOOT...' },
-  { t:'',     s:'> LOADING AO DATA' },
-  { t:'',     s:'> MIDWEST REGION' },
-  { t:'dim',  s:'  LAT 41.8°N' },
-  { t:'dim',  s:'  LON 87.6°W' },
-  { t:'',     s:'> FIELDS: 21' },
-  { t:'',     s:'> STATES: 8' },
-  { t:'warn', s:'> EVENTS: 40+' },
-  { t:'dim',  s:'---' },
-  { t:'',     s:'> SIGNAL OK' },
-  { t:'dim',  s:'> UPLINK 128K' },
-  { t:'',     s:'> AO CONFIRMED' },
-  { t:'alert',s:'! HOSTILES: ACT' },
-  { t:'dim',  s:'---' },
-  { t:'',     s:'> NEXT OP:' },
-  { t:'warn', s:'  DRAGON TOOTH IX' },
-  { t:'dim',  s:'  2026-03-29' },
-  { t:'dim',  s:'  BING FIELD IL' },
-  { t:'dim',  s:'---' },
-  { t:'',     s:'> BLACKLIST T1' },
-  { t:'dim',  s:'  2026-04-11' },
-  { t:'dim',  s:'  MIR TACTICAL IL' },
-  { t:'dim',  s:'---' },
-  { t:'',     s:'> SCANNING...' },
-  { t:'dim',  s:'  WI: 2 FIELDS' },
-  { t:'dim',  s:'  IL: 4 FIELDS' },
-  { t:'dim',  s:'  IN: 3 FIELDS' },
-  { t:'dim',  s:'  OH: 3 FIELDS' },
-  { t:'dim',  s:'  MN: 2 FIELDS' },
-  { t:'dim',  s:'  MI: 3 FIELDS' },
-  { t:'dim',  s:'  MO: 1 FIELD ' },
-  { t:'dim',  s:'  KS: 1 FIELD ' },
-  { t:'warn', s:'> AO NOMINAL' },
-];
-
-const RIGHT_LINES = [
-  { t:'alert',s:'! THREAT LVL: MED' },
-  { t:'',     s:'> SCANNING...' },
-  { t:'dim',  s:'  SRC: 6 URLS' },
-  { t:'',     s:'> BING FIELD' },
-  { t:'dim',  s:'  STATUS: LIVE' },
-  { t:'',     s:'> TWINCITIES AS' },
-  { t:'dim',  s:'  STATUS: LIVE' },
-  { t:'',     s:'> KAF · KANKAKEE' },
-  { t:'dim',  s:'  STATUS: LIVE' },
-  { t:'',     s:'> BLACK OPS AS' },
-  { t:'dim',  s:'  STATUS: LIVE' },
-  { t:'',     s:'> MIR TACTICAL' },
-  { t:'dim',  s:'  STATUS: LIVE' },
-  { t:'warn', s:'> BLASTCAMP' },
-  { t:'dim',  s:'  STATUS: LIVE' },
-  { t:'dim',  s:'---' },
-  { t:'',     s:'> LAST SCRAPE:' },
-  { t:'dim',  s:'  MON 06:00 UTC' },
-  { t:'',     s:'> NEXT SCRAPE:' },
-  { t:'dim',  s:'  7 DAYS' },
-  { t:'dim',  s:'---' },
-  { t:'warn', s:'! 40+ EVENTS 2026' },
-  { t:'',     s:'> GIANT GAME ×2' },
-  { t:'',     s:'> MILSIM OPS ×4' },
-  { t:'',     s:'> OPEN PLAYS ×∞' },
-  { t:'dim',  s:'---' },
-  { t:'',     s:'> BLACKOPS WI' },
-  { t:'dim',  s:'  WILSIM SAT' },
-  { t:'dim',  s:'  BI-WEEKLY' },
-  { t:'dim',  s:'---' },
-  { t:'alert',s:'! LOCK & LOAD' },
-  { t:'warn', s:'> STANDBY...' },
-];
-
-function buildTermLines(containerId, lines) {
-  const el = document.getElementById(containerId);
-  if (!el) return;
-  el.innerHTML = '';
-  const maxLines = 22;
-  const slice = lines.slice(-maxLines);
-  slice.forEach((l, i) => {
-    const div = document.createElement('div');
-    div.className = 'term-line' + (l.t ? ' ' + l.t : '');
-    div.textContent = l.s;
-    div.style.animationDelay = (i * 60) + 'ms';
-    el.appendChild(div);
+const ATLAS = { fields: [], hold: 0, center: { lat: 41.8781, lng: -87.6298, label: 'Chicago' } };
+(function initAtlas() {
+  const svg = document.getElementById('midwest-map');
+  const g = document.getElementById('map-dots');
+  if (!svg || !g) return;
+  const NS = 'http://www.w3.org/2000/svg';
+  const seen = {};
+  document.querySelectorAll('.field-card[data-lat]').forEach(card => {
+    const lat = +card.dataset.lat, lng = +card.dataset.lng;
+    let [x, y] = mapProject(lng, lat);
+    const key = lat + ',' + lng, k = seen[key] = (seen[key] || 0) + 1;
+    if (k > 1) { x += Math.cos(k * 2.1) * 7; y += Math.sin(k * 2.1) * 7; }   // fan out fields in the same town
+    const f = {
+      card, lat, lng, x, y, state: card.dataset.state,
+      name: card.querySelector('.field-name')?.textContent.trim() || '',
+      loc: card.querySelector('.field-location')?.textContent.trim() || ''
+    };
+    const c = document.createElementNS(NS, 'circle');
+    c.setAttribute('class', 'field-dot');
+    c.setAttribute('data-state', f.state);
+    c.setAttribute('cx', x.toFixed(1));
+    c.setAttribute('cy', y.toFixed(1));
+    c.setAttribute('r', 5);
+    c.addEventListener('mouseenter', e => { showDotTip(f); moveTooltip(e); });
+    c.addEventListener('mousemove', moveTooltip);
+    c.addEventListener('mouseleave', hideTooltip);
+    c.addEventListener('click', e => { e.stopPropagation(); focusField(f); });
+    f.dot = c;
+    g.appendChild(c);
+    ATLAS.fields.push(f);
   });
-}
 
-// cycle through terminal lines continuously
-let leftOffset = 0, rightOffset = 0;
-
-function tickTermLeft() {
-  leftOffset = (leftOffset + 1) % LEFT_LINES.length;
-  const win = LEFT_LINES.slice(leftOffset).concat(LEFT_LINES.slice(0, leftOffset)).slice(0, 22);
-  buildTermLines('term-lines-left', win);
-}
-
-function tickTermRight() {
-  rightOffset = (rightOffset + 3) % RIGHT_LINES.length;
-  const win = RIGHT_LINES.slice(rightOffset).concat(RIGHT_LINES.slice(0, rightOffset)).slice(0, 22);
-  buildTermLines('term-lines-right', win);
-}
-
-// initial render
-buildTermLines('term-lines-left',  LEFT_LINES.slice(0, 22));
-buildTermLines('term-lines-right', RIGHT_LINES.slice(0, 22));
-
-// slow scroll
-setInterval(tickTermLeft,  2800);
-setInterval(tickTermRight, 3400);
-
-// ── Clock ────────────────────────────────────────────
-function updateClock() {
-  const el = document.getElementById('term-clock');
-  if (!el) return;
-  const now = new Date();
-  const hh = String(now.getUTCHours()).padStart(2,'0');
-  const mm = String(now.getUTCMinutes()).padStart(2,'0');
-  const ss = String(now.getUTCSeconds()).padStart(2,'0');
-  el.textContent = hh + ':' + mm + ':' + ss + ' UTC';
-}
-updateClock();
-setInterval(updateClock, 1000);
-
-// ── Mouse coords display ─────────────────────────────
-const mapEl = document.getElementById('midwest-map');
-if (mapEl) {
-  mapEl.addEventListener('mousemove', function(e) {
-    const el = document.getElementById('term-coords');
-    if (!el) return;
-    const rect = mapEl.getBoundingClientRect();
-    // map to approximate lat/lon of midwest
-    const pctX = (e.clientX - rect.left) / rect.width;
-    const pctY = (e.clientY - rect.top)  / rect.height;
-    const lon = (-104 + pctX * 30).toFixed(2);
-    const lat = (49   - pctY * 18).toFixed(2);
-    el.textContent = lat + '°N ' + Math.abs(lon) + '°W';
+  // field counts per state, straight from the cards
+  const counts = {};
+  ATLAS.fields.forEach(f => counts[f.state] = (counts[f.state] || 0) + 1);
+  document.querySelectorAll('#midwest-map .map-state').forEach(p => p.dataset.count = counts[p.dataset.state] || 0);
+  document.querySelectorAll('#midwest-map .map-count').forEach(t => {
+    const n = counts[t.dataset.state] || 0;
+    t.textContent = n + (n === 1 ? ' FIELD' : ' FIELDS');
   });
+  const sf = document.getElementById('stat-fields');
+  if (sf) sf.textContent = document.querySelectorAll('.field-card').length;
+  const sub = document.getElementById('atlas-sub');
+  if (sub) sub.textContent = ATLAS.fields.length + ' fields · ' + Object.keys(counts).length + ' states · range rings from your ZIP';
+
+  fitMapView();
+  addEventListener('resize', fitMapView);
+})();
+
+// phones get a tighter crop around the states that have fields
+function fitMapView() {
+  const svg = document.getElementById('midwest-map');
+  if (!svg) return;
+  const vb = innerWidth < 700 ? '165 15 660 695' : '0 0 1000 720';
+  if (svg.getAttribute('viewBox') !== vb) svg.setAttribute('viewBox', vb);
+  sizeDots();
 }
 
-// ── Stat block ───────────────────────────────────────
-const FIELD_COUNTS = { MN:4, WI:6, MI:10, IL:11, IN:8, OH:12, MO:4, KS:1 };
-function updateStatBlock(state) {
-  const el = document.getElementById('term-statblock');
-  if (!el) return;
-  const rows = state === 'all'
-    ? [
-        { l:'TOTAL FIELDS', v:'56' },
-        { l:'STATES COVERED', v:'8' },
-        { l:'2026 EVENTS', v:'40+' },
-        { l:'MILSIM OPS', v:'4' },
-        { l:'GIANT GAMES', v:'2' },
-      ]
-    : [
-        { l:'STATE', v: state },
-        { l:'FIELDS', v: String(FIELD_COUNTS[state] || 1) },
-        { l:'STATUS', v:'ACTIVE' },
-      ];
-  el.innerHTML = rows.map(r =>
-    `<div class="stat-row"><span class="stat-row-lbl">${r.l}</span><span class="stat-row-val">${r.v}</span></div>`
-  ).join('');
+// keep pins a readable size on small screens
+function sizeDots() {
+  const svg = document.getElementById('midwest-map');
+  if (!svg) return;
+  const w = svg.getBoundingClientRect().width || 1000;
+  const r = Math.min(12, Math.max(5, 3.4 * svg.viewBox.baseVal.width / w));
+  ATLAS.fields.forEach(f => f.dot && f.dot.setAttribute('r', r.toFixed(1)));
 }
-updateStatBlock('all');
 
-// hook into filterState to update stat block
-const _origFilter = filterState;
-filterState = function(state, btn) {
-  _origFilter(state, btn);
-  updateStatBlock(state === activeState ? 'all' : state);
+function showDotTip(f) {
+  if (!tooltip) return;
+  const d = Math.round(milesBetween(ATLAS.center, f));
+  ttName.textContent = f.name;
+  ttSub.textContent = f.loc + ' · ' + d + ' mi from ' + ATLAS.center.label;
+  ttName.setAttribute('x', 10);
+  ttSub.setAttribute('x', 10);
+  ttBg.setAttribute('width', Math.max(f.name.length * 7.6, ttSub.textContent.length * 6.5) + 20);
+  tooltip.style.display = 'block';
+}
 
-  // inject a flash line on state select
-  if (state !== 'all') {
-    RIGHT_LINES.unshift({ t:'alert', s:'> FILTERED: ' + state });
-    RIGHT_LINES.unshift({ t:'warn',  s:'! FIELDS: ' + (FIELD_COUNTS[state]||1) });
-    if (RIGHT_LINES.length > 60) RIGHT_LINES.length = 60;
-    buildTermLines('term-lines-right', RIGHT_LINES.slice(0, 22));
-  }
+// tooltip: follow the pointer but stay inside the map
+moveTooltip = function (e) {
+  if (!tooltip) return;
+  const svg = document.getElementById('midwest-map');
+  const rect = svg.getBoundingClientRect();
+  const vb = svg.viewBox.baseVal;
+  const mx = vb.x + (e.clientX - rect.left) * vb.width / rect.width;
+  const my = vb.y + (e.clientY - rect.top) * vb.height / rect.height;
+  const w = +ttBg.getAttribute('width') || 160;
+  const x = Math.min(mx + 12, vb.x + vb.width - w - 6);
+  const y = my < vb.y + 60 ? my + 16 : my - 52;
+  tooltip.setAttribute('transform', `translate(${x}, ${y})`);
 };
 
-// ── RADAR ─────────────────────────────────────────────
-const rCanvas = document.getElementById('radar-canvas');
-if (rCanvas) {
-  const rCtx = rCanvas.getContext('2d');
-  const W = rCanvas.width, H = rCanvas.height;
-  const cx = W/2, cy = H/2, R = W/2 - 6;
-  let angle = 0;
-  const GREEN  = '#88b420';
-  const GREEN2 = 'rgba(136,180,32,';
-
-  // blips: [angleFraction, radFraction, alpha]
-  const blips = [
-    [0.18, 0.55, 1], [0.42, 0.75, 1], [0.61, 0.42, 1],
-    [0.78, 0.68, 1], [0.92, 0.30, 1], [0.33, 0.88, 1],
-    [0.55, 0.20, 1], [0.12, 0.82, 1],
-  ];
-
-  // fade trail
-  const TRAIL = [];
-
-  function drawRadar() {
-    rCtx.clearRect(0, 0, W, H);
-
-    // dark bg
-    rCtx.fillStyle = '#070a06';
-    rCtx.beginPath();
-    rCtx.arc(cx, cy, R, 0, Math.PI*2);
-    rCtx.fill();
-
-    // range rings
-    [0.25, 0.5, 0.75, 1].forEach(f => {
-      rCtx.beginPath();
-      rCtx.arc(cx, cy, R*f, 0, Math.PI*2);
-      rCtx.strokeStyle = GREEN2 + '0.15)';
-      rCtx.lineWidth = 0.5;
-      rCtx.stroke();
-    });
-
-    // crosshairs
-    rCtx.strokeStyle = GREEN2 + '0.12)';
-    rCtx.lineWidth = 0.5;
-    rCtx.beginPath(); rCtx.moveTo(cx-R, cy); rCtx.lineTo(cx+R, cy); rCtx.stroke();
-    rCtx.beginPath(); rCtx.moveTo(cx, cy-R); rCtx.lineTo(cx, cy+R); rCtx.stroke();
-
-    // sweep trail (last 90° of arc)
-    const trailLen = Math.PI / 2;
-    const grad = rCtx.createConicalGradient
-      ? null // not widely supported, use sector approach
-      : null;
-
-    // draw sweep as a filled arc sector with gradient opacity
-    for (let i = 0; i < 30; i++) {
-      const a0 = angle - trailLen * (i/30);
-      const a1 = angle - trailLen * ((i+1)/30);
-      const alpha = (1 - i/30) * 0.22;
-      rCtx.beginPath();
-      rCtx.moveTo(cx, cy);
-      rCtx.arc(cx, cy, R, a0, a1, true);
-      rCtx.closePath();
-      rCtx.fillStyle = GREEN2 + alpha + ')';
-      rCtx.fill();
-    }
-
-    // sweep line
-    rCtx.beginPath();
-    rCtx.moveTo(cx, cy);
-    rCtx.lineTo(cx + Math.cos(angle)*R, cy + Math.sin(angle)*R);
-    rCtx.strokeStyle = GREEN;
-    rCtx.lineWidth = 1.5;
-    rCtx.shadowColor = GREEN;
-    rCtx.shadowBlur = 6;
-    rCtx.stroke();
-    rCtx.shadowBlur = 0;
-
-    // blips
-    blips.forEach(b => {
-      const ba = b[0] * Math.PI * 2;
-      const br = b[1] * R;
-      const bx = cx + Math.cos(ba)*br;
-      const by = cy + Math.sin(ba)*br;
-
-      // compute how recently swept (delta angle mod 2pi)
-      let delta = (angle - ba) % (Math.PI*2);
-      if (delta < 0) delta += Math.PI*2;
-      const fadeFactor = delta < Math.PI*2 ? Math.max(0, 1 - delta/(Math.PI*2)) : 0;
-
-      if (fadeFactor > 0.01) {
-        rCtx.beginPath();
-        rCtx.arc(bx, by, 2.5, 0, Math.PI*2);
-        rCtx.fillStyle = GREEN2 + (fadeFactor * 0.95) + ')';
-        rCtx.shadowColor = GREEN;
-        rCtx.shadowBlur = fadeFactor * 8;
-        rCtx.fill();
-        rCtx.shadowBlur = 0;
-      }
-    });
-
-    // outer ring
-    rCtx.beginPath();
-    rCtx.arc(cx, cy, R, 0, Math.PI*2);
-    rCtx.strokeStyle = GREEN2 + '0.4)';
-    rCtx.lineWidth = 1;
-    rCtx.stroke();
-
-    // tick marks on outer ring
-    for (let i = 0; i < 36; i++) {
-      const ta = (i / 36) * Math.PI * 2;
-      const len = i % 9 === 0 ? 5 : 2;
-      rCtx.beginPath();
-      rCtx.moveTo(cx + Math.cos(ta)*(R-len), cy + Math.sin(ta)*(R-len));
-      rCtx.lineTo(cx + Math.cos(ta)*R,       cy + Math.sin(ta)*R);
-      rCtx.strokeStyle = GREEN2 + '0.5)';
-      rCtx.lineWidth = 1;
-      rCtx.stroke();
-    }
-
-    angle += 0.025;
-    if (angle > Math.PI*2) angle -= Math.PI*2;
-    requestAnimationFrame(drawRadar);
-  }
-  drawRadar();
+function focusField(f) {
+  ATLAS.hold = performance.now() + 7000;
+  ATLAS.fields.forEach(o => o.dot.classList.toggle('dot-hot', o === f));
+  const out = document.getElementById('atlas-readout');
+  if (!out) return;
+  const d = Math.round(milesBetween(ATLAS.center, f));
+  out.innerHTML = '';
+  const txt = document.createElement('span');
+  txt.textContent = `◎ ${f.name} · ${f.loc} · ${d} mi from ${ATLAS.center.label} `;
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'readout-go';
+  b.textContent = 'View field ↓';
+  b.onclick = () => showCard(f.card);
+  out.append(txt, b);
 }
+
+function showCard(card) {
+  if (!card.classList.contains('visible')) filterState('all');
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  card.classList.add('flash');
+  setTimeout(() => card.classList.remove('flash'), 2200);
+}
+
+// selected-state outline drawn on top so the full border reads clearly
+function syncMapSel(state) {
+  const svg = document.getElementById('midwest-map');
+  const out = document.getElementById('map-sel-outline');
+  if (!svg || !out) return;
+  const p = state && state !== 'all' ? document.getElementById('map-' + state) : null;
+  svg.classList.toggle('has-sel', !!p);
+  out.setAttribute('d', p ? p.getAttribute('d') : '');
+}
+const _mapFilterState = mapFilterState;
+mapFilterState = function (state) { _mapFilterState(state); syncMapSel(window.mapActiveState); };
+const _filterState = filterState;
+filterState = function (state, btn) { _filterState(state, btn); syncMapSel(activeState); };
+
+// ── Range-ring radar: rings every 50 mi from your ZIP, sweep lights up fields ──
+(function rangeRings() {
+  const cv = document.getElementById('rings-canvas');
+  const svg = document.getElementById('midwest-map');
+  if (!cv || !svg) return;
+  const ctx = cv.getContext('2d');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let w = 0, h = 0, k = 1, visible = true, running = false, last = null;
+
+  function size() {
+    const dpr = Math.min(2, devicePixelRatio || 1);
+    w = cv.clientWidth; h = cv.clientHeight; k = w / svg.viewBox.baseVal.width;
+    cv.width = w * dpr; cv.height = h * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function draw(t) {
+    if (!w) size();
+    ctx.clearRect(0, 0, w, h);
+    const vb = svg.viewBox.baseVal;
+    k = w / vb.width;
+    const C = ATLAS.center;
+    const [hx0, hy0] = mapProject(C.lng, C.lat);
+    const hx = (hx0 - vb.x) * k, hy = (hy0 - vb.y) * k;
+    const pxPerMile = Math.hypot(...[0, 1].map(i => mapProject(C.lng, C.lat + 1)[i] - [hx0, hy0][i])) * k / 69.05;
+    const maxR = 300 * pxPerMile;
+    const a = reduce ? -Math.PI / 4 : (t * 0.0008) % (Math.PI * 2);
+
+    // sweep wedge
+    if (!reduce) {
+      for (let i = 0; i < 24; i++) {
+        ctx.beginPath(); ctx.moveTo(hx, hy);
+        ctx.arc(hx, hy, maxR, a - 0.75 * (i + 1) / 24, a - 0.75 * i / 24 + 0.004);
+        ctx.closePath(); ctx.fillStyle = `rgba(184,68,26,${0.13 * (1 - i / 24)})`; ctx.fill();
+      }
+      ctx.strokeStyle = 'rgba(184,68,26,.75)'; ctx.lineWidth = 1.4;
+      ctx.beginPath(); ctx.moveTo(hx, hy); ctx.lineTo(hx + Math.cos(a) * maxR, hy + Math.sin(a) * maxR); ctx.stroke();
+    }
+
+    // rings
+    ctx.setLineDash([5, 4]);
+    for (let mi = 50; mi <= 300; mi += 50) {
+      const major = mi % 100 === 0;
+      ctx.strokeStyle = `rgba(184,68,26,${major ? 0.7 : 0.35})`; ctx.lineWidth = major ? 1.3 : 0.9;
+      ctx.beginPath(); ctx.arc(hx, hy, mi * pxPerMile, 0, Math.PI * 2); ctx.stroke();
+      if (major && w > 480) {
+        const lx = hx + mi * pxPerMile * 0.707, ly = hy - mi * pxPerMile * 0.707;
+        ctx.font = `600 ${Math.max(10, 11 * k)}px "IBM Plex Mono", monospace`;
+        ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(236,229,210,.9)'; ctx.setLineDash([]);
+        ctx.strokeText(mi + ' MI', lx + 3, ly - 3); ctx.fillStyle = '#8c3413'; ctx.fillText(mi + ' MI', lx + 3, ly - 3);
+        ctx.setLineDash([5, 4]);
+      }
+    }
+    ctx.setLineDash([]);
+
+    // fields caught by the sweep
+    const sel = window.mapActiveState && window.mapActiveState !== 'all' ? window.mapActiveState : null;
+    for (const f of ATLAS.fields) {
+      const miles = milesBetween(C, f);
+      if (miles > 300 || (sel && f.state !== sel)) continue;
+      const fx = (f.x - vb.x) * k, fy = (f.y - vb.y) * k;
+      const ang = Math.atan2(fy - hy, fx - hx);
+      const d = ((a - ang) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);
+      if (!reduce && d < 0.9) {
+        const v = 1 - d / 0.9;
+        ctx.strokeStyle = `rgba(184,68,26,${v * 0.8})`; ctx.lineWidth = 1.6;
+        ctx.beginPath(); ctx.arc(fx, fy, 6 + (1 - v) * 18, 0, Math.PI * 2); ctx.stroke();
+      }
+      if (!reduce && d < 0.05 && last !== f && performance.now() > ATLAS.hold) {
+        last = f;
+        const out = document.getElementById('atlas-readout');
+        if (out) out.textContent = `◎ Contact: ${f.name} · ${f.loc} · ${Math.round(miles)} mi`;
+      }
+    }
+
+    // home marker
+    ctx.fillStyle = '#2a2418';
+    ctx.beginPath(); ctx.arc(hx, hy, 4.5, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = '#b8441a'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.arc(hx, hy, 9, 0, Math.PI * 2); ctx.stroke();
+    ctx.font = `700 ${Math.max(10, 12 * k)}px "IBM Plex Sans Condensed", sans-serif`;
+    ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(236,229,210,.95)';
+    ctx.strokeText('YOU · ' + C.label.toUpperCase(), hx + 13, hy + 4);
+    ctx.fillStyle = '#2a2418'; ctx.fillText('YOU · ' + C.label.toUpperCase(), hx + 13, hy + 4);
+  }
+
+  function loop(t) {
+    if (!visible) { running = false; return; }
+    draw(t);
+    requestAnimationFrame(loop);
+  }
+  function start() { if (reduce) { draw(0); return; } if (!running) { running = true; requestAnimationFrame(loop); } }
+
+  new IntersectionObserver(es => { visible = es[0].isIntersecting; if (visible) start(); }).observe(cv);
+  addEventListener('resize', () => { size(); if (reduce) draw(0); });
+  ATLAS.redraw = () => { if (reduce) draw(0); };
+  size(); start();
+})();
+
+// ── Where the rings are centred: ZIP (zippopotam.us) or device location, remembered ──
+function setAtlasCenter(lat, lng, label, save) {
+  ATLAS.center = { lat, lng, label };
+  if (save) { try { localStorage.setItem('mwa-center', JSON.stringify(ATLAS.center)); } catch (e) {} }
+  const near = document.getElementById('nearest');
+  if (near) {
+    const top = ATLAS.fields.map(f => ({ f, d: milesBetween(ATLAS.center, f) })).sort((a, b) => a.d - b.d).slice(0, 4);
+    near.innerHTML = '<span class="nearest-lbl">Nearest to ' + label.replace(/[<>&]/g, '') + '</span>';
+    top.forEach(({ f, d }) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = f.name + ' ';
+      const em = document.createElement('em');
+      em.textContent = Math.round(d) + ' mi';
+      b.append(em);
+      b.onclick = () => { focusField(f); showCard(f.card); };
+      near.append(b);
+    });
+  }
+  if (ATLAS.redraw) ATLAS.redraw();
+}
+(function atlasControls() {
+  const form = document.getElementById('zip-form');
+  const input = document.getElementById('zip-in');
+  const status = document.getElementById('zip-status');
+  const geo = document.getElementById('geo-btn');
+  if (!form) return;
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem('mwa-center') || 'null'); } catch (e) {}
+  if (saved && isFinite(saved.lat) && isFinite(saved.lng)) setAtlasCenter(+saved.lat, +saved.lng, String(saved.label || 'Saved'), false);
+  else setAtlasCenter(ATLAS.center.lat, ATLAS.center.lng, ATLAS.center.label, false);
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const zip = (input.value || '').trim();
+    if (!/^\d{5}$/.test(zip)) { status.textContent = 'Enter a 5-digit ZIP'; return; }
+    status.textContent = 'Locating ' + zip + '…';
+    try {
+      const r = await fetch('https://api.zippopotam.us/us/' + zip);
+      if (!r.ok) throw new Error('nf');
+      const j = await r.json();
+      const p = j.places && j.places[0];
+      if (!p) throw new Error('nf');
+      setAtlasCenter(+p.latitude, +p.longitude, p['place name'] + ' ' + zip, true);
+      status.textContent = '';
+    } catch (err) {
+      status.textContent = 'ZIP not found — try another';
+    }
+  });
+  if (geo) geo.addEventListener('click', () => {
+    if (!navigator.geolocation) { status.textContent = 'Location not available'; return; }
+    status.textContent = 'Finding you…';
+    navigator.geolocation.getCurrentPosition(
+      p => { setAtlasCenter(p.coords.latitude, p.coords.longitude, 'your location', true); status.textContent = ''; },
+      () => { status.textContent = 'Location blocked — use your ZIP'; },
+      { timeout: 10000, maximumAge: 600000 }
+    );
+  });
+})();
+
+// hide month filters for months that are already over
+(function hidePastMonths() {
+  const now = new Date().getMonth() + 1;
+  document.querySelectorAll('.ev-fbtn[onclick*="\'month\'"]').forEach(b => {
+    const m = +((b.getAttribute('onclick').match(/'month',\s*(\d+)/) || [])[1]);
+    if (m && m < now) b.classList.add('past');
+  });
+})();
 
 // ─── MOBILE: FIX TILE COUNTS ─────────────────────────────
 // Mobile state picker counts were hardcoded and stale.
@@ -3332,6 +2877,8 @@ document.querySelectorAll('.mob-state-tile[data-state]').forEach(tile => {
       // update header meta count
       const meta = document.querySelector('#events .sec-meta');
       if (meta) meta.textContent = events.length + ' upcoming';
+      const se = document.getElementById('stat-events');
+      if (se) se.textContent = events.length;
 
       // re-apply any active filters
       applyEvFilters();
