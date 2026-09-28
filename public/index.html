@@ -876,7 +876,8 @@
   @media (max-width: 768px) {
     /* Header */
     .hdr-inner       { grid-template-columns: 1fr; padding: 28px 18px 22px; gap: 16px; }
-    .hdr-stats       { flex-direction: row; align-items: flex-start; gap: 8px; }
+    .hdr-stats       { flex-direction: row; align-items: stretch; gap: 8px; }
+    .hdr-stats .stat-block { flex: 1; min-width: 0; margin-top: 0 !important; display: flex; flex-direction: column; justify-content: space-between; }
     .stat-block      { min-width: 100px; padding: 10px 14px; }
     .stat-val        { font-size: 32px; }
     .hdr-mark        { display: none; }
@@ -1004,6 +1005,8 @@
   .ev-filter-row::-webkit-scrollbar { display: none; }
   .ev-fbtn, .ev-filter-lbl { flex: none; white-space: nowrap; }
   .ev-fbtn.past { display: none; }
+  .state-btn .cnt, .ev-fbtn .cnt { margin-left: 7px; opacity: .6; font-weight: 400; }
+  .state-btn.empty, .ev-fbtn.empty { opacity: .45; }
   .ev-month { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; padding: 0 6px; }
 
   /* ═══════════ FIELD ATLAS (map + range-ring radar) ═══════════ */
@@ -1177,6 +1180,10 @@
         <span class="stat-lbl">Upcoming Events</span>
         <span class="stat-val" id="stat-events">—</span>
       </div>
+      <div class="stat-block" style="margin-top:2px">
+        <span class="stat-lbl">MilSim Ops</span>
+        <span class="stat-val" id="stat-milsim">—</span>
+      </div>
     </div>
   </div>
 </header>
@@ -1274,6 +1281,7 @@
         <button class="ev-fbtn" onclick="evFilter('month',9,this)">Sep</button>
         <button class="ev-fbtn" onclick="evFilter('month',10,this)">Oct</button>
         <button class="ev-fbtn" onclick="evFilter('month',11,this)">Nov</button>
+        <button class="ev-fbtn" onclick="evFilter('month',12,this)">Dec</button>
       </div>
     </div>
 
@@ -1288,7 +1296,7 @@
         <div class="sec-eyebrow">Intel · Confirmed Locations</div>
         <div class="sec-title">Fields</div>
       </div>
-      <div class="sec-meta" id="field-count">56 locations</div>
+      <div class="sec-meta" id="field-count"></div>
     </div>
 
 
@@ -2715,6 +2723,45 @@ function setAtlasCenter(lat, lng, label, save) {
   });
 })();
 
+// ─── LIVE COUNTS: every number on the page comes from the data ──────
+function setCount(btn, n) {
+  let c = btn.querySelector('.cnt');
+  if (!c) { c = document.createElement('span'); c.className = 'cnt'; btn.append(c); }
+  c.textContent = n;
+  btn.classList.toggle('empty', n === 0);
+}
+(function liveFieldCounts() {
+  const cards = [...document.querySelectorAll('.field-card')];
+  const fc = document.getElementById('field-count');
+  if (fc) fc.textContent = cards.length + ' locations';
+  const sf = document.getElementById('stat-fields');
+  if (sf) sf.textContent = cards.length;
+  document.querySelectorAll('.state-btn').forEach(b => {
+    const st = b.id.replace('btn-', '');
+    setCount(b, st === 'all' ? cards.length : cards.filter(c => c.dataset.state === st).length);
+  });
+})();
+function liveEventCounts(events) {
+  const rows = [...document.querySelectorAll('.event-row')];
+  const venue = r => r.querySelector('.ev-venue')?.textContent || '';
+  const monthOf = r => MONTH_MAP[(r.querySelector('.ev-month')?.textContent || '').slice(0, 3)];
+  const dated = rows.filter(r => !RECURRING.some(x => (r.querySelector('.ev-month')?.textContent || '').includes(x)));
+  document.querySelectorAll('.ev-filter-row:first-child .ev-fbtn').forEach(b => {
+    const st = (b.getAttribute('onclick').match(/'state',\s*'(\w+)'/) || [])[1];
+    setCount(b, st === 'all' ? rows.length : rows.filter(r => new RegExp(`[,·]\\s*${st}\\b`).test(venue(r))).length);
+  });
+  document.querySelectorAll('.ev-filter-row:nth-child(2) .ev-fbtn').forEach(b => {
+    const m = +((b.getAttribute('onclick').match(/'month',\s*(\d+)/) || [])[1]);
+    const n = m ? dated.filter(r => monthOf(r) === m).length : rows.length;
+    setCount(b, n);
+    if (m && n === 0) b.classList.add('past');
+  });
+  const se = document.getElementById('stat-events');
+  if (se) se.textContent = events.length;
+  const sm = document.getElementById('stat-milsim');
+  if (sm) sm.textContent = events.filter(e => e.type === 'milsim').length;
+}
+
 // ─── MOBILE: FIX TILE COUNTS ─────────────────────────────
 // Mobile state picker counts were hardcoded and stale.
 // Read actual field counts from the DOM and update them.
@@ -2880,6 +2927,8 @@ document.querySelectorAll('.mob-state-tile[data-state]').forEach(tile => {
       if (meta) meta.textContent = events.length + ' upcoming';
       const se = document.getElementById('stat-events');
       if (se) se.textContent = events.length;
+
+      liveEventCounts(events);
 
       // re-apply any active filters
       applyEvFilters();
