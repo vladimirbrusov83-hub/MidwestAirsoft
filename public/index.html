@@ -1125,7 +1125,8 @@
   }
   .nearest button em { font: 11px 'IBM Plex Mono', monospace; font-style: normal; color: var(--green); }
   .nearest button:hover { border-color: var(--green); }
-  .field-card.flash { outline: 2px solid var(--green); outline-offset: -2px; }
+  .field-card.flash { outline: 2px solid var(--green); outline-offset: -2px; animation: cardFlash 2.2s ease; }
+  @keyframes cardFlash { 0%, 30% { background: #f3d6c4; } 100% { background: var(--panel); } }
 
   @media (max-width: 768px) {
     .atlas-bar { padding: 12px; gap: 10px; }
@@ -2442,7 +2443,7 @@ const ATLAS = { fields: [], hold: 0, center: { lat: 41.8781, lng: -87.6298, labe
     c.addEventListener('mouseenter', e => { showDotTip(f); moveTooltip(e); });
     c.addEventListener('mousemove', moveTooltip);
     c.addEventListener('mouseleave', hideTooltip);
-    c.addEventListener('click', e => { e.stopPropagation(); focusField(f); });
+    c.addEventListener('click', e => { e.stopPropagation(); hideTooltip(); focusField(f); showCard(f.card); });
     f.dot = c;
     g.appendChild(c);
     ATLAS.fields.push(f);
