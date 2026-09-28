@@ -889,11 +889,13 @@
 
     /* Nav */
     nav              { position: sticky; top: 0; z-index: 100; }
-    .nav-inner       { padding: 0 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .nav-inner       { padding: 0 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    nav ul           { flex: 1; justify-content: space-between; align-items: center; }
+    nav .nav-idx, nav .nav-long { display: none; }
     .nav-inner::-webkit-scrollbar { display: none; }
-    nav a            { padding: 15px 14px; font-size: 10.5px; letter-spacing: 1.5px; white-space: nowrap; }
+    nav a            { padding: 15px 7px; font-size: 10.5px; letter-spacing: 1.2px; white-space: nowrap; }
     .nav-tail        { display: none; }
-    a.nav-tool-link  { margin-left: 6px; padding: 8px 10px !important; font-size: 9.5px !important; letter-spacing: 1px !important; clip-path: polygon(5px 0%, 100% 0%, calc(100% - 5px) 100%, 0% 100%); }
+    a.nav-tool-link  { margin-left: 2px; padding: 8px 10px !important; font-size: 9.5px !important; letter-spacing: 1px !important; clip-path: polygon(5px 0%, 100% 0%, calc(100% - 5px) 100%, 0% 100%); }
     a.nav-tool-link .nav-idx { display: none; }
 
     /* Main layout */
@@ -1202,7 +1204,7 @@
         <span class="nav-idx">03</span> Submit Intel
       </a></li>
       <li><a href="https://ballistics.midwestairsoft.space" target="_blank" class="nav-tool-link">
-        <span class="nav-idx">⊕</span> Airsoft Ballistics
+        <span class="nav-idx">⊕</span> <span class="nav-long">Airsoft </span>Ballistics
       </a></li>
 
     </ul>
