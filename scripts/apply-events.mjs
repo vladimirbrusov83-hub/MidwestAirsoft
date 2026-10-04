@@ -26,11 +26,14 @@ if (file && existsSync(file)) {
     const rec = seed.events.find(e => e.date === 'recurring' && (e.fieldId === f.id || (e.venue || '').startsWith(f.name)));
     if (rec && (n.type || 'open') === 'open') { skipped.push(`${n.fieldId} ${n.date}: covered by recurring "${rec.name}"`); continue; }
     const loc = f.location;
+    // Field has rental gear → beginner friendly, unless the event says beginner:false (Tier 1 / outside-hosted ops)
+    const beginner = n.beginner ?? allFields.some(x => x.id === f.id && x.rentals);
     seed.events.push({
       date: n.date, name: n.name, type: n.type || 'open', price: n.price || 'TBD',
       url: n.url || f.url, venue: n.venue || `${f.name} · ${loc}`, state: f.state,
       ...(n.badge && { badge: n.badge }),
       fieldId: f.id, fieldName: f.name, location: loc,
+      ...(beginner && { beginner: true }),
     });
     added++;
   }

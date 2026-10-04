@@ -170,7 +170,8 @@
         "Big Games",
         "MilSim"
       ],
-      "url": "https://biglaketactical.zohosites.com/schedule"
+      "url": "https://biglaketactical.zohosites.com/schedule",
+      "rentals": true
     }
   ],
   "events": [
@@ -183,7 +184,8 @@
       "venue": "The Den Airsoft · New Philadelphia, OH",
       "state": "OH",
       "badge": "Open Play",
-      "base": true
+      "base": true,
+      "beginner": true
     },
     {
       "date": "2026-10-03",
@@ -194,7 +196,8 @@
       "venue": "TC Paintball North · Copemish, MI",
       "state": "MI",
       "badge": "Special Event",
-      "base": true
+      "base": true,
+      "beginner": true
     },
     {
       "date": "2026-10-03",
@@ -205,7 +208,8 @@
       "venue": "Twin Cities Airsoft · Minneapolis/St. Paul Metro, MN",
       "state": "MN",
       "badge": "Scenario Weekend",
-      "base": true
+      "base": true,
+      "beginner": true
     },
     {
       "date": "2026-10-03",
@@ -217,7 +221,8 @@
       "state": "MN",
       "badge": "Big Game",
       "fieldId": "biglake",
-      "base": true
+      "base": true,
+      "beginner": true
     },
     {
       "date": "2026-10-10",
@@ -228,7 +233,8 @@
       "venue": "Futureball · Whitmore Lake, MI · 1-day or 2-day",
       "state": "MI",
       "badge": "Big Game",
-      "base": true
+      "base": true,
+      "beginner": true
     },
     {
       "date": "2026-10-17",
@@ -239,7 +245,8 @@
       "venue": "The Den Airsoft · New Philadelphia, OH",
       "state": "OH",
       "badge": "Night Game",
-      "base": true
+      "base": true,
+      "beginner": true
     },
     {
       "date": "2026-10-17",
@@ -250,7 +257,8 @@
       "venue": "Futureball · Whitmore Lake, MI",
       "state": "MI",
       "badge": "Big Game",
-      "base": true
+      "base": true,
+      "beginner": true
     },
     {
       "date": "2026-10-17",
@@ -262,7 +270,8 @@
       "state": "MN",
       "badge": "MilSim",
       "fieldId": "biglake",
-      "base": true
+      "base": true,
+      "beginner": true
     },
     {
       "date": "2026-10-17",
@@ -273,7 +282,8 @@
       "venue": "Big Pearl Paintball · Conneaut, OH",
       "state": "OH",
       "badge": "Open Play",
-      "base": true
+      "base": true,
+      "beginner": true
     },
     {
       "date": "2026-10-27",
@@ -284,7 +294,8 @@
       "venue": "TC Paintball North · Copemish, MI",
       "state": "MI",
       "badge": "Special Event",
-      "base": true
+      "base": true,
+      "beginner": true
     },
     {
       "date": "2026-10-31",
@@ -295,7 +306,8 @@
       "venue": "Twin Cities Airsoft · Minneapolis/St. Paul Metro, MN",
       "state": "MN",
       "badge": "Special Event",
-      "base": true
+      "base": true,
+      "beginner": true
     },
     {
       "date": "2026-10-31",
@@ -307,7 +319,8 @@
       "state": "MN",
       "badge": "Big Game",
       "fieldId": "biglake",
-      "base": true
+      "base": true,
+      "beginner": true
     },
     {
       "date": "2026-11-07",
@@ -318,7 +331,8 @@
       "venue": "Twin Cities Airsoft · Minneapolis/St. Paul Metro, MN",
       "state": "MN",
       "badge": "Scenario Weekend",
-      "base": true
+      "base": true,
+      "beginner": true
     },
     {
       "date": "2026-11-07",
@@ -329,7 +343,8 @@
       "venue": "MASS · Lawson, MO",
       "state": "MO",
       "badge": "MilSim",
-      "base": true
+      "base": true,
+      "beginner": true
     },
     {
       "date": "2026-11-07",
@@ -353,7 +368,8 @@
       "venue": "Futureball · Whitmore Lake, MI",
       "state": "MI",
       "badge": "Special Event",
-      "base": true
+      "base": true,
+      "beginner": true
     },
     {
       "date": "2026-11-14",
@@ -364,7 +380,8 @@
       "venue": "The Den Airsoft · New Philadelphia, OH · Veteran appreciation game day",
       "state": "OH",
       "badge": "Special Event",
-      "base": true
+      "base": true,
+      "beginner": true
     },
     {
       "date": "2026-11-14",
@@ -376,7 +393,8 @@
       "state": "MN",
       "badge": "MilSim",
       "fieldId": "biglake",
-      "base": true
+      "base": true,
+      "beginner": true
     },
     {
       "date": "2026-11-28",
@@ -387,7 +405,8 @@
       "venue": "The Den Airsoft · New Philadelphia, OH",
       "state": "OH",
       "badge": "Open Play",
-      "base": true
+      "base": true,
+      "beginner": true
     },
     {
       "date": "2026-12-05",
@@ -400,7 +419,8 @@
       "badge": "MilSim",
       "fieldId": "massairsoft",
       "fieldName": "MASS",
-      "location": "Lawson, MO"
+      "location": "Lawson, MO",
+      "beginner": true
     },
     {
       "date": "2026-12-12",
@@ -424,7 +444,8 @@
       "venue": "Twin Cities Airsoft · Minneapolis/St. Paul Metro, MN",
       "state": "MN",
       "badge": "Special Event",
-      "base": true
+      "base": true,
+      "beginner": true
     },
     {
       "date": "recurring",
@@ -437,7 +458,8 @@
       "badge": "Big Game",
       "base": true,
       "recurringLabel": "Monthly",
-      "recurringDay": "∞"
+      "recurringDay": "∞",
+      "beginner": true
     },
     {
       "date": "recurring",
@@ -450,7 +472,8 @@
       "badge": "Full-Day Op",
       "base": true,
       "recurringLabel": "Monthly",
-      "recurringDay": "∞"
+      "recurringDay": "∞",
+      "beginner": true
     },
     {
       "date": "recurring",
@@ -463,7 +486,8 @@
       "badge": "Open Play",
       "base": true,
       "recurringLabel": "May–Nov",
-      "recurringDay": "∞"
+      "recurringDay": "∞",
+      "beginner": true
     },
     {
       "date": "recurring",
@@ -476,7 +500,8 @@
       "badge": "Open Play",
       "base": true,
       "recurringLabel": "Sat–Sun",
-      "recurringDay": "∞"
+      "recurringDay": "∞",
+      "beginner": true
     },
     {
       "date": "recurring",
@@ -489,7 +514,8 @@
       "badge": "WilSim / MilSim",
       "base": true,
       "recurringLabel": "Bi-Weekly",
-      "recurringDay": "∞"
+      "recurringDay": "∞",
+      "beginner": true
     },
     {
       "date": "recurring",
@@ -502,7 +528,8 @@
       "recurringDay": "∞",
       "base": true,
       "fieldName": "Hell Survivors",
-      "location": "Pinckney, MI"
+      "location": "Pinckney, MI",
+      "beginner": true
     },
     {
       "date": "recurring",
@@ -518,7 +545,8 @@
       "recurringDay": "∞",
       "fieldId": "hellsurvivors",
       "fieldName": "Hell Survivors",
-      "location": "Pinckney, MI"
+      "location": "Pinckney, MI",
+      "beginner": true
     }
   ]
 }

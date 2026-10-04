@@ -650,6 +650,21 @@
     letter-spacing: .3px;
   }
 
+  .ev-beginner {
+    display: inline-block;
+    align-self: flex-start;
+    margin-top: 5px;
+    padding: 2px 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: #4d6b2e;
+    background: rgba(77, 107, 46, 0.08);
+    border: 1px solid rgba(77, 107, 46, 0.45);
+  }
+
   .ev-right {
     display: flex;
     flex-direction: column;
@@ -2873,6 +2888,7 @@ document.querySelectorAll('.mob-state-tile[data-state]').forEach(tile => {
       <div class="ev-body">
         <div class="ev-name">${ev.name}</div>
         <div class="ev-venue">${ev.venue || ''}</div>
+        ${ev.beginner ? '<div class="ev-beginner" title="Field rents gear, so you can show up without your own">Beginner friendly</div>' : ''}
       </div>
       <div class="ev-right">
         <div class="ev-price">${ev.price || 'TBD'}</div>
