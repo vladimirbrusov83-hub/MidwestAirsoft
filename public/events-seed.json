@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-10-10T00:45:49.531Z",
-  "nextUpdate": "2026-10-17T00:45:49.531Z",
+  "lastUpdated": "2026-10-10T01:08:02.375Z",
+  "nextUpdate": "2026-10-17T01:08:02.375Z",
   "note": "Base events manually curated. Auto-update merges new Groq-extracted events weekly.",
   "fields": [
     {
@@ -288,6 +288,20 @@
       "beginner": false
     },
     {
+      "date": "2026-10-24",
+      "name": "Willy's Wild Wasteland (2-day)",
+      "type": "milsim",
+      "price": "TBD",
+      "url": "https://www.blackops-airsoft.com/",
+      "venue": "Black Ops Airsoft · Bristol, WI (near Kenosha / Chicago border)",
+      "state": "WI",
+      "badge": "MilSim",
+      "fieldId": "blackops",
+      "fieldName": "Black Ops Airsoft",
+      "location": "Bristol, WI (near Kenosha / Chicago border)",
+      "beginner": true
+    },
+    {
       "date": "2026-10-25",
       "name": "Operation Dark Harvest XVI",
       "type": "big",
@@ -300,6 +314,19 @@
       "fieldName": "Bing Field Airsoft & Paintball Park",
       "location": "Alton, IL (St. Louis Metro)",
       "beginner": true
+    },
+    {
+      "date": "2026-10-25",
+      "name": "2026 Fall Big Game",
+      "type": "big",
+      "price": "TBD",
+      "url": "https://www.splatterpark.com/",
+      "venue": "Splatter Park · Mount Gilead, OH",
+      "state": "OH",
+      "badge": "Big Game",
+      "fieldId": "splatterpark",
+      "fieldName": "Splatter Park",
+      "location": "Mount Gilead, OH"
     },
     {
       "date": "2026-10-27",
@@ -452,6 +479,20 @@
       "beginner": true
     },
     {
+      "date": "2026-11-21",
+      "name": "OP Nuclear Winter",
+      "type": "big",
+      "price": "TBD",
+      "url": "https://www.blackops-airsoft.com/",
+      "venue": "Black Ops Airsoft · Bristol, WI (near Kenosha / Chicago border)",
+      "state": "WI",
+      "badge": "Big Game",
+      "fieldId": "blackops",
+      "fieldName": "Black Ops Airsoft",
+      "location": "Bristol, WI (near Kenosha / Chicago border)",
+      "beginner": true
+    },
+    {
       "date": "2026-11-28",
       "name": "Open Play",
       "type": "open",
@@ -489,6 +530,20 @@
       "fieldId": "mirtactical",
       "fieldName": "MiR Tactical HQ — Buffalo Grove",
       "location": "Buffalo Grove, IL"
+    },
+    {
+      "date": "2026-12-19",
+      "name": "Frightmare B4 Christmas",
+      "type": "big",
+      "price": "TBD",
+      "url": "https://www.blackops-airsoft.com/",
+      "venue": "Black Ops Airsoft · Bristol, WI (near Kenosha / Chicago border)",
+      "state": "WI",
+      "badge": "Big Game",
+      "fieldId": "blackops",
+      "fieldName": "Black Ops Airsoft",
+      "location": "Bristol, WI (near Kenosha / Chicago border)",
+      "beginner": true
     },
     {
       "date": "2026-12-26",
