@@ -86,8 +86,8 @@ function extractEventText(html) {
     return true;
   });
 
-  // Cap at ~1800 chars so the report stays compact
-  return deduped.join("\n").slice(0, 1800);
+  // Cap so the report stays compact (1800 cut off later events on long schedule pages)
+  return deduped.join("\n").slice(0, 5000);
 }
 
 // ── RSS XML → compact event text ─────────────────────────────────────────────
