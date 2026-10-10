@@ -2519,11 +2519,16 @@ document.querySelectorAll('.field-card').forEach(c => {
 });
 const _filterStateSync = filterState;
 filterState = function (state, btn) {
+  // the events list above shrinks/grows with the state, so keep the clicked pill where it was on screen
+  const anchor = btn && btn.getBoundingClientRect ? btn : null;
+  const before = anchor ? anchor.getBoundingClientRect().top : 0;
   _filterStateSync(state, btn);
-  if (window.stateSyncLock) return;
-  window.stateSyncLock = true;
-  try { const b = evBtnFor(activeState); if (b) evFilter('state', activeState, b); }
-  finally { window.stateSyncLock = false; }
+  if (!window.stateSyncLock) {
+    window.stateSyncLock = true;
+    try { const b = evBtnFor(activeState); if (b) evFilter('state', activeState, b); }
+    finally { window.stateSyncLock = false; }
+  }
+  if (anchor) window.scrollBy({ top: anchor.getBoundingClientRect().top - before, behavior: 'instant' });
 };
 const _mapFilterStateSync = mapFilterState;
 mapFilterState = function (state) {
