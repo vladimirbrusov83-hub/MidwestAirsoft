@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-10-10T00:43:26.815Z",
-  "nextUpdate": "2026-10-17T00:43:26.815Z",
+  "lastUpdated": "2026-10-10T00:45:49.531Z",
+  "nextUpdate": "2026-10-17T00:45:49.531Z",
   "note": "Base events manually curated. Auto-update merges new Groq-extracted events weekly.",
   "fields": [
     {
@@ -275,6 +275,17 @@
       "fieldName": "Hole in the Wall Paintball",
       "location": "Bangor, MI",
       "beginner": true
+    },
+    {
+      "date": "2026-10-24",
+      "name": "Green vs Tan (hosted by Sektor7)",
+      "type": "big",
+      "price": "$35",
+      "url": "https://www.sektor7airsoft.com/event-details/green-vs-tan-6",
+      "venue": "The Den Airsoft · New Philadelphia, OH · 8 AM–6 PM, pick Green or Tan team",
+      "state": "OH",
+      "badge": "Big Game",
+      "beginner": false
     },
     {
       "date": "2026-10-25",
