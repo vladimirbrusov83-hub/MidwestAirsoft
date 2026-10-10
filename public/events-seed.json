@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-10-10T00:27:00.498Z",
-  "nextUpdate": "2026-10-17T00:27:00.498Z",
+  "lastUpdated": "2026-10-10T00:32:09.106Z",
+  "nextUpdate": "2026-10-17T00:32:09.106Z",
   "note": "Base events manually curated. Auto-update merges new Groq-extracted events weekly.",
   "fields": [
     {
@@ -188,6 +188,19 @@
       "beginner": true
     },
     {
+      "date": "2026-10-16",
+      "name": "Airsoft Night Game (last until Spring 2027)",
+      "type": "open",
+      "price": "$20",
+      "url": "https://bingfield.com/index.php/2026/10/01/airsoft-night-game-40/",
+      "venue": "Bing Field Airsoft & Paintball Park · Alton, IL (St. Louis Metro)",
+      "state": "MO",
+      "fieldId": "bingfield",
+      "fieldName": "Bing Field Airsoft & Paintball Park",
+      "location": "Alton, IL (St. Louis Metro)",
+      "beginner": true
+    },
+    {
       "date": "2026-10-17",
       "name": "Night Game",
       "type": "open",
@@ -234,6 +247,20 @@
       "state": "OH",
       "badge": "Open Play",
       "base": true,
+      "beginner": true
+    },
+    {
+      "date": "2026-10-25",
+      "name": "Operation Dark Harvest XVI",
+      "type": "big",
+      "price": "$30",
+      "url": "https://bingfield.com/index.php/2026/10/01/operation-dark-harvest-xvi-airsoft-big-game/",
+      "venue": "Bing Field Airsoft & Paintball Park · Alton, IL (St. Louis Metro)",
+      "state": "MO",
+      "badge": "Big Game",
+      "fieldId": "bingfield",
+      "fieldName": "Bing Field Airsoft & Paintball Park",
+      "location": "Alton, IL (St. Louis Metro)",
       "beginner": true
     },
     {
@@ -309,6 +336,19 @@
       "fieldId": "therockairsoft",
       "fieldName": "The Rock Airsoft",
       "location": "Bolivar, MO"
+    },
+    {
+      "date": "2026-11-07",
+      "name": "American Milsim Central Front VI (2-day)",
+      "type": "milsim",
+      "price": "TBD",
+      "url": "https://bingfield.com/index.php/2026/10/01/american-milsims-central-front-vi/",
+      "venue": "Bing Field Airsoft & Paintball Park · Alton, IL (St. Louis Metro)",
+      "state": "MO",
+      "badge": "MilSim",
+      "fieldId": "bingfield",
+      "fieldName": "Bing Field Airsoft & Paintball Park",
+      "location": "Alton, IL (St. Louis Metro)"
     },
     {
       "date": "2026-11-08",
