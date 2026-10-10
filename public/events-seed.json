@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-10-10T00:32:09.106Z",
-  "nextUpdate": "2026-10-17T00:32:09.106Z",
+  "lastUpdated": "2026-10-10T00:43:26.815Z",
+  "nextUpdate": "2026-10-17T00:43:26.815Z",
   "note": "Base events manually curated. Auto-update merges new Groq-extracted events weekly.",
   "fields": [
     {
@@ -188,6 +188,20 @@
       "beginner": true
     },
     {
+      "date": "2026-10-10",
+      "name": "Operation: Firestorm XVI",
+      "type": "big",
+      "price": "TBD",
+      "url": "https://holeinthewallpaintballmi.com/op-firestorm",
+      "venue": "Hole in the Wall Paintball · Bangor, MI",
+      "state": "MI",
+      "badge": "Big Game",
+      "fieldId": "holewall",
+      "fieldName": "Hole in the Wall Paintball",
+      "location": "Bangor, MI",
+      "beginner": true
+    },
+    {
       "date": "2026-10-16",
       "name": "Airsoft Night Game (last until Spring 2027)",
       "type": "open",
@@ -250,6 +264,19 @@
       "beginner": true
     },
     {
+      "date": "2026-10-17",
+      "name": "Night / Low Light Airsoft Game",
+      "type": "open",
+      "price": "$20 ($40 w/ rental)",
+      "url": "https://holeinthewallpaintballmi.com/games",
+      "venue": "Hole in the Wall Paintball · Bangor, MI",
+      "state": "MI",
+      "fieldId": "holewall",
+      "fieldName": "Hole in the Wall Paintball",
+      "location": "Bangor, MI",
+      "beginner": true
+    },
+    {
       "date": "2026-10-25",
       "name": "Operation Dark Harvest XVI",
       "type": "big",
@@ -298,6 +325,19 @@
       "badge": "Big Game",
       "fieldId": "biglake",
       "base": true,
+      "beginner": true
+    },
+    {
+      "date": "2026-10-31",
+      "name": "Halloween Airsoft Night Game",
+      "type": "open",
+      "price": "$20 ($40 w/ rental)",
+      "url": "https://holeinthewallpaintballmi.com/games",
+      "venue": "Hole in the Wall Paintball · Bangor, MI",
+      "state": "MI",
+      "fieldId": "holewall",
+      "fieldName": "Hole in the Wall Paintball",
+      "location": "Bangor, MI",
       "beginner": true
     },
     {
@@ -385,6 +425,19 @@
       "badge": "MilSim",
       "fieldId": "biglake",
       "base": true,
+      "beginner": true
+    },
+    {
+      "date": "2026-11-21",
+      "name": "Night / Low Light Airsoft Game (2026 Final)",
+      "type": "open",
+      "price": "$20 ($40 w/ rental)",
+      "url": "https://holeinthewallpaintballmi.com/games",
+      "venue": "Hole in the Wall Paintball · Bangor, MI",
+      "state": "MI",
+      "fieldId": "holewall",
+      "fieldName": "Hole in the Wall Paintball",
+      "location": "Bangor, MI",
       "beginner": true
     },
     {
