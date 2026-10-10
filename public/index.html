@@ -1189,6 +1189,50 @@
 
   .map-hint button, .readout-go { all: unset; color: var(--green); text-decoration: underline; cursor: pointer; }
   .readout-go { margin-left: 6px; font-weight: 600; }
+
+  /* ─── FIELDS: compact directory list (one slim row per field) ─── */
+  .fields-grid { grid-template-columns: repeat(2, 1fr); border: 1px solid var(--border2); }
+  .field-card.visible {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr) auto 18px;
+    grid-template-areas: "st name tags ar" "st loc tags ar";
+    align-items: center;
+    column-gap: 10px;
+    padding: 10px 14px;
+    clip-path: none;
+  }
+  .field-card::before {
+    content: attr(data-state);
+    position: static; width: auto; opacity: 1; background: none;
+    grid-area: st; align-self: stretch; display: flex; align-items: center;
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 1px;
+    color: var(--green); border-right: 1px solid var(--border2);
+  }
+  .field-card::after { display: none; }
+  .field-card .card-corner, .field-card .field-state-row, .field-card .field-desc { display: none; }
+  .field-card .field-name {
+    grid-area: name; font-size: 15px; line-height: 1.15; margin: 0;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .field-card .field-location { grid-area: loc; font-size: 10px; margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .field-card .field-tags { grid-area: tags; margin: 0; flex-wrap: nowrap; gap: 4px; }
+  .field-card .tag { font-size: 8px; letter-spacing: 1px; padding: 1px 5px; white-space: nowrap; }
+  .field-card .tag.outdoor { display: none; }
+  .field-card .field-link { grid-area: ar; display: block; font-size: 0; letter-spacing: 0; gap: 0; min-height: 0; padding: 0; border: 0; text-align: right; }
+  .field-card .field-link::after { content: '→'; font-size: 14px; letter-spacing: 0; color: var(--tan); }
+  .field-card.visible { min-height: 56px; }
+  .field-card .field-link::before { content: ''; position: absolute; inset: 0; } /* whole row clickable */
+  .field-card:hover .field-link::after { color: var(--green); }
+  @media (max-width: 768px) {
+    .fields-grid { grid-template-columns: 1fr; }
+    .field-card.visible {
+      grid-template-columns: 30px minmax(0, 1fr) 16px;
+      grid-template-areas: "st name ar" "st loc ar";
+      padding: 11px 12px; min-height: 52px;
+    }
+    .field-card .field-tags { display: none; }
+    .field-card .field-name { font-size: 15px; }
+  }
 </style>
 </head>
 <body>
@@ -2478,6 +2522,9 @@ function evBtnFor(st) {
     ? document.querySelector('.ev-filter-row:first-child .ev-fbtn')
     : document.querySelector(`.ev-filter-row:first-child .ev-fbtn[onclick*="'${st}'"]`);
 }
+document.querySelectorAll('.field-card').forEach(c => {
+  const d = c.querySelector('.field-desc'); if (d) c.title = d.textContent.trim();
+});
 const _filterStateSync = filterState;
 filterState = function (state, btn) {
   _filterStateSync(state, btn);
