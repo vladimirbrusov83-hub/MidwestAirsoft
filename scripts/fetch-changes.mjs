@@ -100,27 +100,41 @@ function extractRssText(xml) {
     const title   = (block.match(/<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>/) || block.match(/<title>([\s\S]*?)<\/title>/))?.[1]?.trim() || "";
     const pubDate = (block.match(/<pubDate>([\s\S]*?)<\/pubDate>/))?.[1]?.trim() || "";
     const link    = (block.match(/<link>([\s\S]*?)<\/link>/)     || block.match(/<guid[^>]*>([\s\S]*?)<\/guid>/))?.[1]?.trim() || "";
-    if (title) items.push(`${pubDate ? pubDate + " — " : ""}${title}${link ? " | " + link : ""}`);
+    // Event date lives in the post body (e.g. "Date: Friday October 16th, 2026"), not the title
+    const body    = (block.match(/<content:encoded>([\s\S]*?)<\/content:encoded>/) || block.match(/<description>([\s\S]*?)<\/description>/))?.[1] || "";
+    const bodyTxt = body.replace(/<!\[CDATA\[|\]\]>/g, "").replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/&#\d+;|&[a-z]+;/g, " ").replace(/\s+/g, " ").trim();
+    const dateBit = (bodyTxt.match(/\bDates?\s*:[^]{0,80}/i)?.[0] || bodyTxt.slice(0, 120)).trim();
+    // pubDate as ISO so the extractor doesn't mistake "Oct 2026" for an event date
+    const posted  = pubDate && !isNaN(Date.parse(pubDate)) ? new Date(pubDate).toISOString().slice(0, 10) : "";
+    const name    = title.replace(/&#8211;|&#8212;/g, "–").replace(/&#8217;|&#039;/g, "'").replace(/&amp;/g, "&");
+    if (title) items.push(`${name}${dateBit ? " ¦ " + dateBit : ""}${posted ? " ¦ posted " + posted : ""}${link ? " | " + link : ""}`);
   }
   return items.join("\n").slice(0, 1800);
 }
 
 // ── Fetch one field ───────────────────────────────────────────────────────────
+const BROWSER_UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
+// Some bot shields (e.g. bingfield.com) 403 a fake browser UA but allow an honest bot one
+const BOT_UA     = "MidwestAirsoftBot/1.0 (+https://www.midwestairsoft.space)";
+
 async function fetchField(field) {
   const fetchUrl = field.rssUrl || field.url;
   const isRss    = !!field.rssUrl;
+  const get = (ua) => fetch(fetchUrl, {
+    headers: {
+      "User-Agent": ua,
+      Accept: isRss ? "application/rss+xml,application/xml,text/xml" : "text/html,application/xhtml+xml",
+    },
+    signal: AbortSignal.timeout(TIMEOUT_MS),
+    redirect: "follow",
+  });
   try {
-    const res = await fetch(fetchUrl, {
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        Accept: isRss ? "application/rss+xml,application/xml,text/xml" : "text/html,application/xhtml+xml",
-      },
-      signal: AbortSignal.timeout(TIMEOUT_MS),
-      redirect: "follow",
-    });
+    let res = await get(BROWSER_UA);
+    if (res.status === 403) res = await get(BOT_UA);
     if (!res.ok) return { error: `HTTP ${res.status}` };
     const body = await res.text();
+    // A block/challenge page instead of a feed — report it, don't store its hash
+    if (isRss && !/<item>/i.test(body)) return { error: "RSS feed has no items (blocked?)" };
     const hash = createHash("md5").update(body).digest("hex");
     return { html: body, hash, isRss };
   } catch (err) {
