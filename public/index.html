@@ -2038,7 +2038,14 @@ function evFilter(type, val, btn) {
   }
   btn.classList.add('active');
   applyEvFilters();
-  if (type === 'state') paintMapState(val);
+  if (type === 'state') {
+    paintMapState(val);
+    // keep the Fields filter on the same state
+    if (!window.stateSyncLock && activeState !== val) {
+      window.stateSyncLock = true;
+      try { filterState(val); } finally { window.stateSyncLock = false; }
+    }
+  }
 }
 
 // highlight a state on the map without re-filtering (used by the events state filter)
@@ -2102,11 +2109,6 @@ function filterState(state, btn) {
   } else {
     const targetBtn = document.getElementById('btn-' + state);
     if (targetBtn) targetBtn.classList.add('active');
-  }
-  // if called from a button directly, also handle it
-  if (btn && btn.classList) {
-    document.querySelectorAll('.state-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
   }
 
   // ── sync mobile tiles ──
@@ -2469,6 +2471,31 @@ const _mapFilterState = mapFilterState;
 mapFilterState = function (state) { _mapFilterState(state); syncMapSel(window.mapActiveState); };
 const _filterState = filterState;
 filterState = function (state, btn) { _filterState(state, btn); syncMapSel(activeState); };
+
+// one state choice drives all three: events filter, fields filter, map
+function evBtnFor(st) {
+  return st === 'all'
+    ? document.querySelector('.ev-filter-row:first-child .ev-fbtn')
+    : document.querySelector(`.ev-filter-row:first-child .ev-fbtn[onclick*="'${st}'"]`);
+}
+const _filterStateSync = filterState;
+filterState = function (state, btn) {
+  _filterStateSync(state, btn);
+  if (window.stateSyncLock) return;
+  window.stateSyncLock = true;
+  try { const b = evBtnFor(activeState); if (b) evFilter('state', activeState, b); }
+  finally { window.stateSyncLock = false; }
+};
+const _mapFilterStateSync = mapFilterState;
+mapFilterState = function (state) {
+  window.stateSyncLock = true;
+  try { _mapFilterStateSync(state); } finally { window.stateSyncLock = false; }
+  const st = window.mapActiveState;
+  if (activeState !== st) {
+    window.stateSyncLock = true;
+    try { _filterStateSync(st); } finally { window.stateSyncLock = false; }
+  }
+};
 
 // ── Range-ring radar: rings every 50 mi from your ZIP, sweep lights up fields ──
 (function rangeRings() {
