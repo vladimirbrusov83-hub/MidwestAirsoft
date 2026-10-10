@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-09-28T01:26:54.099Z",
-  "nextUpdate": "2026-10-05T01:26:54.099Z",
+  "lastUpdated": "2026-10-10T00:27:00.498Z",
+  "nextUpdate": "2026-10-17T00:27:00.498Z",
   "note": "Base events manually curated. Auto-update merges new Groq-extracted events weekly.",
   "fields": [
     {
@@ -175,55 +175,6 @@
     }
   ],
   "events": [
-    {
-      "date": "2026-10-03",
-      "name": "Open Play",
-      "type": "open",
-      "price": "TBD",
-      "url": "https://www.thedenairsoft.com/events",
-      "venue": "The Den Airsoft · New Philadelphia, OH",
-      "state": "OH",
-      "badge": "Open Play",
-      "base": true,
-      "beginner": true
-    },
-    {
-      "date": "2026-10-03",
-      "name": "Pumpkin Hunt — Paintball",
-      "type": "open",
-      "price": "TBD",
-      "url": "https://www.tcpaintballnorth.com/field-schedule",
-      "venue": "TC Paintball North · Copemish, MI",
-      "state": "MI",
-      "badge": "Special Event",
-      "base": true,
-      "beginner": true
-    },
-    {
-      "date": "2026-10-03",
-      "name": "GLOBAL RESPONSE — High Intensity Airsoft Weekend",
-      "type": "big",
-      "price": "$40–50",
-      "url": "https://www.twincitiesairsoft.com/specials/special-events.html",
-      "venue": "Twin Cities Airsoft · Minneapolis/St. Paul Metro, MN",
-      "state": "MN",
-      "badge": "Scenario Weekend",
-      "base": true,
-      "beginner": true
-    },
-    {
-      "date": "2026-10-03",
-      "name": "Drug Wars 2.0 — Border Raid",
-      "type": "big",
-      "price": null,
-      "url": "https://biglaketactical.zohosites.com/schedule",
-      "venue": "Big Lake Tactical Wargames · Big Lake, MN",
-      "state": "MN",
-      "badge": "Big Game",
-      "fieldId": "biglake",
-      "base": true,
-      "beginner": true
-    },
     {
       "date": "2026-10-10",
       "name": "Resident Evil Paintball Big Game",
