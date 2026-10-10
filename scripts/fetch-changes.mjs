@@ -155,12 +155,18 @@ async function fetchField(field) {
     redirect: "follow",
   });
   try {
-    let res = await get(BROWSER_UA);
-    if (res.status === 403) res = await get(BOT_UA);
-    if (!res.ok) return { error: `HTTP ${res.status}` };
-    const body = await res.text();
-    // A block/challenge page instead of a feed — report it, don't store its hash
-    if (isRss && !/<item>/i.test(body)) return { error: "RSS feed has no items (blocked?)" };
+    // Try each UA until one gets a real page; a feed must contain <item>s, otherwise
+    // it's a block/challenge page — report it and don't store its hash
+    const tried = [];
+    let body = null;
+    for (const ua of [BROWSER_UA, BOT_UA, "curl/8.7.1"]) {
+      const res = await get(ua);
+      const text = await res.text();
+      if (res.ok && (!isRss || /<item>/i.test(text))) { body = text; break; }
+      tried.push(`${res.status} "${(text.match(/<title>([^<]{0,40})/i) || [])[1] || ""}"`);
+      if (!isRss && res.status !== 403) break;
+    }
+    if (body === null) return { error: `blocked or empty: ${tried.join(" / ")}` };
     const hash = createHash("md5").update(body).digest("hex");
     return { html: body, hash, isRss };
   } catch (err) {
