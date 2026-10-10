@@ -21,6 +21,12 @@ jobs:
         with:
           node-version: 24
 
+      # Fields with "render": true are loaded in headless Chromium (JS-built pages)
+      - name: Install Playwright Chromium
+        run: |
+          npm i --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+
       - name: Run change detector
         run: node scripts/fetch-changes.mjs
 

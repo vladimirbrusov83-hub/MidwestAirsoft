@@ -117,7 +117,33 @@ const BROWSER_UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/
 // Some bot shields (e.g. bingfield.com) 403 a fake browser UA but allow an honest bot one
 const BOT_UA     = "MidwestAirsoftBot/1.0 (+https://www.midwestairsoft.space)";
 
+// Fields marked "render": true build their page with JavaScript (Square, Gator,
+// some Wix widgets), so plain fetch sees no events. Load those in headless Chromium.
+// Playwright is installed only in the GitHub workflow, not in package.json.
+let browser;
+async function renderField(field) {
+  try {
+    if (!browser) {
+      const { chromium } = await import("playwright");
+      browser = await chromium.launch();
+    }
+    const page = await browser.newPage({ userAgent: BROWSER_UA });
+    try {
+      await page.goto(field.url, { timeout: 30000, waitUntil: "domcontentloaded" });
+      await page.waitForTimeout(4000);
+      const text = await page.evaluate(() => document.body.innerText);
+      if (text.trim().length < 50) return { error: "render: page came back empty" };
+      return { html: text, hash: createHash("md5").update(text).digest("hex"), isRss: false };
+    } finally {
+      await page.close();
+    }
+  } catch (err) {
+    return { error: `render: ${err.message.split("\n")[0]}` };
+  }
+}
+
 async function fetchField(field) {
+  if (field.render) return renderField(field);
   const fetchUrl = field.rssUrl || field.url;
   const isRss    = !!field.rssUrl;
   const get = (ua) => fetch(fetchUrl, {
@@ -194,6 +220,8 @@ async function main() {
       });
     });
   }
+
+  if (browser) await browser.close();
 
   // Persist updated hashes
   writeFileSync(HASHES_PATH, JSON.stringify(newHashes, null, 2));
