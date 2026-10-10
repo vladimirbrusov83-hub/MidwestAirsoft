@@ -419,6 +419,25 @@
   .ev-no-results { color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1px; padding: 32px 0; display: none; }
   .ev-no-results.visible { display: block; }
 
+  /* recurring games live in their own collapsible block under the dated list */
+  .ev-recurring { margin-top: 28px; border: 1px solid var(--border2); background: var(--panel2); }
+  .ev-recurring > summary {
+    list-style: none; cursor: pointer; display: flex; align-items: center; gap: 14px;
+    padding: 14px 18px; font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--bright);
+  }
+  .ev-recurring > summary::-webkit-details-marker { display: none; }
+  .ev-recurring > summary::before { content: '+'; color: var(--green); font-size: 14px; width: 10px; }
+  .ev-recurring[open] > summary::before { content: '−'; }
+  .ev-recurring > summary:hover { background: var(--green-lo); }
+  .ev-rec-sub { color: var(--muted); letter-spacing: 1px; text-transform: none; font-size: 10.5px; flex: 1; }
+  .ev-rec-count { color: var(--green); }
+  .ev-recurring .events-list { border-top: 1px solid var(--border2); }
+  @media (max-width: 700px) {
+    .ev-recurring > summary { flex-wrap: wrap; gap: 4px 10px; padding: 12px 14px; }
+    .ev-rec-sub { flex-basis: 100%; order: 3; padding-left: 20px; }
+  }
+
   /* ─── FIELDS GRID ─────────────────────────────────── */
   .fields-grid {
     display: grid;
@@ -1304,8 +1323,13 @@
 
     <div class="events-list" id="events-list">
       <div class="ev-loading" id="ev-loading" style="color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;padding:32px 0">// Loading events...</div>
-      <div class="ev-no-results" id="ev-no-results">No events found for this filter combination.</div>
+      <div class="ev-no-results" id="ev-no-results">No dated events for this filter combination.</div>
     </div>
+
+    <details class="ev-recurring" id="ev-recurring" hidden>
+      <summary>Regular games <span class="ev-rec-count" id="ev-rec-count"></span><span class="ev-rec-sub">Weekly open play and monthly ops, no date needed</span></summary>
+      <div class="events-list" id="events-recurring"></div>
+    </details>
   </section>  <!-- ── FIELDS ── -->
   <section id="fields">
     <div class="sec-hdr">
@@ -2055,7 +2079,7 @@ const MONTH_MAP = { Jan:1, Feb:2, Mar:3, Apr:4, May:5, Jun:6, Jul:7, Aug:8, Sep:
 const RECURRING = ['Bi-Weekly','Monthly','Sat–Sun','May–Nov','∞'];
 
 function applyEvFilters() {
-  let visible = 0;
+  let visible = 0, recVisible = 0;
   document.querySelectorAll('.event-row').forEach(row => {
     const venue = row.querySelector('.ev-venue')?.textContent || '';
     const monthTxt = row.querySelector('.ev-month')?.textContent || '';
@@ -2063,16 +2087,18 @@ function applyEvFilters() {
     const stateOk = evActiveState === 'all' ||
       new RegExp(`[,·]\\s*${evActiveState}\\b`).test(venue);
 
-    const isRecurring = RECURRING.some(r => monthTxt.includes(r));
+    const isRecurring = row.classList.contains('rec') || RECURRING.some(r => monthTxt.includes(r));
     const evMonth = Object.entries(MONTH_MAP).find(([k]) => monthTxt.startsWith(k))?.[1];
     const monthOk = evActiveMonth === 0 || isRecurring || evMonth === evActiveMonth;
 
     const show = stateOk && monthOk;
     row.style.display = show ? '' : 'none';
-    if (show) visible++;
+    if (show) isRecurring ? recVisible++ : visible++;
   });
   const noRes = document.getElementById('ev-no-results');
   if (noRes) noRes.classList.toggle('visible', visible === 0);
+  const recCount = document.getElementById('ev-rec-count');
+  if (recCount) recCount.textContent = '(' + recVisible + ')';
 }
 
 function evFilter(type, val, btn) {
@@ -2699,7 +2725,7 @@ function liveEventCounts(events) {
   const rows = [...document.querySelectorAll('.event-row')];
   const venue = r => r.querySelector('.ev-venue')?.textContent || '';
   const monthOf = r => MONTH_MAP[(r.querySelector('.ev-month')?.textContent || '').slice(0, 3)];
-  const dated = rows.filter(r => !RECURRING.some(x => (r.querySelector('.ev-month')?.textContent || '').includes(x)));
+  const dated = rows.filter(r => !r.classList.contains('rec') && !RECURRING.some(x => (r.querySelector('.ev-month')?.textContent || '').includes(x)));
   document.querySelectorAll('.ev-filter-row:first-child .ev-fbtn').forEach(b => {
     const st = (b.getAttribute('onclick').match(/'state',\s*'(\w+)'/) || [])[1];
     setCount(b, st === 'all' ? rows.length : rows.filter(r => new RegExp(`[,·]\\s*${st}\\b`).test(venue(r))).length);
@@ -2814,7 +2840,7 @@ document.querySelectorAll('.mob-state-tile[data-state]').forEach(tile => {
 
   function renderEvent(ev) {
     const a = document.createElement('a');
-    a.className = 'event-row';
+    a.className = ev.date === 'recurring' ? 'event-row rec' : 'event-row';
     a.href = ev.url || '#';
     if (ev.url) a.target = '_blank';
     a.rel = 'noopener';
@@ -2875,11 +2901,18 @@ document.querySelectorAll('.mob-state-tile[data-state]').forEach(tile => {
       });
 
       if (loading) loading.remove();
-      events.forEach(ev => list.insertBefore(renderEvent(ev), noRes));
+      const recList = document.getElementById('events-recurring');
+      events.forEach(ev => {
+        if (ev.date === 'recurring' && recList) recList.appendChild(renderEvent(ev));
+        else list.insertBefore(renderEvent(ev), noRes);
+      });
+      const recBox = document.getElementById('ev-recurring');
+      if (recBox && recList.children.length) recBox.hidden = false;
 
       // update header meta count
+      const dated = events.filter(ev => ev.date !== 'recurring').length;
       const meta = document.querySelector('#events .sec-meta');
-      if (meta) meta.textContent = events.length + ' upcoming';
+      if (meta) meta.textContent = dated + ' upcoming · ' + (events.length - dated) + ' regular';
       const se = document.getElementById('stat-events');
       if (se) se.textContent = events.length;
 

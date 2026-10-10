@@ -657,6 +657,36 @@
       "fieldName": "Hell Survivors",
       "location": "Pinckney, MI",
       "beginner": true
+    },
+    {
+      "date": "recurring",
+      "name": "Crossfire Walk-On Open Play",
+      "type": "open",
+      "price": "$25",
+      "url": "https://www.crossfire-airsoft.com/schedule",
+      "venue": "Crossfire Airsoft · Clearwater, MN · Every Sat + 2nd & 4th Sun, 11am–4:30pm",
+      "state": "MN",
+      "badge": "Open Play",
+      "base": true,
+      "recurringLabel": "Weekly",
+      "recurringDay": "∞",
+      "fieldId": "crossfire",
+      "beginner": true
+    },
+    {
+      "date": "recurring",
+      "name": "Motor City Indoor Open Play",
+      "type": "open",
+      "price": "$25",
+      "url": "https://www.motorcityairsoft.com/",
+      "venue": "Motor City Airsoft · Clinton Twp, MI · Fri 5–10pm, Sat–Sun 12–5 & 5–10pm · Rentals $25",
+      "state": "MI",
+      "badge": "Open Play",
+      "base": true,
+      "recurringLabel": "Weekly",
+      "recurringDay": "∞",
+      "fieldId": "motorcity",
+      "beginner": true
     }
   ]
 }
