@@ -1,0 +1,132 @@
+{
+  "lastUpdated": "2026-10-10T01:56:58.416Z",
+  "events": [
+    {
+      "org": "ams",
+      "name": "(AMSL) Eastern Front 5",
+      "start": "2026-10-10",
+      "end": "2026-10-11",
+      "city": "New Windsor",
+      "state": "NY",
+      "url": "https://americanmilsim.com/events/amsl-eastern-front-5/",
+      "image": "https://americanmilsim.com/wp-content/uploads/2025/11/EF5-event-featured-image.jpg",
+      "lat": 41.4768,
+      "lng": -74.0238
+    },
+    {
+      "org": "msw",
+      "name": "The Volga Bridge",
+      "start": "2026-10-30",
+      "end": "2026-11-01",
+      "city": "Erhardt",
+      "state": "SC",
+      "url": "https://milsimwest.ticketspice.com/the-volga-bridge",
+      "image": "https://images.squarespace-cdn.com/content/v1/50e53176e4b0837383d71516/a3d2db85-60b5-403b-9f5a-dedb4e6448c5/725205475_18589063486021982_6171402856034122630_n+%281%29.jpg",
+      "lat": 33.0957,
+      "lng": -81.0151
+    },
+    {
+      "org": "ams",
+      "name": "(AMSL) Central Front 6",
+      "start": "2026-11-07",
+      "end": "2026-11-08",
+      "city": "Alton",
+      "state": "IL",
+      "url": "https://americanmilsim.com/events/amsl-central-front-6/",
+      "image": "https://americanmilsim.com/wp-content/uploads/2026/08/CF6-event-featured-image.jpg",
+      "lat": 38.8909,
+      "lng": -90.1843
+    },
+    {
+      "org": "msw",
+      "name": "The Derbent Corridor",
+      "start": "2026-11-13",
+      "end": "2026-11-15",
+      "city": "Yellow Springs",
+      "state": "OH",
+      "url": "https://milsimwest.ticketspice.com/the-derbent-corridor",
+      "image": "https://images.squarespace-cdn.com/content/v1/50e53176e4b0837383d71516/b343ae72-b49a-41bd-a19b-8a6aa46d393b/IMG_8667.WEBP",
+      "lat": 39.8045,
+      "lng": -83.8925
+    },
+    {
+      "org": "msw",
+      "name": "The Amaty Assault",
+      "start": "2026-12-04",
+      "end": "2026-12-06",
+      "city": "Pala",
+      "state": "CA",
+      "url": "https://milsimwest.ticketspice.com/the-almaty-assault",
+      "image": "https://images.squarespace-cdn.com/content/v1/50e53176e4b0837383d71516/d454c50b-67d1-436b-9eec-f7eaf088991a/wf08v3t.jpeg",
+      "lat": 33.3653,
+      "lng": -117.0767
+    },
+    {
+      "org": "ams",
+      "name": "Reindeer Games XXIV",
+      "start": "2026-12-12",
+      "end": "2026-12-13",
+      "city": "Dilley",
+      "state": "TX",
+      "url": "https://americanmilsim.com/events/reindeer-games-24/",
+      "image": "https://americanmilsim.com/wp-content/uploads/2026/10/rdg-24-featured-image-revised.jpg",
+      "lat": 28.6696,
+      "lng": -99.1672
+    },
+    {
+      "org": "msw",
+      "name": "Zaporizhia Rising",
+      "start": "2027-01-29",
+      "end": "2027-01-31",
+      "city": "Barnwell",
+      "state": "SC",
+      "url": "https://milsimwest.ticketspice.com/zaporizhia-rising",
+      "image": "https://images.squarespace-cdn.com/content/v1/50e53176e4b0837383d71516/a417aefd-3026-4a79-8ba5-86b93ba4917f/Launch.jpeg",
+      "lat": 33.2449,
+      "lng": -81.3587
+    },
+    {
+      "org": "realsim",
+      "name": "Operation Black Mire",
+      "start": "2027-03-26",
+      "end": "2027-03-28",
+      "city": "Clinton",
+      "state": "LA",
+      "venue": "Avondale Scout Reservation",
+      "url": "https://www.realsimevents.com/events",
+      "image": "https://images.squarespace-cdn.com/content/v1/5e4c9a809bd0de06c0dd1226/0b56f047-9b6b-497d-9651-7be14bd59a07/OBMbannerV4.png",
+      "lat": 30.8657,
+      "lng": -91.0157
+    }
+  ],
+  "geo": {
+    "Yellow Springs, OH": {
+      "lat": 39.8045,
+      "lng": -83.8925
+    },
+    "Barnwell, SC": {
+      "lat": 33.2449,
+      "lng": -81.3587
+    },
+    "Pala, CA": {
+      "lat": 33.3653,
+      "lng": -117.0767
+    },
+    "Clinton, LA": {
+      "lat": 30.8657,
+      "lng": -91.0157
+    },
+    "New Windsor, NY": {
+      "lat": 41.4768,
+      "lng": -74.0238
+    },
+    "Alton, IL": {
+      "lat": 38.8909,
+      "lng": -90.1843
+    },
+    "Dilley, TX": {
+      "lat": 28.6696,
+      "lng": -99.1672
+    }
+  }
+}
