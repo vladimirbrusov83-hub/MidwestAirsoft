@@ -216,19 +216,6 @@
     },
     {
       "date": "2026-10-17",
-      "name": "Night Game",
-      "type": "open",
-      "price": "TBD",
-      "url": "https://www.thedenairsoft.com/events",
-      "venue": "The Den Airsoft · Strasburg, OH",
-      "state": "OH",
-      "badge": "Night Game",
-      "base": true,
-      "beginner": true,
-      "fieldId": "theden"
-    },
-    {
-      "date": "2026-10-17",
       "name": "Zombie Apocalypse Airsoft Big Game",
       "type": "big",
       "price": "$40 pre",
@@ -457,19 +444,6 @@
     },
     {
       "date": "2026-11-14",
-      "name": "Honor Vets Open Play",
-      "type": "open",
-      "price": "TBD",
-      "url": "https://www.thedenairsoft.com/events",
-      "venue": "The Den Airsoft · Strasburg, OH · Veteran appreciation game day",
-      "state": "OH",
-      "badge": "Special Event",
-      "base": true,
-      "beginner": true,
-      "fieldId": "theden"
-    },
-    {
-      "date": "2026-11-14",
       "name": "OP Bloody Bayonet",
       "type": "milsim",
       "price": null,
@@ -507,19 +481,6 @@
       "fieldName": "Black Ops Airsoft",
       "location": "Bristol, WI (near Kenosha / Chicago border)",
       "beginner": true
-    },
-    {
-      "date": "2026-11-28",
-      "name": "Open Play",
-      "type": "open",
-      "price": "TBD",
-      "url": "https://www.thedenairsoft.com/events",
-      "venue": "The Den Airsoft · Strasburg, OH",
-      "state": "OH",
-      "badge": "Open Play",
-      "base": true,
-      "beginner": true,
-      "fieldId": "theden"
     },
     {
       "date": "2026-12-05",
