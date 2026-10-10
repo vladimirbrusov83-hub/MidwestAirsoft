@@ -2038,6 +2038,18 @@ function evFilter(type, val, btn) {
   }
   btn.classList.add('active');
   applyEvFilters();
+  if (type === 'state') paintMapState(val);
+}
+
+// highlight a state on the map without re-filtering (used by the events state filter)
+function paintMapState(state) {
+  window.mapActiveState = state;
+  document.querySelectorAll('.map-state').forEach(p => p.classList.toggle('map-selected', p.id === 'map-' + state));
+  document.querySelectorAll('.map-badge-grp').forEach(g => g.classList.toggle('badge-selected', g.dataset.state === state));
+  document.querySelectorAll('.field-dot').forEach(d => d.classList.toggle('dot-active', d.dataset.state === state));
+  document.querySelectorAll('.mob-state-tile').forEach(t => t.classList.toggle('active', t.dataset.state === state));
+  document.querySelectorAll('.mob-all-tile').forEach(t => t.classList.toggle('active', state === 'all'));
+  if (typeof syncMapSel === 'function') syncMapSel(state);
 }
 
 function mapFilterState(state) {
