@@ -19,6 +19,7 @@
   { "id": "mnpropaintball",  "name": "Champion Valley Park",           "state": "MN", "location": "Lakeville, MN",       "url": "https://championvalleypark.com/attraction/airsoft/" },
   { "id": "i70",             "name": "i70 Paintball & Airsoft",       "state": "OH", "location": "Huber Heights, OH",   "url": "https://www.i70paintball.com/" },
   { "id": "sektor7",         "name": "Sektor7 Airsoft",               "state": "OH", "location": "Lorain, OH",          "url": "https://www.sektor7airsoft.com/events-1" },
+  { "id": "theden",          "name": "The Den Airsoft",               "state": "OH", "location": "Strasburg, OH",       "url": "https://www.thedenairsoft.com/events", "render": true },
   { "id": "splatterpark",    "name": "Splatter Park",                 "state": "OH", "location": "Mount Gilead, OH",    "url": "https://www.splatterpark.com/" },
   { "id": "parkersairsoft",  "name": "Parkers Airsoft Field",         "state": "OH", "location": "Bethel, OH",          "url": "https://parkersairsoft.com/" },
   { "id": "bigpearl",        "name": "Big Pearl Paintball",           "state": "OH", "location": "Conneaut, OH",        "url": "https://bigpearlpaintball.net/", "rentals": true },

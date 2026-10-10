@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-10-10T01:08:02.375Z",
-  "nextUpdate": "2026-10-17T01:08:02.375Z",
+  "lastUpdated": "2026-10-10T01:18:15.550Z",
+  "nextUpdate": "2026-10-17T01:18:15.550Z",
   "note": "Base events manually curated. Auto-update merges new Groq-extracted events weekly.",
   "fields": [
     {
@@ -220,11 +220,12 @@
       "type": "open",
       "price": "TBD",
       "url": "https://www.thedenairsoft.com/events",
-      "venue": "The Den Airsoft · New Philadelphia, OH",
+      "venue": "The Den Airsoft · Strasburg, OH",
       "state": "OH",
       "badge": "Night Game",
       "base": true,
-      "beginner": true
+      "beginner": true,
+      "fieldId": "theden"
     },
     {
       "date": "2026-10-17",
@@ -282,10 +283,11 @@
       "type": "big",
       "price": "$35",
       "url": "https://www.sektor7airsoft.com/event-details/green-vs-tan-6",
-      "venue": "The Den Airsoft · New Philadelphia, OH · 8 AM–6 PM, pick Green or Tan team",
+      "venue": "The Den Airsoft · Strasburg, OH · 8 AM–6 PM, pick Green or Tan team",
       "state": "OH",
       "badge": "Big Game",
-      "beginner": false
+      "beginner": false,
+      "fieldId": "theden"
     },
     {
       "date": "2026-10-24",
@@ -379,6 +381,19 @@
       "beginner": true
     },
     {
+      "date": "2026-10-31",
+      "name": "DenOp MilSim: Tribulation",
+      "type": "milsim",
+      "price": "TBD",
+      "url": "https://www.thedenairsoft.com/events",
+      "venue": "The Den Airsoft · Strasburg, OH",
+      "state": "OH",
+      "badge": "MilSim",
+      "fieldId": "theden",
+      "fieldName": "The Den Airsoft",
+      "location": "Strasburg, OH"
+    },
+    {
       "date": "2026-11-07",
       "name": "IRON VIPER — High Intensity Airsoft Weekend",
       "type": "big",
@@ -446,11 +461,12 @@
       "type": "open",
       "price": "TBD",
       "url": "https://www.thedenairsoft.com/events",
-      "venue": "The Den Airsoft · New Philadelphia, OH · Veteran appreciation game day",
+      "venue": "The Den Airsoft · Strasburg, OH · Veteran appreciation game day",
       "state": "OH",
       "badge": "Special Event",
       "base": true,
-      "beginner": true
+      "beginner": true,
+      "fieldId": "theden"
     },
     {
       "date": "2026-11-14",
@@ -498,11 +514,12 @@
       "type": "open",
       "price": "TBD",
       "url": "https://www.thedenairsoft.com/events",
-      "venue": "The Den Airsoft · New Philadelphia, OH",
+      "venue": "The Den Airsoft · Strasburg, OH",
       "state": "OH",
       "badge": "Open Play",
       "base": true,
-      "beginner": true
+      "beginner": true,
+      "fieldId": "theden"
     },
     {
       "date": "2026-12-05",
