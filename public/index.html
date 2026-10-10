@@ -1190,48 +1190,32 @@
   .map-hint button, .readout-go { all: unset; color: var(--green); text-decoration: underline; cursor: pointer; }
   .readout-go { margin-left: 6px; font-weight: 600; }
 
-  /* ─── FIELDS: compact directory list (one slim row per field) ─── */
-  .fields-grid { grid-template-columns: repeat(2, 1fr); border: 1px solid var(--border2); }
+  /* ─── FIELDS: small tiles, click to expand description + website ─── */
+  .fields-grid { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 8px; background: none; align-items: start; }
   .field-card.visible {
-    display: grid;
-    grid-template-columns: 34px minmax(0, 1fr) auto 18px;
-    grid-template-areas: "st name tags ar" "st loc tags ar";
-    align-items: center;
-    column-gap: 10px;
-    padding: 10px 14px;
-    clip-path: none;
+    display: block; padding: 11px 12px 10px; clip-path: none; cursor: pointer;
+    border: 1px solid var(--border2); border-left: 3px solid var(--green);
   }
-  .field-card::before {
-    content: attr(data-state);
-    position: static; width: auto; opacity: 1; background: none;
-    grid-area: st; align-self: stretch; display: flex; align-items: center;
-    font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 1px;
-    color: var(--green); border-right: 1px solid var(--border2);
+  .field-card::before, .field-card::after, .field-card .card-corner { display: none; }
+  .field-card .field-state-row { display: none; } /* town already shows the state */
+  .field-card .field-name { font-size: 15px; line-height: 1.15; margin-bottom: 3px; }
+  .field-card .field-location { font-size: 9.5px; margin-bottom: 6px; }
+  .field-card .field-tags { margin: 0; gap: 4px; }
+  .field-card .tag { font-size: 8px; letter-spacing: 1px; padding: 1px 5px; }
+  .field-card .field-desc, .field-card .field-link { display: none; }
+  .field-card.open { background: var(--panel2); }
+  .field-card.open .field-desc {
+    display: block; font-size: 12px; line-height: 1.5; margin: 9px 0 8px;
+    padding-top: 9px; border-top: 1px dashed var(--border2);
   }
-  .field-card::after { display: none; }
-  .field-card .card-corner, .field-card .field-state-row, .field-card .field-desc { display: none; }
-  .field-card .field-name {
-    grid-area: name; font-size: 15px; line-height: 1.15; margin: 0;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  }
-  .field-card .field-location { grid-area: loc; font-size: 10px; margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .field-card .field-tags { grid-area: tags; margin: 0; flex-wrap: nowrap; gap: 4px; }
-  .field-card .tag { font-size: 8px; letter-spacing: 1px; padding: 1px 5px; white-space: nowrap; }
-  .field-card .tag.outdoor { display: none; }
-  .field-card .field-link { grid-area: ar; display: block; font-size: 0; letter-spacing: 0; gap: 0; min-height: 0; padding: 0; border: 0; text-align: right; }
-  .field-card .field-link::after { content: '→'; font-size: 14px; letter-spacing: 0; color: var(--tan); }
-  .field-card.visible { min-height: 56px; }
-  .field-card .field-link::before { content: ''; position: absolute; inset: 0; } /* whole row clickable */
-  .field-card:hover .field-link::after { color: var(--green); }
+  .field-card.open .field-link { display: inline-flex; font-size: 9px; letter-spacing: 1.5px; color: var(--green); min-height: 0; padding: 0; }
+  .field-card:focus-visible { outline: 2px solid var(--green); outline-offset: 1px; }
   @media (max-width: 768px) {
-    .fields-grid { grid-template-columns: 1fr; }
-    .field-card.visible {
-      grid-template-columns: 30px minmax(0, 1fr) 16px;
-      grid-template-areas: "st name ar" "st loc ar";
-      padding: 11px 12px; min-height: 52px;
-    }
-    .field-card .field-tags { display: none; }
-    .field-card .field-name { font-size: 15px; }
+    .fields-grid { grid-template-columns: 1fr 1fr; gap: 6px; grid-auto-flow: dense; }
+    .field-card.visible { padding: 10px 10px 9px; }
+    .field-card .field-name { font-size: 14px; }
+    .field-card.open { grid-column: 1 / -1; }
+    .field-card.open .field-link { min-height: 44px; align-items: center; }
   }
 </style>
 </head>
@@ -2497,6 +2481,8 @@ function focusField(f) {
 
 function showCard(card) {
   if (!card.classList.contains('visible')) filterState('all');
+  card.classList.add('open');
+  card.setAttribute('aria-expanded', 'true');
   card.scrollIntoView({ behavior: 'smooth', block: 'center' });
   card.classList.add('flash');
   setTimeout(() => card.classList.remove('flash'), 2200);
@@ -2522,8 +2508,14 @@ function evBtnFor(st) {
     ? document.querySelector('.ev-filter-row:first-child .ev-fbtn')
     : document.querySelector(`.ev-filter-row:first-child .ev-fbtn[onclick*="'${st}'"]`);
 }
+// field tiles: click (or Enter/Space) expands description + website link
 document.querySelectorAll('.field-card').forEach(c => {
-  const d = c.querySelector('.field-desc'); if (d) c.title = d.textContent.trim();
+  c.tabIndex = 0;
+  c.setAttribute('role', 'button');
+  c.setAttribute('aria-expanded', 'false');
+  const toggle = () => c.setAttribute('aria-expanded', c.classList.toggle('open'));
+  c.addEventListener('click', e => { if (!e.target.closest('a')) toggle(); });
+  c.addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target === c) { e.preventDefault(); toggle(); } });
 });
 const _filterStateSync = filterState;
 filterState = function (state, btn) {
