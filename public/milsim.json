@@ -1,18 +1,6 @@
 {
-  "lastUpdated": "2026-10-10T02:03:36.202Z",
+  "lastUpdated": "2026-10-14T14:57:44.477Z",
   "events": [
-    {
-      "org": "ams",
-      "name": "(AMSL) Eastern Front 5",
-      "start": "2026-10-10",
-      "end": "2026-10-11",
-      "city": "New Windsor",
-      "state": "NY",
-      "url": "https://americanmilsim.com/events/amsl-eastern-front-5/",
-      "image": "https://americanmilsim.com/wp-content/uploads/2025/11/EF5-event-featured-image.jpg",
-      "lat": 41.4768,
-      "lng": -74.0238
-    },
     {
       "org": "msw",
       "name": "The Volga Bridge",
