@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-10-10T01:18:15.550Z",
-  "nextUpdate": "2026-10-17T01:18:15.550Z",
+  "lastUpdated": "2026-10-16T12:06:58.300Z",
+  "nextUpdate": "2026-10-23T12:06:58.300Z",
   "note": "Base events manually curated. Auto-update merges new Groq-extracted events weekly.",
   "fields": [
     {
@@ -176,32 +176,6 @@
   ],
   "events": [
     {
-      "date": "2026-10-10",
-      "name": "Resident Evil Paintball Big Game",
-      "type": "big",
-      "price": "$40 pre",
-      "url": "https://www.futureball.com/resident-evil/",
-      "venue": "Futureball · Whitmore Lake, MI · 1-day or 2-day",
-      "state": "MI",
-      "badge": "Big Game",
-      "base": true,
-      "beginner": true
-    },
-    {
-      "date": "2026-10-10",
-      "name": "Operation: Firestorm XVI",
-      "type": "big",
-      "price": "TBD",
-      "url": "https://holeinthewallpaintballmi.com/op-firestorm",
-      "venue": "Hole in the Wall Paintball · Bangor, MI",
-      "state": "MI",
-      "badge": "Big Game",
-      "fieldId": "holewall",
-      "fieldName": "Hole in the Wall Paintball",
-      "location": "Bangor, MI",
-      "beginner": true
-    },
-    {
       "date": "2026-10-16",
       "name": "Airsoft Night Game (last until Spring 2027)",
       "type": "open",
@@ -288,6 +262,20 @@
       "fieldId": "blackops",
       "fieldName": "Black Ops Airsoft",
       "location": "Bristol, WI (near Kenosha / Chicago border)",
+      "beginner": true
+    },
+    {
+      "date": "2026-10-24",
+      "name": "Mini Game (Hells Produced)",
+      "type": "big",
+      "price": "TBD",
+      "url": "https://www.hellsurvivors.com/",
+      "venue": "Hell Survivors · Pinckney, MI",
+      "state": "MI",
+      "badge": "Big Game",
+      "fieldId": "hellsurvivors",
+      "fieldName": "Hell Survivors",
+      "location": "Pinckney, MI",
       "beginner": true
     },
     {
@@ -379,6 +367,19 @@
       "fieldId": "theden",
       "fieldName": "The Den Airsoft",
       "location": "Strasburg, OH"
+    },
+    {
+      "date": "2026-10-31",
+      "name": "Supremacy (Goya Produced) 2-day",
+      "type": "big",
+      "price": "TBD",
+      "url": "https://www.hellsurvivors.com/",
+      "venue": "Hell Survivors · Pinckney, MI",
+      "state": "MI",
+      "badge": "Big Game",
+      "fieldId": "hellsurvivors",
+      "fieldName": "Hell Survivors",
+      "location": "Pinckney, MI"
     },
     {
       "date": "2026-11-07",
