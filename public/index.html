@@ -1280,6 +1280,42 @@
     a.nav-tool-link { padding: 8px 8px !important; letter-spacing: .6px !important; margin-left: 0; }
   }
 
+
+  /* ─── INSTALL APP BANNER ─────────────────────────── */
+  .install-bar {
+    position: fixed; left: 50%; bottom: 16px; z-index: 300;
+    width: min(560px, calc(100% - 24px));
+    display: flex; align-items: center; gap: 12px; padding: 10px 10px 10px 12px;
+    background: var(--bright); color: #fbf6ea; border-left: 4px solid var(--green);
+    box-shadow: 0 14px 32px -12px rgba(0,0,0,.55);
+    transform: translate(-50%, 140%); transition: transform .45s cubic-bezier(.2,.8,.2,1);
+  }
+  .install-bar.show { transform: translate(-50%, 0); }
+  .install-bar img { width: 40px; height: 40px; flex: none; }
+  .ib-text { flex: 1; min-width: 0; line-height: 1.3; }
+  .ib-text b { display: block; font-family: 'Big Shoulders Stencil Display', sans-serif; font-size: 19px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
+  .ib-text span { font: 11px 'IBM Plex Mono', monospace; color: #d8c9a6; letter-spacing: .3px; }
+  .ib-text .ib-share { display: inline-block; padding: 0 4px; border: 1px solid #d8c9a6; border-radius: 3px; font-size: 10px; }
+  .ib-go {
+    flex: none; height: 40px; padding: 0 16px; border: 0; cursor: pointer;
+    background: var(--green); color: #fbf6ea;
+    font: 700 12px 'IBM Plex Sans Condensed', sans-serif; letter-spacing: 2px; text-transform: uppercase;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+    transition: background .18s, transform .18s;
+  }
+  .ib-go:hover { background: #d3541f; transform: translateY(-2px); }
+  .ib-go:active { transform: scale(.95); }
+  .ib-x { flex: none; width: 36px; height: 40px; border: 0; background: none; color: #d8c9a6; font-size: 20px; cursor: pointer; }
+  .ib-x:hover { color: #fbf6ea; }
+  @media (max-width: 420px) {
+    .install-bar { bottom: 10px; gap: 10px; }
+    .install-bar img { width: 34px; height: 34px; }
+    .ib-text b { font-size: 17px; }
+    .ib-text span { font-size: 10px; }
+    .ib-go { padding: 0 12px; letter-spacing: 1.2px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .install-bar { transition: none; } }
+
   /* ─── CONTACT LINK + MOTION PASS (Oct 2026) ──────── */
   .hdr-contact-link {
     display: inline-flex; align-items: center; gap: 10px;
@@ -1367,6 +1403,10 @@
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#2a2418">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="MW Airsoft">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
@@ -3263,6 +3303,43 @@ document.querySelectorAll('.mob-state-tile[data-state]').forEach(tile => {
   <a href="https://brusovcoach.org" target="_blank" rel="noopener">Owner Website →</a>
 </div>
 
+
+<!-- install-app banner: shows after a few seconds, only where the browser can install or on iPhone Safari -->
+<div class="install-bar" id="install-bar" role="dialog" aria-label="Install Midwest Airsoft app" hidden>
+  <img src="/apple-touch-icon.png" alt="">
+  <div class="ib-text"><b>Get the app</b><span id="ib-msg">Weekend games one tap away. Free, no sign-up.</span></div>
+  <button class="ib-go" id="ib-go" type="button">Install</button>
+  <button class="ib-x" id="ib-x" type="button" aria-label="Dismiss">×</button>
+</div>
+<script>
+(() => {
+  if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+  const bar = document.getElementById('install-bar');
+  const standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone;
+  let dismissed = 0;
+  try { dismissed = +localStorage.getItem('mwa-install-x') || 0; } catch (e) {}
+  if (!bar || standalone || Date.now() - dismissed < 14 * 864e5) return;   // hidden for 2 weeks after ×
+  const ua = navigator.userAgent;
+  const iOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const iOSSafari = iOS && /Safari/.test(ua) && !/CriOS|FxiOS|EdgiOS/.test(ua);
+  let deferred = null;
+  const show = () => { bar.hidden = false; requestAnimationFrame(() => requestAnimationFrame(() => bar.classList.add('show'))); };
+  const hide = () => { bar.classList.remove('show'); setTimeout(() => bar.hidden = true, 450); };
+  addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferred = e; setTimeout(show, 4000); });
+  addEventListener('appinstalled', hide);
+  if (iOSSafari) {
+    document.getElementById('ib-msg').innerHTML = 'Tap <span class="ib-share">Share ⇪</span> then <strong style="color:#fbf6ea">Add to Home Screen</strong>';
+    document.getElementById('ib-go').textContent = 'Got it';
+    setTimeout(show, 4000);
+  }
+  document.getElementById('ib-go').onclick = async () => {
+    if (deferred) { deferred.prompt(); const { outcome } = await deferred.userChoice; deferred = null; if (outcome === 'accepted') return hide(); }
+    try { localStorage.setItem('mwa-install-x', Date.now()); } catch (e) {}   // iPhone "Got it" counts as dismiss
+    hide();
+  };
+  document.getElementById('ib-x').onclick = () => { try { localStorage.setItem('mwa-install-x', Date.now()); } catch (e) {} hide(); };
+})();
+</script>
 </body>
 </html>
 
