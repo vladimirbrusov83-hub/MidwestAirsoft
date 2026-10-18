@@ -1223,6 +1223,63 @@
     .field-card.open .field-link { min-height: 44px; align-items: center; }
   }
 
+
+  /* ─── EVENTS: price note, distance, month dividers, weekend strip, tools row ─── */
+  .ev-price-note { font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: .5px; color: var(--amber); text-align: right; line-height: 1.3; max-width: 120px; margin-top: -1px; }
+  .ev-price.ev-price-word { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 1px; }
+  .ev-dist { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; color: var(--green); letter-spacing: .5px; }
+  .ev-dist:empty { display: none; }
+  .ev-month-div {
+    display: flex; align-items: baseline; gap: 10px; padding: 18px 2px 8px;
+    background: var(--bg); position: sticky; top: 48px; z-index: 2;
+    font-family: 'Big Shoulders Stencil Display', sans-serif; font-size: 22px; font-weight: 800;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--bright);
+  }
+  .ev-month-div em { font: 500 10px 'IBM Plex Mono', monospace; font-style: normal; color: var(--muted); letter-spacing: 2px; }
+  .ev-month-div::after { content: ''; flex: 1; height: 1px; background: var(--border2); align-self: center; }
+  .events-list > .ev-month-div:first-child { padding-top: 0; }
+  .ev-tools { align-items: center; }
+  .ev-tools-gap { flex: 1; min-width: 8px; }
+  .sort-from { text-transform: none; letter-spacing: .5px; opacity: .75; }
+  .sort-from:empty { display: none; }
+  .ev-toggle { display: inline-flex; align-items: center; gap: 7px; }
+  .tgl-box { width: 10px; height: 10px; border: 1px solid currentColor; position: relative; flex: none; }
+  .ev-toggle.active { background: #4d6b2e; border-color: #4d6b2e; }
+  .ev-toggle.active .tgl-box::after { content: ''; position: absolute; left: 2px; top: -1px; width: 3px; height: 7px; border: solid #fbf6ea; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+
+  .ev-weekend { margin: 0 0 26px; border: 1px solid var(--bright); background: var(--bright); padding: 14px 14px 16px; }
+  .wk-hdr { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; color: #fbf6ea;
+    font-family: 'Big Shoulders Stencil Display', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+  .wk-dot { width: 8px; height: 8px; border-radius: 50%; background: #f1c9a0; animation: blink 1.6s ease-in-out infinite; }
+  .wk-dates { font: 500 10px 'IBM Plex Mono', monospace; letter-spacing: 2px; color: #d8c9a6; }
+  .wk-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 8px; }
+  .wk-card { display: flex; flex-direction: column; gap: 3px; padding: 12px 14px; background: var(--panel); color: inherit; text-decoration: none;
+    border-top: 3px solid var(--amber); transition: transform .18s, box-shadow .18s; }
+  .wk-card.wk-milsim { border-top-color: var(--red); }
+  .wk-card.wk-open { border-top-color: #4d6b2e; }
+  .wk-card:hover { transform: translateY(-3px); box-shadow: 0 8px 18px -10px rgba(0,0,0,.6); }
+  .wk-day { font: 600 10px 'IBM Plex Mono', monospace; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+  .wk-day b { font-family: 'Big Shoulders Stencil Display', sans-serif; font-size: 20px; color: var(--bright); letter-spacing: 1px; }
+  .wk-name { font-weight: 700; font-size: 15px; line-height: 1.2; color: var(--white); }
+  .wk-venue { font: 10.5px 'IBM Plex Mono', monospace; color: var(--muted); }
+  .wk-foot { display: flex; justify-content: space-between; margin-top: auto; padding-top: 6px; font: 600 11px 'IBM Plex Mono', monospace; }
+  .wk-price { color: var(--amber); }
+  .wk-dist { color: var(--green); }
+
+  @media (max-width: 768px) {
+    .ev-month-div { top: 46px; font-size: 19px; padding: 14px 2px 6px; }
+    .ev-price-note { font-size: 9px; max-width: 86px; }
+    .ev-tools-gap { display: none; }
+    .ev-weekend { margin: 0 -14px 22px; padding: 12px 14px 14px; }
+    .wk-cards { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 14px; scrollbar-width: none; margin: 0 -14px; padding: 0 14px; }
+    .ev-filter-row.ev-tools { flex-wrap: wrap; overflow: visible; }
+    .wk-cards::-webkit-scrollbar { display: none; }
+    .wk-card { flex: 0 0 78%; scroll-snap-align: start; }
+    /* nav: everything fits at 375px, Ballistics no longer cut off */
+    nav a { padding: 15px 5px; letter-spacing: .8px; font-size: 10px; }
+    a.nav-tool-link { padding: 8px 8px !important; letter-spacing: .6px !important; margin-left: 0; }
+  }
+
   /* ─── CONTACT LINK + MOTION PASS (Oct 2026) ──────── */
   .hdr-contact-link {
     display: inline-flex; align-items: center; gap: 10px;
@@ -1447,6 +1504,18 @@
         <button class="ev-fbtn" onclick="evFilter('month',11,this)">Nov</button>
         <button class="ev-fbtn" onclick="evFilter('month',12,this)">Dec</button>
       </div>
+      <div class="ev-filter-row ev-tools">
+        <span class="ev-filter-lbl">Sort</span>
+        <button class="ev-fbtn active" id="sort-date" onclick="evSort('date')">By date</button>
+        <button class="ev-fbtn" id="sort-near" onclick="evSort('near')">Nearest <span class="sort-from" id="sort-from"></span></button>
+        <span class="ev-tools-gap"></span>
+        <button class="ev-fbtn ev-toggle" id="beg-btn" onclick="evBeginner(this)" title="Fields that rent gear, so you can show up without your own"><span class="tgl-box"></span>Beginner friendly</button>
+      </div>
+    </div>
+
+    <div class="ev-weekend" id="ev-weekend" hidden>
+      <div class="wk-hdr"><span class="wk-dot"></span><span id="wk-title">This weekend</span><span class="wk-dates" id="wk-dates"></span></div>
+      <div class="wk-cards" id="wk-cards"></div>
     </div>
 
     <div class="events-list" id="events-list">
@@ -2125,6 +2194,119 @@ let activeState = 'all';
 // ── EVENT FILTERS ─────────────────────────────────────────
 let evActiveState = 'all';
 let evActiveMonth = 0;
+let evBeginnerOnly = false;
+let evSortMode = 'date';
+
+function evBeginner(btn) {
+  evBeginnerOnly = !evBeginnerOnly;
+  btn.classList.toggle('active', evBeginnerOnly);
+  applyEvFilters();
+}
+
+function evSort(mode) {
+  evSortMode = mode;
+  document.getElementById('sort-date').classList.toggle('active', mode === 'date');
+  document.getElementById('sort-near').classList.toggle('active', mode === 'near');
+  const list = document.getElementById('events-list');
+  const noRes = document.getElementById('ev-no-results');
+  const rows = [...list.querySelectorAll('.event-row')];
+  const far = r => r.dataset.mi === undefined ? 1e9 : +r.dataset.mi;
+  rows.sort(mode === 'near'
+    ? (a, b) => far(a) - far(b) || (a.dataset.date || '').localeCompare(b.dataset.date || '')
+    : (a, b) => (a.dataset.date || '').localeCompare(b.dataset.date || ''));
+  if (mode === 'date') {
+    // put rows back under their month dividers
+    const divs = [...list.querySelectorAll('.ev-month-div')];
+    rows.forEach(r => list.insertBefore(r, noRes));
+    divs.forEach(d => { const first = rows.find(r => r.dataset.date && r.dataset.date.slice(0, 7) === d.dataset.ym); if (first) list.insertBefore(d, first); });
+  } else {
+    rows.forEach(r => list.insertBefore(r, noRes));
+  }
+  applyEvFilters();
+}
+
+function addMonthDividers(list, noRes) {
+  const NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  let last = '';
+  [...list.querySelectorAll('.event-row')].forEach(r => {
+    const ym = (r.dataset.date || '').slice(0, 7);
+    if (!ym || ym === last) return;
+    last = ym;
+    const d = document.createElement('div');
+    d.className = 'ev-month-div';
+    d.dataset.ym = ym;
+    d.innerHTML = `<span>${NAMES[+ym.slice(5) - 1]}</span><em>${ym.slice(0, 4)}</em>`;
+    list.insertBefore(d, r);
+  });
+}
+
+// give each event the lat/lng of its field card so we can show miles from the map centre
+function linkEventsToFields() {
+  const n = s => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  const fields = (typeof ATLAS !== 'undefined' ? ATLAS.fields : []).map(f => ({ f, k: n(f.name) }));
+  document.querySelectorAll('.event-row').forEach(r => {
+    const v = n((r.querySelector('.ev-venue')?.textContent || '').split('·')[0]);
+    const hit = v && fields.find(({ k }) => k === v || k.includes(v) || v.includes(k));
+    if (hit) { r.dataset.lat = hit.f.lat; r.dataset.lng = hit.f.lng; }
+  });
+  updateEventDistances();
+}
+
+function updateEventDistances() {
+  if (typeof ATLAS === 'undefined') return;
+  const c = ATLAS.center;
+  document.querySelectorAll('.event-row[data-lat], .wk-card[data-lat]').forEach(r => {
+    const mi = Math.round(milesBetween(c, { lat: +r.dataset.lat, lng: +r.dataset.lng }));
+    r.dataset.mi = mi;
+    const el = r.querySelector('.ev-dist, .wk-dist');
+    if (el) el.textContent = mi + ' mi';
+  });
+  const from = document.getElementById('sort-from');
+  if (from) from.textContent = 'to ' + c.label;
+  if (evSortMode === 'near') evSort('near');
+}
+
+// "This weekend" strip — Sat/Sun coming up (or today if it's the weekend); falls back to next weekend
+function buildWeekend(events) {
+  const box = document.getElementById('ev-weekend');
+  const wrap = document.getElementById('wk-cards');
+  if (!box || !wrap) return;
+  const iso = d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  const now = new Date(); now.setHours(12, 0, 0, 0);
+  const dow = now.getDay();
+  const fri = new Date(now); fri.setDate(now.getDate() + (dow === 0 ? -2 : dow === 6 ? -1 : 5 - dow));
+  let pick = [], label = 'This weekend', start;
+  for (let w = 0; w < 2 && !pick.length; w++) {
+    start = new Date(fri); start.setDate(fri.getDate() + 7 * w);
+    const end = new Date(start); end.setDate(start.getDate() + 2);
+    const lo = iso(w === 0 && now > start ? now : start), hi = iso(end);
+    pick = events.filter(e => e.date !== 'recurring' && e.date >= lo && e.date <= hi);
+    if (w === 1) label = 'Next weekend';
+  }
+  if (!pick.length) return;
+  const M = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const sun = new Date(start); sun.setDate(start.getDate() + 2);
+  document.getElementById('wk-title').textContent = label;
+  document.getElementById('wk-dates').textContent = `${M[start.getMonth()]} ${start.getDate()}–${start.getMonth() === sun.getMonth() ? '' : M[sun.getMonth()] + ' '}${sun.getDate()}`;
+  const DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  pick.forEach(e => {
+    const d = new Date(e.date + 'T12:00:00');
+    const a = document.createElement('a');
+    a.className = 'wk-card wk-' + (e.type || 'open');
+    a.href = e.url || '#';
+    if (e.url) { a.target = '_blank'; a.rel = 'noopener'; }
+    const row = [...document.querySelectorAll('.event-row')].find(r => r.dataset.date === e.date && r.querySelector('.ev-name')?.textContent === e.name);
+    if (row && row.dataset.lat) { a.dataset.lat = row.dataset.lat; a.dataset.lng = row.dataset.lng; }
+    const esc = t => String(t || '').replace(/[<>&]/g, '');
+    a.innerHTML = `<div class="wk-day">${DAYS[d.getDay()]} <b>${d.getDate()}</b></div>
+      <div class="wk-name">${esc(e.name)}</div>
+      <div class="wk-venue">${esc((e.venue || '').split('·')[0])}</div>
+      <div class="wk-foot"><span class="wk-price">${esc((e.price || 'TBD').split('(')[0])}</span><span class="wk-dist"></span></div>`;
+    wrap.append(a);
+  });
+  box.hidden = false;
+  updateEventDistances();
+}
 
 const MONTH_MAP = { Jan:1, Feb:2, Mar:3, Apr:4, May:5, Jun:6, Jul:7, Aug:8, Sep:9, Oct:10, Nov:11, Dec:12 };
 const RECURRING = ['Bi-Weekly','Monthly','Sat–Sun','May–Nov','∞'];
@@ -2142,12 +2324,19 @@ function applyEvFilters() {
     const evMonth = Object.entries(MONTH_MAP).find(([k]) => monthTxt.startsWith(k))?.[1];
     const monthOk = evActiveMonth === 0 || isRecurring || evMonth === evActiveMonth;
 
-    const show = stateOk && monthOk;
+    const begOk = !evBeginnerOnly || row.dataset.beginner === '1';
+    const show = stateOk && monthOk && begOk;
     row.style.display = show ? '' : 'none';
     if (show) isRecurring ? recVisible++ : visible++;
   });
   const noRes = document.getElementById('ev-no-results');
   if (noRes) noRes.classList.toggle('visible', visible === 0);
+  // a month divider shows only if a row under it is visible (and never in distance sort)
+  document.querySelectorAll('.ev-month-div').forEach(div => {
+    let el = div.nextElementSibling, any = false;
+    while (el && el.classList.contains('event-row')) { if (el.style.display !== 'none') { any = true; break; } el = el.nextElementSibling; }
+    div.style.display = any && evSortMode === 'date' ? '' : 'none';
+  });
   const recCount = document.getElementById('ev-rec-count');
   if (recCount) recCount.textContent = '(' + recVisible + ')';
 }
@@ -2773,6 +2962,7 @@ function setAtlasCenter(lat, lng, label, save) {
     });
   }
   if (ATLAS.redraw) ATLAS.redraw();
+  if (typeof updateEventDistances === 'function') updateEventDistances();
 }
 (function atlasControls() {
   const form = document.getElementById('zip-form');
@@ -2957,9 +3147,20 @@ document.querySelectorAll('.mob-state-tile[data-state]').forEach(tile => {
 (function loadEvents() {
   const MONTH_NAMES = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
+  // "$30 ($20 in costume)" → big "$30" + small note; words-only prices stay small
+  function priceHTML(raw) {
+    const p = (raw || 'TBD').trim();
+    const m = p.match(/^(\$?\d[\d.,]*(?:\s*[–-]\s*\$?\d[\d.,]*)?|TBD|Free)\s*(.*)$/i);
+    if (!m) return `<div class="ev-price ev-price-word">${p}</div>`;
+    const note = m[2].replace(/^\((.*)\)$/, '$1').trim();
+    return `<div class="ev-price">${m[1]}</div>${note ? `<div class="ev-price-note">${note}</div>` : ''}`;
+  }
+
   function renderEvent(ev) {
     const a = document.createElement('a');
     a.className = ev.date === 'recurring' ? 'event-row rec' : 'event-row';
+    if (ev.beginner) a.dataset.beginner = '1';
+    if (ev.date !== 'recurring') a.dataset.date = ev.date;
     a.href = ev.url || '#';
     if (ev.url) a.target = '_blank';
     a.rel = 'noopener';
@@ -2988,10 +3189,10 @@ document.querySelectorAll('.mob-state-tile[data-state]').forEach(tile => {
       <div class="ev-body">
         <div class="ev-name">${ev.name}</div>
         <div class="ev-venue">${ev.venue || ''}</div>
-        ${ev.beginner ? '<div class="ev-beginner" title="Field rents gear, so you can show up without your own">Beginner friendly</div>' : ''}
       </div>
       <div class="ev-right">
-        <div class="ev-price">${ev.price || 'TBD'}</div>
+        ${priceHTML(ev.price)}
+        <div class="ev-dist"></div>
         <div class="ev-badge">${badgeText}</div>
       </div>
       <div class="ev-arrow">→</div>`;
@@ -3036,6 +3237,9 @@ document.querySelectorAll('.mob-state-tile[data-state]').forEach(tile => {
       if (se) se.textContent = events.length;
 
       liveEventCounts(events);
+      addMonthDividers(list, noRes);
+      linkEventsToFields();
+      buildWeekend(events);
 
       // re-apply any active filters
       applyEvFilters();
