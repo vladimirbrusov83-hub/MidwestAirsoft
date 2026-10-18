@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Midwest Airsoft — Fields & Events Hub | IL, MN, WI, IN, MO, MI, OH</title>
 
 <!-- SEO -->
@@ -1398,6 +1398,42 @@
     .nearest button:hover em { transform: translateX(3px); }
     .event-row:active { transform: scale(.995); }
   }
+
+  /* ─── INSTALLED APP ON A PHONE: menu becomes a bottom tab bar ─── */
+  .nav-ico { display: none; }
+  @media (display-mode: standalone) and (max-width: 768px) {
+    body { padding-top: env(safe-area-inset-top); padding-bottom: calc(62px + env(safe-area-inset-bottom)); }
+    body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; height: env(safe-area-inset-top); background: #2a2418; z-index: 200; }
+    nav {
+      position: fixed !important; top: auto !important; bottom: 0; left: 0; right: 0; z-index: 150 !important;
+      padding-bottom: env(safe-area-inset-bottom);
+      border-bottom: 0 !important; border-top: 1px solid rgba(241,201,160,.18);
+      box-shadow: 0 -8px 24px -12px rgba(0,0,0,.5);
+    }
+    .nav-inner { padding: 0 !important; overflow: visible !important; max-width: none; }
+    nav ul { flex: 1; justify-content: space-around; align-items: stretch !important; }
+    nav li { flex: 1; display: flex; animation: none !important; }
+    nav a, a.nav-tool-link {
+      position: relative; flex: 1; flex-direction: column; justify-content: center; gap: 4px;
+      height: 62px; padding: 6px 2px !important; margin: 0 !important;
+      font-size: 9.5px !important; letter-spacing: .8px !important;
+      border: 0 !important; background: none !important; clip-path: none !important;
+      -webkit-tap-highlight-color: transparent;
+    }
+    nav .nav-idx, nav .nav-long, .nav-tail { display: none !important; }
+    .nav-ico { display: block; width: 23px; height: 23px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s cubic-bezier(.3,1.6,.5,1); }
+    nav a.active .nav-ico { transform: translateY(-2px) scale(1.1); }
+    nav a:active .nav-ico { transform: scale(.88); }
+    nav a::after, nav a:not(.nav-tool-link)::after {
+      content: ''; position: absolute; top: -1px; bottom: auto; left: 30%; right: 30%; height: 3px;
+      background: currentColor; border-radius: 0 0 3px 3px;
+      transform: scaleX(0); transition: transform .28s cubic-bezier(.6,0,.2,1);
+    }
+    nav a.active::after { transform: scaleX(1); }
+    nav a:hover:not(.active)::after { transform: scaleX(0); }
+    a.nav-tool-link::before { display: none; }
+    .ev-month-div { top: env(safe-area-inset-top); }
+  }
 </style>
 <link rel="icon" href="/logo.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
@@ -1450,19 +1486,19 @@
 <nav>
   <div class="nav-inner">
     <ul>
-      <li><a href="#events" class="active" onclick="setActive(this)">
+      <li><a href="#events" class="active" onclick="setActive(this)"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><rect x="7" y="13" width="3" height="3" fill="currentColor" stroke="none"/></svg>
         <span class="nav-idx">01</span> Events
       </a></li>
-      <li><a href="#fields" onclick="setActive(this)">
+      <li><a href="#fields" onclick="setActive(this)"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-6.1-6.5-11.2a6.5 6.5 0 0 1 13 0C18.5 14.9 12 21 12 21z"/><circle cx="12" cy="9.8" r="2.4"/></svg>
         <span class="nav-idx">02</span> Fields
       </a></li>
-      <li><a href="/milsim.html">
+      <li><a href="/milsim.html"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="2"/><path d="M12 1.5v5M12 17.5v5M1.5 12h5M17.5 12h5"/></svg>
         <span class="nav-idx">03</span> MilSim
       </a></li>
-      <li><a href="#contact" onclick="setActive(this)">
+      <li><a href="#contact" onclick="setActive(this)"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3 10.5 13.5M21 3l-6.5 18-4-7.5-7.5-4z"/></svg>
         <span class="nav-idx">04</span> <span class="nav-long">Submit </span>Intel
       </a></li>
-      <li><a href="https://ballistics.midwestairsoft.space" target="_blank" class="nav-tool-link">
+      <li><a href="https://ballistics.midwestairsoft.space" target="_blank" class="nav-tool-link"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 19.5C7 8 14 5 21.5 9"/><circle cx="21" cy="9" r="1.2" fill="currentColor"/><path d="M2.5 21.5h19" stroke-dasharray="2 2.5"/></svg>
         <span class="nav-idx">⊕</span> <span class="nav-long">Airsoft </span>Ballistics
       </a></li>
 
