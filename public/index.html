@@ -17,6 +17,7 @@
 <meta property="og:title" content="Midwest Airsoft — Fields & Events Hub">
 <meta property="og:description" content="Find airsoft fields and upcoming events across the Midwest. MilSim ops, big games, and open play days updated weekly.">
 <meta property="og:site_name" content="Midwest Airsoft Hub">
+<meta property="og:image" content="https://www.midwestairsoft.space/icon-512.png">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary">
@@ -143,6 +144,9 @@
     letter-spacing: 4px;
     color: var(--white);
   }
+
+  .hdr-brand { display: flex; align-items: center; gap: clamp(12px, 2vw, 24px); }
+  .hdr-logo  { width: clamp(64px, 10vw, 128px); height: auto; flex: none; }
 
   h1 em {
     color: var(--green);
@@ -916,6 +920,7 @@
     .stat-val        { font-size: 32px; }
     .hdr-mark        { display: none; }
     h1               { font-size: clamp(48px, 16vw, 64px); letter-spacing: 2px; }
+    .hdr-logo        { width: 72px; }
     .hdr-sub         { font-size: 12px; }
 
     /* "Know something we don't?" — bigger tap target */
@@ -1218,6 +1223,10 @@
     .field-card.open .field-link { min-height: 44px; align-items: center; }
   }
 </style>
+<link rel="icon" href="/logo.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#2a2418">
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
@@ -1233,7 +1242,10 @@
         <div class="kicker-rule"></div>
         <span class="kicker-label">Midwest Region · Intel Brief · 2026</span>
       </div>
-      <h1>MIDWEST<em>AIRSOFT</em></h1>
+      <div class="hdr-brand">
+        <img class="hdr-logo" src="/logo.svg" alt="Midwest Airsoft patch logo" width="128" height="128">
+        <h1>MIDWEST<em>AIRSOFT</em></h1>
+      </div>
       <p class="hdr-sub">All Midwest airsoft events in one place — the best airsoft intel in the Midwest. Fields, ops &amp; calendar across Illinois, Missouri, Indiana, Michigan, Minnesota, Ohio, Wisconsin &amp; beyond.</p>
       <a href="#contact" class="hdr-contact-link">Know something we don't? →</a>
     </div>
