@@ -45,8 +45,7 @@
     "description": "St. Louis area's premier facility. 60+ acres, 5+ acre City of Bedlam urban field. Monthly Big Games $30.",
     "url": "https://bingfield.com/index.php/category/events/",
     "rssUrl": "https://bingfield.com/index.php/feed/",
-    "rentals": true,
-    "eventState": "MO"
+    "rentals": true
   },
   {
     "id": "jokerschurch",
@@ -533,6 +532,23 @@
     "url": "https://championvalleypark.com/attraction/airsoft/"
   },
   {
+    "id": "biglake",
+    "name": "Big Lake Tactical Wargames",
+    "state": "MN",
+    "location": "Big Lake, MN",
+    "lat": 45.383,
+    "lng": -93.756,
+    "tags": [
+      "Outdoor",
+      "Big Games",
+      "MilSim"
+    ],
+    "description": "MBA (Minnesota's Best Airsoft) monthly big games. 100+ players, objective-based scenario ops, vehicles, free camping Fri/Sat nights. Hosts Op Nightshade and year-round events.",
+    "url": "https://biglaketactical.zohosites.com/schedule",
+    "scan": false,
+    "rentals": true
+  },
+  {
     "id": "actionsportswi",
     "name": "Action Sports Wisconsin",
     "state": "WI",
@@ -643,35 +659,5 @@
     "description": "Southwest Missouri airsoft in the Ozarks. Rugged wooded terrain near the Arkansas border, unique natural environment.",
     "url": "https://www.facebook.com/HuckleberryRidgeAirsoft/",
     "scan": false
-  },
-  {
-    "id": "wardenoh",
-    "name": "War Den Airsoft",
-    "state": "OH",
-    "location": "Stone Creek, OH",
-    "tags": [
-      "Outdoor",
-      "MilSim"
-    ],
-    "description": "Eastern Ohio woodland field known for big MilSim scenario events.",
-    "url": "https://www.theairsoftden.com/",
-    "scan": false,
-    "card": false
-  },
-  {
-    "id": "biglake",
-    "name": "Big Lake Tactical Wargames",
-    "state": "MN",
-    "location": "Big Lake, MN",
-    "tags": [
-      "Outdoor",
-      "Big Games",
-      "MilSim"
-    ],
-    "description": "MBA (Minnesota's Best Airsoft) monthly big games. 100+ players, objective-based scenario ops, vehicles, free camping Fri/Sat nights. Hosts Op Nightshade and year-round events.",
-    "url": "https://biglaketactical.zohosites.com/schedule",
-    "scan": false,
-    "rentals": true,
-    "card": false
   }
 ]

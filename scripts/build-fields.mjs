@@ -1,8 +1,7 @@
 // Writes the field cards in public/index.html from fields.json (the one master field list).
 // Usage: node scripts/build-fields.mjs   — run after editing fields.json (apply-events.mjs runs it too).
 // fields.json keys: url = link shown on the card; scanUrl = page the weekly scanner checks if different;
-// scan:false = scanner skips it (Facebook-only etc.); card:false = kept for events but not shown on the site;
-// eventState = state its events are filed under, if not its own (Bing Field → MO, St. Louis metro).
+// scan:false = scanner skips it (Facebook-only etc.); card:false = kept for events but not shown on the site.
 import { readFileSync, writeFileSync } from 'node:fs';
 
 const STATES = { IL: 'Illinois', IN: 'Indiana', MI: 'Michigan', MN: 'Minnesota', MO: 'Missouri', OH: 'Ohio', WI: 'Wisconsin' };
