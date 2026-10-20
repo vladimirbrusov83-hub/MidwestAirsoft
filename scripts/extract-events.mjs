@@ -6,7 +6,7 @@ import { readFileSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 
 const seed = JSON.parse(readFileSync('public/events-seed.json', 'utf8'));
-const today = new Date().toISOString().slice(0, 10);
+const today = (d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'))(new Date()); // local date, not UTC
 const since = seed.lastUpdated || '2000-01-01';
 
 // Collect field texts from all report versions since last update (oldest → newest).

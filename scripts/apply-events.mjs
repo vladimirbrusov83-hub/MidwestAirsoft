@@ -4,14 +4,13 @@
 //   [{"fieldId":"bingfield","date":"2026-10-11","name":"Night Game","type":"open","price":"$25","url":"https://..."}]
 // venue/state/fieldName/location are filled from the field record when omitted.
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { execSync } from 'node:child_process';
 
 const path = 'public/events-seed.json';
 const seed = JSON.parse(readFileSync(path, 'utf8'));
-const today = new Date().toISOString().slice(0, 10);
+const today = (d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'))(new Date()); // local date, not UTC
 const before = seed.events.length;
-// Site shows a curated fields[] list; fields.json (scraper list) covers the rest.
-const extra = JSON.parse(readFileSync('fields.json', 'utf8'));
-const allFields = [...seed.fields, ...(Array.isArray(extra) ? extra : extra.fields)];
+const allFields = JSON.parse(readFileSync('fields.json', 'utf8')); // the one master field list
 
 seed.events = seed.events.filter(e => e.date === 'recurring' || e.date >= today);
 const pruned = before - seed.events.length;
@@ -27,10 +26,10 @@ if (file && existsSync(file)) {
     if (rec && (n.type || 'open') === 'open') { skipped.push(`${n.fieldId} ${n.date}: covered by recurring "${rec.name}"`); continue; }
     const loc = f.location;
     // Field has rental gear → beginner friendly, unless the event says beginner:false (Tier 1 / outside-hosted ops)
-    const beginner = n.beginner ?? allFields.some(x => x.id === f.id && x.rentals);
+    const beginner = n.beginner ?? !!f.rentals;
     seed.events.push({
       date: n.date, name: n.name, type: n.type || 'open', price: n.price || 'TBD',
-      url: n.url || f.url, venue: n.venue || `${f.name} · ${loc}`, state: f.state,
+      url: n.url || f.url, venue: n.venue || `${f.name} · ${loc}`, state: f.eventState || f.state,
       ...(n.badge && { badge: n.badge }),
       fieldId: f.id, fieldName: f.name, location: loc,
       ...(beginner && { beginner: true }),
@@ -44,6 +43,9 @@ const now = new Date();
 seed.lastUpdated = now.toISOString();
 seed.nextUpdate = new Date(now.getTime() + 7 * 864e5).toISOString();
 writeFileSync(path, JSON.stringify(seed, null, 2) + '\n');
+
+// keep the field cards in index.html in step with fields.json
+execSync('node scripts/build-fields.mjs', { stdio: 'inherit' });
 
 const upcoming = seed.events.filter(e => e.date !== 'recurring').length;
 console.log(`pruned ${pruned} past · added ${added} · total ${seed.events.length} (${upcoming} dated, ${seed.events.length - upcoming} recurring)`);

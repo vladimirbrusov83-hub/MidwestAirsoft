@@ -15,7 +15,8 @@
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { createHash } from "crypto";
 
-const FIELDS      = JSON.parse(readFileSync("./fields.json", "utf8"));
+// fields.json is the master field list; scan:false fields (Facebook-only etc.) are skipped, scanUrl overrides the card link
+const FIELDS      = JSON.parse(readFileSync("./fields.json", "utf8")).filter((f) => f.scan !== false);
 const HASHES_PATH = "./field-hashes.json";
 const REPORT_PATH = "./changes-report.json";
 const CONCURRENCY = 5;
@@ -129,7 +130,7 @@ async function renderField(field) {
     }
     const page = await browser.newPage({ userAgent: BROWSER_UA });
     try {
-      await page.goto(field.url, { timeout: 30000, waitUntil: "domcontentloaded" });
+      await page.goto(field.scanUrl || field.url, { timeout: 30000, waitUntil: "domcontentloaded" });
       await page.waitForTimeout(4000);
       const text = await page.evaluate(() => document.body.innerText);
       if (text.trim().length < 50) return { error: "render: page came back empty" };
@@ -144,7 +145,7 @@ async function renderField(field) {
 
 async function fetchField(field) {
   if (field.render) return renderField(field);
-  const fetchUrl = field.rssUrl || field.url;
+  const fetchUrl = field.rssUrl || field.scanUrl || field.url;
   const isRss    = !!field.rssUrl;
   const get = (ua) => fetch(fetchUrl, {
     headers: {

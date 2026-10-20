@@ -2,178 +2,6 @@
   "lastUpdated": "2026-10-16T12:06:58.300Z",
   "nextUpdate": "2026-10-23T12:06:58.300Z",
   "note": "Base events manually curated. Auto-update merges new Groq-extracted events weekly.",
-  "fields": [
-    {
-      "id": "bingfield",
-      "name": "Bing Field Airsoft & Paintball Park",
-      "location": "Alton, IL (St. Louis Metro)",
-      "state": "MO",
-      "description": "St. Louis area's premier facility. 60+ acres, City of Bedlam urban field. Monthly Big Games $30.",
-      "tags": [
-        "Outdoor",
-        "Big Games"
-      ],
-      "url": "https://bingfield.com/index.php/category/events/"
-    },
-    {
-      "id": "twincities",
-      "name": "Twin Cities Airsoft (TCA)",
-      "location": "Minneapolis/St. Paul Metro, MN",
-      "state": "MN",
-      "description": "Minnesota's premier scenario field. High Intensity Airsoft events monthly. Bio BB only. Giant Games 2x yearly.",
-      "tags": [
-        "Outdoor",
-        "Scenario Games"
-      ],
-      "url": "https://www.twincitiesairsoft.com/"
-    },
-    {
-      "id": "kankakee",
-      "name": "Kankakee Airsoft Factory",
-      "location": "Kankakee, IL",
-      "state": "IL",
-      "description": "7-story factory building with CQB floors + outdoor area. Hosted by MiR Tactical. Open plays Mar–Nov.",
-      "tags": [
-        "Indoor",
-        "Outdoor",
-        "MilSim"
-      ],
-      "url": "https://mirtactical.com/airsoft/kankakee-factory-airsoft-open-play-hosted-by-mir-tactical/"
-    },
-    {
-      "id": "mirtactical",
-      "name": "MiR Tactical HQ — Buffalo Grove",
-      "location": "Buffalo Grove, IL",
-      "state": "IL",
-      "description": "Midwest's largest airsoft retailer & event organizer. Hosts Tier 1–3 MilSim events.",
-      "tags": [
-        "MilSim",
-        "Indoor"
-      ],
-      "url": "https://mirtactical.com/"
-    },
-    {
-      "id": "blastcamp",
-      "name": "Blastcamp Paintball & Airsoft",
-      "location": "Hobart, IN",
-      "state": "IN",
-      "description": "Historic Nike Missile Base. 23 acres, monthly ops by Cobra Airsoft Legion.",
-      "tags": [
-        "Outdoor",
-        "MilSim"
-      ],
-      "url": "https://blastcamp.com/airsoft/"
-    },
-    {
-      "id": "cedar",
-      "name": "Cedar Airsoft Field",
-      "location": "Wisconsin",
-      "state": "WI",
-      "description": "~10 acres with woods, CQB structures. Rec days every Saturday ($20).",
-      "tags": [
-        "Outdoor"
-      ],
-      "url": "https://www.cedarairsoftfield.com/"
-    },
-    {
-      "id": "hellsurvivors",
-      "name": "Hell Survivors",
-      "location": "Pinckney, MI",
-      "state": "MI",
-      "description": "180-acre complex, 12 fields. Hosts Global Conquest, Monster Game, Tippmann World Challenge.",
-      "tags": [
-        "Outdoor",
-        "Major Events"
-      ],
-      "url": "https://www.hellsurvivors.com/"
-    },
-    {
-      "id": "kalamazoo",
-      "name": "Kalamazoo Airsoft",
-      "location": "Three Rivers, MI",
-      "state": "MI",
-      "description": "Michigan's premier indoor/outdoor CQB facility.",
-      "tags": [
-        "Indoor",
-        "Outdoor"
-      ],
-      "url": "https://www.facebook.com/KalamazooAirsoft/"
-    },
-    {
-      "id": "jokerschurch",
-      "name": "Joker's Circus Airsoft",
-      "location": "Bloomington, IN",
-      "state": "IN",
-      "description": "Indiana's oldest active airsoft field, founded 1998.",
-      "tags": [
-        "Outdoor",
-        "MilSim"
-      ],
-      "url": "https://www.facebook.com/JokersCircusAirsoft/"
-    },
-    {
-      "id": "i70",
-      "name": "i70 Paintball & Airsoft",
-      "location": "Huber Heights, OH",
-      "state": "OH",
-      "description": "Most popular & well-reviewed field in Ohio.",
-      "tags": [
-        "Outdoor",
-        "MilSim"
-      ],
-      "url": "https://www.i70paintball.com/"
-    },
-    {
-      "id": "crossfire",
-      "name": "Crossfire Airsoft",
-      "location": "Clearwater, MN",
-      "state": "MN",
-      "description": "30+ acres dedicated airsoft only. 5 distinct fields, weekly games.",
-      "tags": [
-        "Outdoor"
-      ],
-      "url": "https://www.crossfire-airsoft.com/"
-    },
-    {
-      "id": "wardenoh",
-      "name": "War Den Airsoft",
-      "location": "Stone Creek, OH",
-      "state": "OH",
-      "description": "Eastern Ohio woodland field known for big MilSim scenario events.",
-      "tags": [
-        "Outdoor",
-        "MilSim"
-      ],
-      "url": "https://www.theairsoftden.com/"
-    },
-    {
-      "id": "blackops",
-      "name": "Black Ops Airsoft",
-      "location": "Bristol, WI (near Kenosha / Chicago border)",
-      "state": "WI",
-      "description": "Midwest's largest pay-to-play airsoft-only field. Open year-round. Outdoor + urban town gameplay. WilSim Saturdays & MilSim events. Fri $10 · Sat–Sun $20. Rentals $15.",
-      "tags": [
-        "Outdoor",
-        "Urban CQB",
-        "MilSim"
-      ],
-      "url": "https://www.blackops-airsoft.com/"
-    },
-    {
-      "id": "biglake",
-      "name": "Big Lake Tactical Wargames",
-      "location": "Big Lake, MN",
-      "state": "MN",
-      "description": "MBA (Minnesota's Best Airsoft) monthly big games. 100+ players, objective-based scenario ops, vehicles, free camping Fri/Sat nights. Hosts Op Nightshade and year-round events.",
-      "tags": [
-        "Outdoor",
-        "Big Games",
-        "MilSim"
-      ],
-      "url": "https://biglaketactical.zohosites.com/schedule",
-      "rentals": true
-    }
-  ],
   "events": [
     {
       "date": "2026-10-16",
@@ -198,7 +26,8 @@
       "state": "MI",
       "badge": "Big Game",
       "base": true,
-      "beginner": true
+      "beginner": true,
+      "fieldId": "futureball"
     },
     {
       "date": "2026-10-17",
@@ -223,7 +52,8 @@
       "state": "OH",
       "badge": "Open Play",
       "base": true,
-      "beginner": true
+      "beginner": true,
+      "fieldId": "bigpearl"
     },
     {
       "date": "2026-10-17",
@@ -315,7 +145,8 @@
       "state": "MI",
       "badge": "Special Event",
       "base": true,
-      "beginner": true
+      "beginner": true,
+      "fieldId": "tcpaintball"
     },
     {
       "date": "2026-10-31",
@@ -327,7 +158,8 @@
       "state": "MN",
       "badge": "Special Event",
       "base": true,
-      "beginner": true
+      "beginner": true,
+      "fieldId": "twincities"
     },
     {
       "date": "2026-10-31",
@@ -391,7 +223,8 @@
       "state": "MN",
       "badge": "Scenario Weekend",
       "base": true,
-      "beginner": true
+      "beginner": true,
+      "fieldId": "twincities"
     },
     {
       "date": "2026-11-07",
@@ -403,7 +236,8 @@
       "state": "MO",
       "badge": "MilSim",
       "base": true,
-      "beginner": true
+      "beginner": true,
+      "fieldId": "massairsoft"
     },
     {
       "date": "2026-11-07",
@@ -441,7 +275,8 @@
       "state": "MI",
       "badge": "Special Event",
       "base": true,
-      "beginner": true
+      "beginner": true,
+      "fieldId": "futureball"
     },
     {
       "date": "2026-11-14",
@@ -534,7 +369,8 @@
       "state": "MN",
       "badge": "Special Event",
       "base": true,
-      "beginner": true
+      "beginner": true,
+      "fieldId": "twincities"
     },
     {
       "date": "recurring",
@@ -548,7 +384,8 @@
       "base": true,
       "recurringLabel": "Monthly",
       "recurringDay": "∞",
-      "beginner": true
+      "beginner": true,
+      "fieldId": "bingfield"
     },
     {
       "date": "recurring",
@@ -562,7 +399,8 @@
       "base": true,
       "recurringLabel": "Monthly",
       "recurringDay": "∞",
-      "beginner": true
+      "beginner": true,
+      "fieldId": "blastcamp"
     },
     {
       "date": "recurring",
@@ -576,7 +414,8 @@
       "base": true,
       "recurringLabel": "May–Nov",
       "recurringDay": "∞",
-      "beginner": true
+      "beginner": true,
+      "fieldId": "kankakee"
     },
     {
       "date": "recurring",
@@ -590,7 +429,8 @@
       "base": true,
       "recurringLabel": "Sat–Sun",
       "recurringDay": "∞",
-      "beginner": true
+      "beginner": true,
+      "fieldId": "blackops"
     },
     {
       "date": "recurring",
@@ -604,7 +444,8 @@
       "base": true,
       "recurringLabel": "Bi-Weekly",
       "recurringDay": "∞",
-      "beginner": true
+      "beginner": true,
+      "fieldId": "blackops"
     },
     {
       "date": "recurring",
@@ -618,7 +459,8 @@
       "base": true,
       "fieldName": "Hell Survivors",
       "location": "Pinckney, MI",
-      "beginner": true
+      "beginner": true,
+      "fieldId": "hellsurvivors"
     },
     {
       "date": "recurring",
