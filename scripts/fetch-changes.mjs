@@ -222,7 +222,7 @@ async function main() {
         name:     field.name,
         state:    field.state,
         location: field.location,
-        url:      field.url,
+        url:      field.scanUrl || field.url,
         text:     result.isRss ? extractRssText(result.html) : extractEventText(result.html),
       });
     });

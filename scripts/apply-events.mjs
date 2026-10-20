@@ -29,7 +29,7 @@ if (file && existsSync(file)) {
     const beginner = n.beginner ?? !!f.rentals;
     seed.events.push({
       date: n.date, name: n.name, type: n.type || 'open', price: n.price || 'TBD',
-      url: n.url || f.url, venue: n.venue || `${f.name} · ${loc}`, state: f.eventState || f.state,
+      url: n.url || f.scanUrl || f.url, venue: n.venue || `${f.name} · ${loc}`, state: f.eventState || f.state,
       ...(n.badge && { badge: n.badge }),
       fieldId: f.id, fieldName: f.name, location: loc,
       ...(beginner && { beginner: true }),
