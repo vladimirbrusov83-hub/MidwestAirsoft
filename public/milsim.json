@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-14T14:57:44.477Z",
+  "lastUpdated": "2026-10-21T14:58:57.134Z",
   "events": [
     {
       "org": "msw",
@@ -76,13 +76,13 @@
     {
       "org": "realsim",
       "name": "Operation Black Mire",
-      "start": "2027-03-26",
-      "end": "2027-03-28",
+      "start": "2027-03-05",
+      "end": "2027-03-07",
       "city": "Clinton",
       "state": "LA",
       "venue": "Avondale Scout Reservation",
       "url": "https://www.realsimevents.com/events",
-      "image": "https://images.squarespace-cdn.com/content/v1/5e4c9a809bd0de06c0dd1226/0b56f047-9b6b-497d-9651-7be14bd59a07/OBMbannerV4.png",
+      "image": "https://images.squarespace-cdn.com/content/v1/5e4c9a809bd0de06c0dd1226/1761068184864-MW4ED9SNA5KAEZ4NHVYY/OSEBannerV9.png",
       "lat": 30.8657,
       "lng": -91.0157
     }
