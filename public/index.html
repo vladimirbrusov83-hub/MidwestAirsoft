@@ -1399,6 +1399,20 @@
     .event-row:active { transform: scale(.995); }
   }
 
+  /* filter buttons: solid tile + hard shadow (same as the MilSim tab) */
+  .state-btn, .ev-fbtn {
+    clip-path: none; background: var(--panel); border: 1.5px solid #1e1a12; color: #1e1a12;
+    font-size: 10.5px; box-shadow: 3px 3px 0 rgba(30,26,18,.85);
+  }
+  .state-btn:hover, .ev-fbtn:hover { background: #fffaf0; border-color: #1e1a12; color: #1e1a12; }
+  .state-btn.active, .ev-fbtn.active, .ev-toggle.active { background: var(--green); border-color: #1e1a12; color: #fbf6ea; }
+  .state-filter, .ev-filter-row { gap: 8px; }
+  .ev-filter-row { padding: 2px 4px 6px 2px; } /* room for the shadow inside the scroll strip */
+  @media (prefers-reduced-motion: no-preference) {
+    .state-btn:hover, .ev-fbtn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 rgba(30,26,18,.85); }
+    .state-btn:active, .ev-fbtn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 rgba(30,26,18,.85); }
+  }
+
   /* ─── INSTALLED APP ON A PHONE: menu becomes a bottom tab bar ─── */
   .nav-ico { display: none; }
   @media (display-mode: standalone) and (max-width: 768px) {
