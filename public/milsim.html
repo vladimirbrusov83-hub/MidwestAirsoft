@@ -91,9 +91,21 @@
   .hint { position: absolute; top: 10px; right: 12px; font: 10px 'IBM Plex Mono', monospace; letter-spacing: 1.5px; color: var(--muted); text-transform: uppercase; pointer-events: none; }
 
   .chips { display: flex; flex-wrap: wrap; gap: 5px; margin: 22px 0 10px; }
-  .chip { font: 500 9.5px 'IBM Plex Mono', monospace; letter-spacing: 2px; text-transform: uppercase; padding: 6px 12px; background: transparent; border: 1px solid var(--border2); color: var(--muted); cursor: pointer; }
-  .chip.active { background: var(--rust); border-color: var(--rust); color: #fbf6ea; }
+  .chips { gap: 8px; }
+  .chip { font: 500 10.5px 'IBM Plex Mono', monospace; letter-spacing: 2px; text-transform: uppercase; padding: 7px 13px; background: var(--panel); border: 1.5px solid var(--ink); color: var(--ink); cursor: pointer;
+    box-shadow: 3px 3px 0 rgba(30,26,18,.85); transition: transform .15s ease, box-shadow .15s ease, background-color .2s ease, color .2s ease;
+    animation: chip-in .35s ease both; }
+  .chip:nth-child(2) { animation-delay: .03s; } .chip:nth-child(3) { animation-delay: .06s; } .chip:nth-child(4) { animation-delay: .09s; }
+  .chip:nth-child(5) { animation-delay: .12s; } .chip:nth-child(n+6) { animation-delay: .15s; }
+  .chip:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 rgba(30,26,18,.85); background: #fffaf0; }
+  .chip:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 rgba(30,26,18,.85); transition-duration: .05s; }
+  .chip:focus-visible { outline: 2px solid var(--rust); outline-offset: 2px; }
+  .chip.active { background: var(--rust); border-color: var(--ink); color: #fbf6ea; animation: chip-pop .25s ease; }
+  .chip.active:hover { background: #c94e22; }
   .chip span { opacity: .6; margin-left: 4px; }
+  @keyframes chip-in { from { transform: translateY(5px) scale(.96); } }
+  @keyframes chip-pop { 50% { transform: scale(1.07); } }
+  @media (prefers-reduced-motion: reduce) { .chip, .chip.active { animation: none; transition: none; } }
   .orgs { margin-bottom: 0; }
   .orgs .chip i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; border: 1px solid #2a2418; vertical-align: -1px; }
   .chip[hidden], .dot.off { display: none; }
