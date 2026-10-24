@@ -7,6 +7,7 @@
  *   that already passed rolls to next year only if it's within ~4 months
  *   (Dec→Jan), otherwise it's last season's leftover and dropped.
  * - If a site fails or returns 0 events, that organizer's previous entries are kept.
+ * - Hand-added events from scripts/milsim-manual.json are merged in (no duplicates).
  * - Locations are geocoded once (Nominatim) and cached in milsim.json.
  *
  * Usage: node scripts/fetch-milsim.mjs
@@ -147,6 +148,13 @@ for (const [org, fn] of Object.entries(ORGS)) {
   // "ERHARDT" → "Erhardt"
   got.forEach((e) => { if (e.city === e.city.toUpperCase()) e.city = e.city.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase()); });
   events.push(...got);
+}
+// hand-added events (other producers, or ones the parsers miss) — skipped if that org already has an event starting that day (other producers: same name too)
+const MANUAL = existsSync("./scripts/milsim-manual.json") ? JSON.parse(readFileSync("./scripts/milsim-manual.json", "utf8")).events : [];
+const URLS = { ams: "https://americanmilsim.com/events/", other: "https://www.instagram.com/airsoftmilsimevents/" };
+for (const m of MANUAL) {
+  if (m.end < today || events.some((e) => e.org === m.org && e.start === m.start && (m.org !== "other" || e.name === m.name))) continue;
+  events.push({ url: URLS[m.org], ...m });
 }
 for (const e of events) {
   if (e.lat != null) continue;

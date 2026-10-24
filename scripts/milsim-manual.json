@@ -1,0 +1,22 @@
+{
+  "_source": "Hand-added from @airsoftmilsimevents 'Nationwide MilSim Calendar' (Oct 2026). Merged by fetch-milsim.mjs; skipped if the same org already has an event that starts that day. Past ones drop out on their own.",
+  "events": [
+    { "org": "other", "producer": "Tactical League", "name": "Conquest: Los Angeles", "start": "2026-11-01", "end": "2026-11-01", "venue": "SC Village", "city": "Chino", "state": "CA" },
+    { "org": "other", "producer": "Third Coast Airsoft", "name": "Op Crossbones", "start": "2026-11-06", "end": "2026-11-08", "venue": "Diamond State Airsoft Park", "city": "Malvern", "state": "AR" },
+    { "org": "other", "producer": "ACS Airsoft", "name": "Project Blackwater", "start": "2026-11-28", "end": "2026-11-28", "city": "Paducah", "state": "KY" },
+    { "org": "other", "producer": "MSATO", "name": "Raid on the Gulag XXVI", "start": "2026-12-05", "end": "2026-12-06", "city": "Warwick", "state": "NY" },
+    { "org": "other", "producer": "Tactical League", "name": "Killhouse", "start": "2026-12-12", "end": "2026-12-12", "venue": "LSRC", "city": "Costa Mesa", "state": "CA" },
+    { "org": "other", "producer": "MIR Tactical", "name": "Operation Southern Watch", "start": "2026-12-12", "end": "2026-12-13", "venue": "venue unconfirmed", "city": "South Florida", "state": "FL", "lat": 26.1, "lng": -80.4 },
+    { "org": "other", "producer": "Operation Lion Claws", "name": "Horn of Africa – Arabian Night 2", "start": "2026-12-19", "end": "2026-12-19", "venue": "Blue Cloud Movie Ranch", "city": "Santa Clarita", "state": "CA" },
+    { "org": "other", "producer": "Third Coast Airsoft", "name": "Serious Viking 2026", "start": "2027-02-05", "end": "2027-02-07", "venue": "Guardian Centers", "city": "Perry", "state": "GA" },
+    { "org": "ams", "name": "Blacklist", "start": "2027-02-06", "end": "2027-02-07", "venue": "Searcy Hospital Complex", "city": "Mount Vernon", "state": "AL" },
+    { "org": "ams", "name": "Mohave", "start": "2027-03-13", "end": "2027-03-14", "venue": "San Bernardino County", "city": "Fort Irwin", "state": "CA", "lat": 35.2627, "lng": -116.6847 },
+    { "org": "ams", "name": "Southern Front 9", "start": "2027-04-03", "end": "2027-04-04", "venue": "D-14", "city": "Sanger", "state": "TX" },
+    { "org": "other", "producer": "ACS Airsoft", "name": "Noob Day 2027", "start": "2027-04-16", "end": "2027-04-17", "city": "Paducah", "state": "KY" },
+    { "org": "ams", "name": "1861 V", "start": "2027-05-15", "end": "2027-05-16", "venue": "Magnus Adventure Camp", "city": "Elbert", "state": "CO" },
+    { "org": "ams", "name": "Northern Front 7", "start": "2027-06-12", "end": "2027-06-13", "venue": "Action Sports", "city": "Mauston", "state": "WI" },
+    { "org": "ams", "name": "Copperhead XXI", "start": "2027-09-04", "end": "2027-09-05", "venue": "Playas Training Center", "city": "Playas", "state": "NM" },
+    { "org": "ams", "name": "Ironhorse IX", "start": "2027-10-15", "end": "2027-10-17", "venue": "Guardian Centers", "city": "Perry", "state": "GA" },
+    { "org": "ams", "name": "Forge", "start": "2027-11-13", "end": "2027-11-14", "venue": "Cresson Sanitorium", "city": "Lilly", "state": "PA" }
+  ]
+}

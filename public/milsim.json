@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-21T14:58:57.134Z",
+  "lastUpdated": "2026-10-24T01:59:48.955Z",
   "events": [
     {
       "org": "msw",
@@ -12,6 +12,32 @@
       "image": "https://images.squarespace-cdn.com/content/v1/50e53176e4b0837383d71516/a3d2db85-60b5-403b-9f5a-dedb4e6448c5/725205475_18589063486021982_6171402856034122630_n+%281%29.jpg",
       "lat": 33.0957,
       "lng": -81.0151
+    },
+    {
+      "url": "https://www.instagram.com/airsoftmilsimevents/",
+      "org": "other",
+      "producer": "Tactical League",
+      "name": "Conquest: Los Angeles",
+      "start": "2026-11-01",
+      "end": "2026-11-01",
+      "venue": "SC Village",
+      "city": "Chino",
+      "state": "CA",
+      "lat": 34.0134,
+      "lng": -117.6901
+    },
+    {
+      "url": "https://www.instagram.com/airsoftmilsimevents/",
+      "org": "other",
+      "producer": "Third Coast Airsoft",
+      "name": "Op Crossbones",
+      "start": "2026-11-06",
+      "end": "2026-11-08",
+      "venue": "Diamond State Airsoft Park",
+      "city": "Malvern",
+      "state": "AR",
+      "lat": 34.3626,
+      "lng": -92.8093
     },
     {
       "org": "ams",
@@ -38,6 +64,18 @@
       "lng": -83.8925
     },
     {
+      "url": "https://www.instagram.com/airsoftmilsimevents/",
+      "org": "other",
+      "producer": "ACS Airsoft",
+      "name": "Project Blackwater",
+      "start": "2026-11-28",
+      "end": "2026-11-28",
+      "city": "Paducah",
+      "state": "KY",
+      "lat": 37.0834,
+      "lng": -88.6
+    },
+    {
       "org": "msw",
       "name": "The Amaty Assault",
       "start": "2026-12-04",
@@ -48,6 +86,18 @@
       "image": "https://images.squarespace-cdn.com/content/v1/50e53176e4b0837383d71516/d454c50b-67d1-436b-9eec-f7eaf088991a/wf08v3t.jpeg",
       "lat": 33.3653,
       "lng": -117.0767
+    },
+    {
+      "url": "https://www.instagram.com/airsoftmilsimevents/",
+      "org": "other",
+      "producer": "MSATO",
+      "name": "Raid on the Gulag XXVI",
+      "start": "2026-12-05",
+      "end": "2026-12-06",
+      "city": "Warwick",
+      "state": "NY",
+      "lat": 41.2565,
+      "lng": -74.3599
     },
     {
       "org": "ams",
@@ -62,6 +112,45 @@
       "lng": -99.1672
     },
     {
+      "url": "https://www.instagram.com/airsoftmilsimevents/",
+      "org": "other",
+      "producer": "Tactical League",
+      "name": "Killhouse",
+      "start": "2026-12-12",
+      "end": "2026-12-12",
+      "venue": "LSRC",
+      "city": "Costa Mesa",
+      "state": "CA",
+      "lat": 33.6633,
+      "lng": -117.9033
+    },
+    {
+      "url": "https://www.instagram.com/airsoftmilsimevents/",
+      "org": "other",
+      "producer": "MIR Tactical",
+      "name": "Operation Southern Watch",
+      "start": "2026-12-12",
+      "end": "2026-12-13",
+      "venue": "venue unconfirmed",
+      "city": "South Florida",
+      "state": "FL",
+      "lat": 26.1,
+      "lng": -80.4
+    },
+    {
+      "url": "https://www.instagram.com/airsoftmilsimevents/",
+      "org": "other",
+      "producer": "Operation Lion Claws",
+      "name": "Horn of Africa – Arabian Night 2",
+      "start": "2026-12-19",
+      "end": "2026-12-19",
+      "venue": "Blue Cloud Movie Ranch",
+      "city": "Santa Clarita",
+      "state": "CA",
+      "lat": 34.4128,
+      "lng": -118.5538
+    },
+    {
       "org": "msw",
       "name": "Zaporizhia Rising",
       "start": "2027-01-29",
@@ -72,6 +161,31 @@
       "image": "https://images.squarespace-cdn.com/content/v1/50e53176e4b0837383d71516/a417aefd-3026-4a79-8ba5-86b93ba4917f/Launch.jpeg",
       "lat": 33.2449,
       "lng": -81.3587
+    },
+    {
+      "url": "https://www.instagram.com/airsoftmilsimevents/",
+      "org": "other",
+      "producer": "Third Coast Airsoft",
+      "name": "Serious Viking 2026",
+      "start": "2027-02-05",
+      "end": "2027-02-07",
+      "venue": "Guardian Centers",
+      "city": "Perry",
+      "state": "GA",
+      "lat": 32.4587,
+      "lng": -83.732
+    },
+    {
+      "org": "ams",
+      "name": "Blacklist",
+      "start": "2027-02-06",
+      "end": "2027-02-07",
+      "city": "Mount Vernon",
+      "state": "AL",
+      "url": "https://americanmilsim.com/events/blacklist/",
+      "image": "https://americanmilsim.com/wp-content/uploads/2024/12/ams-coming-soon-25.gif",
+      "lat": 31.0852,
+      "lng": -88.0133
     },
     {
       "org": "realsim",
@@ -85,6 +199,102 @@
       "image": "https://images.squarespace-cdn.com/content/v1/5e4c9a809bd0de06c0dd1226/1761068184864-MW4ED9SNA5KAEZ4NHVYY/OSEBannerV9.png",
       "lat": 30.8657,
       "lng": -91.0157
+    },
+    {
+      "url": "https://americanmilsim.com/events/",
+      "org": "ams",
+      "name": "Mohave",
+      "start": "2027-03-13",
+      "end": "2027-03-14",
+      "venue": "San Bernardino County",
+      "city": "Fort Irwin",
+      "state": "CA",
+      "lat": 35.2627,
+      "lng": -116.6847
+    },
+    {
+      "url": "https://americanmilsim.com/events/",
+      "org": "ams",
+      "name": "Southern Front 9",
+      "start": "2027-04-03",
+      "end": "2027-04-04",
+      "venue": "D-14",
+      "city": "Sanger",
+      "state": "TX",
+      "lat": 33.3632,
+      "lng": -97.1739
+    },
+    {
+      "url": "https://www.instagram.com/airsoftmilsimevents/",
+      "org": "other",
+      "producer": "ACS Airsoft",
+      "name": "Noob Day 2027",
+      "start": "2027-04-16",
+      "end": "2027-04-17",
+      "city": "Paducah",
+      "state": "KY",
+      "lat": 37.0834,
+      "lng": -88.6
+    },
+    {
+      "url": "https://americanmilsim.com/events/",
+      "org": "ams",
+      "name": "1861 V",
+      "start": "2027-05-15",
+      "end": "2027-05-16",
+      "venue": "Magnus Adventure Camp",
+      "city": "Elbert",
+      "state": "CO",
+      "lat": 39.2192,
+      "lng": -104.5367
+    },
+    {
+      "url": "https://americanmilsim.com/events/",
+      "org": "ams",
+      "name": "Northern Front 7",
+      "start": "2027-06-12",
+      "end": "2027-06-13",
+      "venue": "Action Sports",
+      "city": "Mauston",
+      "state": "WI",
+      "lat": 43.7969,
+      "lng": -90.0757
+    },
+    {
+      "url": "https://americanmilsim.com/events/",
+      "org": "ams",
+      "name": "Copperhead XXI",
+      "start": "2027-09-04",
+      "end": "2027-09-05",
+      "venue": "Playas Training Center",
+      "city": "Playas",
+      "state": "NM",
+      "lat": 31.9152,
+      "lng": -108.5424
+    },
+    {
+      "url": "https://americanmilsim.com/events/",
+      "org": "ams",
+      "name": "Ironhorse IX",
+      "start": "2027-10-15",
+      "end": "2027-10-17",
+      "venue": "Guardian Centers",
+      "city": "Perry",
+      "state": "GA",
+      "lat": 32.4587,
+      "lng": -83.732
+    },
+    {
+      "url": "https://americanmilsim.com/events/",
+      "org": "ams",
+      "name": "Forge",
+      "start": "2027-11-13",
+      "end": "2027-11-14",
+      "venue": "Cresson Sanitorium",
+      "city": "Lilly",
+      "state": "PA",
+      "lat": 40.4259,
+      "lng": -78.62
     }
   ],
   "geo": {
@@ -115,6 +325,58 @@
     "Dilley, TX": {
       "lat": 28.6696,
       "lng": -99.1672
+    },
+    "Mount Vernon, AL": {
+      "lat": 31.0852,
+      "lng": -88.0133
+    },
+    "Chino, CA": {
+      "lat": 34.0134,
+      "lng": -117.6901
+    },
+    "Malvern, AR": {
+      "lat": 34.3626,
+      "lng": -92.8093
+    },
+    "Paducah, KY": {
+      "lat": 37.0834,
+      "lng": -88.6
+    },
+    "Warwick, NY": {
+      "lat": 41.2565,
+      "lng": -74.3599
+    },
+    "Costa Mesa, CA": {
+      "lat": 33.6633,
+      "lng": -117.9033
+    },
+    "Santa Clarita, CA": {
+      "lat": 34.4128,
+      "lng": -118.5538
+    },
+    "Perry, GA": {
+      "lat": 32.4587,
+      "lng": -83.732
+    },
+    "Sanger, TX": {
+      "lat": 33.3632,
+      "lng": -97.1739
+    },
+    "Elbert, CO": {
+      "lat": 39.2192,
+      "lng": -104.5367
+    },
+    "Mauston, WI": {
+      "lat": 43.7969,
+      "lng": -90.0757
+    },
+    "Playas, NM": {
+      "lat": 31.9152,
+      "lng": -108.5424
+    },
+    "Lilly, PA": {
+      "lat": 40.4259,
+      "lng": -78.62
     }
   }
 }

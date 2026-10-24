@@ -16,7 +16,7 @@
     --bg: #e9e1cc; --panel: #f4eedd; --panel2: #efe7d3;
     --border: rgba(60,45,20,.16); --border2: rgba(60,45,20,.30);
     --rust: #b8441a; --muted: #6a5d45; --text: #3d3424; --ink: #1e1a12;
-    --ams: #ff7b00; --msw: #3a8dde; --realsim: #f4f1ea;
+    --ams: #ff7b00; --msw: #3a8dde; --realsim: #f4f1ea; --other: #9bbf4a;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans Condensed', sans-serif; }
@@ -189,7 +189,7 @@
 <main>
   <div class="eye">Ops Schedule · National MilSim</div>
   <h1>MILSIM</h1>
-  <p class="sub">Multi-day ops from <a href="https://americanmilsim.com/" target="_blank" rel="noopener">American Milsim</a>, <a href="https://www.milsimwest.com/tickets" target="_blank" rel="noopener">MilSim West</a> and <a href="https://www.realsimevents.com/events" target="_blank" rel="noopener">RealSim</a> anywhere in the US. Tap a state to zoom in.</p>
+  <p class="sub">Multi-day ops from <a href="https://americanmilsim.com/" target="_blank" rel="noopener">American Milsim</a>, <a href="https://www.milsimwest.com/tickets" target="_blank" rel="noopener">MilSim West</a>, <a href="https://www.realsimevents.com/events" target="_blank" rel="noopener">RealSim</a> and other producers anywhere in the US. Tap a state to zoom in.</p>
 
   <div class="mapbox">
     <div class="hint">Click a state</div>
@@ -199,6 +199,7 @@
       <span class="lg"><i style="background:var(--ams)"></i>American Milsim</span>
       <span class="lg"><i style="background:var(--msw)"></i>MilSim West</span>
       <span class="lg"><i style="background:var(--realsim)"></i>RealSim</span>
+      <span class="lg"><i style="background:var(--other)"></i>Other producers</span>
       <div class="zoomctl">
         <div class="scalebar" aria-hidden="true"><i id="scale-bar"></i><span id="scale-lbl"></span></div>
         <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
@@ -235,6 +236,7 @@
 
   function range(e) {
     const s = day(e.start), t = day(e.end);
+    if (e.start === e.end) return `${MON[s.getMonth()]} ${s.getDate()}, ${s.getFullYear()}`;
     const end = s.getMonth() === t.getMonth() ? t.getDate() : MON[t.getMonth()] + ' ' + t.getDate();
     return `${MON[s.getMonth()]} ${s.getDate()}–${end}, ${t.getFullYear()}`;
   }
@@ -386,10 +388,10 @@
         return `<a class="ev" id="ev-${i}" data-st="${e.state}" data-i="${i}" href="${esc(e.url)}" target="_blank" rel="noopener">
           <div class="d"><b>${MON[s.getMonth()]}</b><i>${s.getDate()}</i><small>${s.getFullYear()}</small></div>
           <div class="im"${e.image ? ` style="background-image:url('${esc(e.image)}')"` : ''}></div>
-          <div class="tx"><div class="org"><span style="background:var(--${e.org})"></span>${ORG[e.org] || e.org}</div>
+          <div class="tx"><div class="org"><span style="background:var(--${e.org})"></span>${esc(e.producer || ORG[e.org] || e.org)}</div>
             <div class="nm">${esc(e.name)}</div>
             <div class="dt">${range(e)} · ${esc(e.city)}, ${e.state}${e.venue ? ' · ' + esc(e.venue) : ''}</div></div>
-          <div class="ar">Tickets →</div></a>`;
+          <div class="ar">${e.org === 'other' ? 'Details' : 'Tickets'} →</div></a>`;
       }).join('') + '<div class="empty none" hidden>// No ops in this state right now.</div>';
       if (!evs.length) list.innerHTML = '<div class="empty">// No upcoming ops listed right now.</div>';
 
@@ -409,7 +411,7 @@
 
       if (data.lastUpdated) document.getElementById('foot').textContent =
         '// Updated ' + new Date(data.lastUpdated).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) +
-        ' from the organizers\' sites. Dates and locations can change — check the ticket page.';
+        ' from the organizers\' sites and the @airsoftmilsimevents calendar. Dates and locations can change — check the ticket page.';
 
       const h = location.hash.slice(1).toUpperCase();
       if (/^[A-Z]{2}$/.test(h) && document.getElementById('st-' + h)) pick(h);
@@ -420,9 +422,9 @@
     const e = EVS[i];
     tipI = i; pinned = !!pin;
     tip.innerHTML = (e.image ? `<div class="ti" style="background-image:url('${esc(e.image)}')"></div>` : '') +
-      `<div class="tb"><div class="org"><span style="background:var(--${e.org})"></span>${ORG[e.org] || e.org}</div>
+      `<div class="tb"><div class="org"><span style="background:var(--${e.org})"></span>${esc(e.producer || ORG[e.org] || e.org)}</div>
        <div class="nm">${esc(e.name)}</div><div class="dt">${range(e)}<br>${esc(e.city)}, ${e.state}</div>
-       <a class="go" href="${esc(e.url)}" target="_blank" rel="noopener">Tickets →</a></div>`;
+       <a class="go" href="${esc(e.url)}" target="_blank" rel="noopener">${e.org === 'other' ? 'Details' : 'Tickets'} →</a></div>`;
     tip.classList.toggle('pinned', pinned);
     tip.classList.add('show');
     placeTip();
