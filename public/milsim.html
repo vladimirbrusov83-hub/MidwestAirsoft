@@ -94,6 +94,9 @@
   .chip { font: 500 9.5px 'IBM Plex Mono', monospace; letter-spacing: 2px; text-transform: uppercase; padding: 6px 12px; background: transparent; border: 1px solid var(--border2); color: var(--muted); cursor: pointer; }
   .chip.active { background: var(--rust); border-color: var(--rust); color: #fbf6ea; }
   .chip span { opacity: .6; margin-left: 4px; }
+  .orgs { margin-bottom: 0; }
+  .orgs .chip i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; border: 1px solid #2a2418; vertical-align: -1px; }
+  .chip[hidden], .dot.off { display: none; }
 
   .list { display: flex; flex-direction: column; gap: 1px; background: var(--border2); border: 1px solid var(--border2); }
   .ev { display: grid; grid-template-columns: 76px 168px 1fr 120px; align-items: stretch; background: var(--panel); text-decoration: none; color: inherit; transition: background .15s; }
@@ -210,6 +213,7 @@
     </div>
   </div>
 
+  <div class="chips orgs" id="orgs" aria-label="Filter by organizer"></div>
   <div class="chips" id="chips"></div>
   <div class="list" id="list"><div class="empty">// Loading ops…</div></div>
   <div class="foot" id="foot"></div>
@@ -229,7 +233,7 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   // same projection us-atlas states-albers-10m was drawn with
   const proj = d3.geoAlbersUsa().scale(1300).translate([487.5, 305]);
-  let cur = FULL.slice(), sel = null, raf = 0, EVS = [], tipI = null, pinned = false;
+  let cur = FULL.slice(), sel = null, org = null, raf = 0, EVS = [], tipI = null, pinned = false;
   const tip = document.getElementById('tip');
   const esc = s => String(s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const day = iso => new Date(iso + 'T12:00:00');
@@ -342,13 +346,36 @@
     reset.classList.toggle('show', !!st);
     svg.classList.toggle('zoomed', !!st);
     zoomTo(st && document.getElementById('st-' + st) ? boxFor(st) : FULL);
-    let shown = 0;
-    list.querySelectorAll('.ev').forEach(r => { r.hidden = !!st && r.dataset.st !== st; if (!r.hidden) shown++; });
-    const none = list.querySelector('.none');
-    if (none) none.hidden = shown > 0;
+    apply();
     history.replaceState(null, '', st ? '#' + st : location.pathname);
     if (tipI != null && (!st || EVS[tipI].state !== st)) hideTip(true);
   }
+
+  // organizer + state filters together: rows, dots, state-chip counts
+  function apply() {
+    let shown = 0;
+    list.querySelectorAll('.ev').forEach(r => {
+      r.hidden = (!!sel && r.dataset.st !== sel) || (!!org && r.dataset.org !== org);
+      if (!r.hidden) shown++;
+    });
+    const none = list.querySelector('.none');
+    if (none) none.hidden = shown > 0;
+    dotsG.querySelectorAll('.dot').forEach(d => d.classList.toggle('off', !!org && EVS[d.dataset.i].org !== org));
+    const counts = {};
+    EVS.forEach(e => { if (!org || e.org === org) counts[e.state] = (counts[e.state] || 0) + 1; });
+    chips.querySelectorAll('.chip').forEach(c => {
+      const n = c.dataset.st ? counts[c.dataset.st] || 0 : Object.values(counts).reduce((a, b) => a + b, 0);
+      c.querySelector('span').textContent = n;
+      c.hidden = !!c.dataset.st && !n && c.dataset.st !== sel;
+    });
+    if (tipI != null && org && EVS[tipI].org !== org) hideTip(true);
+  }
+  function pickOrg(o) {
+    org = o === org ? null : o;
+    orgsEl.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', (c.dataset.org || null) === org));
+    apply();
+  }
+  const orgsEl = document.getElementById('orgs');
 
   document.querySelectorAll('.st').forEach(p => p.addEventListener('click', () => pick(p.id.slice(3))));
   reset.addEventListener('click', () => pick(null));
@@ -385,7 +412,7 @@
       // list
       list.innerHTML = evs.map((e, i) => {
         const s = day(e.start);
-        return `<a class="ev" id="ev-${i}" data-st="${e.state}" data-i="${i}" href="${esc(e.url)}" target="_blank" rel="noopener">
+        return `<a class="ev" id="ev-${i}" data-st="${e.state}" data-org="${e.org}" data-i="${i}" href="${esc(e.url)}" target="_blank" rel="noopener">
           <div class="d"><b>${MON[s.getMonth()]}</b><i>${s.getDate()}</i><small>${s.getFullYear()}</small></div>
           <div class="im"${e.image ? ` style="background-image:url('${esc(e.image)}')"` : ''}></div>
           <div class="tx"><div class="org"><span style="background:var(--${e.org})"></span>${esc(e.producer || ORG[e.org] || e.org)}</div>
@@ -408,6 +435,14 @@
       chips.innerHTML = `<button class="chip active" type="button">All<span>${evs.length}</span></button>` +
         Object.keys(counts).sort().map(st => `<button class="chip" type="button" data-st="${st}">${st}<span>${counts[st]}</span></button>`).join('');
       chips.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => pick(c.dataset.st || null)));
+
+      // organizer chips
+      const byOrg = {};
+      evs.forEach(e => byOrg[e.org] = (byOrg[e.org] || 0) + 1);
+      const ORGS = [['ams', 'American Milsim'], ['msw', 'MilSim West'], ['realsim', 'RealSim'], ['other', 'Others']].filter(([k]) => byOrg[k]);
+      orgsEl.innerHTML = `<button class="chip active" type="button">All orgs<span>${evs.length}</span></button>` +
+        ORGS.map(([k, n]) => `<button class="chip" type="button" data-org="${k}"><i style="background:var(--${k})"></i>${n}<span>${byOrg[k]}</span></button>`).join('');
+      orgsEl.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => pickOrg(c.dataset.org || null)));
 
       if (data.lastUpdated) document.getElementById('foot').textContent =
         '// Updated ' + new Date(data.lastUpdated).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) +
