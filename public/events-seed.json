@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-10-31T14:53:16.708Z",
-  "nextUpdate": "2026-11-07T14:53:16.708Z",
+  "lastUpdated": "2026-10-31T17:15:46.802Z",
+  "nextUpdate": "2026-11-07T17:15:46.802Z",
   "note": "Base events manually curated. Auto-update merges new Groq-extracted events weekly.",
   "events": [
     {
@@ -67,6 +67,20 @@
       "fieldId": "hellsurvivors",
       "fieldName": "Hell Survivors",
       "location": "Pinckney, MI"
+    },
+    {
+      "date": "2026-11-01",
+      "name": "6mm Adventures",
+      "type": "big",
+      "price": "TBD",
+      "url": "https://therockairsoft.com/",
+      "venue": "The Rock Airsoft · Bolivar, MO",
+      "state": "MO",
+      "badge": "Big Game",
+      "fieldId": "therockairsoft",
+      "fieldName": "The Rock Airsoft",
+      "location": "Bolivar, MO",
+      "beginner": true
     },
     {
       "date": "2026-11-07",
