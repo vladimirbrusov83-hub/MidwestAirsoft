@@ -2,5 +2,13 @@
   "functions": {
     "api/contact.js": { "maxDuration": 10 },
     "api/events.js":  { "maxDuration": 10 }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "midwestairsoft.space" }],
+      "destination": "https://www.midwestairsoft.space/:path*",
+      "permanent": true
+    }
+  ]
 }
