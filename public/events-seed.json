@@ -1,21 +1,8 @@
 {
-  "lastUpdated": "2026-11-12T15:06:22.080Z",
-  "nextUpdate": "2026-11-19T15:06:22.080Z",
+  "lastUpdated": "2026-11-19T15:05:50.574Z",
+  "nextUpdate": "2026-11-26T15:05:50.574Z",
   "note": "Base events manually curated. Auto-update merges new Groq-extracted events weekly.",
   "events": [
-    {
-      "date": "2026-11-14",
-      "name": "OP Bloody Bayonet",
-      "type": "milsim",
-      "price": null,
-      "url": "https://biglaketactical.zohosites.com/schedule",
-      "venue": "Big Lake Tactical Wargames · Big Lake, MN",
-      "state": "MN",
-      "badge": "MilSim",
-      "fieldId": "biglake",
-      "base": true,
-      "beginner": true
-    },
     {
       "date": "2026-11-21",
       "name": "Night / Low Light Airsoft Game (2026 Final)",
